@@ -40,6 +40,11 @@ enum RewardPrimitive : String {
             viewController.view.showPopover(completion: completion)
         }
     }
+    
+    static func colorForIndex(_ index: Int) -> UIColor{
+        let val = (CGFloat (index) / CGFloat(cases.count)) * (204/255.0)
+        return UIColor.init(red: 1.0, green: val, blue: 0.0, alpha: 1.0)
+    }
 }
 
 
@@ -93,5 +98,11 @@ struct StringParam {
 extension String {
     var toJSON: [String: Any] {
         return (try! JSONSerialization.jsonObject(with: data(using: .utf8)!) as? [String: Any])!
+    }
+}
+
+extension Dictionary {
+    var toJSON: Data {
+        return try! JSONSerialization.data(withJSONObject: self)
     }
 }

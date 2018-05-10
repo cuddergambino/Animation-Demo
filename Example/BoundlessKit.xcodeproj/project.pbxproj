@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7E3E9430DAB0256EDC10F853 /* Pods_BoundlessKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5896EE6F40C3937CF30FD8 /* Pods_BoundlessKit_Tests.framework */; };
 		8413AB2920A4455200D7F0D8 /* ParamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */; };
+		8413AB2B20A4559000D7F0D8 /* RewardPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */; };
 		842661C3204DE3C5001FEA2F /* BoundlessProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */; };
 		842661E5204E05B3001FEA2F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		842661E6204E05BA001FEA2F /* BoundlessTestProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */; };
@@ -64,6 +65,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsTableViewController.swift; sourceTree = "<group>"; };
+		8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPickerDelegate.swift; sourceTree = "<group>"; };
 		842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessProperties.plist; sourceTree = "<group>"; };
 		842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessTestProperties.plist; sourceTree = "<group>"; };
 		842661DB204E03E8001FEA2F /* BoundlessKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundlessKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,9 +152,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				84B5C5D4205B6BD700DAFB05 /* Reward.swift */,
+				8413AB2C20A457B000D7F0D8 /* Params */,
 				84B5C5D6205B6BF800DAFB05 /* RewardsViewController.swift */,
-				8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -206,6 +207,16 @@
 				A6E23EE403314927A4B43AC3 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8413AB2C20A457B000D7F0D8 /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				84B5C5D4205B6BD700DAFB05 /* Reward.swift */,
+				8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */,
+				8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */,
+			);
+			name = Params;
 			sourceTree = "<group>";
 		};
 		84CBF2792051D31800FE49B9 /* Mocks */ = {
@@ -349,10 +360,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoundlessKit_Example/Pods-BoundlessKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoundlessKit/BoundlessKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftForms/SwiftForms.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoundlessKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftForms.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -405,6 +418,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* RewardsViewController.swift in Sources */,
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
+				8413AB2B20A4559000D7F0D8 /* RewardPickerDelegate.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8413AB2920A4455200D7F0D8 /* ParamsTableViewController.swift in Sources */,
 			);
