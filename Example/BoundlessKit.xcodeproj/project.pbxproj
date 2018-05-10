@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		05D0882F4ED69B87B81373E9 /* Pods_BoundlessKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC56939085237F03AF5C02E /* Pods_BoundlessKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* SampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7E3E9430DAB0256EDC10F853 /* Pods_BoundlessKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5896EE6F40C3937CF30FD8 /* Pods_BoundlessKit_Tests.framework */; };
-		8413AB2920A4455200D7F0D8 /* ParamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */; };
-		8413AB2B20A4559000D7F0D8 /* RewardPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */; };
+		8413AB2E20A4C3B100D7F0D8 /* RewardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2D20A4C3B100D7F0D8 /* RewardFormViewController.swift */; };
 		842661C3204DE3C5001FEA2F /* BoundlessProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */; };
 		842661E5204E05B3001FEA2F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		842661E6204E05BA001FEA2F /* BoundlessTestProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */; };
@@ -58,14 +57,13 @@
 		607FACD01AFB9204008FA782 /* BoundlessKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoundlessKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsTableViewController.swift; sourceTree = "<group>"; };
-		8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPickerDelegate.swift; sourceTree = "<group>"; };
+		8413AB2D20A4C3B100D7F0D8 /* RewardFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardFormViewController.swift; sourceTree = "<group>"; };
 		842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessProperties.plist; sourceTree = "<group>"; };
 		842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessTestProperties.plist; sourceTree = "<group>"; };
 		842661DB204E03E8001FEA2F /* BoundlessKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundlessKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				607FACD71AFB9204008FA782 /* SampleViewController.swift */,
 				8413AB2C20A457B000D7F0D8 /* Params */,
 				84B5C5D6205B6BF800DAFB05 /* RewardsViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -213,8 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				84B5C5D4205B6BD700DAFB05 /* Reward.swift */,
-				8413AB2A20A4559000D7F0D8 /* RewardPickerDelegate.swift */,
-				8413AB2820A4455200D7F0D8 /* ParamsTableViewController.swift */,
+				8413AB2D20A4C3B100D7F0D8 /* RewardFormViewController.swift */,
 			);
 			name = Params;
 			sourceTree = "<group>";
@@ -415,12 +412,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* SampleViewController.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* RewardsViewController.swift in Sources */,
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
-				8413AB2B20A4559000D7F0D8 /* RewardPickerDelegate.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				8413AB2920A4455200D7F0D8 /* ParamsTableViewController.swift in Sources */,
+				8413AB2E20A4C3B100D7F0D8 /* RewardFormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import Foundation
 @testable import BoundlessKit_Example
 
 @objc
-class MockViewController : ViewController {
+class MockViewController : SampleViewController {
 
     @objc dynamic
     func printSomething() {

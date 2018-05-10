@@ -12,7 +12,7 @@
         <!--BoundlessKit-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="SampleViewController" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -74,7 +74,6 @@
         <!--Rewards-->
         <scene sceneID="kD5-o2-ebK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i7c-cx-3l0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController storyboardIdentifier="RewardsViewController" title="Rewards" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kyo-wN-eee" customClass="RewardsViewController" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qmK-am-SlZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -117,6 +116,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Rewards" id="m7d-k4-gvc"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7c-cx-3l0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1135" y="133"/>
         </scene>
@@ -147,8 +147,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
-                                            <segue destination="HTv-PV-VmJ" kind="push" id="CnM-oS-1Kp"/>
+                                            <outletCollection property="gestureRecognizers" destination="H0r-c0-n0i" appends="YES" id="fTJ-xh-su1"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -183,77 +184,42 @@
                     <navigationItem key="navigationItem" id="aIY-4z-8CS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In6-tp-9qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H0r-c0-n0i">
+                    <connections>
+                        <segue destination="OMV-bs-Mlj" kind="push" id="oWZ-FE-olh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1681" y="1035"/>
+            <point key="canvasLocation" x="735" y="938"/>
         </scene>
-        <!--Params Table View Controller-->
-        <scene sceneID="mVA-Kx-jG3">
+        <!--Reward Form View Controller-->
+        <scene sceneID="XQF-FE-DYn">
             <objects>
-                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="HTv-PV-VmJ" customClass="ParamsTableViewController" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="z2P-RY-fby">
+                <tableViewController id="OMV-bs-Mlj" customClass="RewardFormViewController" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Mn-Ta-sGP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParamsTableViewCell" id="k6L-UD-pqk" customClass="ParamsTableViewCell" customModule="BoundlessKit_Example" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pTx-fp-hYX">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k6L-UD-pqk" id="AcC-kg-pqd">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTx-fp-hYX" id="dCe-zh-mYf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confetti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzd-Ei-cEc">
-                                            <rect key="frame" x="16" y="11" width="175" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <gestureRecognizers/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AyJ-aA-KO1">
-                                            <rect key="frame" x="199" y="6" width="160" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                    </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="primitiveLabel" destination="Wzd-Ei-cEc" id="s5z-xR-1Ae"/>
-                                    <outlet property="valueLabel" destination="AyJ-aA-KO1" id="W6J-Mh-cTg"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
-                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="HTv-PV-VmJ" id="NbU-H2-dKv"/>
-                            <outlet property="delegate" destination="HTv-PV-VmJ" id="LTw-PM-bXz"/>
+                            <outlet property="dataSource" destination="OMV-bs-Mlj" id="CkP-uq-hgd"/>
+                            <outlet property="delegate" destination="OMV-bs-Mlj" id="cxt-xa-7Dd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2Qo-E3-ZMd"/>
+                    <navigationItem key="navigationItem" id="flT-a1-bnH"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqd-gh-HMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWe-G2-LVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.8000000000002" y="787.55622188905556"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4eQ-Jf-VIF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23x-zH-T70" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N7e-IM-7Ut">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9DM-g7-jBA" kind="relationship" relationship="rootViewController" id="gol-qp-MUA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Tg-lW-cvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="121.59999999999999" y="938.2308845577212"/>
+            <point key="canvasLocation" x="1371" y="938"/>
         </scene>
     </scenes>
     <resources>

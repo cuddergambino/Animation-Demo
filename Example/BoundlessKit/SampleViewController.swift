@@ -10,7 +10,7 @@ import UIKit
 import BoundlessKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class SampleViewController: UIViewController {
     
     @IBOutlet weak var aView: UIImageView!
     
@@ -35,20 +35,3 @@ class ViewController: UIViewController {
     
     var curParams = RewardParams()
 }
-
-//extension ViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return curParams.dict.keys.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
-//
-//        cell.backgroundColor = .red
-//
-//        return cell
-//    }
-//
-//
-//}
-
