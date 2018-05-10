@@ -10,7 +10,7 @@ import Foundation
 
 struct CodelessReinforcement {
     let primitive: String
-    let parameters: [String: Any]
+    var parameters: [String: Any]
     
     init?(from dict: [String: Any]) {
         if let primitive = dict["primitive"] as? String {

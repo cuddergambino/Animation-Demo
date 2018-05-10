@@ -9,7 +9,7 @@ import Foundation
 
 open class BKLogPreferences {
     static var printEnabled = true
-    static var debugEnabled = false
+    static var debugEnabled = true
 }
 
 internal class BKLog {

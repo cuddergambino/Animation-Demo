@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BoundlessKit
+@testable import BoundlessKit
 import CoreLocation
 
 class SampleViewController: UIViewController {
@@ -22,16 +22,13 @@ class SampleViewController: UIViewController {
         
         addChildViewController(controller)
         self.view.addSubview(controller.view)
-        controller.view.frame = CGRect.init(x: 0, y: navigationController?.navigationBar.frame.maxY ?? 0, width: view.bounds.width, height: aView.frame.minY - 20 - (navigationController?.navigationBar.frame.maxY ?? 0))
+        controller.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY + 30)
         
         controller.didMove(toParentViewController: self)
         
     }
     
     @IBAction func didAwesomeThing(_ sender: UITapGestureRecognizer) {
-        
-        aView.showConfetti()
+        RewardSample.current.codelessReinforcement.show(targetInstance: self, senderInstance: aView)
     }
-    
-    var curParams = RewardParams()
 }

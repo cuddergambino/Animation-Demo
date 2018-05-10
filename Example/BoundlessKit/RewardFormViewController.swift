@@ -8,12 +8,10 @@
 
 import Foundation
 import SwiftForms
+@testable import BoundlessKit
 
 class RewardFormViewController : FormViewController {
     static var shared: FormViewController!
-    
-    var savedParams = [String: RewardParams]()
-    var curParams = RewardParams()
     
     let pickerOptions = ["One", "Two", "Three"] as [AnyObject]
     
@@ -42,32 +40,48 @@ class RewardFormViewController : FormViewController {
         self.loadForm()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(RewardFormViewController.submit(_:)))
-    }
-    
-    // MARK: Actions
-    
-    @objc func submit(_: UIBarButtonItem!) {
-        
-        let message = self.form.formValues().description
-        
-        let alertController = UIAlertController(title: "Form output", message: message, preferredStyle: .alert)
-        
-        let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
-        }
-        
-        alertController.addAction(cancel)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(RewardFormViewController.submit(_:)))
+//    }
+//
+//    // MARK: Actions
+//
+//    @objc func submit(_: UIBarButtonItem!) {
+//
+//        let message = self.form.formValues().description
+//
+//        let alertController = UIAlertController(title: "Form output", message: message, preferredStyle: .alert)
+//
+//        let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+//        }
+//
+//        alertController.addAction(cancel)
+//
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
     // MARK: Private interface
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if self.isMovingFromParentViewController {
+            saveForm()
+        }
+    }
+    
+    fileprivate func saveForm() {
+        print("Message:\(self.form.formValues().description)")
+        
+        RewardSample.current.setForm(form: self.form)
+    }
+    
     fileprivate func loadForm() {
         
-        let form = FormDescriptor(title: "Example Form")
+        self.form = RewardSample.current.getForm()
+        return
+        
+        let form = FormDescriptor(title: "Example Reward")
         
         let section1 = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         
