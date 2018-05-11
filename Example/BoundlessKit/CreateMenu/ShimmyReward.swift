@@ -1,8 +1,8 @@
 //
-//  ConfettiReward.swift
+//  ShimmyReward.swift
 //  BoundlessKit_Example
 //
-//  Created by Akash Desai on 5/10/18.
+//  Created by Akash Desai on 5/11/18.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
@@ -11,17 +11,18 @@ import UIKit
 import SwiftForms
 @testable import BoundlessKit
 
-class ConfettiReward : RewardSettingsFormViewController {
+class ShimmyReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.load(rewardID: "ConfettiSample") ?? RewardSample.defaultSample(for: "ConfettiSample")!
+        rewardSettings = RewardSample.load(rewardID: "ShimmySample") ?? RewardSample.defaultSample(for: "ShimmySample")!
         
-        let form = FormDescriptor(title: "Confetti Settings")
+        let form = FormDescriptor(title: "Shimmy Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Translation.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection]
         self.form = form
@@ -32,3 +33,4 @@ class ConfettiReward : RewardSettingsFormViewController {
         selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
 }
+

@@ -25,6 +25,7 @@
 		843CD8E020A5754900900158 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DF20A5754900900158 /* RotateReward.swift */; };
 		843CD8E220A5853E00900158 /* EmojisplosionReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E120A5853E00900158 /* EmojisplosionReward.swift */; };
 		843CD8E420A58D5B00900158 /* RewardSettingsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */; };
+		843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E520A5944000900158 /* ShimmyReward.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
 		847A3CB2205844ED00F16211 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2A42055034000FE49B9 /* MockHTTPClient.swift */; };
@@ -81,6 +82,7 @@
 		843CD8DF20A5754900900158 /* RotateReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
 		843CD8E120A5853E00900158 /* EmojisplosionReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojisplosionReward.swift; sourceTree = "<group>"; };
 		843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSettingsFormViewController.swift; sourceTree = "<group>"; };
+		843CD8E520A5944000900158 /* ShimmyReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmyReward.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
 		84B5C5D4205B6BD700DAFB05 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				843CD8DD20A5587F00900158 /* ConfettiReward.swift */,
 				843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */,
+				843CD8E520A5944000900158 /* ShimmyReward.swift */,
 				843CD8E120A5853E00900158 /* EmojisplosionReward.swift */,
 				843CD8DF20A5754900900158 /* RotateReward.swift */,
 			);
@@ -448,6 +451,7 @@
 				843CD8E020A5754900900158 /* RotateReward.swift in Sources */,
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
 				8421CFAC20A54E2A001203C2 /* CreateRewardFormViewController.swift in Sources */,
+				843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */,
 				843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8413AB2E20A4C3B100D7F0D8 /* RewardFormViewController.swift in Sources */,

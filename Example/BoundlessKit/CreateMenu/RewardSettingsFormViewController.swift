@@ -25,8 +25,8 @@ class RewardSettingsFormViewController : FormViewController {
     }
     
     var saveSection: FormSectionDescriptor {
-        let saveSection = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
-        saveSection.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
+        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
         let commitRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
             row.configuration.button.didSelectClosure = { _ in
@@ -37,7 +37,7 @@ class RewardSettingsFormViewController : FormViewController {
             }
             return row
         }()
-        saveSection.rows.append(commitRow)
+        section.rows.append(commitRow)
         let tryRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Try")
             row.configuration.button.didSelectClosure = { _ in
@@ -49,7 +49,28 @@ class RewardSettingsFormViewController : FormViewController {
             }
             return row
         }()
-        saveSection.rows.append(tryRow)
+        section.rows.append(tryRow)
+        return section
+    }
+    
+    var soundSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
+        return section
+    }
+    
+    var basicViewSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
+        return section
+    }
+    
+    var preciseViewSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
         return saveSection
     }
 }

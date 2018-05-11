@@ -173,6 +173,7 @@ enum RewardParamKey : String {
     Delay,
     Count,
     Scale,
+    Translation,
     Quantity,
     Velocity,
     AccelX,
@@ -200,6 +201,8 @@ enum RewardParamKey : String {
         case .HapticFeedback: return "Vibrate"
         case .SystemSound: return "Sound Option (1000-1036)"
         case .Quantity: return "Count"
+        case .ViewMarginX: return "Margin X (0.5 = 50%, 5 = 5pts)"
+        case .ViewMarginY: return "Margin Y (0.5 = 50%, 5 = 5pts)"
         default: return self.rawValue
         }
     }
@@ -229,7 +232,7 @@ enum RewardParamKey : String {
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
             
-        case .Count, .Quantity, .Bursts:
+        case .Count, .Quantity, .Bursts, .Translation:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -420,7 +423,7 @@ struct RewardSample {
             switch key {
             case .ViewMarginX, .ViewMarginY,
                  .Scale, .ScaleSpeed, .ScaleRange,
-                 .AccelY, .AccelX, .Velocity,
+                 .Velocity, .AccelY, .AccelX,
                  .Spin, .EmissionRange, .EmissionAngle:
                 update(parameter: key.rawValue, cgFloat: value)
                 
@@ -430,7 +433,7 @@ struct RewardSample {
             case .RewardID, .primitive, .ViewOption, .Content:
                 update(parameter: key.rawValue, string: value)
                 
-            case .Count, .SystemSound, .Quantity, .Bursts:
+            case .Count, .SystemSound, .Quantity, .Bursts, .Translation:
                 update(parameter: key.rawValue, int: value)
                 
             case .HapticFeedback:
