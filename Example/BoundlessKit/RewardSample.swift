@@ -185,8 +185,16 @@ enum RewardParamKey : String {
     HapticFeedback,
     SystemSound,
     Content,
+    VibrateDuration,
+    VibrateCount,
+    VibrateTranslation,
+    VibrateSpeed,
     ScaleSpeed,
     ScaleRange,
+    ScaleDuration,
+    ScaleCount,
+    ScaleVelocity,
+    ScaleDamping,
     Bursts,
     FadeOut,
     Spin,
@@ -205,6 +213,14 @@ enum RewardParamKey : String {
         case .Quantity: return "Count"
         case .ViewMarginX: return "Margin X (0.5 = 50%, 5 = 5pts)"
         case .ViewMarginY: return "Margin Y (0.5 = 50%, 5 = 5pts)"
+        case .VibrateDuration: return "Duration"
+        case .VibrateCount: return "Count"
+        case .VibrateTranslation: return "Translation"
+        case .VibrateSpeed: return "Speed"
+        case .ScaleDuration: return "Duration"
+        case .ScaleCount: return "Count"
+        case .ScaleVelocity: return "Velocity"
+        case .ScaleDamping: return "Damping"
         default: return self.rawValue
         }
     }
@@ -228,8 +244,13 @@ enum RewardParamKey : String {
             row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
             
-        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .Damping, .ViewMarginX, .ViewMarginY, .ScaleSpeed, .Alpha,
-             .ScaleRange, .FadeOut, .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime, .Translation:
+        case .Duration, .Delay, .FadeOut,
+             .Translation, .Velocity, .AccelX, .AccelY, .Damping,
+             .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
+             .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
+             .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime,
+             .ViewMarginX, .ViewMarginY,
+             .Alpha:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -424,8 +445,9 @@ struct RewardSample {
             
             switch key {
             case .ViewMarginX, .ViewMarginY,
-                 .Scale, .ScaleSpeed, .ScaleRange,
+                 .Scale, .ScaleSpeed, .ScaleRange, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
                  .Velocity, .AccelY, .AccelX, .Damping,
+                 .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
                  .Spin, .EmissionRange, .EmissionAngle,
                  .Alpha:
                 update(parameter: key.rawValue, cgFloat: value)
