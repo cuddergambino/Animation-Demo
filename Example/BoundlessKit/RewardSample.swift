@@ -155,11 +155,14 @@ enum RewardParamKey : String {
     RewardID,
     primitive,
     Duration,
+    Delay,
     Count,
     Scale,
     AccelX,
     AccelY,
     ViewOption,
+    ViewMarginX,
+    ViewMarginY,
     HapticFeedback,
     SystemSound
 }
@@ -211,7 +214,7 @@ struct RewardSample {
         commitRow.configuration.button.didSelectClosure = { row in
             vc.view.endEditing(true)
             vc.loadForm()
-            vc.tableView.reloadData()
+//            vc.tableView.reloadData()
         }
         commitSection.rows.append(commitRow)
         
@@ -297,6 +300,8 @@ struct RewardSample {
                 break
             case .SystemSound:
                 break
+            default:
+                break
             }
         }
         
@@ -328,6 +333,9 @@ struct RewardSample {
                 
             case .HapticFeedback:
                 codelessReinforcement.update(parameter: key.rawValue, bool: value)
+                
+            default:
+                break
             }
         }
         save()
