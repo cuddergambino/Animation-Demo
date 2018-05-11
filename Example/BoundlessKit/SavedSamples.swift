@@ -1,5 +1,5 @@
 //
-//  SavedSamplesViewController.swift
+//  SavedSamples.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -9,15 +9,12 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
-class SavedSamplesViewController : FormViewController {
+class SavedSamples : FormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let form = FormDescriptor(title: "Saved Reward Settings")
-        
-        
         
         let listSection = FormSectionDescriptor(headerTitle: "Names", footerTitle: nil)
         

@@ -288,7 +288,7 @@ struct RewardSample {
         rewardPrimitive.show(settings: settings, targetInstance: target, senderInstance: sender)
     }
     
-    func getForm(_ vc: RewardFormViewController) -> FormDescriptor {
+    func getForm(_ vc: ModifySample) -> FormDescriptor {
         let form = FormDescriptor(title: "Reward Params")
         
         let commitSection = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)

@@ -17,15 +17,18 @@ class SampleViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let controller: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as UIViewController
+        let controller: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
         
         addChildViewController(controller)
         self.view.addSubview(controller.view)
         controller.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
         controller.didMove(toParentViewController: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = RewardSample.current.settings["primitive"] as? String ?? navigationController?.navigationBar.topItem?.title
-        
     }
     
     @IBAction func didAwesomeThing(_ sender: UITapGestureRecognizer) {
