@@ -13,11 +13,19 @@ import SwiftForms
 // not instantiated
 class RewardSettingsFormViewController : FormViewController {
     
-    var rewardSettings: RewardSample!
+    var rewardSettings: RewardSample! {
+        didSet {
+            self.form = generateForm()
+        }
+    }
     var selectedRow: UITableViewCell?
     
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func generateForm() -> FormDescriptor {
+        return FormDescriptor()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

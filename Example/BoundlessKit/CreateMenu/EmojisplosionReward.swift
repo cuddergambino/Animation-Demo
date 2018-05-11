@@ -17,6 +17,10 @@ class EmojisplosionReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         rewardSettings = RewardSample.defaultSample(for: "EmojisplosionSample")!
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         
         let form = FormDescriptor(title: "Emojisplosion Settings")
         
@@ -50,7 +54,7 @@ class EmojisplosionReward : RewardSettingsFormViewController {
         placementSection.rows.append(RewardParamKey.ScaleRange.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, repetitionSection, speedSection, placementSection, soundSection]
-        self.form = form
+        return form
     }
     
 }

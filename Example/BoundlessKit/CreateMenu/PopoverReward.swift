@@ -17,6 +17,10 @@ class PopoverReward : RewardSettingsFormViewController {
         super.init(coder: aDecoder)
         
         rewardSettings = RewardSample.defaultSample(for: "PopoverSample")!
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         
         let form = FormDescriptor(title: "Popover Settings")
         
@@ -28,7 +32,7 @@ class PopoverReward : RewardSettingsFormViewController {
         
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

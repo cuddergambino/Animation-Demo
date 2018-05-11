@@ -17,6 +17,10 @@ class SheenReward : RewardSettingsFormViewController {
         super.init(coder: aDecoder)
         
         rewardSettings = RewardSample.defaultSample(for: "SheenSample")!
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         
         let form = FormDescriptor(title: "Sheen Settings")
         
@@ -25,7 +29,7 @@ class SheenReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

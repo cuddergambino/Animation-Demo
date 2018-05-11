@@ -18,10 +18,24 @@ class MainMenu : UITableViewController {
     var mainMenuDelegate: MainMenuDelegate?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row == 0 {
-            self.requestImage()
-        } else if indexPath.section == 0 && indexPath.row == 3 {
+        switch indexPath.section {
+        case 0:
             
+            switch indexPath.row {
+            case 0:
+                self.requestImage()
+                
+            case 1:
+                let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardSettingsFormViewController
+                reward.rewardSettings = RewardSample.current
+                self.navigationController?.pushViewController(reward, animated: true)
+                
+                
+            default:
+                break
+            }
+        default:
+            break
         }
     }
 }

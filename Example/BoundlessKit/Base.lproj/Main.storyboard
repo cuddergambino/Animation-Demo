@@ -418,7 +418,7 @@
         <!--Saved Samples-->
         <scene sceneID="WDo-NP-kaz">
             <objects>
-                <tableViewController id="UBl-cP-v22" customClass="SavedSamples" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SavedSamples" id="UBl-cP-v22" customClass="SavedSamples" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="n9o-2T-j03">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,7 +436,7 @@
         <!--Vibrate Reward-->
         <scene sceneID="lNO-w1-KjK">
             <objects>
-                <tableViewController id="haM-k3-poO" customClass="VibrateReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="VibrateReward" id="haM-k3-poO" customClass="VibrateReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UZF-47-v2r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,7 +454,7 @@
         <!--Pulse Reward-->
         <scene sceneID="pT5-Zg-wai">
             <objects>
-                <tableViewController id="rpw-4y-JPc" customClass="PulseReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PulseReward" id="rpw-4y-JPc" customClass="PulseReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cfp-ov-eCN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,29 +469,10 @@
             </objects>
             <point key="canvasLocation" x="735" y="4057"/>
         </scene>
-        <!--Modify Sample-->
-        <scene sceneID="XQF-FE-DYn">
-            <objects>
-                <tableViewController id="OMV-bs-Mlj" customClass="ModifySample" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Mn-Ta-sGP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="OMV-bs-Mlj" id="CkP-uq-hgd"/>
-                            <outlet property="delegate" destination="OMV-bs-Mlj" id="cxt-xa-7Dd"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="flT-a1-bnH"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eWe-G2-LVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3113" y="985"/>
-        </scene>
         <!--Sheen Reward-->
         <scene sceneID="r27-Sa-rNI">
             <objects>
-                <tableViewController id="q5i-5N-CUW" customClass="SheenReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SheenReward" id="q5i-5N-CUW" customClass="SheenReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BSs-g3-ehn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -509,7 +490,7 @@
         <!--Popover Reward-->
         <scene sceneID="paZ-MK-0qr">
             <objects>
-                <tableViewController id="10V-uZ-Qrg" customClass="PopoverReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PopoverReward" id="10V-uZ-Qrg" customClass="PopoverReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Z3-LH-Zw4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -527,7 +508,7 @@
         <!--Confetti Reward-->
         <scene sceneID="bTt-zU-4mA">
             <objects>
-                <tableViewController id="jnq-UA-ncQ" customClass="ConfettiReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="ConfettiReward" storyboardIdentifier="ConfettiReward" id="jnq-UA-ncQ" customClass="ConfettiReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LiH-RL-K28">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -546,7 +527,7 @@
         <!--Rotate Reward-->
         <scene sceneID="Pll-hg-kxo">
             <objects>
-                <tableViewController id="bzJ-2L-s6N" customClass="RotateReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RotateReward" id="bzJ-2L-s6N" customClass="RotateReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sTO-oD-cCZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,7 +545,7 @@
         <!--Emojisplosion Reward-->
         <scene sceneID="vZy-Wp-BIQ">
             <objects>
-                <tableViewController id="IcL-Kl-IQk" customClass="EmojisplosionReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EmojisplosionReward" id="IcL-Kl-IQk" customClass="EmojisplosionReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6tl-B8-P2I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -582,7 +563,7 @@
         <!--Shimmy Reward-->
         <scene sceneID="2x8-BH-cc3">
             <objects>
-                <tableViewController id="ZZi-yB-ivl" customClass="ShimmyReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ShimmyReward" id="ZZi-yB-ivl" customClass="ShimmyReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Fo-zk-awp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -600,7 +581,7 @@
         <!--Glow Reward-->
         <scene sceneID="COj-WC-Ddj">
             <objects>
-                <tableViewController id="nxL-F6-4di" customClass="GlowReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GlowReward" id="nxL-F6-4di" customClass="GlowReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mnm-Un-yvM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

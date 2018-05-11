@@ -17,6 +17,10 @@ class GlowReward : RewardSettingsFormViewController {
         super.init(coder: aDecoder)
         
         rewardSettings = RewardSample.defaultSample(for: "GlowSample")!
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         
         let form = FormDescriptor(title: "Glow Settings")
         
@@ -27,7 +31,7 @@ class GlowReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

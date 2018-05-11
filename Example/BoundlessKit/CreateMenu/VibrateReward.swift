@@ -17,6 +17,10 @@ class VibrateReward : RewardSettingsFormViewController {
         super.init(coder: aDecoder)
         
         rewardSettings = RewardSample.defaultSample(for: "VibrateSample")!
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         
         let form = FormDescriptor(title: "Vibrate Settings")
         
@@ -37,7 +41,7 @@ class VibrateReward : RewardSettingsFormViewController {
         scaleSection.rows.append(RewardParamKey.ScaleDamping.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, shakeSection, scaleSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

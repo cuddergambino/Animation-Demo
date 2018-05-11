@@ -16,7 +16,10 @@ class ShimmyReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         rewardSettings = RewardSample.defaultSample(for: "ShimmySample")!
-        
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         let form = FormDescriptor(title: "Shimmy Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
@@ -25,7 +28,7 @@ class ShimmyReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Translation.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
 //    func generateForm() -> FormDescriptor {

@@ -14,7 +14,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7E3E9430DAB0256EDC10F853 /* Pods_BoundlessKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5896EE6F40C3937CF30FD8 /* Pods_BoundlessKit_Tests.framework */; };
-		8413AB2E20A4C3B100D7F0D8 /* ModifySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413AB2D20A4C3B100D7F0D8 /* ModifySample.swift */; };
 		8421CFAA20A50A43001203C2 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421CFA920A50A43001203C2 /* RewardSample.swift */; };
 		842661C3204DE3C5001FEA2F /* BoundlessProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */; };
 		842661E5204E05B3001FEA2F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
@@ -78,7 +77,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8413AB2D20A4C3B100D7F0D8 /* ModifySample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySample.swift; sourceTree = "<group>"; };
 		8421CFA920A50A43001203C2 /* RewardSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
 		842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessProperties.plist; sourceTree = "<group>"; };
 		842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessTestProperties.plist; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 				843CD8F120A5A9BA00900158 /* SavedSamples.swift */,
 				843CD8FB20A5B72A00900158 /* MainMenu.swift */,
 				843CD8F520A5B47E00900158 /* FullscreenSample.swift */,
-				8413AB2D20A4C3B100D7F0D8 /* ModifySample.swift */,
 				843CD8F720A5B51E00900158 /* CameraHandler.swift */,
 				843CD8DC20A556AD00900158 /* CreateMenu */,
 			);
@@ -481,7 +478,6 @@
 				843CD8F620A5B47E00900158 /* FullscreenSample.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				843CD8FC20A5B72A00900158 /* MainMenu.swift in Sources */,
-				8413AB2E20A4C3B100D7F0D8 /* ModifySample.swift in Sources */,
 				843CD8F220A5A9BA00900158 /* SavedSamples.swift in Sources */,
 				843CD8E420A58D5B00900158 /* RewardSettingsFormViewController.swift in Sources */,
 				843CD8E820A59B8200900158 /* GlowReward.swift in Sources */,

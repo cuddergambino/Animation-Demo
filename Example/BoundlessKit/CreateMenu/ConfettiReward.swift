@@ -16,7 +16,10 @@ class ConfettiReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
-        
+        self.form = generateForm()
+    }
+    
+    override func generateForm() -> FormDescriptor {
         let form = FormDescriptor(title: "Confetti Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
@@ -24,7 +27,7 @@ class ConfettiReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
-        self.form = form
+        return form
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
