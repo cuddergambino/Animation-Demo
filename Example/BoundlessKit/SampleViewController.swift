@@ -11,21 +11,18 @@ import BoundlessKit
 
 class SampleViewController: UIViewController {
     
-    var identity = CGAffineTransform.identity
     @IBOutlet weak var aView: UIImageView!
     
-    var aViewStartingOrigin = CGPoint.zero
+    var mainMenu: MainMenu!
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let mainMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
-        mainMenuController.mainMenuDelegate = self
-        
-        addChildViewController(mainMenuController)
-        self.view.addSubview(mainMenuController.view)
-        mainMenuController.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
-        mainMenuController.didMove(toParentViewController: self)
+    override func viewDidLoad() {
+        mainMenu = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
+        mainMenu.mainMenuDelegate = self
+        addChildViewController(mainMenu)
+        self.view.addSubview(mainMenu.view)
+        mainMenu.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
+        mainMenu.didMove(toParentViewController: self)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
@@ -35,15 +32,11 @@ class SampleViewController: UIViewController {
         panGesture.delegate = self
         scaleGesture.delegate = self
         rotateGesture.delegate = self
-        
-        
         aView.isUserInteractionEnabled = true
         aView.addGestureRecognizer(tapGesture)
         aView.addGestureRecognizer(panGesture)
         aView.addGestureRecognizer(scaleGesture)
         aView.addGestureRecognizer(rotateGesture)
-        
-        aViewStartingOrigin = aView.frame.origin
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,13 +44,24 @@ class SampleViewController: UIViewController {
         
         navigationController?.navigationBar.topItem?.title = RewardSample.current.settings["primitive"] as? String ?? navigationController?.navigationBar.topItem?.title
     }
+    
+    var aViewStartingOrigin = CGPoint.zero
+    var identity = CGAffineTransform.identity
 }
 
 extension SampleViewController : MainMenuDelegate {
-    func didImport(image: UIImage) {
+    func didImport(image: UIImage, isButton: Bool) {
         DispatchQueue.main.async {
-            self.aView.image = image
-            self.aView.frame.origin = self.aViewStartingOrigin
+            if isButton {
+                let origin = self.aView.frame.origin
+                self.aView.image = image
+                self.aView.frame.origin = origin
+            } else {
+                let vc = FullscreenSample()
+                vc.backgroundImage = UIImageView(image: image)
+                vc.buttonImage = UIImageView(image: self.aView.image)
+                self.navigationController?.pushViewController(vc, animated: false)
+            }
         }
     }
 }
@@ -80,7 +84,7 @@ extension SampleViewController : UIGestureRecognizerDelegate {
         switch gesture.state {
         case .began:
             identity = aView.transform
-        case .changed,.ended:
+        case .changed:
             aView.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
         case .cancelled:
             break
@@ -90,19 +94,5 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     }
     @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
         aView.transform = aView.transform.rotated(by: gesture.rotation)
-    }
-}
-
-class DraggableImageView: UIImageView {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        backgroundColor = .blue
-    }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        backgroundColor = .green
-    }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let position = touches.first?.location(in: superview){
-            center = position
-        }
     }
 }
