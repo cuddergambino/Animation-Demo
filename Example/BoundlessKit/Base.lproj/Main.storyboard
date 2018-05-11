@@ -176,9 +176,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="H0r-c0-n0i" appends="YES" id="fTJ-xh-su1"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qcy-ch-e8W">
                                         <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
@@ -415,11 +412,6 @@
                     <navigationItem key="navigationItem" id="aIY-4z-8CS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In6-tp-9qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="H0r-c0-n0i">
-                    <connections>
-                        <segue destination="OMV-bs-Mlj" kind="show" id="oWZ-FE-olh"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="735" y="938"/>
         </scene>
