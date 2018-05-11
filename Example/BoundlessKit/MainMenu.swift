@@ -9,14 +9,53 @@
 import Foundation
 import UIKit
 
+protocol MainMenuDelegate {
+    func didImport(image: UIImage)
+}
+
 class MainMenu : UITableViewController {
+    
+    var mainMenuDelegate: MainMenuDelegate?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-            print("import pic")
+            self.requestImage()
         } else if indexPath.section == 0 && indexPath.row == 3 {
             
         }
     }
-    
 }
+
+extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func requestImage() {
+        let camera = CameraHandler(delegate_: self)
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { (alert : UIAlertAction!) in
+            camera.getCameraOn(self, canEdit: true)
+        }
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (alert : UIAlertAction!) in
+            camera.getPhotoLibraryOn(self, canEdit: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
+        }
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        // image is our desired image
+        
+        picker.dismiss(animated: true, completion: nil)
+        print("Got image")
+        mainMenuDelegate?.didImport(image: image)
+    }
+}
+

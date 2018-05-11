@@ -32,7 +32,6 @@
 		843CD8F220A5A9BA00900158 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F120A5A9BA00900158 /* SavedSamples.swift */; };
 		843CD8F620A5B47E00900158 /* FullscreenSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F520A5B47E00900158 /* FullscreenSample.swift */; };
 		843CD8F820A5B51E00900158 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F720A5B51E00900158 /* CameraHandler.swift */; };
-		843CD8FA20A5B63000900158 /* ImportImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F920A5B63000900158 /* ImportImage.swift */; };
 		843CD8FC20A5B72A00900158 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8FB20A5B72A00900158 /* MainMenu.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
@@ -97,7 +96,6 @@
 		843CD8F120A5A9BA00900158 /* SavedSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
 		843CD8F520A5B47E00900158 /* FullscreenSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenSample.swift; sourceTree = "<group>"; };
 		843CD8F720A5B51E00900158 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
-		843CD8F920A5B63000900158 /* ImportImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImage.swift; sourceTree = "<group>"; };
 		843CD8FB20A5B72A00900158 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 				843CD8FB20A5B72A00900158 /* MainMenu.swift */,
 				843CD8F520A5B47E00900158 /* FullscreenSample.swift */,
 				8413AB2D20A4C3B100D7F0D8 /* ModifySample.swift */,
-				843CD8F920A5B63000900158 /* ImportImage.swift */,
 				843CD8F720A5B51E00900158 /* CameraHandler.swift */,
 				843CD8DC20A556AD00900158 /* CreateMenu */,
 			);
@@ -475,7 +472,6 @@
 				8421CFAA20A50A43001203C2 /* RewardSample.swift in Sources */,
 				843CD8F820A5B51E00900158 /* CameraHandler.swift in Sources */,
 				843CD8EA20A59C9400900158 /* SheenReward.swift in Sources */,
-				843CD8FA20A5B63000900158 /* ImportImage.swift in Sources */,
 				843CD8E020A5754900900158 /* RotateReward.swift in Sources */,
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
 				843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */,

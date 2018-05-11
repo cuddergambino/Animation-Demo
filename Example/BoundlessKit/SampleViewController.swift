@@ -17,12 +17,13 @@ class SampleViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let controller: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
+        let mainMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
+        mainMenuController.mainMenuDelegate = self
         
-        addChildViewController(controller)
-        self.view.addSubview(controller.view)
-        controller.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
-        controller.didMove(toParentViewController: self)
+        addChildViewController(mainMenuController)
+        self.view.addSubview(mainMenuController.view)
+        mainMenuController.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
+        mainMenuController.didMove(toParentViewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,5 +34,13 @@ class SampleViewController: UIViewController {
     
     @IBAction func didAwesomeThing(_ sender: UITapGestureRecognizer) {
         RewardSample.current.sample(target: self, sender: aView)
+    }
+}
+
+extension SampleViewController : MainMenuDelegate {
+    func didImport(image: UIImage) {
+        DispatchQueue.main.async {
+            self.aView.image = image
+        }
     }
 }
