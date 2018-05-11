@@ -68,6 +68,7 @@ public final class FormRowDescriptor {
         public var options:                 [AnyObject]
         public var optionTitleClosure:      ((AnyObject) -> String)?
         public var allowsMultipleSelection: Bool
+        public var didSelectClosure: ((String) -> Void)?
         
         public init() {
             controllerClass = nil

@@ -89,7 +89,10 @@ open class FormPickerCell: FormValueCell, UIPickerViewDelegate, UIPickerViewData
         guard row < options.count else { return }
         let newValue = options[row]
         rowDescriptor?.value = newValue
-        valueLabel.text = rowDescriptor?.configuration.selection.optionTitleClosure?(newValue)
+        if let selectedOption = rowDescriptor?.configuration.selection.optionTitleClosure?(newValue) {
+            valueLabel.text = selectedOption
+            rowDescriptor?.configuration.selection.didSelectClosure?(selectedOption)
+        }
     }
     
     // MARK: UIPickerViewDataSource

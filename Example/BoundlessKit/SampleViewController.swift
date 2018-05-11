@@ -23,8 +23,9 @@ class SampleViewController: UIViewController {
         addChildViewController(controller)
         self.view.addSubview(controller.view)
         controller.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY + 30)
-        
         controller.didMove(toParentViewController: self)
+        
+        navigationController?.navigationBar.topItem?.title = RewardSample.current.codelessReinforcement.primitive
         
     }
     
