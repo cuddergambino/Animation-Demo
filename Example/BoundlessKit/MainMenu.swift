@@ -19,18 +19,16 @@ class MainMenu : UITableViewController {
     var uploadingButtonImage = true
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            
+        if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                uploadingButtonImage = true
-                self.requestButtonImage()
-                
-            case 1:
                 let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardSettingsFormViewController
                 reward.rewardSettings = RewardSample.current
                 self.navigationController?.pushViewController(reward, animated: true)
+                
+            case 2:
+                uploadingButtonImage = true
+                self.requestButtonImage()
                 
             case 3:
                 uploadingButtonImage = false
@@ -38,8 +36,6 @@ class MainMenu : UITableViewController {
             default:
                 break
             }
-        default:
-            break
         }
     }
 }

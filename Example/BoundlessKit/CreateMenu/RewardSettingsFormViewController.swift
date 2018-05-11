@@ -45,6 +45,7 @@ class RewardSettingsFormViewController : FormViewController {
                     self.rewardSettings.save()
                     RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
                     RewardSample.current = self.rewardSettings
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
             return row
