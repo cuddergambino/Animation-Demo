@@ -140,7 +140,7 @@ enum RewardPrimitive : String {
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let translation = settings["Translation"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let systemSound = settings["SystemSound"] as? UInt32 else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
                         view.showShimmy(count: count, duration: duration, translation: translation, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }

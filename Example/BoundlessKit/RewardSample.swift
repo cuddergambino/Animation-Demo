@@ -433,8 +433,11 @@ struct RewardSample {
             case .RewardID, .primitive, .ViewOption, .Content:
                 update(parameter: key.rawValue, string: value)
                 
-            case .Count, .SystemSound, .Quantity, .Bursts, .Translation:
+            case .Count, .Quantity, .Bursts, .Translation:
                 update(parameter: key.rawValue, int: value)
+                
+            case .SystemSound:
+                update(parameter: key.rawValue, uint32: value)
                 
             case .HapticFeedback:
                 update(parameter: key.rawValue, bool: value)
@@ -470,9 +473,14 @@ extension RewardSample {
             self.settings[key] = value
         }
     }
+    mutating func update(parameter key: String, uint32 value: AnyObject) {
+        if let value = value as? NSString {
+            self.settings[key] = UInt32(value.intValue)
+        }
+    }
     mutating func update(parameter key: String, int value: AnyObject) {
         if let value = value as? NSString {
-            self.settings[key] = value.integerValue
+            self.settings[key] = value.intValue
         }
     }
     mutating func update(parameter key: String, double value: AnyObject) {

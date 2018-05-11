@@ -24,7 +24,7 @@ class ShimmyReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Translation.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     
