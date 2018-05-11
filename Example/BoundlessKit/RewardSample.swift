@@ -28,6 +28,17 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
+        case "RotateSample":
+            return RewardSample(str: "{"
+                + "\"RewardID\": \"RotateSample\","
+                + "\"primitive\": \"Rotate\","
+                + "\"Duration\": 3,"
+                + "\"Count\": 2,"
+                + "\"Delay\": 0,"
+                + "\"HapticFeedback\": false,"
+                + "\"SystemSound\": 0"
+                + "}")
+            
         case "EmojisplosionSample":
             return RewardSample(str: "{"
                 + "\"RewardID\": \"EmojisplosionSample\","
@@ -190,7 +201,7 @@ struct RewardSample {
         }
     }
     
-    private func save() {
+    func save() {
         print("Saving:\(codelessReinforcement.parameters.toJSONData.toJSONString as AnyObject)")
         UserDefaults.standard.set(codelessReinforcement.parameters.toJSONData.toJSONString, forKey: rewardID)
         RewardSample.samples[rewardID] = self

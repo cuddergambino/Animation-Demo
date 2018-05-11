@@ -110,6 +110,17 @@ struct CodelessReinforcement {
                     }
                     return
                     
+                case "Shimmy":
+                    guard let count = self.parameters["Count"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let duration = self.parameters["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let translation = self.parameters["Translation"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let hapticFeedback = self.parameters["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let systemSound = self.parameters["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    for (view, _) in viewAndLocation {
+                        view.showShimmy(count: count, duration: duration, translation: translation, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                    }
+                    return
+                    
                 case "Vibrate":
                     guard let vibrateDuration = self.parameters["VibrateDuration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let vibrateCount = self.parameters["VibrateCount"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }

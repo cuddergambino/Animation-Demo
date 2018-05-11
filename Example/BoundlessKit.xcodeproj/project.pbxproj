@@ -22,6 +22,7 @@
 		842661E6204E05BA001FEA2F /* BoundlessTestProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */; };
 		843CD8DB20A554F400900158 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DA20A554F400900158 /* SettingsViewController.swift */; };
 		843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DD20A5587F00900158 /* ConfettiReward.swift */; };
+		843CD8E020A5754900900158 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DF20A5754900900158 /* RotateReward.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
 		847A3CB2205844ED00F16211 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2A42055034000FE49B9 /* MockHTTPClient.swift */; };
@@ -75,6 +76,7 @@
 		842661DB204E03E8001FEA2F /* BoundlessKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundlessKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		843CD8DA20A554F400900158 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		843CD8DD20A5587F00900158 /* ConfettiReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiReward.swift; sourceTree = "<group>"; };
+		843CD8DF20A5754900900158 /* RotateReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
 		84B5C5D4205B6BD700DAFB05 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				843CD8DD20A5587F00900158 /* ConfettiReward.swift */,
+				843CD8DF20A5754900900158 /* RotateReward.swift */,
 			);
 			path = CreateMenu;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				607FACD81AFB9204008FA782 /* SampleViewController.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* RewardsViewController.swift in Sources */,
 				8421CFAA20A50A43001203C2 /* RewardSample.swift in Sources */,
+				843CD8E020A5754900900158 /* RotateReward.swift in Sources */,
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
 				8421CFAC20A54E2A001203C2 /* CreateRewardFormViewController.swift in Sources */,
 				843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */,

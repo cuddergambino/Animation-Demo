@@ -13,6 +13,8 @@ import SwiftForms
 
 class ConfettiReward : FormViewController {
     
+    var selectedRow: UITableViewCell?
+    
     var sampleView = UIView()
     var rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
     var params: [String: Any] {
@@ -22,11 +24,14 @@ class ConfettiReward : FormViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        sampleView.backgroundColor = .blue
-//        sampleView.frame = CGRect.init(x: 0, y: 0, width: view.frame.width, height: 100)
+//        sampleView.frame = CGRect.init(x: tableView.frame.minX, y: tableView.frame.minY, width: tableView.frame.width, height: tableView.frame.height / 2)
 //
 //        view.addSubview(sampleView)
 //
-//        tableView.frame = tableView.frame.applying(CGAffineTransform.init(translationX: 0, y: sampleView.frame.height))
+//        tableView.frame = CGRect.init(x: tableView.frame.minX, y: tableView.frame.minY + tableView.frame.height / 2, width: tableView.frame.width, height: tableView.frame.height / 2)
+        
+        tableView.headerView(forSection: 100)
+        tableView.tableHeaderView?.backgroundColor = .blue
         
     }
     
@@ -35,14 +40,31 @@ class ConfettiReward : FormViewController {
         
         let form = FormDescriptor(title: "Confetti Settings")
         
-        let saveButton = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
-        let commitRow = FormRowDescriptor(tag: "button", type: .button, title: "Save")
-        commitRow.configuration.button.didSelectClosure = { row in
-            DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+        let saveSection = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        let commitRow: FormRowDescriptor = {
+            let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
+            row.configuration.button.didSelectClosure = { _ in
+                DispatchQueue.main.async {
+                    self.rewardSettings.setForm(form: self.form)
+                    self.rewardSettings.save()
+                    self.rewardSettings.codelessReinforcement.show(targetInstance: UIWindow.topWindow!, senderInstance: self.selectedRow)
+                }
             }
-        }
-        saveButton.rows.append(commitRow)
+            return row
+        }()
+        saveSection.rows.append(commitRow)
+        
+        let tryRow: FormRowDescriptor = {
+            let row = FormRowDescriptor(tag: "button", type: .button, title: "Try")
+            row.configuration.button.didSelectClosure = { _ in
+                DispatchQueue.main.async {
+                    self.rewardSettings.setForm(form: self.form)
+                    self.rewardSettings.codelessReinforcement.show(targetInstance: UIWindow.topWindow!, senderInstance: self.selectedRow)
+                }
+            }
+            return row
+        }()
+        saveSection.rows.append(tryRow)
         
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
@@ -69,18 +91,19 @@ class ConfettiReward : FormViewController {
             let key = RewardParamKey.HapticFeedback.rawValue
             let value = params[key] as AnyObject
             let row = FormRowDescriptor(tag: "Vibrate", type: .booleanSwitch, title: key)
-//            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
             return row
         }()
         generalSection.rows.append(hapticFeedbackRow)
         
-        let systemSoundRow: FormRowDescriptor = {
-            let key = RewardParamKey.SystemSound.rawValue
-            let value = params[key] as AnyObject
-            let row = FormRowDescriptor(tag: "Sound Option", type: .number, title: key)
-            return row
-        }()
-        generalSection.rows.append(systemSoundRow)
+//        let systemSoundRow: FormRowDescriptor = {
+//            let key = RewardParamKey.SystemSound.rawValue
+//            let value = params[key] as AnyObject
+//            let row = FormRowDescriptor(tag: "Sound Option", type: .number, title: key)
+//        row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+//            return row
+//        }()
+//        generalSection.rows.append(systemSoundRow)
         
         let viewoptionRow: FormRowDescriptor = {
             let key = RewardParamKey.ViewOption.rawValue
@@ -120,9 +143,12 @@ class ConfettiReward : FormViewController {
         
         
         
-        form.sections = [saveButton, generalSection]
+        form.sections = [saveSection, generalSection]
         self.form = form
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
+    }
 }
