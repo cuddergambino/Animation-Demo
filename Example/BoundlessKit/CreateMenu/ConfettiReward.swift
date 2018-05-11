@@ -17,9 +17,6 @@ class ConfettiReward : FormViewController {
     
     var sampleView = UIView()
     var rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
-    var params: [String: Any] {
-        return rewardSettings.codelessReinforcement.parameters
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,7 +44,7 @@ class ConfettiReward : FormViewController {
                 DispatchQueue.main.async {
                     self.rewardSettings.setForm(form: self.form)
                     self.rewardSettings.save()
-                    self.rewardSettings.codelessReinforcement.show(targetInstance: UIWindow.topWindow!, senderInstance: self.selectedRow)
+                    self.rewardSettings.sample(target: UIWindow.topWindow!, sender: self.selectedRow)
                 }
             }
             return row
@@ -59,7 +56,7 @@ class ConfettiReward : FormViewController {
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
                     self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.codelessReinforcement.show(targetInstance: UIWindow.topWindow!, senderInstance: self.selectedRow)
+                    self.rewardSettings.sample(target: UIWindow.topWindow!, sender: self.selectedRow)
                 }
             }
             return row
@@ -71,7 +68,7 @@ class ConfettiReward : FormViewController {
         
         let durationRow: FormRowDescriptor = {
             let key = RewardParamKey.Duration.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: key)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -80,7 +77,7 @@ class ConfettiReward : FormViewController {
         
         let delayRow: FormRowDescriptor = {
             let key = RewardParamKey.Delay.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: key)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -89,7 +86,7 @@ class ConfettiReward : FormViewController {
         
         let hapticFeedbackRow: FormRowDescriptor = {
             let key = RewardParamKey.HapticFeedback.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: "Vibrate", type: .booleanSwitch, title: key)
             row.value = value
             return row
@@ -107,7 +104,7 @@ class ConfettiReward : FormViewController {
         
         let viewoptionRow: FormRowDescriptor = {
             let key = RewardParamKey.ViewOption.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: key, type: .picker, title: "Animate view")
             row.configuration.cell.showsInputToolbar = true
             row.configuration.selection.options = RewardParamViewOption.cases.map({$0.rawValue as AnyObject})
@@ -125,7 +122,7 @@ class ConfettiReward : FormViewController {
         
         let viewMarginXRow: FormRowDescriptor = {
             let key = RewardParamKey.ViewMarginX.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: "Margin X (0.5 = 50%, 5 = 5pts)")
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -134,7 +131,7 @@ class ConfettiReward : FormViewController {
         
         let viewMarginYRow: FormRowDescriptor = {
             let key = RewardParamKey.ViewMarginY.rawValue
-            let value = params[key] as AnyObject
+            let value = rewardSettings.settings[key] as AnyObject
             let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: "Margin Y (0.5 = 50%, 5 = 5pts")
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row

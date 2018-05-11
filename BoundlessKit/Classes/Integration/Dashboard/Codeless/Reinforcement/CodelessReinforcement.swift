@@ -27,7 +27,7 @@ struct CodelessReinforcement {
         guard let reinforcementType = self.parameters["primitive"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            if let viewAndLocation = self.reinforcementViews(senderInstance: senderInstance, targetInstance: targetInstance, options: self.parameters) {
+            if let viewAndLocation = CodelessReinforcement.reinforcementViews(senderInstance: senderInstance, targetInstance: targetInstance, options: self.parameters) {
                 switch reinforcementType {
                     
                 case "Confetti":
@@ -99,6 +99,16 @@ struct CodelessReinforcement {
                     }
                     return
                     
+                case "Rotate":
+                    guard let count = self.parameters["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let duration = self.parameters["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let hapticFeedback = self.parameters["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let systemSound = self.parameters["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    for (view, _) in viewAndLocation {
+                        view.rotate360Degrees(count: count, duration: duration, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                    }
+                    return
+                    
                 case "Shimmy":
                     guard let count = self.parameters["Count"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = self.parameters["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -147,7 +157,7 @@ struct CodelessReinforcement {
         }
     }
     
-    fileprivate func reinforcementViews(senderInstance: AnyObject?, targetInstance: NSObject, options: [String: Any]) -> [(UIView, CGPoint)]? {
+    static internal func reinforcementViews(senderInstance: AnyObject?, targetInstance: NSObject, options: [String: Any]) -> [(UIView, CGPoint)]? {
         guard let viewOption = options["ViewOption"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewCustom = options["ViewCustom"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewMarginX = options["ViewMarginX"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); return nil }

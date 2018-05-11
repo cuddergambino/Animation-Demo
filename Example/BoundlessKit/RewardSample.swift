@@ -33,6 +33,10 @@ extension RewardSample {
                 + "\"RewardID\": \"RotateSample\","
                 + "\"primitive\": \"Rotate\","
                 + "\"Duration\": 3,"
+                + "\"ViewOption\": \"fixed\","
+                + "\"ViewMarginX\": 0,"
+                + "\"ViewMarginY\": 0,"
+                + "\"ViewCustom\": \"\","
                 + "\"Count\": 2,"
                 + "\"Delay\": 0,"
                 + "\"HapticFeedback\": false,"
@@ -202,19 +206,25 @@ struct RewardSample {
     }
     
     func save() {
-        print("Saving:\(codelessReinforcement.parameters.toJSONData.toJSONString as AnyObject)")
-        UserDefaults.standard.set(codelessReinforcement.parameters.toJSONData.toJSONString, forKey: rewardID)
+        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
+        UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
         RewardSample.samples[rewardID] = self
         UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
     }
     
     var rewardID: String
-    var codelessReinforcement: CodelessReinforcement
+    let rewardPrimitive: RewardPrimitive
+    var settings: [String: Any]
     
     init(str: String) {
         let dict = str.toJSONDict
         self.rewardID = dict["RewardID"] as! String
-        self.codelessReinforcement = CodelessReinforcement(from: dict)!
+        self.rewardPrimitive = RewardPrimitive.cases.filter({$0.rawValue == dict["primitive"] as! String}).first!
+        self.settings = dict
+    }
+    
+    func sample(target: NSObject, sender: AnyObject?) {
+        rewardPrimitive.show(settings: settings, targetInstance: target, senderInstance: sender)
     }
     
     func getForm(_ vc: RewardFormViewController) -> FormDescriptor {
@@ -232,7 +242,7 @@ struct RewardSample {
         
         let section1 = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         
-        for (key, value) in codelessReinforcement.parameters {
+        for (key, value) in settings {
             guard let key = RewardParamKey(rawValue: key) else { continue }
             let value = value as AnyObject
             //            print("Trying to create row for key:\(key) value:\(value as AnyObject)")
@@ -251,11 +261,11 @@ struct RewardSample {
                     print("Selected primitive:\(primitive)")
                     DispatchQueue.main.async() {
                         
-                        if primitive != RewardSample.current.codelessReinforcement.primitive,
-                            let newCurrent = RewardSample.defaultSample(for: primitive + "Sample") {
-                            RewardSample.current = newCurrent
-                            vc.loadForm()
-                        }
+//                        if primitive != RewardSample.current.codelessReinforcement.primitive,
+//                            let newCurrent = RewardSample.defaultSample(for: primitive + "Sample") {
+//                            RewardSample.current = newCurrent
+//                            vc.loadForm()
+//                        }
                     }
                 }
                 row.value = value
@@ -331,19 +341,19 @@ struct RewardSample {
             switch key {
                 
             case .AccelY, .AccelX, .Scale:
-                codelessReinforcement.update(parameter: key.rawValue, cgFloat: value)
+                update(parameter: key.rawValue, cgFloat: value)
                 
             case RewardParamKey.Duration:
-                codelessReinforcement.update(parameter: key.rawValue, double: value)
+                update(parameter: key.rawValue, double: value)
                 
             case .RewardID, .primitive, .ViewOption:
-                codelessReinforcement.update(parameter: key.rawValue, string: value)
+                update(parameter: key.rawValue, string: value)
                 
             case .Count, .SystemSound:
-                codelessReinforcement.update(parameter: key.rawValue, int: value)
+                update(parameter: key.rawValue, int: value)
                 
             case .HapticFeedback:
-                codelessReinforcement.update(parameter: key.rawValue, bool: value)
+                update(parameter: key.rawValue, bool: value)
                 
             default:
                 break
@@ -368,30 +378,30 @@ enum RewardParamViewOption: String {
     }
 }
 
-extension CodelessReinforcement {
+extension RewardSample {
     mutating func update(parameter key: String, string value: AnyObject) {
         if let value = value as? String {
-            self.parameters[key] = value
+            self.settings[key] = value
         }
     }
     mutating func update(parameter key: String, bool value: AnyObject) {
         if let value = value as? NSString {
-            self.parameters[key] = value.boolValue
+            self.settings[key] = value.boolValue
         }
     }
     mutating func update(parameter key: String, int value: AnyObject) {
         if let value = value as? NSString {
-            self.parameters[key] = value.integerValue
+            self.settings[key] = value.integerValue
         }
     }
     mutating func update(parameter key: String, double value: AnyObject) {
         if let value = value as? NSString {
-            self.parameters[key] = value.doubleValue
+            self.settings[key] = value.doubleValue
         }
     }
     mutating func update(parameter key: String, cgFloat value: AnyObject) {
         if let value = value as? NSString {
-            self.parameters[key] = CGFloat(value.doubleValue)
+            self.settings[key] = CGFloat(value.doubleValue)
         }
     }
 }

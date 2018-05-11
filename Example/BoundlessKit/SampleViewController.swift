@@ -25,11 +25,11 @@ class SampleViewController: UIViewController {
         controller.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY + 30)
         controller.didMove(toParentViewController: self)
         
-        navigationController?.navigationBar.topItem?.title = RewardSample.current.codelessReinforcement.primitive
+        navigationController?.navigationBar.topItem?.title = RewardSample.current.settings["primitive"] as? String ?? navigationController?.navigationBar.topItem?.title
         
     }
     
     @IBAction func didAwesomeThing(_ sender: UITapGestureRecognizer) {
-        RewardSample.current.codelessReinforcement.show(targetInstance: self, senderInstance: aView)
+        RewardSample.current.sample(target: self, sender: aView)
     }
 }
