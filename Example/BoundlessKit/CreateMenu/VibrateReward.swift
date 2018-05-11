@@ -16,7 +16,7 @@ class VibrateReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "VibrateSample") ?? RewardSample.defaultSample(for: "VibrateSample")!
+        rewardSettings = RewardSample.defaultSample(for: "VibrateSample")!
         
         let form = FormDescriptor(title: "Vibrate Settings")
         
@@ -37,7 +37,7 @@ class VibrateReward : RewardSettingsFormViewController {
         scaleSection.rows.append(RewardParamKey.ScaleVelocity.formRow(rewardSettings.settings))
         scaleSection.rows.append(RewardParamKey.ScaleDamping.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, shakeSection, scaleSection, basicViewSection]
+        form.sections = [saveSection, generalSection, shakeSection, scaleSection, basicViewSection, soundSection]
         self.form = form
     }
     

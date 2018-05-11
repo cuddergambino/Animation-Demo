@@ -24,6 +24,10 @@ class RewardSettingsFormViewController : FormViewController {
         selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
     
+    func generateForm() -> FormDescriptor {
+        return FormDescriptor()
+    }
+    
     var saveSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
@@ -31,8 +35,10 @@ class RewardSettingsFormViewController : FormViewController {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
+                    self.view.endEditing(true)
                     self.rewardSettings.setForm(form: self.form)
                     self.rewardSettings.save()
+                    RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
                 }
             }
             return row
@@ -73,5 +79,68 @@ class RewardSettingsFormViewController : FormViewController {
         section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
         return saveSection
+    }
+}
+
+extension RewardParamKey {
+    func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
+        let value = dict[rawValue] as AnyObject
+        switch self {
+            
+        case .RewardID:
+            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .primitive:
+            let row = FormRowDescriptor(tag: rawValue, type: .label, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Content:
+            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Duration, .Delay, .FadeOut,
+             .Translation, .Velocity, .AccelX, .AccelY, .Damping,
+             .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
+             .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
+             .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime,
+             .ViewMarginX, .ViewMarginY,
+             .Alpha:
+            let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Count, .Quantity, .Bursts:
+            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .ViewOption:
+            let row = FormRowDescriptor(tag: rawValue, type: .picker, title: title)
+            row.configuration.cell.showsInputToolbar = true
+            row.configuration.selection.options = RewardParamViewOption.cases.map({$0.rawValue as AnyObject})
+            row.configuration.selection.optionTitleClosure = { tag in
+                guard let tag = tag as? String,
+                    let viewOption = RewardParamViewOption(rawValue: tag) else {
+                        return "unknown"
+                }
+                return viewOption.tag
+            }
+            row.value = value
+            return row
+            
+        case .HapticFeedback, .Light:
+            let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
+            row.value = value
+            return row
+            
+        case .SystemSound:
+            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+        }
     }
 }

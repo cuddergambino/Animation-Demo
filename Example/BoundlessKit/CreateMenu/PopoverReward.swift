@@ -16,7 +16,7 @@ class PopoverReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "PopoverSample") ?? RewardSample.defaultSample(for: "PopoverSample")!
+        rewardSettings = RewardSample.defaultSample(for: "PopoverSample")!
         
         let form = FormDescriptor(title: "Popover Settings")
         
@@ -27,7 +27,7 @@ class PopoverReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Light.formRow(rewardSettings.settings))
         
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     

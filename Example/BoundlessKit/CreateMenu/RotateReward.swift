@@ -16,7 +16,7 @@ class RotateReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "RotateSample") ?? RewardSample.defaultSample(for: "RotateSample")!
+        rewardSettings = RewardSample.defaultSample(for: "RotateSample")!
         
         let form = FormDescriptor(title: "Rotate Settings")
 
@@ -25,7 +25,7 @@ class RotateReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     

@@ -16,7 +16,7 @@ class SheenReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "SheenSample") ?? RewardSample.defaultSample(for: "SheenSample")!
+        rewardSettings = RewardSample.defaultSample(for: "SheenSample")!
         
         let form = FormDescriptor(title: "Sheen Settings")
         
@@ -24,7 +24,7 @@ class SheenReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     

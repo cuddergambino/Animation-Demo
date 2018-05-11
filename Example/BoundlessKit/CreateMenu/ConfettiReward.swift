@@ -15,7 +15,7 @@ class ConfettiReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.load(rewardID: "ConfettiSample") ?? RewardSample.defaultSample(for: "ConfettiSample")!
+        rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
         
         let form = FormDescriptor(title: "Confetti Settings")
         
@@ -23,7 +23,7 @@ class ConfettiReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     

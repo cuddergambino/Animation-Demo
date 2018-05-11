@@ -16,7 +16,7 @@ class EmojisplosionReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.load(rewardID: "EmojisplosionSample") ?? RewardSample.defaultSample(for: "EmojisplosionSample")!
+        rewardSettings = RewardSample.defaultSample(for: "EmojisplosionSample")!
         
         let form = FormDescriptor(title: "Emojisplosion Settings")
         
@@ -49,7 +49,7 @@ class EmojisplosionReward : RewardSettingsFormViewController {
         placementSection.rows.append(RewardParamKey.ScaleSpeed.formRow(rewardSettings.settings))
         placementSection.rows.append(RewardParamKey.ScaleRange.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, repetitionSection, speedSection, placementSection]
+        form.sections = [saveSection, generalSection, repetitionSection, speedSection, placementSection, soundSection]
         self.form = form
     }
     

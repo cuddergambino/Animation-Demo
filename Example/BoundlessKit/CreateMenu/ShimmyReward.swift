@@ -15,7 +15,7 @@ class ShimmyReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.load(rewardID: "ShimmySample") ?? RewardSample.defaultSample(for: "ShimmySample")!
+        rewardSettings = RewardSample.defaultSample(for: "ShimmySample")!
         
         let form = FormDescriptor(title: "Shimmy Settings")
         
@@ -27,6 +27,10 @@ class ShimmyReward : RewardSettingsFormViewController {
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
+    
+//    func generateForm() -> FormDescriptor {
+//        
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)

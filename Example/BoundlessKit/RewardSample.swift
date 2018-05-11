@@ -241,67 +241,6 @@ enum RewardParamKey : String {
         default: return self.rawValue
         }
     }
-    
-    func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
-        let value = dict[rawValue] as AnyObject
-        switch self {
-            
-        case .RewardID:
-            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .primitive:
-            let row = FormRowDescriptor(tag: rawValue, type: .label, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .Content:
-            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .Duration, .Delay, .FadeOut,
-             .Translation, .Velocity, .AccelX, .AccelY, .Damping,
-             .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
-             .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
-             .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime,
-             .ViewMarginX, .ViewMarginY,
-             .Alpha:
-            let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .Count, .Quantity, .Bursts:
-            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .ViewOption:
-            let row = FormRowDescriptor(tag: rawValue, type: .picker, title: title)
-            row.configuration.cell.showsInputToolbar = true
-            row.configuration.selection.options = RewardParamViewOption.cases.map({$0.rawValue as AnyObject})
-            row.configuration.selection.optionTitleClosure = { tag in
-                guard let tag = tag as? String,
-                    let viewOption = RewardParamViewOption(rawValue: tag) else {
-                        return "unknown"
-                }
-                return viewOption.tag
-            }
-            row.value = value
-            return row
-            
-        case .HapticFeedback, .Light:
-            let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
-            row.value = value
-            return row
-        
-        case .SystemSound:
-            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-        }
-    }
 }
 
 struct RewardSample {
@@ -469,13 +408,16 @@ struct RewardSample {
                  .Alpha:
                 update(parameter: key.rawValue, cgFloat: value)
                 
-            case .Duration, .Delay, .LifetimeRange, .Lifetime, .FadeOut:
+            case .Duration, .Delay, .Quantity, .LifetimeRange, .Lifetime, .FadeOut,  .Bursts:
                 update(parameter: key.rawValue, double: value)
                 
-            case .RewardID, .primitive, .ViewOption, .Content:
+            case .RewardID:
+                rewardID = value as? String ?? rewardID
+                fallthrough
+            case .primitive, .ViewOption, .Content:
                 update(parameter: key.rawValue, string: value)
                 
-            case .Count, .Quantity, .Bursts, .Translation:
+            case .Count, .Translation:
                 update(parameter: key.rawValue, int: value)
                 
             case .SystemSound:

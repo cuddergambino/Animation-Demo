@@ -16,7 +16,7 @@ class PulseReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "PulseSample") ?? RewardSample.defaultSample(for: "PulseSample")!
+        rewardSettings = RewardSample.defaultSample(for: "PulseSample")!
         
         let form = FormDescriptor(title: "Pulse Settings")
         
@@ -30,7 +30,7 @@ class PulseReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Velocity.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, movementSection, basicViewSection]
+        form.sections = [saveSection, generalSection, movementSection, basicViewSection, soundSection]
         self.form = form
     }
     

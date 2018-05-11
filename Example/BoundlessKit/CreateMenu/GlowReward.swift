@@ -16,7 +16,7 @@ class GlowReward : RewardSettingsFormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "GlowSample") ?? RewardSample.defaultSample(for: "GlowSample")!
+        rewardSettings = RewardSample.defaultSample(for: "GlowSample")!
         
         let form = FormDescriptor(title: "Glow Settings")
         
@@ -26,7 +26,7 @@ class GlowReward : RewardSettingsFormViewController {
         generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         self.form = form
     }
     
