@@ -76,10 +76,16 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         let sharePhoto = UIAlertAction(title: "Photo Library (screenshot preferred)", style: .default) { (alert : UIAlertAction!) in
             camera.getPhotoLibraryOn(self, canEdit: false)
         }
+        let defaultPhoto = UIAlertAction(title: "Default", style: .default) { (alert : UIAlertAction!) in
+            DispatchQueue.main.async {
+                self.mainMenuDelegate?.didImport(image: UIImage(named: "DefaultFullscreen")!, isButton: false)
+            }
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
         }
         optionMenu.addAction(takePhoto)
         optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(defaultPhoto)
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
     }

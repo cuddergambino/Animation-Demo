@@ -15,10 +15,10 @@ class FullscreenSample : UIViewController {
     var buttonImage: UIImageView!
     
     override func viewDidLoad() {
-        buttonImage.contentMode = .scaleAspectFit
-        buttonImage.frame.origin = view.frame.origin
         backgroundImage.contentMode = .scaleAspectFit
         backgroundImage.frame = view.bounds
+        buttonImage.contentMode = .scaleAspectFit
+        buttonImage.center = view.center
         
         view.addSubview(backgroundImage)
         view.addSubview(buttonImage)
