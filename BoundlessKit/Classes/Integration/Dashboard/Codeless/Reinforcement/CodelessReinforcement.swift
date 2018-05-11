@@ -30,6 +30,17 @@ struct CodelessReinforcement {
             if let viewAndLocation = CodelessReinforcement.reinforcementViews(senderInstance: senderInstance, targetInstance: targetInstance, options: self.parameters) {
                 switch reinforcementType {
                     
+                case "Popover":
+                    guard let content = self.parameters["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let duration = self.parameters["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let light = self.parameters["Light"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let hapticFeedback = self.parameters["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let systemSound = self.parameters["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    for (view, _) in viewAndLocation {
+                        view.showPopover(content: content.decode().image(), duration: duration, style: light ? .light : .dark, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                    }
+                    return
+                    
                 case "Confetti":
                     guard let duration = self.parameters["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = self.parameters["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }

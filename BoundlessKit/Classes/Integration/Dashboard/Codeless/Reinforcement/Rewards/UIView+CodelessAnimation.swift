@@ -17,6 +17,8 @@ public extension UIView {
     public func showPopover(content: UIImage? = "❤️".image(),
                           duration:TimeInterval = 1.0,
                           style: UIBlurEffectStyle = UIBlurEffectStyle.light,
+                          hapticFeedback: Bool = false,
+                          systemSound: UInt32 = 0,
                           completion: @escaping ()->Void = {}
         ) {
         let blurEffectView = UIVisualEffectView(effect: nil)
@@ -32,6 +34,7 @@ public extension UIView {
         UIView.animate(
             withDuration: 0.3,
             animations: {
+                BKAudio.play(systemSound, vibrate: hapticFeedback)
                 blurEffectView.effect = UIBlurEffect(style: style)
                 
                 popupView.alpha = 1

@@ -30,6 +30,7 @@
 		843CD8EA20A59C9400900158 /* SheenReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E920A59C9400900158 /* SheenReward.swift */; };
 		843CD8EC20A59E6D00900158 /* PulseReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8EB20A59E6D00900158 /* PulseReward.swift */; };
 		843CD8EE20A5A1F900900158 /* VibrateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8ED20A5A1F900900158 /* VibrateReward.swift */; };
+		843CD8F020A5A5AD00900158 /* PopoverReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8EF20A5A5AD00900158 /* PopoverReward.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
 		847A3CB2205844ED00F16211 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2A42055034000FE49B9 /* MockHTTPClient.swift */; };
@@ -91,6 +92,7 @@
 		843CD8E920A59C9400900158 /* SheenReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheenReward.swift; sourceTree = "<group>"; };
 		843CD8EB20A59E6D00900158 /* PulseReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseReward.swift; sourceTree = "<group>"; };
 		843CD8ED20A5A1F900900158 /* VibrateReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateReward.swift; sourceTree = "<group>"; };
+		843CD8EF20A5A5AD00900158 /* PopoverReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverReward.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
 		84B5C5D4205B6BD700DAFB05 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				843CD8ED20A5A1F900900158 /* VibrateReward.swift */,
 				843CD8E920A59C9400900158 /* SheenReward.swift */,
 				843CD8E720A59B8200900158 /* GlowReward.swift */,
+				843CD8EF20A5A5AD00900158 /* PopoverReward.swift */,
 			);
 			path = CreateMenu;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
 				8421CFAC20A54E2A001203C2 /* CreateRewardFormViewController.swift in Sources */,
 				843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */,
+				843CD8F020A5A5AD00900158 /* PopoverReward.swift in Sources */,
 				843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */,
 				843CD8EC20A59E6D00900158 /* PulseReward.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

@@ -11,8 +11,8 @@ import Foundation
 import SwiftForms
 
 enum RewardPrimitive : String {
-    case Shimmy, Pulse, Vibrate, Rotate, Glow, Sheen, Emojisplosion, Confetti, popover
-    static let cases:[RewardPrimitive] = [.Shimmy, .Pulse, .Vibrate, .Rotate, .Glow, .Sheen, .Emojisplosion, .Confetti, .popover]
+    case Shimmy, Pulse, Vibrate, Rotate, Glow, Sheen, Emojisplosion, Confetti, Popover
+    static let cases:[RewardPrimitive] = [.Shimmy, .Pulse, .Vibrate, .Rotate, .Glow, .Sheen, .Emojisplosion, .Confetti, .Popover]
     
     func test(viewController: UIViewController, view: UIView) {
         let completion = {
@@ -38,7 +38,7 @@ enum RewardPrimitive : String {
         case .Confetti:
             //            viewController.view.showConfetti(completion: completion)
             viewController.view.showConfetti(duration: 3, colors: [UIColor.blue], completion: completion)
-        case .popover:
+        case .Popover:
             viewController.view.showPopover(completion: completion)
         }
     }
@@ -55,6 +55,17 @@ enum RewardPrimitive : String {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             if let viewAndLocation = CodelessReinforcement.reinforcementViews(senderInstance: senderInstance, targetInstance: targetInstance, options: settings) {
                 switch reinforcementType {
+                    
+                case "Popover":
+                    guard let content = settings["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let light = settings["Light"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    for (view, _) in viewAndLocation {
+                        view.showPopover(content: content.decode().image(), duration: duration, style: light ? .light : .dark, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                    }
+                    return
                     
                 case "Confetti":
                     guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }

@@ -14,6 +14,22 @@ import SwiftForms
 extension RewardSample {
     static func defaultSample(for rewardID: String) -> RewardSample? {
         switch rewardID {
+        case "PopoverSample":
+            return RewardSample(str: "{"
+                + "\"RewardID\": \"PopoverSample\","
+                + "\"primitive\": \"Popover\","
+                + "\"Content\": \"❤️\","
+                + "\"Duration\": 3,"
+                + "\"Light\": true,"
+                + "\"ViewOption\": \"fixed\","
+                + "\"ViewMarginX\": 0,"
+                + "\"ViewMarginY\": 0,"
+                + "\"ViewCustom\": \"\","
+                + "\"Delay\": 0,"
+                + "\"HapticFeedback\": false,"
+                + "\"SystemSound\": 0"
+                + "}")
+            
         case "ConfettiSample":
             return RewardSample(str: "{"
                 + "\"RewardID\": \"ConfettiSample\","
@@ -68,7 +84,7 @@ extension RewardSample {
                 + "\"Lifetime\": 2,"
                 + "\"Quantity\": 6,"
                 + "\"Velocity\": -50,"
-                + "\"Content\": \"👍\""
+                + "\"Content\": \"❤️\""
                 + "}")
             
         case "GlowSample":
@@ -202,7 +218,8 @@ enum RewardParamKey : String {
     EmissionAngle,
     LifetimeRange,
     Lifetime,
-    Alpha
+    Alpha,
+    Light
     
     var title: String {
         switch self {
@@ -274,7 +291,7 @@ enum RewardParamKey : String {
             row.value = value
             return row
             
-        case .HapticFeedback:
+        case .HapticFeedback, .Light:
             let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
             row.value = value
             return row
@@ -445,7 +462,7 @@ struct RewardSample {
             
             switch key {
             case .ViewMarginX, .ViewMarginY,
-                 .Scale, .ScaleSpeed, .ScaleRange, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
+                 .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
                  .Velocity, .AccelY, .AccelX, .Damping,
                  .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
                  .Spin, .EmissionRange, .EmissionAngle,
@@ -464,7 +481,7 @@ struct RewardSample {
             case .SystemSound:
                 update(parameter: key.rawValue, uint32: value)
                 
-            case .HapticFeedback:
+            case .HapticFeedback, .Light:
                 update(parameter: key.rawValue, bool: value)
             }
         }

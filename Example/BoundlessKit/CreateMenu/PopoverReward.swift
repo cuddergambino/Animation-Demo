@@ -1,5 +1,5 @@
 //
-//  GlowReward.swift
+//  PopoverReward.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -11,20 +11,21 @@ import UIKit
 import SwiftForms
 @testable import BoundlessKit
 
-class GlowReward : RewardSettingsFormViewController {
+class PopoverReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "GlowSample") ?? RewardSample.defaultSample(for: "GlowSample")!
+        rewardSettings = RewardSample.load(rewardID: "PopoverSample") ?? RewardSample.defaultSample(for: "PopoverSample")!
         
-        let form = FormDescriptor(title: "Glow Settings")
+        let form = FormDescriptor(title: "Popover Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
+        generalSection.rows.append(RewardParamKey.Content.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Light.formRow(rewardSettings.settings))
+        
         
         form.sections = [saveSection, generalSection, basicViewSection]
         self.form = form
@@ -35,3 +36,4 @@ class GlowReward : RewardSettingsFormViewController {
         selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
 }
+
