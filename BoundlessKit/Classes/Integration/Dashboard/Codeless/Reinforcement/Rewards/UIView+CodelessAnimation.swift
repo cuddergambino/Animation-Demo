@@ -213,7 +213,7 @@ public extension UIView {
         }, didStop: completion).start(view: self, animation: rotateAnimation)
     }
     
-    public func showGlow(count: Float = 2, duration: Double = 3.0, color: UIColor = UIColor(red: 255/255.0, green: 26/255.0, blue: 251/255.0, alpha: 0.7), alpha: CGFloat = 0.7, radius: CGFloat = 250, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut), hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: @escaping ()->Void = {}) {
+    public func showGlow(count: Float = 2, duration: Double = 3.0, color: UIColor = UIColor(red: 255/255.0, green: 26/255.0, blue: 251/255.0, alpha: 0.7), alpha: CGFloat = 0.7, radius: CGFloat = 0, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut), hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: @escaping ()->Void = {}) {
         
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         self.layer.render(in: UIGraphicsGetCurrentContext()!)

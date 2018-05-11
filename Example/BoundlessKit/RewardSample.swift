@@ -32,7 +32,7 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"RotateSample\","
                 + "\"primitive\": \"Rotate\","
-                + "\"Duration\": 3,"
+                + "\"Duration\": 1,"
                 + "\"ViewOption\": \"fixed\","
                 + "\"ViewMarginX\": 0,"
                 + "\"ViewMarginY\": 0,"
@@ -54,20 +54,20 @@ extension RewardSample {
                 + "\"ViewMarginY\": 0.5,"
                 + "\"ViewMarginX\": 0.5,"
                 + "\"ViewOption\": \"sender\","
-                + "\"AccelY\": -200,"
+                + "\"AccelY\": -150,"
                 + "\"AccelX\": 0,"
-                + "\"ScaleSpeed\": 0.5,"
+                + "\"ScaleSpeed\": 0.2,"
                 + "\"ScaleRange\": 0.2,"
-                + "\"Scale\": 1,"
+                + "\"Scale\": 0.6,"
                 + "\"Bursts\": 1,"
-                + "\"FadeOut\": 1,"
-                + "\"Spin\": 20,"
+                + "\"FadeOut\": -0.2,"
+                + "\"Spin\": 0,"
                 + "\"EmissionRange\": 45,"
-                + "\"EmissionAngle\": 90,"
+                + "\"EmissionAngle\": -90,"
                 + "\"LifetimeRange\": 0.5,"
                 + "\"Lifetime\": 2,"
-                + "\"Quantity\": 1,"
-                + "\"Velocity\": 20,"
+                + "\"Quantity\": 6,"
+                + "\"Velocity\": -50,"
                 + "\"Content\": \"👍\""
                 + "}")
             
@@ -76,7 +76,7 @@ extension RewardSample {
                 + "\"RewardID\": \"GlowSample\","
                 + "\"primitive\": \"Glow\","
                 + "\"Color\": \"444444\","
-                + "\"Duration\": 2,"
+                + "\"Duration\": 3,"
                 + "\"Alpha\": 0.7,"
                 + "\"Count\": 2,"
                 + "\"Radius\": 0,"
@@ -107,10 +107,10 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"PulseSample\","
                 + "\"primitive\": \"Pulse\","
-                + "\"Duration\": 2,"
-                + "\"Count\": 2,"
-                + "\"Scale\": 2,"
-                + "\"Velocity\": 2,"
+                + "\"Duration\": 0.86,"
+                + "\"Count\": 1,"
+                + "\"Scale\": 1.4,"
+                + "\"Velocity\": 5,"
                 + "\"Damping\": 2,"
                 + "\"ViewOption\": \"sender\","
                 + "\"ViewMarginX\": 0,"
@@ -125,9 +125,9 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"ShimmySample\","
                 + "\"primitive\": \"Shimmy\","
-                + "\"Duration\": 3,"
-                + "\"Count\": 3,"
-                + "\"Translation\": 20,"
+                + "\"Duration\": 5,"
+                + "\"Count\": 2,"
+                + "\"Translation\": 10,"
                 + "\"ViewOption\": \"sender\","
                 + "\"ViewMarginX\": 0,"
                 + "\"ViewMarginY\": 0,"
@@ -141,13 +141,13 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"VibrateSample\","
                 + "\"primitive\": \"Vibrate\","
-                + "\"VibrateDuration\": 0.8,"
-                + "\"VibrateCount\": 2,"
-                + "\"VibrateTranslation\": 20,"
-                + "\"VibrateSpeed\": 2,"
-                + "\"Scale\": 0.96,"
-                + "\"ScaleDuration\": 2,"
-                + "\"ScaleCount\": 2,"
+                + "\"VibrateDuration\": 1,"
+                + "\"VibrateCount\": 6,"
+                + "\"VibrateTranslation\": 10,"
+                + "\"VibrateSpeed\": 3,"
+                + "\"Scale\": 0.8,"
+                + "\"ScaleDuration\": 0.3,"
+                + "\"ScaleCount\": 1,"
                 + "\"ScaleVelocity\": 20,"
                 + "\"ScaleDamping\": 10,"
                 + "\"ViewOption\": \"sender\","
@@ -176,6 +176,7 @@ enum RewardParamKey : String {
     Translation,
     Quantity,
     Velocity,
+    Damping,
     AccelX,
     AccelY,
     ViewOption,
@@ -227,7 +228,7 @@ enum RewardParamKey : String {
             row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
             
-        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .ViewMarginX, .ViewMarginY, .ScaleSpeed, .Alpha,
+        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .Damping, .ViewMarginX, .ViewMarginY, .ScaleSpeed, .Alpha,
              .ScaleRange, .FadeOut, .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime, .Translation:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
@@ -424,7 +425,7 @@ struct RewardSample {
             switch key {
             case .ViewMarginX, .ViewMarginY,
                  .Scale, .ScaleSpeed, .ScaleRange,
-                 .Velocity, .AccelY, .AccelX,
+                 .Velocity, .AccelY, .AccelX, .Damping,
                  .Spin, .EmissionRange, .EmissionAngle,
                  .Alpha:
                 update(parameter: key.rawValue, cgFloat: value)

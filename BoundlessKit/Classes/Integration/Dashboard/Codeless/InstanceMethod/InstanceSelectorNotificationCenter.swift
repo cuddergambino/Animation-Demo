@@ -82,7 +82,7 @@ internal class InstanceSelectorNotificationCenter : NotificationCenter {
                 return
             }
             
-            BKLog.debug(error: "Cannot create  for notification for <\(aName)>")
+//            BKLog.debug(error: "Cannot create  for notification for <\(aName)>")
         }
     }
     

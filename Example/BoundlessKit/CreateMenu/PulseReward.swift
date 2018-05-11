@@ -1,5 +1,5 @@
 //
-//  SheenReward.swift
+//  PulseReward.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -11,20 +11,26 @@ import UIKit
 import SwiftForms
 @testable import BoundlessKit
 
-class SheenReward : RewardSettingsFormViewController {
+class PulseReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.load(rewardID: "SheenSample") ?? RewardSample.defaultSample(for: "SheenSample")!
+        rewardSettings = RewardSample.load(rewardID: "PulseSample") ?? RewardSample.defaultSample(for: "PulseSample")!
         
-        let form = FormDescriptor(title: "Sheen Settings")
+        let form = FormDescriptor(title: "Pulse Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         
-        form.sections = [saveSection, generalSection, basicViewSection]
+        let movementSection = FormSectionDescriptor(headerTitle: "Movement", footerTitle: nil)
+        generalSection.rows.append(RewardParamKey.Scale.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Velocity.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
+        
+        form.sections = [saveSection, generalSection, movementSection, basicViewSection]
         self.form = form
     }
     

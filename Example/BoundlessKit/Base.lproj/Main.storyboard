@@ -270,6 +270,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rpw-4y-JPc" kind="show" id="Xv7-PQ-HxF"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DrD-5t-7ut">
                                         <rect key="frame" x="0.0" y="475.5" width="375" height="44"/>
@@ -383,6 +386,34 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="735" y="938"/>
+        </scene>
+        <!--Pulse Reward-->
+        <scene sceneID="pT5-Zg-wai">
+            <objects>
+                <tableViewController id="rpw-4y-JPc" customClass="PulseReward" customModule="BoundlessKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cfp-ov-eCN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DCN-h6-ag5">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DCN-h6-ag5" id="Bzu-Vh-BGe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rpw-4y-JPc" id="fgL-pn-9g3"/>
+                            <outlet property="delegate" destination="rpw-4y-JPc" id="yt8-Rv-fr7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dnb-GL-lE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5978" y="1799"/>
         </scene>
         <!--Reward Form View Controller-->
         <scene sceneID="XQF-FE-DYn">
