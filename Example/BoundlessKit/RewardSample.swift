@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import BoundlessKit
+import BoundlessKit
 import SwiftForms
 
 
@@ -21,7 +21,7 @@ extension RewardSample {
                 + "\"Content\": \"❤️\","
                 + "\"Duration\": 3,"
                 + "\"Light\": true,"
-                + "\"ViewOption\": \"fixed\","
+                + "\"ViewOption\": \"sender\","
                 + "\"ViewMarginX\": 0,"
                 + "\"ViewMarginY\": 0,"
                 + "\"ViewCustom\": \"\","

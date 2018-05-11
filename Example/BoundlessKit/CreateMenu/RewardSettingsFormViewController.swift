@@ -10,6 +10,7 @@ import Foundation
 @testable import BoundlessKit
 import SwiftForms
 
+// not instantiated
 class RewardSettingsFormViewController : FormViewController {
     
     var rewardSettings: RewardSample!
@@ -24,10 +25,6 @@ class RewardSettingsFormViewController : FormViewController {
         selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
     
-    func generateForm() -> FormDescriptor {
-        return FormDescriptor()
-    }
-    
     var saveSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
@@ -39,6 +36,7 @@ class RewardSettingsFormViewController : FormViewController {
                     self.rewardSettings.setForm(form: self.form)
                     self.rewardSettings.save()
                     RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
+                    RewardSample.current = self.rewardSettings
                 }
             }
             return row
