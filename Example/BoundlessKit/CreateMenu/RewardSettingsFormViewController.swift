@@ -40,6 +40,7 @@ class RewardSettingsFormViewController : FormViewController {
         section.rows.append(commitRow)
         let tryRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Try")
+            row.configuration.cell.appearance = ["backgroundColor" : UIColor.lightGray as AnyObject]
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
