@@ -401,23 +401,25 @@ struct RewardSample {
             
             switch key {
             case .ViewMarginX, .ViewMarginY,
-                 .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
+                 .Scale, .ScaleSpeed, .ScaleRange, .ScaleVelocity, .ScaleDamping,
                  .Velocity, .AccelY, .AccelX, .Damping,
-                 .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
                  .Spin, .EmissionRange, .EmissionAngle,
                  .Alpha:
                 update(parameter: key.rawValue, cgFloat: value)
                 
-            case .Duration, .Delay, .Quantity, .LifetimeRange, .Lifetime, .FadeOut,  .Bursts:
+            case .Count, .Quantity, .LifetimeRange, .Lifetime, .FadeOut, .VibrateSpeed, .ScaleCount:
+                update(parameter: key.rawValue, float: value)
+                
+            case .Duration, .VibrateDuration, .ScaleDuration, .Delay, .Bursts:
                 update(parameter: key.rawValue, double: value)
                 
             case .RewardID:
                 rewardID = value as? String ?? rewardID
                 fallthrough
-            case .primitive, .ViewOption, .Content:
+            case .primitive, .Content, .ViewOption:
                 update(parameter: key.rawValue, string: value)
                 
-            case .Count, .Translation:
+            case .Translation, .VibrateCount, .VibrateTranslation:
                 update(parameter: key.rawValue, int: value)
                 
             case .SystemSound:
@@ -465,6 +467,11 @@ extension RewardSample {
     mutating func update(parameter key: String, int value: AnyObject) {
         if let value = value as? NSString {
             self.settings[key] = value.integerValue
+        }
+    }
+    mutating func update(parameter key: String, float value: AnyObject) {
+        if let value = value as? NSString {
+            self.settings[key] = value.floatValue
         }
     }
     mutating func update(parameter key: String, double value: AnyObject) {

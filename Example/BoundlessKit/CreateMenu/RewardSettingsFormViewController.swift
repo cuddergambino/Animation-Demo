@@ -59,20 +59,20 @@ class RewardSettingsFormViewController : FormViewController {
     }
     
     var soundSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: nil)
         section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
         return section
     }
     
     var basicViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
         section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
         return section
     }
     
     var preciseViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
         section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))

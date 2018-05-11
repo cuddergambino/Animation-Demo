@@ -21,7 +21,6 @@ class VibrateReward : RewardSettingsFormViewController {
         let form = FormDescriptor(title: "Vibrate Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         
         let shakeSection = FormSectionDescriptor(headerTitle: "Shake", footerTitle: nil)

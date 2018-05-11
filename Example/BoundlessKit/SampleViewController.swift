@@ -8,13 +8,13 @@
 
 import UIKit
 import BoundlessKit
-import CoreLocation
 
 class SampleViewController: UIViewController {
     
     var identity = CGAffineTransform.identity
     @IBOutlet weak var aView: UIImageView!
     
+    var aViewStartingOrigin = CGPoint.zero
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +42,8 @@ class SampleViewController: UIViewController {
         aView.addGestureRecognizer(panGesture)
         aView.addGestureRecognizer(scaleGesture)
         aView.addGestureRecognizer(rotateGesture)
+        
+        aViewStartingOrigin = aView.frame.origin
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +57,7 @@ extension SampleViewController : MainMenuDelegate {
     func didImport(image: UIImage) {
         DispatchQueue.main.async {
             self.aView.image = image
+            self.aView.frame.origin = self.aViewStartingOrigin
         }
     }
 }
