@@ -192,7 +192,8 @@ enum RewardParamKey : String {
     EmissionRange,
     EmissionAngle,
     LifetimeRange,
-    Lifetime
+    Lifetime,
+    Alpha
     
     var title: String {
         switch self {
@@ -226,13 +227,13 @@ enum RewardParamKey : String {
             row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
             
-        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .ViewMarginX, .ViewMarginY, .ScaleSpeed,
-             .ScaleRange, .FadeOut, .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime:
+        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .ViewMarginX, .ViewMarginY, .ScaleSpeed, .Alpha,
+             .ScaleRange, .FadeOut, .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime, .Translation:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
             
-        case .Count, .Quantity, .Bursts, .Translation:
+        case .Count, .Quantity, .Bursts:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             return row
@@ -424,7 +425,8 @@ struct RewardSample {
             case .ViewMarginX, .ViewMarginY,
                  .Scale, .ScaleSpeed, .ScaleRange,
                  .Velocity, .AccelY, .AccelX,
-                 .Spin, .EmissionRange, .EmissionAngle:
+                 .Spin, .EmissionRange, .EmissionAngle,
+                 .Alpha:
                 update(parameter: key.rawValue, cgFloat: value)
                 
             case .Duration, .Delay, .LifetimeRange, .Lifetime, .FadeOut:
@@ -448,16 +450,16 @@ struct RewardSample {
 }
 
 enum RewardParamViewOption: String {
-    case fixed, sender
-    static let cases: [RewardParamViewOption] = [.fixed, .sender]
+    case sender, fixed
+    static let cases: [RewardParamViewOption] = [.sender, .fixed]
     
     var tag: String {
         switch self {
-        case .fixed:
-            return "Screen"
-            
         case .sender:
             return "Item"
+            
+        case .fixed:
+            return "Screen"
         }
     }
 }
@@ -480,7 +482,7 @@ extension RewardSample {
     }
     mutating func update(parameter key: String, int value: AnyObject) {
         if let value = value as? NSString {
-            self.settings[key] = value.intValue
+            self.settings[key] = value.integerValue
         }
     }
     mutating func update(parameter key: String, double value: AnyObject) {
