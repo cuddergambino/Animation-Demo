@@ -11,83 +11,23 @@ import UIKit
 import SwiftForms
 @testable import BoundlessKit
 
-class ConfettiReward : FormViewController {
-    
-    var selectedRow: UITableViewCell?
-    
-    var sampleView = UIView()
-    var rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        sampleView.backgroundColor = .blue
-//        sampleView.frame = CGRect.init(x: tableView.frame.minX, y: tableView.frame.minY, width: tableView.frame.width, height: tableView.frame.height / 2)
-//
-//        view.addSubview(sampleView)
-//
-//        tableView.frame = CGRect.init(x: tableView.frame.minX, y: tableView.frame.minY + tableView.frame.height / 2, width: tableView.frame.width, height: tableView.frame.height / 2)
-        
-        tableView.headerView(forSection: 100)
-        tableView.tableHeaderView?.backgroundColor = .blue
-        
-    }
+class ConfettiReward : RewardSettingsFormViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        rewardSettings = RewardSample.load(rewardID: "ConfettiSample") ?? RewardSample.defaultSample(for: "ConfettiSample")!
         
         let form = FormDescriptor(title: "Confetti Settings")
         
-        let saveSection = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
-        let commitRow: FormRowDescriptor = {
-            let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
-            row.configuration.button.didSelectClosure = { _ in
-                DispatchQueue.main.async {
-                    self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.save()
-                    self.rewardSettings.sample(target: UIWindow.topWindow!, sender: self.selectedRow)
-                }
-            }
-            return row
-        }()
-        saveSection.rows.append(commitRow)
-        
-        let tryRow: FormRowDescriptor = {
-            let row = FormRowDescriptor(tag: "button", type: .button, title: "Try")
-            row.configuration.button.didSelectClosure = { _ in
-                DispatchQueue.main.async {
-                    self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.sample(target: UIWindow.topWindow!, sender: self.selectedRow)
-                }
-            }
-            return row
-        }()
-        saveSection.rows.append(tryRow)
-        
-        
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        
-        let durationRow: FormRowDescriptor = {
-            let key = RewardParamKey.Duration.rawValue
-            let value = rewardSettings.settings[key] as AnyObject
-            let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: key)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-        }()
-        generalSection.rows.append(durationRow)
-        
-        let delayRow: FormRowDescriptor = {
-            let key = RewardParamKey.Delay.rawValue
-            let value = rewardSettings.settings[key] as AnyObject
-            let row = FormRowDescriptor(tag: key, type: .numbersAndPunctuation, title: key)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-        }()
-        generalSection.rows.append(delayRow)
+        generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        saveSection.rows.append(RewardParamKey.Content.formRow(rewardSettings.settings))
         
         let hapticFeedbackRow: FormRowDescriptor = {
             let key = RewardParamKey.HapticFeedback.rawValue
             let value = rewardSettings.settings[key] as AnyObject
-            let row = FormRowDescriptor(tag: "Vibrate", type: .booleanSwitch, title: key)
+            let row = FormRowDescriptor(tag: key, type: .booleanSwitch, title: "Vibrate")
             row.value = value
             return row
         }()

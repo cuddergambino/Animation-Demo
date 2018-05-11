@@ -173,13 +173,92 @@ enum RewardParamKey : String {
     Delay,
     Count,
     Scale,
+    Quantity,
+    Velocity,
     AccelX,
     AccelY,
     ViewOption,
     ViewMarginX,
     ViewMarginY,
     HapticFeedback,
-    SystemSound
+    SystemSound,
+    Content,
+    ScaleSpeed,
+    ScaleRange,
+    Bursts,
+    FadeOut,
+    Spin,
+    EmissionRange,
+    EmissionAngle,
+    LifetimeRange,
+    Lifetime
+    
+    var title: String {
+        switch self {
+        case .RewardID: return "Reward Name"
+        case .ViewOption: return "Animate View"
+        case .HapticFeedback: return "Vibrate"
+        case .SystemSound: return "Sound Option (1000-1036)"
+        case .Quantity: return "Count"
+        default: return self.rawValue
+        }
+    }
+    
+    func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
+        let value = dict[rawValue] as AnyObject
+        switch self {
+            
+        case .RewardID:
+            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .primitive:
+            let row = FormRowDescriptor(tag: rawValue, type: .label, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Content:
+            let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Duration, .Delay, .Scale, .Velocity, .AccelX, .AccelY, .ViewMarginX, .ViewMarginY, .ScaleSpeed,
+             .ScaleRange, .FadeOut, .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime:
+            let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Count, .Quantity, .Bursts:
+            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .ViewOption:
+            let row = FormRowDescriptor(tag: rawValue, type: .picker, title: title)
+            row.configuration.cell.showsInputToolbar = true
+            row.configuration.selection.options = RewardParamViewOption.cases.map({$0.rawValue as AnyObject})
+            row.configuration.selection.optionTitleClosure = { tag in
+                guard let tag = tag as? String,
+                    let viewOption = RewardParamViewOption(rawValue: tag) else {
+                        return "unknown"
+                }
+                return viewOption.tag
+            }
+            row.value = value
+            return row
+            
+        case .HapticFeedback:
+            let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
+            row.value = value
+            return row
+        
+        case .SystemSound:
+            let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
+            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+        }
+    }
 }
 
 struct RewardSample {
@@ -196,7 +275,7 @@ struct RewardSample {
         return samples
     }()
     
-    private static func load(rewardID: String) -> RewardSample? {
+    static func load(rewardID: String) -> RewardSample? {
         if let str = UserDefaults.standard.string(forKey: rewardID) {
             print("loaded:\(str)")
             return RewardSample(str: str)
@@ -339,24 +418,23 @@ struct RewardSample {
             guard let key = RewardParamKey(rawValue: key) else { continue }
             
             switch key {
-                
-            case .AccelY, .AccelX, .Scale:
+            case .ViewMarginX, .ViewMarginY,
+                 .Scale, .ScaleSpeed, .ScaleRange,
+                 .AccelY, .AccelX, .Velocity,
+                 .Spin, .EmissionRange, .EmissionAngle:
                 update(parameter: key.rawValue, cgFloat: value)
                 
-            case RewardParamKey.Duration:
+            case .Duration, .Delay, .LifetimeRange, .Lifetime, .FadeOut:
                 update(parameter: key.rawValue, double: value)
                 
-            case .RewardID, .primitive, .ViewOption:
+            case .RewardID, .primitive, .ViewOption, .Content:
                 update(parameter: key.rawValue, string: value)
                 
-            case .Count, .SystemSound:
+            case .Count, .SystemSound, .Quantity, .Bursts:
                 update(parameter: key.rawValue, int: value)
                 
             case .HapticFeedback:
                 update(parameter: key.rawValue, bool: value)
-                
-            default:
-                break
             }
         }
         save()
@@ -385,8 +463,8 @@ extension RewardSample {
         }
     }
     mutating func update(parameter key: String, bool value: AnyObject) {
-        if let value = value as? NSString {
-            self.settings[key] = value.boolValue
+        if let value = value as? Bool {
+            self.settings[key] = value
         }
     }
     mutating func update(parameter key: String, int value: AnyObject) {
