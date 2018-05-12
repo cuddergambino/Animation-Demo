@@ -24,7 +24,10 @@ public extension UIColor {
             colorString.removeFirst()
         }
         
-        if colorString.count != 6 {
+        if colorString.count == 8 {
+            colorString.removeLast()
+            colorString.removeLast()
+        } else if colorString.count != 6 {
             return UIColor.gray
         }
         

@@ -32,6 +32,7 @@ public final class FormRowDescriptor {
         case booleanCheck
         case segmentedControl
         case picker
+        case color
         case date
         case time
         case dateAndTime

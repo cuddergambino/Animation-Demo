@@ -9,6 +9,16 @@
 import Foundation
 @testable import BoundlessKit
 import SwiftForms
+import EFColorPicker
+
+extension AllRewardsViewController : EFColorSelectionViewControllerDelegate {
+    func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
+        self.view.backgroundColor = color
+        
+        // TODO: You can do something here when color changed.
+        print("New color: " + color.debugDescription)
+    }
+}
 
 // not instantiated
 class RewardSettingsFormViewController : FormViewController {
@@ -93,6 +103,12 @@ extension RewardParamKey {
     func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
         let value = dict[rawValue] as AnyObject
         switch self {
+            
+        case .Color:
+            let row = FormRowDescriptor(tag: rawValue, type: .color, title: title)
+            row.configuration.cell.cellClass = FormColorPickerCell.self
+            row.configuration.cell.appearance = ["valueLabel.text" : value, "valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
             
         case .RewardID:
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)

@@ -9,35 +9,36 @@
 /* Begin PBXBuildFile section */
 		05D0882F4ED69B87B81373E9 /* Pods_BoundlessKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC56939085237F03AF5C02E /* Pods_BoundlessKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* SampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7E3E9430DAB0256EDC10F853 /* Pods_BoundlessKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5896EE6F40C3937CF30FD8 /* Pods_BoundlessKit_Tests.framework */; };
-		8421CFAA20A50A43001203C2 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421CFA920A50A43001203C2 /* RewardSample.swift */; };
 		842661C3204DE3C5001FEA2F /* BoundlessProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */; };
 		842661E5204E05B3001FEA2F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		842661E6204E05BA001FEA2F /* BoundlessTestProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */; };
-		843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DD20A5587F00900158 /* ConfettiReward.swift */; };
-		843CD8E020A5754900900158 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8DF20A5754900900158 /* RotateReward.swift */; };
-		843CD8E220A5853E00900158 /* EmojisplosionReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E120A5853E00900158 /* EmojisplosionReward.swift */; };
-		843CD8E420A58D5B00900158 /* RewardSettingsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */; };
-		843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E520A5944000900158 /* ShimmyReward.swift */; };
-		843CD8E820A59B8200900158 /* GlowReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E720A59B8200900158 /* GlowReward.swift */; };
-		843CD8EA20A59C9400900158 /* SheenReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8E920A59C9400900158 /* SheenReward.swift */; };
-		843CD8EC20A59E6D00900158 /* PulseReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8EB20A59E6D00900158 /* PulseReward.swift */; };
-		843CD8EE20A5A1F900900158 /* VibrateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8ED20A5A1F900900158 /* VibrateReward.swift */; };
-		843CD8F020A5A5AD00900158 /* PopoverReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8EF20A5A5AD00900158 /* PopoverReward.swift */; };
-		843CD8F220A5A9BA00900158 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F120A5A9BA00900158 /* SavedSamples.swift */; };
-		843CD8F620A5B47E00900158 /* FullscreenSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F520A5B47E00900158 /* FullscreenSample.swift */; };
-		843CD8F820A5B51E00900158 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8F720A5B51E00900158 /* CameraHandler.swift */; };
-		843CD8FC20A5B72A00900158 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CD8FB20A5B72A00900158 /* MainMenu.swift */; };
+		8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0C420A5F09E0078AEA4 /* Helper.swift */; };
+		8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */; };
+		8433D0E420A5F09E0078AEA4 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D520A5F09E0078AEA4 /* RewardSample.swift */; };
+		8433D0F520A5F0FF0078AEA4 /* ConfettiReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */; };
+		8433D0F620A5F0FF0078AEA4 /* EmojisplosionReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */; };
+		8433D0F720A5F0FF0078AEA4 /* GlowReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */; };
+		8433D0F820A5F0FF0078AEA4 /* PopoverReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */; };
+		8433D0F920A5F0FF0078AEA4 /* PulseReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */; };
+		8433D0FA20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */; };
+		8433D0FB20A5F0FF0078AEA4 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */; };
+		8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */; };
+		8433D0FD20A5F0FF0078AEA4 /* ShimmyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */; };
+		8433D0FE20A5F0FF0078AEA4 /* VibrateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */; };
+		8433D0FF20A5F0FF0078AEA4 /* FullscreenSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */; };
+		8433D10020A5F0FF0078AEA4 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */; };
+		8433D10120A5F0FF0078AEA4 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */; };
+		8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */; };
+		8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
 		847A3CB2205844ED00F16211 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2A42055034000FE49B9 /* MockHTTPClient.swift */; };
 		847A3CB3205844F400F16211 /* MockManualClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF29C2054D88400FE49B9 /* MockManualClient.swift */; };
-		84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5C5D4205B6BD700DAFB05 /* Reward.swift */; };
-		84B5C5D7205B6BF800DAFB05 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5C5D6205B6BF800DAFB05 /* RewardsViewController.swift */; };
+		84B5C5D7205B6BF800DAFB05 /* AllRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */; };
 		84CBF27B2051D31800FE49B9 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF27A2051D31800FE49B9 /* MockViewController.swift */; };
 		84CBF2802051E5D400FE49B9 /* TestInstanceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF27F2051E5D400FE49B9 /* TestInstanceSelector.swift */; };
 		84CBF2822051E8AA00FE49B9 /* TestInstanceSelectorNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2812051E8AA00FE49B9 /* TestInstanceSelectorNotification.swift */; };
@@ -71,34 +72,35 @@
 		607FACD01AFB9204008FA782 /* BoundlessKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoundlessKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8421CFA920A50A43001203C2 /* RewardSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
 		842661C2204DE3C5001FEA2F /* BoundlessProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessProperties.plist; sourceTree = "<group>"; };
 		842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessTestProperties.plist; sourceTree = "<group>"; };
 		842661DB204E03E8001FEA2F /* BoundlessKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundlessKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		843CD8DD20A5587F00900158 /* ConfettiReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiReward.swift; sourceTree = "<group>"; };
-		843CD8DF20A5754900900158 /* RotateReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
-		843CD8E120A5853E00900158 /* EmojisplosionReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojisplosionReward.swift; sourceTree = "<group>"; };
-		843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSettingsFormViewController.swift; sourceTree = "<group>"; };
-		843CD8E520A5944000900158 /* ShimmyReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmyReward.swift; sourceTree = "<group>"; };
-		843CD8E720A59B8200900158 /* GlowReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowReward.swift; sourceTree = "<group>"; };
-		843CD8E920A59C9400900158 /* SheenReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheenReward.swift; sourceTree = "<group>"; };
-		843CD8EB20A59E6D00900158 /* PulseReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseReward.swift; sourceTree = "<group>"; };
-		843CD8ED20A5A1F900900158 /* VibrateReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateReward.swift; sourceTree = "<group>"; };
-		843CD8EF20A5A5AD00900158 /* PopoverReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverReward.swift; sourceTree = "<group>"; };
-		843CD8F120A5A9BA00900158 /* SavedSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
-		843CD8F520A5B47E00900158 /* FullscreenSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenSample.swift; sourceTree = "<group>"; };
-		843CD8F720A5B51E00900158 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
-		843CD8FB20A5B72A00900158 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		8433D0C420A5F09E0078AEA4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPrimitive.swift; sourceTree = "<group>"; };
+		8433D0D520A5F09E0078AEA4 /* RewardSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
+		8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiReward.swift; sourceTree = "<group>"; };
+		8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojisplosionReward.swift; sourceTree = "<group>"; };
+		8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowReward.swift; sourceTree = "<group>"; };
+		8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverReward.swift; sourceTree = "<group>"; };
+		8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseReward.swift; sourceTree = "<group>"; };
+		8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSettingsFormViewController.swift; sourceTree = "<group>"; };
+		8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
+		8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheenReward.swift; sourceTree = "<group>"; };
+		8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyReward.swift; sourceTree = "<group>"; };
+		8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrateReward.swift; sourceTree = "<group>"; };
+		8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenSample.swift; sourceTree = "<group>"; };
+		8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
+		8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormColorPickerCell.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
-		84B5C5D4205B6BD700DAFB05 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
-		84B5C5D6205B6BF800DAFB05 /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
+		84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRewardsViewController.swift; sourceTree = "<group>"; };
 		84CBF27A2051D31800FE49B9 /* MockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		84CBF27F2051E5D400FE49B9 /* TestInstanceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInstanceSelector.swift; sourceTree = "<group>"; };
 		84CBF2812051E8AA00FE49B9 /* TestInstanceSelectorNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInstanceSelectorNotification.swift; sourceTree = "<group>"; };
@@ -177,9 +179,11 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* SampleViewController.swift */,
-				8413AB2C20A457B000D7F0D8 /* Params */,
-				84B5C5D6205B6BF800DAFB05 /* RewardsViewController.swift */,
+				8433D0C420A5F09E0078AEA4 /* Helper.swift */,
+				8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */,
+				84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */,
+				8433D0E520A5F0FF0078AEA4 /* Samples */,
+				8433D0D320A5F09E0078AEA4 /* Reward */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -235,35 +239,42 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		8413AB2C20A457B000D7F0D8 /* Params */ = {
+		8433D0D320A5F09E0078AEA4 /* Reward */ = {
 			isa = PBXGroup;
 			children = (
-				84B5C5D4205B6BD700DAFB05 /* Reward.swift */,
-				8421CFA920A50A43001203C2 /* RewardSample.swift */,
-				843CD8F120A5A9BA00900158 /* SavedSamples.swift */,
-				843CD8FB20A5B72A00900158 /* MainMenu.swift */,
-				843CD8F520A5B47E00900158 /* FullscreenSample.swift */,
-				843CD8F720A5B51E00900158 /* CameraHandler.swift */,
-				843CD8DC20A556AD00900158 /* CreateMenu */,
+				8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */,
+				8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */,
 			);
-			name = Params;
+			path = Reward;
 			sourceTree = "<group>";
 		};
-		843CD8DC20A556AD00900158 /* CreateMenu */ = {
+		8433D0E520A5F0FF0078AEA4 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				843CD8DD20A5587F00900158 /* ConfettiReward.swift */,
-				843CD8E320A58D5B00900158 /* RewardSettingsFormViewController.swift */,
-				843CD8E520A5944000900158 /* ShimmyReward.swift */,
-				843CD8E120A5853E00900158 /* EmojisplosionReward.swift */,
-				843CD8DF20A5754900900158 /* RotateReward.swift */,
-				843CD8EB20A59E6D00900158 /* PulseReward.swift */,
-				843CD8ED20A5A1F900900158 /* VibrateReward.swift */,
-				843CD8E920A59C9400900158 /* SheenReward.swift */,
-				843CD8E720A59B8200900158 /* GlowReward.swift */,
-				843CD8EF20A5A5AD00900158 /* PopoverReward.swift */,
+				8433D0E620A5F0FF0078AEA4 /* Settings */,
+				8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */,
+				8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */,
+				8433D0D520A5F09E0078AEA4 /* RewardSample.swift */,
+				8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */,
 			);
-			path = CreateMenu;
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		8433D0E620A5F0FF0078AEA4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */,
+				8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */,
+				8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */,
+				8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */,
+				8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */,
+				8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */,
+				8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */,
+				8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */,
+				8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */,
+				8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		84CBF2792051D31800FE49B9 /* Mocks */ = {
@@ -407,11 +418,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoundlessKit_Example/Pods-BoundlessKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoundlessKit/BoundlessKit.framework",
+				"${BUILT_PRODUCTS_DIR}/EFColorPicker/EFColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftForms/SwiftForms.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoundlessKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftForms.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,25 +475,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* SampleViewController.swift in Sources */,
-				843CD8EE20A5A1F900900158 /* VibrateReward.swift in Sources */,
-				84B5C5D7205B6BF800DAFB05 /* RewardsViewController.swift in Sources */,
-				843CD8E220A5853E00900158 /* EmojisplosionReward.swift in Sources */,
-				8421CFAA20A50A43001203C2 /* RewardSample.swift in Sources */,
-				843CD8F820A5B51E00900158 /* CameraHandler.swift in Sources */,
-				843CD8EA20A59C9400900158 /* SheenReward.swift in Sources */,
-				843CD8E020A5754900900158 /* RotateReward.swift in Sources */,
-				84B5C5D5205B6BD700DAFB05 /* Reward.swift in Sources */,
-				843CD8E620A5944000900158 /* ShimmyReward.swift in Sources */,
-				843CD8F020A5A5AD00900158 /* PopoverReward.swift in Sources */,
-				843CD8DE20A5587F00900158 /* ConfettiReward.swift in Sources */,
-				843CD8EC20A59E6D00900158 /* PulseReward.swift in Sources */,
-				843CD8F620A5B47E00900158 /* FullscreenSample.swift in Sources */,
+				8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */,
+				8433D0F820A5F0FF0078AEA4 /* PopoverReward.swift in Sources */,
+				8433D0FE20A5F0FF0078AEA4 /* VibrateReward.swift in Sources */,
+				8433D0F720A5F0FF0078AEA4 /* GlowReward.swift in Sources */,
+				84B5C5D7205B6BF800DAFB05 /* AllRewardsViewController.swift in Sources */,
+				8433D0F620A5F0FF0078AEA4 /* EmojisplosionReward.swift in Sources */,
+				8433D0FF20A5F0FF0078AEA4 /* FullscreenSample.swift in Sources */,
+				8433D0F520A5F0FF0078AEA4 /* ConfettiReward.swift in Sources */,
+				8433D10120A5F0FF0078AEA4 /* SampleViewController.swift in Sources */,
+				8433D0FA20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift in Sources */,
+				8433D10020A5F0FF0078AEA4 /* MainMenu.swift in Sources */,
+				8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */,
+				8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */,
+				8433D0E420A5F09E0078AEA4 /* RewardSample.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				843CD8FC20A5B72A00900158 /* MainMenu.swift in Sources */,
-				843CD8F220A5A9BA00900158 /* SavedSamples.swift in Sources */,
-				843CD8E420A58D5B00900158 /* RewardSettingsFormViewController.swift in Sources */,
-				843CD8E820A59B8200900158 /* GlowReward.swift in Sources */,
+				8433D0FB20A5F0FF0078AEA4 /* RotateReward.swift in Sources */,
+				8433D0F920A5F0FF0078AEA4 /* PulseReward.swift in Sources */,
+				8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */,
+				8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */,
+				8433D0FD20A5F0FF0078AEA4 /* ShimmyReward.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -218,6 +218,7 @@ enum RewardParamKey : String {
     EmissionAngle,
     LifetimeRange,
     Lifetime,
+    Color,
     Alpha,
     Light
     
@@ -315,7 +316,7 @@ struct RewardSample {
             case .RewardID:
                 rewardID = value as? String ?? rewardID
                 fallthrough
-            case .primitive, .Content, .ViewOption:
+            case .primitive, .Content, .Color, .ViewOption:
                 update(parameter: key.rawValue, string: value)
                 
             case .Translation, .VibrateCount, .VibrateTranslation:

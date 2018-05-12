@@ -11,7 +11,7 @@ import BoundlessKit
 
 class SampleViewController: UIViewController {
     
-    @IBOutlet weak var aView: UIImageView!
+    @IBOutlet weak var buttonView: UIImageView!
     
     var mainMenu: MainMenu!
     
@@ -21,7 +21,7 @@ class SampleViewController: UIViewController {
         mainMenu.mainMenuDelegate = self
         addChildViewController(mainMenu)
         self.view.addSubview(mainMenu.view)
-        mainMenu.view.frame = CGRect.init(x: 0, y: aView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - aView.frame.maxY)
+        mainMenu.view.frame = CGRect.init(x: 0, y: buttonView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - buttonView.frame.maxY)
         mainMenu.didMove(toParentViewController: self)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
@@ -32,11 +32,11 @@ class SampleViewController: UIViewController {
         panGesture.delegate = self
         scaleGesture.delegate = self
         rotateGesture.delegate = self
-        aView.isUserInteractionEnabled = true
-        aView.addGestureRecognizer(tapGesture)
-        aView.addGestureRecognizer(panGesture)
-        aView.addGestureRecognizer(scaleGesture)
-        aView.addGestureRecognizer(rotateGesture)
+        buttonView.isUserInteractionEnabled = true
+        buttonView.addGestureRecognizer(tapGesture)
+        buttonView.addGestureRecognizer(panGesture)
+        buttonView.addGestureRecognizer(scaleGesture)
+        buttonView.addGestureRecognizer(rotateGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,13 +53,13 @@ extension SampleViewController : MainMenuDelegate {
     func didImport(image: UIImage, isButton: Bool) {
         DispatchQueue.main.async {
             if isButton {
-                let origin = self.aView.frame.origin
-                self.aView.image = image
-                self.aView.frame.origin = origin
+                let origin = self.buttonView.frame.origin
+                self.buttonView.image = image
+                self.buttonView.frame.origin = origin
             } else {
                 let vc = FullscreenSample()
                 vc.backgroundImage = UIImageView(image: image)
-                vc.buttonImage = UIImageView(image: self.aView.image)
+                vc.buttonImage = UIImageView(image: self.buttonView.image)
                 self.navigationController?.pushViewController(vc, animated: false)
             }
         }
@@ -71,21 +71,21 @@ extension SampleViewController : UIGestureRecognizerDelegate {
         return true
     }
     @objc func tap(_ gesture: UITapGestureRecognizer) {
-        RewardSample.current.sample(target: self, sender: aView)
+        RewardSample.current.sample(target: self, sender: buttonView)
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
             let trans = gesture.translation(in: view)
             gesture.setTranslation(.zero, in: view)
-            aView.center = aView.center.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+            buttonView.center = buttonView.center.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
         }
     }
     @objc func scale(_ gesture: UIPinchGestureRecognizer) {
         switch gesture.state {
         case .began:
-            identity = aView.transform
+            identity = buttonView.transform
         case .changed:
-            aView.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
+            buttonView.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
         case .cancelled:
             break
         default:
@@ -93,6 +93,7 @@ extension SampleViewController : UIGestureRecognizerDelegate {
         }
     }
     @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
-        aView.transform = aView.transform.rotated(by: gesture.rotation)
+        buttonView.transform = buttonView.transform.rotated(by: gesture.rotation)
     }
 }
+
