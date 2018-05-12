@@ -1,5 +1,5 @@
 //
-//  PopoverReward.swift
+//  GlowForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -9,29 +9,28 @@
 import Foundation
 import UIKit
 import SwiftForms
+import EFColorPicker
 
-class PopoverReward : RewardForm {
+class GlowForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        rewardSettings = RewardSample.defaultSample(for: "PopoverSample")!
+        rewardSettings = RewardSample.defaultSample(for: "GlowSample")!
         self.form = generateForm()
     }
     
     override func generateForm() -> FormDescriptor {
         
-        let form = FormDescriptor(title: "Popover Settings")
+        let form = FormDescriptor(title: "Glow Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        generalSection.rows.append(RewardParamKey.Content.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Light.formRow(rewardSettings.settings))
-        
+        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Color.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form
     }
 }
-

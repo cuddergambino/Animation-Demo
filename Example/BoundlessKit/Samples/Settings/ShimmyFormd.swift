@@ -1,5 +1,5 @@
 //
-//  ShimmyReward.swift
+//  ShimmyFormd.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftForms
 
-class ShimmyReward : RewardForm {
+class ShimmyFormd : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -69,10 +69,28 @@ enum RewardPrimitive : String {
                     
                 case "Confetti":
                     guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString1 = settings["Color1"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let alpha1 = settings["Alpha1"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString2 = settings["Color2"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let alpha2 = settings["Alpha2"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString3 = settings["Color3"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let alpha3 = settings["Alpha3"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let amount = settings["Amount"] as? Int else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let size = settings["Size"] as? Int else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showConfetti(duration: duration, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        let color1 = UIColor.from(rgb: colorString1)?.withAlphaComponent(alpha1) ?? .white
+                        let color2 = UIColor.from(rgb: colorString2)?.withAlphaComponent(alpha2)
+                        let color3 = UIColor.from(rgb: colorString3)?.withAlphaComponent(alpha3)
+                        let colors:[UIColor] = [color1, color2 ?? color1, color3 ?? color2 ?? color1, color2 ?? color1]
+                        let possibleShapes: [ConfettiShape] = [.rectangle, .rectangle, .circle, .spiral]
+                        var shapes = [ConfettiShape]()
+                        for _ in 0...min(amount, 12) {
+                            shapes.append(possibleShapes.randomElement ?? .rectangle)
+                        }
+                        let size = CGSize(width: CGFloat(size) * 3.0 / 2.0, height: CGFloat(size))
+                        view.showConfetti(duration: duration, size: size, shapes: shapes, colors: colors, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     
@@ -112,13 +130,12 @@ enum RewardPrimitive : String {
                     
                 case "Glow":
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let colorString = settings["Color"] as? String  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString = settings["Color"] as? String, let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let alpha = settings["Alpha"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let radius = settings["Radius"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    let color = UIColor.from(rgb: colorString)
                     for (view, _) in viewAndLocation {
                         view.showGlow(count: count, duration: duration, color: color, alpha: alpha, radius: radius, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
@@ -126,10 +143,12 @@ enum RewardPrimitive : String {
                     
                 case "Sheen":
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString = settings["Color"] as? String, let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let alpha = settings["Alpha"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showSheen(duration: duration, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        view.showSheen(duration: duration, color: color.withAlphaComponent(alpha), hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     

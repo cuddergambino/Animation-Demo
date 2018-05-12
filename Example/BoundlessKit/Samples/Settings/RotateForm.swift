@@ -1,5 +1,5 @@
 //
-//  ConfettiReward.swift
+//  RotateForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/10/18.
@@ -9,22 +9,24 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
-class ConfettiReward : RewardForm {
+class RotateForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
+        
+        rewardSettings = RewardSample.defaultSample(for: "RotateSample")!
         self.form = generateForm()
     }
     
     override func generateForm() -> FormDescriptor {
-        let form = FormDescriptor(title: "Confetti Settings")
         
+        let form = FormDescriptor(title: "Rotate Settings")
+
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

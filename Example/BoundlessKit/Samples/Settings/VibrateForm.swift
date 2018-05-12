@@ -1,5 +1,5 @@
 //
-//  VibrateReward.swift
+//  VibrateForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftForms
 
-class VibrateReward : RewardForm {
+class VibrateForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

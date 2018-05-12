@@ -1,5 +1,5 @@
 //
-//  SheenReward.swift
+//  SheenForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftForms
 
-class SheenReward : RewardForm {
+class SheenForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,6 +26,7 @@ class SheenReward : RewardForm {
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Color.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

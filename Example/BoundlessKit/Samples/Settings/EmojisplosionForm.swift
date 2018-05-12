@@ -1,5 +1,5 @@
 //
-//  EmojisplosionReward.swift
+//  EmojisplosionForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -11,7 +11,7 @@ import UIKit
 import SwiftForms
 
 
-class EmojisplosionReward : RewardForm {
+class EmojisplosionForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

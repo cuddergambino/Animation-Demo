@@ -18,6 +18,10 @@ class MainMenu : UITableViewController {
     var mainMenuDelegate: MainMenuDelegate?
     var uploadingButtonImage = true
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.setContentOffset(.zero, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             switch indexPath.row {
@@ -37,6 +41,7 @@ class MainMenu : UITableViewController {
                 break
             }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

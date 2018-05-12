@@ -9,6 +9,78 @@
 import Foundation
 import SwiftForms
 
+enum RewardParamKey : String {
+    case
+    RewardID,
+    primitive,
+    Duration,
+    Delay,
+    Count,
+    Scale,
+    Translation,
+    Quantity,
+    Velocity,
+    Damping,
+    AccelX,
+    AccelY,
+    ViewOption,
+    ViewMarginX,
+    ViewMarginY,
+    HapticFeedback,
+    SystemSound,
+    Content,
+    VibrateDuration,
+    VibrateCount,
+    VibrateTranslation,
+    VibrateSpeed,
+    ScaleSpeed,
+    ScaleRange,
+    ScaleDuration,
+    ScaleCount,
+    ScaleVelocity,
+    ScaleDamping,
+    Bursts,
+    FadeOut,
+    Spin,
+    EmissionRange,
+    EmissionAngle,
+    LifetimeRange,
+    Lifetime,
+    Color,
+    Alpha,
+    Color1,
+    Alpha1,
+    Color2,
+    Alpha2,
+    Color3,
+    Alpha3,
+    Light
+    
+    var title: String {
+        switch self {
+        case .RewardID: return "Reward Name"
+        case .ViewOption: return "Animate View"
+        case .HapticFeedback: return "Vibrate"
+        case .SystemSound: return "Sound Option (1000-1036)"
+        case .Quantity: return "Count"
+        case .ViewMarginX: return "Margin X (0.5 = 50%, 5 = 5pts)"
+        case .ViewMarginY: return "Margin Y (0.5 = 50%, 5 = 5pts)"
+        case .VibrateDuration: return "Duration"
+        case .VibrateCount: return "Count"
+        case .VibrateTranslation: return "Translation"
+        case .VibrateSpeed: return "Speed"
+        case .ScaleDuration: return "Duration"
+        case .ScaleCount: return "Count"
+        case .ScaleVelocity: return "Velocity"
+        case .ScaleDamping: return "Damping"
+        case .EmissionAngle: return "Shooting Angle°"
+        case .EmissionRange: return "Shooting Range°"
+        case .Spin: return "Spin°"
+        default: return self.rawValue
+        }
+    }
+}
+
 // should subclass this
 class RewardForm : FormViewController {
     
@@ -90,7 +162,7 @@ extension RewardParamKey {
         let value = dict[rawValue] as AnyObject
         switch self {
             
-        case .Color:
+        case .Color, .Color1, .Color2, .Color3:
             let row = FormRowDescriptor(tag: rawValue, type: .unknown, title: title)
             row.configuration.cell.cellClass = FormColorPickerCell.self
             row.configuration.cell.appearance = ["valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
@@ -119,10 +191,19 @@ extension RewardParamKey {
              .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
              .Scale, .ScaleSpeed, .ScaleRange, .ScaleDuration, .ScaleCount, .ScaleVelocity, .ScaleDamping,
              .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime,
-             .ViewMarginX, .ViewMarginY,
-             .Alpha:
+             .ViewMarginX, .ViewMarginY:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            return row
+            
+        case .Alpha, .Alpha1, .Alpha2, .Alpha3:
+            let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
+            row.configuration.cell.cellClass = FormLabeledSliderCell.self
+            row.configuration.stepper.maximumValue = 1
+            row.configuration.stepper.minimumValue = 0
+            row.configuration.stepper.steps = 0.05
+            row.value = value
+            row.configuration.cell.appearance = ["sliderView.tintColor": UIColor.blue]
             return row
             
         case .Count, .Quantity, .Bursts:

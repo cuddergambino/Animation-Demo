@@ -19,21 +19,23 @@
 		8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0C420A5F09E0078AEA4 /* Helper.swift */; };
 		8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */; };
 		8433D0E420A5F09E0078AEA4 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D520A5F09E0078AEA4 /* RewardSample.swift */; };
-		8433D0F520A5F0FF0078AEA4 /* ConfettiReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */; };
-		8433D0F620A5F0FF0078AEA4 /* EmojisplosionReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */; };
-		8433D0F720A5F0FF0078AEA4 /* GlowReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */; };
-		8433D0F820A5F0FF0078AEA4 /* PopoverReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */; };
-		8433D0F920A5F0FF0078AEA4 /* PulseReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */; };
+		8433D0F620A5F0FF0078AEA4 /* EmojisplosionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */; };
+		8433D0F720A5F0FF0078AEA4 /* GlowForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */; };
+		8433D0F820A5F0FF0078AEA4 /* PopoverForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EA20A5F0FF0078AEA4 /* PopoverForm.swift */; };
+		8433D0F920A5F0FF0078AEA4 /* PulseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EB20A5F0FF0078AEA4 /* PulseForm.swift */; };
 		8433D0FA20A5F0FF0078AEA4 /* RewardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */; };
-		8433D0FB20A5F0FF0078AEA4 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */; };
-		8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */; };
-		8433D0FD20A5F0FF0078AEA4 /* ShimmyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */; };
-		8433D0FE20A5F0FF0078AEA4 /* VibrateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */; };
+		8433D0FB20A5F0FF0078AEA4 /* RotateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0ED20A5F0FF0078AEA4 /* RotateForm.swift */; };
+		8433D0FC20A5F0FF0078AEA4 /* SheenForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EE20A5F0FF0078AEA4 /* SheenForm.swift */; };
+		8433D0FD20A5F0FF0078AEA4 /* ShimmyFormd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EF20A5F0FF0078AEA4 /* ShimmyFormd.swift */; };
+		8433D0FE20A5F0FF0078AEA4 /* VibrateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F020A5F0FF0078AEA4 /* VibrateForm.swift */; };
 		8433D0FF20A5F0FF0078AEA4 /* FullscreenSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */; };
 		8433D10020A5F0FF0078AEA4 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */; };
 		8433D10120A5F0FF0078AEA4 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */; };
 		8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */; };
 		8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */; };
+		843452D820A6C6C20094E91E /* FormLabeledSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */; };
+		843452DA20A6CB2A0094E91E /* SampleForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D920A6CB2A0094E91E /* SampleForms.swift */; };
+		843452DC20A6CBE30094E91E /* ConfettiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452DB20A6CBE30094E91E /* ConfettiForm.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
 		847A3CB2205844ED00F16211 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF2A42055034000FE49B9 /* MockHTTPClient.swift */; };
@@ -83,21 +85,23 @@
 		8433D0C420A5F09E0078AEA4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPrimitive.swift; sourceTree = "<group>"; };
 		8433D0D520A5F09E0078AEA4 /* RewardSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
-		8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiReward.swift; sourceTree = "<group>"; };
-		8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojisplosionReward.swift; sourceTree = "<group>"; };
-		8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowReward.swift; sourceTree = "<group>"; };
-		8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverReward.swift; sourceTree = "<group>"; };
-		8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseReward.swift; sourceTree = "<group>"; };
+		8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojisplosionForm.swift; sourceTree = "<group>"; };
+		8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowForm.swift; sourceTree = "<group>"; };
+		8433D0EA20A5F0FF0078AEA4 /* PopoverForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverForm.swift; sourceTree = "<group>"; };
+		8433D0EB20A5F0FF0078AEA4 /* PulseForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseForm.swift; sourceTree = "<group>"; };
 		8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardForm.swift; sourceTree = "<group>"; };
-		8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
-		8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheenReward.swift; sourceTree = "<group>"; };
-		8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyReward.swift; sourceTree = "<group>"; };
-		8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrateReward.swift; sourceTree = "<group>"; };
+		8433D0ED20A5F0FF0078AEA4 /* RotateForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateForm.swift; sourceTree = "<group>"; };
+		8433D0EE20A5F0FF0078AEA4 /* SheenForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheenForm.swift; sourceTree = "<group>"; };
+		8433D0EF20A5F0FF0078AEA4 /* ShimmyFormd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyFormd.swift; sourceTree = "<group>"; };
+		8433D0F020A5F0FF0078AEA4 /* VibrateForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrateForm.swift; sourceTree = "<group>"; };
 		8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenSample.swift; sourceTree = "<group>"; };
 		8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
 		8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormColorPickerCell.swift; sourceTree = "<group>"; };
+		843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLabeledSliderCell.swift; sourceTree = "<group>"; };
+		843452D920A6CB2A0094E91E /* SampleForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleForms.swift; sourceTree = "<group>"; };
+		843452DB20A6CBE30094E91E /* ConfettiForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiForm.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
 		84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRewardsViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				843452D620A6C6A80094E91E /* CustomCells */,
 				8433D0C420A5F09E0078AEA4 /* Helper.swift */,
 				8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */,
 				84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */,
@@ -243,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */,
-				8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */,
 			);
 			path = Reward;
 			sourceTree = "<group>";
@@ -251,6 +255,7 @@
 		8433D0E520A5F0FF0078AEA4 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				843452D920A6CB2A0094E91E /* SampleForms.swift */,
 				8433D0E620A5F0FF0078AEA4 /* Settings */,
 				8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */,
 				8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */,
@@ -263,18 +268,27 @@
 		8433D0E620A5F0FF0078AEA4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8433D0E720A5F0FF0078AEA4 /* ConfettiReward.swift */,
-				8433D0E820A5F0FF0078AEA4 /* EmojisplosionReward.swift */,
-				8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */,
-				8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */,
-				8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */,
+				8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */,
+				843452DB20A6CBE30094E91E /* ConfettiForm.swift */,
+				8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */,
+				8433D0EA20A5F0FF0078AEA4 /* PopoverForm.swift */,
+				8433D0EB20A5F0FF0078AEA4 /* PulseForm.swift */,
 				8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */,
-				8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */,
-				8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */,
-				8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */,
-				8433D0F020A5F0FF0078AEA4 /* VibrateReward.swift */,
+				8433D0ED20A5F0FF0078AEA4 /* RotateForm.swift */,
+				8433D0EE20A5F0FF0078AEA4 /* SheenForm.swift */,
+				8433D0EF20A5F0FF0078AEA4 /* ShimmyFormd.swift */,
+				8433D0F020A5F0FF0078AEA4 /* VibrateForm.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		843452D620A6C6A80094E91E /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */,
+				843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		84CBF2792051D31800FE49B9 /* Mocks */ = {
@@ -475,26 +489,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843452D820A6C6C20094E91E /* FormLabeledSliderCell.swift in Sources */,
 				8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */,
-				8433D0F820A5F0FF0078AEA4 /* PopoverReward.swift in Sources */,
-				8433D0FE20A5F0FF0078AEA4 /* VibrateReward.swift in Sources */,
-				8433D0F720A5F0FF0078AEA4 /* GlowReward.swift in Sources */,
+				8433D0F820A5F0FF0078AEA4 /* PopoverForm.swift in Sources */,
+				8433D0FE20A5F0FF0078AEA4 /* VibrateForm.swift in Sources */,
+				843452DA20A6CB2A0094E91E /* SampleForms.swift in Sources */,
+				8433D0F720A5F0FF0078AEA4 /* GlowForm.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* AllRewardsViewController.swift in Sources */,
-				8433D0F620A5F0FF0078AEA4 /* EmojisplosionReward.swift in Sources */,
+				8433D0F620A5F0FF0078AEA4 /* EmojisplosionForm.swift in Sources */,
 				8433D0FF20A5F0FF0078AEA4 /* FullscreenSample.swift in Sources */,
-				8433D0F520A5F0FF0078AEA4 /* ConfettiReward.swift in Sources */,
 				8433D10120A5F0FF0078AEA4 /* SampleViewController.swift in Sources */,
+				843452DC20A6CBE30094E91E /* ConfettiForm.swift in Sources */,
 				8433D0FA20A5F0FF0078AEA4 /* RewardForm.swift in Sources */,
 				8433D10020A5F0FF0078AEA4 /* MainMenu.swift in Sources */,
 				8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */,
-				8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */,
+				8433D0FC20A5F0FF0078AEA4 /* SheenForm.swift in Sources */,
 				8433D0E420A5F09E0078AEA4 /* RewardSample.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				8433D0FB20A5F0FF0078AEA4 /* RotateReward.swift in Sources */,
-				8433D0F920A5F0FF0078AEA4 /* PulseReward.swift in Sources */,
+				8433D0FB20A5F0FF0078AEA4 /* RotateForm.swift in Sources */,
+				8433D0F920A5F0FF0078AEA4 /* PulseForm.swift in Sources */,
 				8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */,
 				8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */,
-				8433D0FD20A5F0FF0078AEA4 /* ShimmyReward.swift in Sources */,
+				8433D0FD20A5F0FF0078AEA4 /* ShimmyFormd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
