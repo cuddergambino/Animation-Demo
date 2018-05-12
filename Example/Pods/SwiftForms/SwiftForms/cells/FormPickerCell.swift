@@ -44,7 +44,7 @@ open class FormPickerCell: FormValueCell, UIPickerViewDelegate, UIPickerViewData
             if let options = rowDescriptor?.configuration.selection.options , !options.isEmpty {
                 var selectedIndex: Int?
                 for (index, value) in options.enumerated() {
-                    if value === selectedValue {
+                    if value === selectedValue || (value is String && (value as? String) == (selectedValue as? String)) {
                         selectedIndex = index
                         break
                     }
@@ -89,10 +89,7 @@ open class FormPickerCell: FormValueCell, UIPickerViewDelegate, UIPickerViewData
         guard row < options.count else { return }
         let newValue = options[row]
         rowDescriptor?.value = newValue
-        if let selectedOption = rowDescriptor?.configuration.selection.optionTitleClosure?(newValue) {
-            valueLabel.text = selectedOption
-            rowDescriptor?.configuration.selection.didSelectClosure?(selectedOption)
-        }
+        valueLabel.text = rowDescriptor?.configuration.selection.optionTitleClosure?(newValue)
     }
     
     // MARK: UIPickerViewDataSource

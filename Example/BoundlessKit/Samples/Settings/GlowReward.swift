@@ -9,23 +9,14 @@
 import Foundation
 import UIKit
 import SwiftForms
-import BoundlessKit
 import EFColorPicker
 
-class GlowReward : RewardSettingsFormViewController {
-    
-    var selectedColor = UIColor.green
+class GlowReward : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         rewardSettings = RewardSample.defaultSample(for: "GlowSample")!
         self.form = generateForm()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.form = generateForm()
-        super.viewWillAppear(animated)
     }
     
     override func generateForm() -> FormDescriptor {
@@ -41,18 +32,5 @@ class GlowReward : RewardSettingsFormViewController {
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
-    }
-}
-
-extension GlowReward : EFColorSelectionViewControllerDelegate {
-    func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-        self.selectedColor = color
-        print("COlor hex:\(color.hexString)")
-        self.rewardSettings.settings[RewardParamKey.Color.rawValue] = color.hexString
     }
 }

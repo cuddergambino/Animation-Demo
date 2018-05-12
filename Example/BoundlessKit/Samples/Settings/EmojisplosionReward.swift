@@ -9,10 +9,9 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
 
-class EmojisplosionReward : RewardSettingsFormViewController {
+class EmojisplosionReward : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

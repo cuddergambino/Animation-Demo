@@ -24,7 +24,7 @@
 		8433D0F720A5F0FF0078AEA4 /* GlowReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */; };
 		8433D0F820A5F0FF0078AEA4 /* PopoverReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */; };
 		8433D0F920A5F0FF0078AEA4 /* PulseReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */; };
-		8433D0FA20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */; };
+		8433D0FA20A5F0FF0078AEA4 /* RewardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */; };
 		8433D0FB20A5F0FF0078AEA4 /* RotateReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */; };
 		8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */; };
 		8433D0FD20A5F0FF0078AEA4 /* ShimmyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */; };
@@ -88,7 +88,7 @@
 		8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowReward.swift; sourceTree = "<group>"; };
 		8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverReward.swift; sourceTree = "<group>"; };
 		8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseReward.swift; sourceTree = "<group>"; };
-		8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSettingsFormViewController.swift; sourceTree = "<group>"; };
+		8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardForm.swift; sourceTree = "<group>"; };
 		8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateReward.swift; sourceTree = "<group>"; };
 		8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheenReward.swift; sourceTree = "<group>"; };
 		8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyReward.swift; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 				8433D0E920A5F0FF0078AEA4 /* GlowReward.swift */,
 				8433D0EA20A5F0FF0078AEA4 /* PopoverReward.swift */,
 				8433D0EB20A5F0FF0078AEA4 /* PulseReward.swift */,
-				8433D0EC20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift */,
+				8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */,
 				8433D0ED20A5F0FF0078AEA4 /* RotateReward.swift */,
 				8433D0EE20A5F0FF0078AEA4 /* SheenReward.swift */,
 				8433D0EF20A5F0FF0078AEA4 /* ShimmyReward.swift */,
@@ -484,7 +484,7 @@
 				8433D0FF20A5F0FF0078AEA4 /* FullscreenSample.swift in Sources */,
 				8433D0F520A5F0FF0078AEA4 /* ConfettiReward.swift in Sources */,
 				8433D10120A5F0FF0078AEA4 /* SampleViewController.swift in Sources */,
-				8433D0FA20A5F0FF0078AEA4 /* RewardSettingsFormViewController.swift in Sources */,
+				8433D0FA20A5F0FF0078AEA4 /* RewardForm.swift in Sources */,
 				8433D10020A5F0FF0078AEA4 /* MainMenu.swift in Sources */,
 				8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */,
 				8433D0FC20A5F0FF0078AEA4 /* SheenReward.swift in Sources */,

@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
-class VibrateReward : RewardSettingsFormViewController {
+class VibrateReward : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -42,10 +41,5 @@ class VibrateReward : RewardSettingsFormViewController {
         
         form.sections = [saveSection, generalSection, shakeSection, scaleSection, basicViewSection, soundSection]
         return form
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
 }

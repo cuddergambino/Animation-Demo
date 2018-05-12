@@ -32,7 +32,6 @@ public final class FormRowDescriptor {
         case booleanCheck
         case segmentedControl
         case picker
-        case color
         case date
         case time
         case dateAndTime
@@ -69,7 +68,6 @@ public final class FormRowDescriptor {
         public var options:                 [AnyObject]
         public var optionTitleClosure:      ((AnyObject) -> String)?
         public var allowsMultipleSelection: Bool
-        public var didSelectClosure: ((String) -> Void)?
         
         public init() {
             controllerClass = nil

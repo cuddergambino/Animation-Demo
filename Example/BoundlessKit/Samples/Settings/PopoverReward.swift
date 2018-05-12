@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
-class PopoverReward : RewardSettingsFormViewController {
+class PopoverReward : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,11 +32,6 @@ class PopoverReward : RewardSettingsFormViewController {
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
 }
 

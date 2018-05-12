@@ -91,7 +91,7 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"GlowSample\","
                 + "\"primitive\": \"Glow\","
-                + "\"Color\": \"444444\","
+                + "\"Color\": \"FF1AFB\","
                 + "\"Duration\": 3,"
                 + "\"Alpha\": 0.7,"
                 + "\"Count\": 2,"
@@ -337,7 +337,7 @@ enum RewardParamViewOption: String {
     case sender, fixed
     static let cases: [RewardParamViewOption] = [.sender, .fixed]
     
-    var tag: String {
+    var title: String {
         switch self {
         case .sender:
             return "Item"

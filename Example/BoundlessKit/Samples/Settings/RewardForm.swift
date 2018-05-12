@@ -1,5 +1,5 @@
 //
-//  RewardSettingsFormViewController.swift
+//  RewardForm.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/11/18.
@@ -7,27 +7,12 @@
 //
 
 import Foundation
-@testable import BoundlessKit
 import SwiftForms
-import EFColorPicker
 
-extension AllRewardsViewController : EFColorSelectionViewControllerDelegate {
-    func colorViewController(colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-        self.view.backgroundColor = color
-        
-        // TODO: You can do something here when color changed.
-        print("New color: " + color.debugDescription)
-    }
-}
-
-// not instantiated
-class RewardSettingsFormViewController : FormViewController {
+// should subclass this
+class RewardForm : FormViewController {
     
-    var rewardSettings: RewardSample! {
-        didSet {
-            self.form = generateForm()
-        }
-    }
+    var rewardSettings: RewardSample!
     var selectedRow: UITableViewCell?
     
     required public init(coder aDecoder: NSCoder) {
@@ -68,7 +53,8 @@ class RewardSettingsFormViewController : FormViewController {
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
                     self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.sample(target: UIWindow.topWindow!, sender: self.selectedRow)
+//                    self.form = self.generateForm()
+                    self.rewardSettings.sample(target: self.view, sender: self.selectedRow)
                 }
             }
             return row
@@ -105,9 +91,10 @@ extension RewardParamKey {
         switch self {
             
         case .Color:
-            let row = FormRowDescriptor(tag: rawValue, type: .color, title: title)
+            let row = FormRowDescriptor(tag: rawValue, type: .unknown, title: title)
             row.configuration.cell.cellClass = FormColorPickerCell.self
             row.configuration.cell.appearance = ["valueLabel.text" : value, "valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
             return row
             
         case .RewardID:
@@ -145,12 +132,12 @@ extension RewardParamKey {
             let row = FormRowDescriptor(tag: rawValue, type: .picker, title: title)
             row.configuration.cell.showsInputToolbar = true
             row.configuration.selection.options = RewardParamViewOption.cases.map({$0.rawValue as AnyObject})
-            row.configuration.selection.optionTitleClosure = { tag in
-                guard let tag = tag as? String,
-                    let viewOption = RewardParamViewOption(rawValue: tag) else {
-                        return "unknown"
+            row.configuration.selection.optionTitleClosure = { value in
+                guard let option = value as? String,
+                    let viewOption = RewardParamViewOption(rawValue: option) else {
+                        return ""
                 }
-                return viewOption.tag
+                return viewOption.title
             }
             row.value = value
             return row

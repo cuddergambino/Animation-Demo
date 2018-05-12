@@ -22,7 +22,7 @@ class MainMenu : UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardSettingsFormViewController
+                let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardForm
                 reward.rewardSettings = RewardSample.current
                 self.navigationController?.pushViewController(reward, animated: true)
                 
