@@ -93,13 +93,14 @@ extension RewardParamKey {
         case .Color:
             let row = FormRowDescriptor(tag: rawValue, type: .unknown, title: title)
             row.configuration.cell.cellClass = FormColorPickerCell.self
-            row.configuration.cell.appearance = ["valueLabel.text" : value, "valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
             
         case .RewardID:
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
             return row
             
         case .primitive:
@@ -110,6 +111,7 @@ extension RewardParamKey {
         case .Content:
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
             return row
             
         case .Duration, .Delay, .FadeOut,
