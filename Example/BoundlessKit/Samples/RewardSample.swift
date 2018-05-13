@@ -12,10 +12,21 @@ import SwiftForms
 
 struct RewardSample {
     static var samples: [String: RewardSample] = {
-        let sampleIDs = UserDefaults.standard.object(forKey: "sampleIDs") as? [String] ?? [] //RewardPrimitive.cases.map({$0.rawValue + "Sample"})
         var samples: [String: RewardSample] = [:]
-        for rewardID in sampleIDs {
-            samples[rewardID] = load(rewardID: rewardID)
+        if let sampleIDs = UserDefaults.standard.object(forKey: "sampleIDs") as? [String] {
+            for rewardID in sampleIDs {
+                samples[rewardID] = load(rewardID: rewardID)
+            }
+        } else {
+            for i in 0 ... RewardSample.presets.count-1 {
+                var preset = RewardSample.presets[i]
+                samples[preset.rewardID] = preset
+            }
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                for i in 0 ... RewardSample.presets.count-1 {
+                    RewardSample.presets[i].save()
+                }
+            }
         }
         return samples
     }()
@@ -130,7 +141,7 @@ enum RewardParamViewOption: String {
     var title: String {
         switch self {
         case .sender:
-            return "Item"
+            return "Button"
             
         case .fixed:
             return "Screen"

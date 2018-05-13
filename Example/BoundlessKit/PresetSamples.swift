@@ -1,5 +1,5 @@
 //
-//  DefaultRewardForms.swift
+//  PresetSamples.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/12/18.
@@ -14,11 +14,44 @@ extension RewardSample {
     static var presets: [RewardSample] = {
         return [
             RewardSample(str: "{"
-                + "\"RewardID\": \"PopoverSample\","
-                + "\"primitive\": \"Popover\","
-                + "\"Content\": \"🤖\","
-                + "\"Duration\": 3,"
-                + "\"Dark\": false,"
+                + "\"RewardID\": \"Hello There\","
+                + "\"primitive\": \"Emojisplosion\","
+                + "\"SystemSound\": 1010,"
+                + "\"HapticFeedback\": true,"
+                + "\"Delay\": 0,"
+                + "\"ViewCustom\": \"\","
+                + "\"ViewMarginY\": 0.5,"
+                + "\"ViewMarginX\": 0.5,"
+                + "\"ViewOption\": \"sender\","
+                + "\"AccelY\": -150,"
+                + "\"AccelX\": 0,"
+                + "\"ScaleSpeed\": 0.2,"
+                + "\"ScaleRange\": 0.2,"
+                + "\"Scale\": 0.6,"
+                + "\"Bursts\": 1,"
+                + "\"FadeOut\": -0.2,"
+                + "\"Spin\": 0,"
+                + "\"EmissionRange\": 45,"
+                + "\"EmissionAngle\": -90,"
+                + "\"LifetimeRange\": 0.5,"
+                + "\"Lifetime\": 2,"
+                + "\"Quantity\": 2,"
+                + "\"Velocity\": -50,"
+                + "\"Content\": \"🖐\""
+                + "}"),
+            
+            RewardSample(str: "{"
+                + "\"RewardID\": \"Confetti Surprise\","
+                + "\"primitive\": \"Confetti\","
+                + "\"Duration\": 2,"
+                + "\"Color1\": \"#FB3247\","
+                + "\"Alpha1\": 0.8,"
+                + "\"Color2\": \"#F5FB61\","
+                + "\"Alpha2\": 0.8,"
+                + "\"Color3\": \"#9243F9\","
+                + "\"Alpha3\": 0.8,"
+                + "\"Amount\": 4,"
+                + "\"Size\": 9,"
                 + "\"ViewOption\": \"fixed\","
                 + "\"ViewMarginX\": 0,"
                 + "\"ViewMarginY\": 0,"
@@ -26,7 +59,21 @@ extension RewardSample {
                 + "\"Delay\": 0,"
                 + "\"HapticFeedback\": false,"
                 + "\"SystemSound\": 0"
-                + "}")
+                + "}"),
+            
+            RewardSample(str: "{"
+                + "\"RewardID\": \"Rotate Preset\","
+                + "\"primitive\": \"Rotate\","
+                + "\"Duration\": 1,"
+                + "\"ViewOption\": \"sender\","
+                + "\"ViewMarginX\": 0,"
+                + "\"ViewMarginY\": 0,"
+                + "\"ViewCustom\": \"\","
+                + "\"Count\": 2,"
+                + "\"Delay\": 0,"
+                + "\"HapticFeedback\": false,"
+                + "\"SystemSound\": 1016"
+                + "}"),
         ]
     }()
     

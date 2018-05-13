@@ -80,10 +80,10 @@ enum RewardPrimitive : String {
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        let color1 = UIColor.from(rgb: colorString1)?.withAlphaComponent(alpha1) ?? .white
+                        let color1 = UIColor.from(rgb: colorString1)?.withAlphaComponent(alpha1) ?? .red
                         let color2 = UIColor.from(rgb: colorString2)?.withAlphaComponent(alpha2)
                         let color3 = UIColor.from(rgb: colorString3)?.withAlphaComponent(alpha3)
-                        let colors:[UIColor] = [color1, color2 ?? color1, color3 ?? color2 ?? color1, color2 ?? color1]
+                        let colors:[UIColor] = [color1, color2 ?? color1, color3 ?? color2 ?? color1, color2 ?? color1, color1]
                         let possibleShapes: [ConfettiShape] = [.rectangle, .rectangle, .circle, .spiral]
                         var shapes = [ConfettiShape]()
                         for _ in 0...min(amount, 12) {

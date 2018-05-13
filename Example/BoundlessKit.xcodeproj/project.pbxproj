@@ -34,7 +34,7 @@
 		8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */; };
 		8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */; };
 		843452D820A6C6C20094E91E /* FormLabeledSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */; };
-		843452DA20A6CB2A0094E91E /* DefaultRewardForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */; };
+		843452DA20A6CB2A0094E91E /* PresetSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D920A6CB2A0094E91E /* PresetSamples.swift */; };
 		843452DC20A6CBE30094E91E /* ConfettiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452DB20A6CBE30094E91E /* ConfettiForm.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
@@ -100,7 +100,7 @@
 		8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
 		8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormColorPickerCell.swift; sourceTree = "<group>"; };
 		843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLabeledSliderCell.swift; sourceTree = "<group>"; };
-		843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRewardForms.swift; sourceTree = "<group>"; };
+		843452D920A6CB2A0094E91E /* PresetSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetSamples.swift; sourceTree = "<group>"; };
 		843452DB20A6CBE30094E91E /* ConfettiForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiForm.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */,
+				843452D920A6CB2A0094E91E /* PresetSamples.swift */,
 				8433D0C420A5F09E0078AEA4 /* Helper.swift */,
 				8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */,
 				84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */,
@@ -493,7 +493,7 @@
 				8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */,
 				8433D0F820A5F0FF0078AEA4 /* PopoverForm.swift in Sources */,
 				8433D0FE20A5F0FF0078AEA4 /* VibrateForm.swift in Sources */,
-				843452DA20A6CB2A0094E91E /* DefaultRewardForms.swift in Sources */,
+				843452DA20A6CB2A0094E91E /* PresetSamples.swift in Sources */,
 				8433D0F720A5F0FF0078AEA4 /* GlowForm.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* AllRewardsViewController.swift in Sources */,
 				8433D0F620A5F0FF0078AEA4 /* EmojisplosionForm.swift in Sources */,
@@ -679,7 +679,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.boundless.kit.animation.studio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -696,7 +696,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.boundless.kit.animation.studio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

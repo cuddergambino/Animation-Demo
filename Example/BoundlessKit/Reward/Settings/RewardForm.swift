@@ -128,20 +128,20 @@ extension RewardForm {
     }
     
     var soundSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: "For all sound options google 'SystemSoundID tuner88'")
         section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
         return section
     }
     
     var basicViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Animation Location", footerTitle: nil)
         section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
         return section
     }
     
     var preciseViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
+        let section = FormSectionDescriptor(headerTitle: "Animation Location", footerTitle: nil)
         section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
         section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
@@ -202,7 +202,7 @@ enum RewardParamKey : String {
         switch self {
         case .RewardID: return "Reward Name"
         case .primitive: return "Type"
-        case .ViewOption: return "Animate View"
+        case .ViewOption: return "Animated View"
         case .HapticFeedback: return "Vibrate"
         case .SystemSound: return "Sound Option (1000-1036)"
         case .Quantity: return "Count"
