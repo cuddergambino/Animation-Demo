@@ -32,20 +32,21 @@ struct RewardSample {
         }
     }
     
+    static let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
     mutating func save() {
         if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == rewardID}).isEmpty {
-//            let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
-            let randomChars = ["a", "b", "c"]
-            let generateName: ([String]) -> String = { randomChars in
-                var name = [String]()
+            let generateName: (String) -> String = { baseName in
+                var name = [baseName]
                 for _ in 1...3 {
-                    name.append(randomChars.randomElement!)
+                    if let char = RewardSample.randomChars.randomElement {
+                        name.append(char)
+                    }
                 }
                 return name.joined()
             }
             var newName: String
             repeat {
-                newName = generateName(randomChars)
+                newName = generateName(rewardPrimitive.rawValue)
             } while(RewardSample.samples[newName] != nil)
             self.settings[RewardParamKey.RewardID.rawValue] = newName
         }

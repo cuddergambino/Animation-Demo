@@ -11,6 +11,11 @@ import SwiftForms
 
 open class FormLabeledSliderCell: FormSliderCell {
     
+    static var alpha: FormLabeledSliderCell?
+    static var alpha1: FormLabeledSliderCell?
+    static var alpha2: FormLabeledSliderCell?
+    static var alpha3: FormLabeledSliderCell?
+    
     @objc public let valueView = UILabel()
     
     // MARK: FormBaseCell
@@ -29,6 +34,17 @@ open class FormLabeledSliderCell: FormSliderCell {
         valueView.text = String(format: "%.2f", sliderView.value)
         if rowDescriptor?.tag.contains("Alpha") ?? false {
             sliderView.tintColor = sliderView.tintColor.withAlphaComponent(CGFloat(sliderView.value))
+            switch rowDescriptor?.tag {
+            case "Alpha"?:
+                FormLabeledSliderCell.alpha = self
+            case "Alpha1"?:
+                FormLabeledSliderCell.alpha1 = self
+            case "Alpha2"?:
+                FormLabeledSliderCell.alpha2 = self
+            case "Alpha3"?:
+                FormLabeledSliderCell.alpha3 = self
+            default: break
+            }
         }
     }
     

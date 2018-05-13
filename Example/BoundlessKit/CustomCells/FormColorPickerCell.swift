@@ -35,13 +35,6 @@ open class FormColorPickerCell: FormValueCell {
             action: #selector(finishedPickingColor(sender:))
         )
         colorPicker.navigationItem.rightBarButtonItem = doneButton
-//        let noneButton: UIBarButtonItem = UIBarButtonItem(
-//            title: NSLocalizedString("None", comment: ""),
-//            style: UIBarButtonItemStyle.done,
-//            target: self,
-//            action: #selector(finishedPickingColor(sender:))
-//        )
-//        colorPicker.navigationItem.leftBarButtonItem = noneButton
     }
     
     open override func update() {
@@ -57,11 +50,12 @@ open class FormColorPickerCell: FormValueCell {
         }
     }
     
+    var tempFormController: FormViewController?
     open override class func formViewController(_ formViewController: FormViewController, didSelectRow selectedRow: FormBaseCell) {
         guard let row = selectedRow as? FormColorPickerCell else { return }
         formViewController.present(row.colorPickerNav, animated: true)
         
-        formViewController.form.sections.first?.rows
+        row.tempFormController = formViewController
     }
 }
 
@@ -71,11 +65,20 @@ extension FormColorPickerCell : UIPopoverPresentationControllerDelegate {
         colorPickerNav.dismiss(animated: true)
         rowDescriptor?.value = color.rgb as AnyObject
         valueLabel.text = color.rgb
-    }
-    @objc func finishedPickingColorNone(sender: AnyObject) {
-        colorPickerNav.dismiss(animated: true)
-        rowDescriptor?.value = "" as AnyObject
-        valueLabel.text = ""
+        
+        if rowDescriptor?.tag.contains("Color") ?? false {
+            switch rowDescriptor?.tag {
+            case "Color"?:
+                FormLabeledSliderCell.alpha?.sliderView.tintColor = color
+            case "Color1"?:
+                FormLabeledSliderCell.alpha1?.sliderView.tintColor = color
+            case "Color2"?:
+                FormLabeledSliderCell.alpha2?.sliderView.tintColor = color
+            case "Color3"?:
+                FormLabeledSliderCell.alpha3?.sliderView.tintColor = color
+            default: break
+            }
+        }
     }
 }
 

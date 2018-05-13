@@ -78,7 +78,7 @@ enum RewardParamKey : String {
         case .ScaleDamping: return "Damping"
         case .EmissionAngle: return "Shooting Angle°"
         case .EmissionRange: return "Shooting Range°"
-        case .Spin: return "Spin°"
+        case .Spin: return "Spin(°/s)"
         case .Amount: return "Amount (0-12)"
         default: return self.rawValue
         }

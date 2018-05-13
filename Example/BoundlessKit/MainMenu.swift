@@ -28,6 +28,7 @@ class MainMenu : UITableViewController {
             case 0:
                 let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardForm
                 reward.rewardSettings = RewardSample.current
+                reward.form = reward.generateForm()
                 self.navigationController?.pushViewController(reward, animated: true)
                 
             case 2:

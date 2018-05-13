@@ -17,7 +17,7 @@
 		842661E5204E05B3001FEA2F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		842661E6204E05BA001FEA2F /* BoundlessTestProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */; };
 		8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0C420A5F09E0078AEA4 /* Helper.swift */; };
-		8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */; };
+		8433D0E320A5F09E0078AEA4 /* RewardCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D420A5F09E0078AEA4 /* RewardCode.swift */; };
 		8433D0E420A5F09E0078AEA4 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0D520A5F09E0078AEA4 /* RewardSample.swift */; };
 		8433D0F620A5F0FF0078AEA4 /* EmojisplosionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */; };
 		8433D0F720A5F0FF0078AEA4 /* GlowForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */; };
@@ -83,7 +83,7 @@
 		842661C4204DFE50001FEA2F /* BoundlessTestProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BoundlessTestProperties.plist; sourceTree = "<group>"; };
 		842661DB204E03E8001FEA2F /* BoundlessKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundlessKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8433D0C420A5F09E0078AEA4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardPrimitive.swift; sourceTree = "<group>"; };
+		8433D0D420A5F09E0078AEA4 /* RewardCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCode.swift; sourceTree = "<group>"; };
 		8433D0D520A5F09E0078AEA4 /* RewardSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
 		8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojisplosionForm.swift; sourceTree = "<group>"; };
 		8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowForm.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		8433D0D320A5F09E0078AEA4 /* Reward */ = {
 			isa = PBXGroup;
 			children = (
-				8433D0D420A5F09E0078AEA4 /* RewardPrimitive.swift */,
+				8433D0D420A5F09E0078AEA4 /* RewardCode.swift */,
 			);
 			path = Reward;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				8433D0FB20A5F0FF0078AEA4 /* RotateForm.swift in Sources */,
 				8433D0F920A5F0FF0078AEA4 /* PulseForm.swift in Sources */,
 				8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */,
-				8433D0E320A5F09E0078AEA4 /* RewardPrimitive.swift in Sources */,
+				8433D0E320A5F09E0078AEA4 /* RewardCode.swift in Sources */,
 				8433D0FD20A5F0FF0078AEA4 /* ShimmyFormd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

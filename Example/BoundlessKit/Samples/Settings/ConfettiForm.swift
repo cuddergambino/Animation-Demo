@@ -15,11 +15,7 @@ class ConfettiForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        if RewardSample.current.rewardPrimitive == .Confetti {
-            rewardSettings = RewardSample.current
-        } else {
-            rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
-        }
+        rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
         self.form = generateForm()
     }
     
