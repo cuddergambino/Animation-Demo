@@ -1,5 +1,5 @@
 //
-//  SampleForms.swift
+//  DefaultRewardForms.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/12/18.
@@ -10,6 +10,26 @@ import Foundation
 
 
 extension RewardSample {
+    
+    static var presets: [RewardSample] = {
+        return [
+            RewardSample(str: "{"
+                + "\"RewardID\": \"PopoverSample\","
+                + "\"primitive\": \"Popover\","
+                + "\"Content\": \"🤖\","
+                + "\"Duration\": 3,"
+                + "\"Dark\": false,"
+                + "\"ViewOption\": \"fixed\","
+                + "\"ViewMarginX\": 0,"
+                + "\"ViewMarginY\": 0,"
+                + "\"ViewCustom\": \"\","
+                + "\"Delay\": 0,"
+                + "\"HapticFeedback\": false,"
+                + "\"SystemSound\": 0"
+                + "}")
+        ]
+    }()
+    
     static func defaultSample(for rewardID: String) -> RewardSample? {
         switch rewardID {
         case "PopoverSample":

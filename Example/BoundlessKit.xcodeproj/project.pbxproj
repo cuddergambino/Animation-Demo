@@ -34,7 +34,7 @@
 		8433D10220A5F0FF0078AEA4 /* SavedSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */; };
 		8433D10A20A602E20078AEA4 /* FormColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */; };
 		843452D820A6C6C20094E91E /* FormLabeledSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */; };
-		843452DA20A6CB2A0094E91E /* SampleForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D920A6CB2A0094E91E /* SampleForms.swift */; };
+		843452DA20A6CB2A0094E91E /* DefaultRewardForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */; };
 		843452DC20A6CBE30094E91E /* ConfettiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843452DB20A6CBE30094E91E /* ConfettiForm.swift */; };
 		84685A4F209AFB5A0086855B /* TestTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A4E209AFB5A0086855B /* TestTrackBatch.swift */; };
 		84685A51209AFB6C0086855B /* MockBKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */; };
@@ -100,7 +100,7 @@
 		8433D0F420A5F0FF0078AEA4 /* SavedSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSamples.swift; sourceTree = "<group>"; };
 		8433D10920A602E20078AEA4 /* FormColorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormColorPickerCell.swift; sourceTree = "<group>"; };
 		843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLabeledSliderCell.swift; sourceTree = "<group>"; };
-		843452D920A6CB2A0094E91E /* SampleForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleForms.swift; sourceTree = "<group>"; };
+		843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRewardForms.swift; sourceTree = "<group>"; };
 		843452DB20A6CBE30094E91E /* ConfettiForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiForm.swift; sourceTree = "<group>"; };
 		84685A4E209AFB5A0086855B /* TestTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTrackBatch.swift; sourceTree = "<group>"; };
 		84685A50209AFB6C0086855B /* MockBKTrackBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKTrackBatch.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				843452D620A6C6A80094E91E /* CustomCells */,
+				843452D920A6CB2A0094E91E /* DefaultRewardForms.swift */,
 				8433D0C420A5F09E0078AEA4 /* Helper.swift */,
 				8433D0F220A5F0FF0078AEA4 /* MainMenu.swift */,
 				84B5C5D6205B6BF800DAFB05 /* AllRewardsViewController.swift */,
@@ -247,6 +247,7 @@
 		8433D0D320A5F09E0078AEA4 /* Reward */ = {
 			isa = PBXGroup;
 			children = (
+				8433D0E620A5F0FF0078AEA4 /* Settings */,
 				8433D0D420A5F09E0078AEA4 /* RewardCode.swift */,
 			);
 			path = Reward;
@@ -255,9 +256,6 @@
 		8433D0E520A5F0FF0078AEA4 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				843452D920A6CB2A0094E91E /* SampleForms.swift */,
-				843452DD20A8017D0094E91E /* FAB */,
-				8433D0E620A5F0FF0078AEA4 /* Settings */,
 				8433D0F120A5F0FF0078AEA4 /* FullscreenSample.swift */,
 				8433D0F320A5F0FF0078AEA4 /* SampleViewController.swift */,
 				8433D0D520A5F09E0078AEA4 /* RewardSample.swift */,
@@ -269,6 +267,7 @@
 		8433D0E620A5F0FF0078AEA4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				843452D620A6C6A80094E91E /* CustomCells */,
 				8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */,
 				8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */,
 				843452DB20A6CBE30094E91E /* ConfettiForm.swift */,
@@ -290,13 +289,6 @@
 				843452D720A6C6C20094E91E /* FormLabeledSliderCell.swift */,
 			);
 			path = CustomCells;
-			sourceTree = "<group>";
-		};
-		843452DD20A8017D0094E91E /* FAB */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FAB;
 			sourceTree = "<group>";
 		};
 		84CBF2792051D31800FE49B9 /* Mocks */ = {
@@ -501,7 +493,7 @@
 				8433D0D620A5F09E0078AEA4 /* Helper.swift in Sources */,
 				8433D0F820A5F0FF0078AEA4 /* PopoverForm.swift in Sources */,
 				8433D0FE20A5F0FF0078AEA4 /* VibrateForm.swift in Sources */,
-				843452DA20A6CB2A0094E91E /* SampleForms.swift in Sources */,
+				843452DA20A6CB2A0094E91E /* DefaultRewardForms.swift in Sources */,
 				8433D0F720A5F0FF0078AEA4 /* GlowForm.swift in Sources */,
 				84B5C5D7205B6BF800DAFB05 /* AllRewardsViewController.swift in Sources */,
 				8433D0F620A5F0FF0078AEA4 /* EmojisplosionForm.swift in Sources */,

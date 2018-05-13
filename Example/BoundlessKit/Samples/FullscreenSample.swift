@@ -46,9 +46,9 @@ extension FullscreenSample : UIGestureRecognizerDelegate {
         return true
     }
     @objc func tap(_ gesture: UITapGestureRecognizer) {
-        if Int(arc4random_uniform(UInt32(2))) > 0 {
+//        if Int(arc4random_uniform(UInt32(2))) > 0 {
             RewardSample.current.sample(target: self, sender: buttonImage)
-        }
+//        }
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
 //        if gesture.state == .began || gesture.state == .changed {
