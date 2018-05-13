@@ -18,7 +18,7 @@ public extension String {
     }
 }
 
-internal extension String {
+public extension String {
     func decode() -> String {
         if let data = self.data(using: .utf8),
             let str = String(data: data, encoding: .nonLossyASCII) {

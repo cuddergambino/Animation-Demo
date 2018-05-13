@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BoundlessKit
 
 class SampleViewController: UIViewController {
     

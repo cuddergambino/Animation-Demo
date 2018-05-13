@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SwiftForms
-@testable import BoundlessKit
 
 class ConfettiForm : RewardForm {
     

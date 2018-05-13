@@ -121,6 +121,7 @@
 		84FB7079209AD89D005DCE40 /* TestBoundlessConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoundlessConfiguration.swift; sourceTree = "<group>"; };
 		84FB707B209AE77C005DCE40 /* MockBKRefreshCartridgeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKRefreshCartridgeContainer.swift; sourceTree = "<group>"; };
 		84FB707E209AEDCD005DCE40 /* MockBKRefreshCartridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBKRefreshCartridge.swift; sourceTree = "<group>"; };
+		84FDC85020A84E5E0039A482 /* BoundlessKit_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoundlessKit_Example.entitlements; sourceTree = "<group>"; };
 		8C5896EE6F40C3937CF30FD8 /* Pods_BoundlessKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoundlessKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		938D580BBCCFD0A22693C187 /* Pods-BoundlessKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoundlessKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoundlessKit_Tests/Pods-BoundlessKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6E23EE403314927A4B43AC3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				84FDC85020A84E5E0039A482 /* BoundlessKit_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for BoundlessKit */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -374,6 +376,14 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = A4K9NYBV99;
 						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					842661DA204E03E8001FEA2F = {
 						CreatedOnToolsVersion = 9.2;

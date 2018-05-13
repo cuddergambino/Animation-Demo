@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import BoundlessKit
+import BoundlessKit
 import SwiftForms
 
 enum RewardPrimitive : String {

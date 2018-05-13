@@ -83,3 +83,124 @@ class CameraHandler: NSObject {
         onVC.present(imagePicker, animated: true, completion: nil)
     }
 }
+
+open class BKLogPreferences {
+    static var printEnabled = true
+    static var debugEnabled = true
+}
+
+internal class BKLog {
+    
+    /// This function sends debug messages if "-D DEBUG" flag is added in 'Build Settings' > 'Swift Compiler - Custom Flags'
+    ///
+    /// - parameters:
+    ///     - message: The debug message.
+    ///     - filePath: Used to get filename of bug. Do not use this parameter. Defaults to #file.
+    ///     - function: Used to get function name of bug. Do not use this parameter. Defaults to #function.
+    ///     - line: Used to get the line of bug. Do not use this parameter. Defaults to #line.
+    ///
+    @objc public class func print(_ message: String, filePath: String = #file, function: String =  #function, line: Int = #line) {
+        guard BKLogPreferences.printEnabled else { return }
+        var functionSignature:String = function
+        if let parameterNames = functionSignature.range(of: "\\((.*?)\\)", options: .regularExpression) {
+            functionSignature.replaceSubrange(parameterNames, with: "()")
+        }
+        let fileName = NSString(string: filePath).lastPathComponent
+        Swift.print("[\(fileName):\(line):\(functionSignature)] - \(message)")
+    }
+    
+    /// This function sends debug messages if "-D DEBUG" flag is added in 'Build Settings' > 'Swift Compiler - Custom Flags'
+    ///
+    /// - parameters:
+    ///     - message: The debug message.
+    ///     - filePath: Used to get filename of bug. Do not use this parameter. Defaults to #file.
+    ///     - function: Used to get function name of bug. Do not use this parameter. Defaults to #function.
+    ///     - line: Used to get the line of bug. Do not use this parameter. Defaults to #line.
+    ///
+    @objc public class func debug(_ message: String, filePath: String = #file, function: String =  #function, line: Int = #line) {
+        guard BKLogPreferences.printEnabled && BKLogPreferences.debugEnabled else { return }
+        var functionSignature:String = function
+        if let parameterNames = functionSignature.range(of: "\\((.*?)\\)", options: .regularExpression) {
+            functionSignature.replaceSubrange(parameterNames, with: "()")
+        }
+        let fileName = NSString(string: filePath).lastPathComponent
+        Swift.print("[\(fileName):\(line):\(functionSignature)] - \(message)")
+    }
+    
+    /// This function sends debug messages if "-D DEBUG" flag is added in 'Build Settings' > 'Swift Compiler - Custom Flags'
+    ///
+    /// - parameters:
+    ///     - message: The confirmation message.
+    ///     - filePath: Used to get filename. Do not use this parameter. Defaults to #file.
+    ///     - function: Used to get function name. Do not use this parameter. Defaults to #function.
+    ///     - line: Used to get the line. Do not use this parameter. Defaults to #line.
+    ///
+    @objc public class func debug(confirmed message: String, filePath: String = #file, function: String =  #function, line: Int = #line) {
+        guard BKLogPreferences.printEnabled && BKLogPreferences.debugEnabled else { return }
+        var functionSignature:String = function
+        if let parameterNames = functionSignature.range(of: "\\((.*?)\\)", options: .regularExpression) {
+            functionSignature.replaceSubrange(parameterNames, with: "()")
+        }
+        let fileName = NSString(string: filePath).lastPathComponent
+        Swift.print("[\(fileName):\(line):\(functionSignature)] - ✅ \(message)")
+    }
+    
+    /// This function sends debug messages if "-D DEBUG" flag is added in 'Build Settings' > 'Swift Compiler - Custom Flags'
+    ///
+    /// - parameters:
+    ///     - message: The debug message.
+    ///     - filePath: Used to get filename of bug. Do not use this parameter. Defaults to #file.
+    ///     - function: Used to get function name of bug. Do not use this parameter. Defaults to #function.
+    ///     - line: Used to get the line of bug. Do not use this parameter. Defaults to #line.
+    ///
+    @objc public class func debug(error message: String, visual: Bool = false, filePath: String = #file, function: String =  #function, line: Int = #line) {
+        guard BKLogPreferences.printEnabled && BKLogPreferences.debugEnabled else { return }
+        var functionSignature:String = function
+        if let parameterNames = functionSignature.range(of: "\\((.*?)\\)", options: .regularExpression) {
+            functionSignature.replaceSubrange(parameterNames, with: "()")
+        }
+        let fileName = NSString(string: filePath).lastPathComponent
+        Swift.print("[\(fileName):\(line):\(functionSignature)] - ❌ \(message)")
+        
+        if BKLogPreferences.debugEnabled && visual {
+            alert(message: "🚫 \(message)", title: "☠️")
+        }
+    }
+    
+    private static func alert(message: String, title: String) {
+        guard BKLogPreferences.printEnabled else { return }
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(OKAction)
+            UIWindow.presentTopLevelAlert(alertController: alertController)
+        }
+    }
+}
+
+internal extension UIWindow {
+    static func presentTopLevelAlert(alertController:UIAlertController, completion:(() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+            alertWindow.rootViewController = UIViewController()
+            alertWindow.windowLevel = UIWindowLevelAlert + 1;
+            alertWindow.makeKeyAndVisible()
+            alertWindow.rootViewController?.present(alertController, animated: true, completion: completion)
+        }
+    }
+}
+
+internal extension UIWindow {
+    class var topWindow: UIWindow? {
+        get {
+            if let window = UIApplication.shared.keyWindow {
+                return window
+            }
+            for window in UIApplication.shared.windows.reversed() {
+                if window.windowLevel == UIWindowLevelNormal && !window.isHidden && window.frame != CGRect.zero { return window }
+            }
+            return nil
+        }
+    }
+}
+

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct CodelessReinforcement {
+public struct CodelessReinforcement {
     let primitive: String
     var parameters: [String: Any]
     
@@ -22,7 +22,7 @@ struct CodelessReinforcement {
     }
     
     
-    internal func show(targetInstance: NSObject, senderInstance: AnyObject?, completion: @escaping ()->Void = {}) {
+    public func show(targetInstance: NSObject, senderInstance: AnyObject?, completion: @escaping ()->Void = {}) {
         guard let delay = self.parameters["Delay"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); return }
         guard let reinforcementType = self.parameters["primitive"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return }
         
@@ -168,7 +168,7 @@ struct CodelessReinforcement {
         }
     }
     
-    static internal func reinforcementViews(senderInstance: AnyObject?, targetInstance: NSObject, options: [String: Any]) -> [(UIView, CGPoint)]? {
+    static public func reinforcementViews(senderInstance: AnyObject?, targetInstance: NSObject, options: [String: Any]) -> [(UIView, CGPoint)]? {
         guard let viewOption = options["ViewOption"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewCustom = options["ViewCustom"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewMarginX = options["ViewMarginX"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
