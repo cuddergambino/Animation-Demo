@@ -18,8 +18,7 @@ struct RewardSample {
                 samples[rewardID] = load(rewardID: rewardID)
             }
         } else {
-            for i in 0 ... RewardSample.presets.count-1 {
-                var preset = RewardSample.presets[i]
+            for preset in RewardSample.presets.reversed() {
                 samples[preset.rewardID] = preset
             }
             DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
