@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "IOS_Homescreen.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "DefaultFullscreen@2x.png",
       "scale" : "2x"
     },
     {
