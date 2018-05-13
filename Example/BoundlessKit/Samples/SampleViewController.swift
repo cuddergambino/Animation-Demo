@@ -11,6 +11,7 @@ import BoundlessKit
 
 class SampleViewController: UIViewController {
     
+    static var sampleButtonViewFrame: CGRect = .zero
     @IBOutlet weak var buttonView: UIImageView!
     
     var mainMenu: MainMenu!
@@ -43,6 +44,7 @@ class SampleViewController: UIViewController {
         super.viewDidAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardPrimitive.rawValue
+        SampleViewController.sampleButtonViewFrame = buttonView.frame
     }
     
     var aViewStartingOrigin = CGPoint.zero
@@ -72,6 +74,7 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     }
     @objc func tap(_ gesture: UITapGestureRecognizer) {
         RewardSample.current.sample(target: self, sender: buttonView)
+        SampleViewController.sampleButtonViewFrame = buttonView.frame
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
