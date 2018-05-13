@@ -54,11 +54,14 @@ enum RewardParamKey : String {
     Alpha2,
     Color3,
     Alpha3,
+    Amount,
+    Size,
     Light
     
     var title: String {
         switch self {
         case .RewardID: return "Reward Name"
+        case .primitive: return "Type"
         case .ViewOption: return "Animate View"
         case .HapticFeedback: return "Vibrate"
         case .SystemSound: return "Sound Option (1000-1036)"
@@ -76,6 +79,7 @@ enum RewardParamKey : String {
         case .EmissionAngle: return "Shooting Angle°"
         case .EmissionRange: return "Shooting Range°"
         case .Spin: return "Spin°"
+        case .Amount: return "Amount (0-12)"
         default: return self.rawValue
         }
     }
@@ -102,7 +106,9 @@ class RewardForm : FormViewController {
     
     var saveSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        
         section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
+        
         let commitRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
             row.configuration.button.didSelectClosure = { _ in
@@ -118,6 +124,7 @@ class RewardForm : FormViewController {
             return row
         }()
         section.rows.append(commitRow)
+        
         let tryRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Try Now")
             row.configuration.cell.appearance = ["backgroundColor" : UIColor.lightGray as AnyObject]
@@ -157,6 +164,10 @@ class RewardForm : FormViewController {
     }
 }
 
+struct ColorAndAlphaCell {
+    
+}
+
 extension RewardParamKey {
     func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
         let value = dict[rawValue] as AnyObject
@@ -169,15 +180,34 @@ extension RewardParamKey {
             row.value = value
             return row
             
+        case .Alpha, .Alpha1, .Alpha2, .Alpha3:
+            let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
+            row.configuration.cell.cellClass = FormLabeledSliderCell.self
+            row.configuration.stepper.maximumValue = 1
+            row.configuration.stepper.minimumValue = 0
+            row.configuration.stepper.steps = 0.05
+            //            row.configuration.stepper.continuous = true
+            var color = UIColor.white
+            let counterpart = RewardParamKey.init(rawValue: rawValue.replacingOccurrences(of: "Alpha", with: "Color"))
+            if let counterpart = counterpart,
+                let colorValue = dict[counterpart.rawValue] as? String,
+                let selectedColor = UIColor.from(rgb: colorValue) {
+                color = selectedColor
+            }
+            row.configuration.cell.appearance = ["sliderView.tintColor": color]
+            row.value = value
+            return row
+            
         case .RewardID:
+            print("GOt rewardID: \(value)")
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
             
         case .primitive:
-            let row = FormRowDescriptor(tag: rawValue, type: .label, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            let row = FormRowDescriptor(tag: rawValue, type: .button, title: title)
+            row.value = value
             return row
             
         case .Content:
@@ -194,21 +224,13 @@ extension RewardParamKey {
              .ViewMarginX, .ViewMarginY:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
-            return row
-            
-        case .Alpha, .Alpha1, .Alpha2, .Alpha3:
-            let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
-            row.configuration.cell.cellClass = FormLabeledSliderCell.self
-            row.configuration.stepper.maximumValue = 1
-            row.configuration.stepper.minimumValue = 0
-            row.configuration.stepper.steps = 0.05
             row.value = value
-            row.configuration.cell.appearance = ["sliderView.tintColor": UIColor.blue]
             return row
             
         case .Count, .Quantity, .Bursts:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
             return row
             
         case .ViewOption:
@@ -233,6 +255,15 @@ extension RewardParamKey {
         case .SystemSound:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
             row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.value = value
+            return row
+            
+        case .Amount, .Size:
+            let row = FormRowDescriptor(tag: rawValue, type: .stepper, title: title)
+            row.configuration.stepper.maximumValue = 12
+            row.configuration.stepper.minimumValue = 1
+            row.configuration.stepper.steps = 1
+            row.value = value
             return row
         }
     }

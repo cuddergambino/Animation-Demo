@@ -35,13 +35,13 @@ open class FormColorPickerCell: FormValueCell {
             action: #selector(finishedPickingColor(sender:))
         )
         colorPicker.navigationItem.rightBarButtonItem = doneButton
-        let noneButton: UIBarButtonItem = UIBarButtonItem(
-            title: NSLocalizedString("None", comment: ""),
-            style: UIBarButtonItemStyle.done,
-            target: self,
-            action: #selector(finishedPickingColor(sender:))
-        )
-        colorPicker.navigationItem.leftBarButtonItem = noneButton
+//        let noneButton: UIBarButtonItem = UIBarButtonItem(
+//            title: NSLocalizedString("None", comment: ""),
+//            style: UIBarButtonItemStyle.done,
+//            target: self,
+//            action: #selector(finishedPickingColor(sender:))
+//        )
+//        colorPicker.navigationItem.leftBarButtonItem = noneButton
     }
     
     open override func update() {
@@ -60,6 +60,8 @@ open class FormColorPickerCell: FormValueCell {
     open override class func formViewController(_ formViewController: FormViewController, didSelectRow selectedRow: FormBaseCell) {
         guard let row = selectedRow as? FormColorPickerCell else { return }
         formViewController.present(row.colorPickerNav, animated: true)
+        
+        formViewController.form.sections.first?.rows
     }
 }
 

@@ -15,7 +15,11 @@ class ConfettiForm : RewardForm {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
+        if RewardSample.current.rewardPrimitive == .Confetti {
+            rewardSettings = RewardSample.current
+        } else {
+            rewardSettings = RewardSample.defaultSample(for: "ConfettiSample")!
+        }
         self.form = generateForm()
     }
     
@@ -25,6 +29,14 @@ class ConfettiForm : RewardForm {
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Color1.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Alpha1.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Color2.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Alpha2.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Color3.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Alpha3.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Amount.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Size.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

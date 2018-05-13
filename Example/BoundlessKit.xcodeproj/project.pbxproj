@@ -268,12 +268,12 @@
 		8433D0E620A5F0FF0078AEA4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */,
 				8433D0E820A5F0FF0078AEA4 /* EmojisplosionForm.swift */,
 				843452DB20A6CBE30094E91E /* ConfettiForm.swift */,
 				8433D0E920A5F0FF0078AEA4 /* GlowForm.swift */,
 				8433D0EA20A5F0FF0078AEA4 /* PopoverForm.swift */,
 				8433D0EB20A5F0FF0078AEA4 /* PulseForm.swift */,
-				8433D0EC20A5F0FF0078AEA4 /* RewardForm.swift */,
 				8433D0ED20A5F0FF0078AEA4 /* RotateForm.swift */,
 				8433D0EE20A5F0FF0078AEA4 /* SheenForm.swift */,
 				8433D0EF20A5F0FF0078AEA4 /* ShimmyFormd.swift */,

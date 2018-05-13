@@ -42,7 +42,7 @@ class SampleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        navigationController?.navigationBar.topItem?.title = RewardSample.current.settings["primitive"] as? String ?? navigationController?.navigationBar.topItem?.title
+        navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardPrimitive.rawValue
     }
     
     var aViewStartingOrigin = CGPoint.zero
