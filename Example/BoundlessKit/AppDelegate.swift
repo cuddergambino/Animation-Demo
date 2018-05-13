@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BoundlessKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("in app didfinishlaunching")
-        
-//        BoundlessKit.standard.setCustomUserID("auser")
-//        BoundlessKit.standard.setCustomUserID(nil)
-//        BoundlessKit.standard.setCustomUserID("buser")
 
         return true
     }

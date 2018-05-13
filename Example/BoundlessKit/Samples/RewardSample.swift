@@ -115,7 +115,7 @@ struct RewardSample {
             case .SystemSound:
                 update(parameter: key.rawValue, uint32: value)
                 
-            case .HapticFeedback, .Light:
+            case .HapticFeedback, .Dark:
                 update(parameter: key.rawValue, bool: value)
             }
         }

@@ -9,6 +9,144 @@
 import Foundation
 import SwiftForms
 
+// should subclass this
+class RewardForm : FormViewController {
+    
+    var rewardSettings: RewardSample!
+    var selectedRow: UITableViewCell?
+    var fab: UIImageView!
+    
+    required public init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func generateForm() -> FormDescriptor {
+        return FormDescriptor()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fab = UIImageView(image: UIImage.init(named: "awesome"))
+        fab.contentMode = .scaleAspectFit
+        fab.clipsToBounds = true
+        fab.frame = CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        view.addSubview(fab)
+        view.bringSubview(toFront: fab)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
+        let scaleGesture = UIPinchGestureRecognizer(target: self, action: #selector(scale))
+        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate))
+        tapGesture.delegate = self
+        panGesture.delegate = self
+        scaleGesture.delegate = self
+        rotateGesture.delegate = self
+        fab.isUserInteractionEnabled = true
+        fab.addGestureRecognizer(tapGesture)
+        fab.addGestureRecognizer(panGesture)
+        fab.addGestureRecognizer(scaleGesture)
+        fab.addGestureRecognizer(rotateGesture)
+        fabStartingOrigin = fab.frame.origin
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        fab.transform = CGAffineTransform.init(translationX: 0, y: scrollView.contentOffset.y)
+        tableView.bringSubview(toFront: fab)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
+    }
+    
+    var fabStartingOrigin = CGPoint.zero
+    var identity = CGAffineTransform.identity
+}
+
+extension RewardForm : UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    @objc func tap(_ gesture: UITapGestureRecognizer) {
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+            self.rewardSettings.setForm(form: self.form)
+            self.rewardSettings.sample(target: self.view, sender: self.fab)
+        }
+    }
+    @objc func pan(_ gesture:UIPanGestureRecognizer) {
+        if gesture.state == .began || gesture.state == .changed {
+            let trans = gesture.translation(in: view)
+            gesture.setTranslation(.zero, in: view)
+            //            let newCenter = buttonView.center.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+            fab.frame = fab.frame.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+        }
+    }
+    @objc func scale(_ gesture: UIPinchGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            identity = fab.transform
+        case .changed:
+            fab.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
+        case .cancelled:
+            break
+        default:
+            break
+        }
+    }
+    @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
+        fab.transform = fab.transform.rotated(by: gesture.rotation)
+    }
+}
+
+
+extension RewardForm {
+    var saveSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
+        
+        section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
+        
+        let commitRow: FormRowDescriptor = {
+            let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
+            row.configuration.button.didSelectClosure = { _ in
+                DispatchQueue.main.async {
+                    self.view.endEditing(true)
+                    self.rewardSettings.setForm(form: self.form)
+                    self.rewardSettings.save()
+                    RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
+                    RewardSample.current = self.rewardSettings
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            return row
+        }()
+        section.rows.append(commitRow)
+        
+        return section
+    }
+    
+    var soundSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: nil)
+        section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
+        return section
+    }
+    
+    var basicViewSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
+        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
+        return section
+    }
+    
+    var preciseViewSection: FormSectionDescriptor {
+        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
+        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
+        return saveSection
+    }
+}
+
 enum RewardParamKey : String {
     case
     RewardID,
@@ -56,7 +194,7 @@ enum RewardParamKey : String {
     Alpha3,
     Amount,
     Size,
-    Light
+    Dark
     
     var title: String {
         switch self {
@@ -83,92 +221,7 @@ enum RewardParamKey : String {
         default: return self.rawValue
         }
     }
-}
-
-// should subclass this
-class RewardForm : FormViewController {
     
-    var rewardSettings: RewardSample!
-    var selectedRow: UITableViewCell?
-    
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func generateForm() -> FormDescriptor {
-        return FormDescriptor()
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
-    }
-    
-    var saveSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
-        
-        section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
-        
-        let commitRow: FormRowDescriptor = {
-            let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
-            row.configuration.button.didSelectClosure = { _ in
-                DispatchQueue.main.async {
-                    self.view.endEditing(true)
-                    self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.save()
-                    RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
-                    RewardSample.current = self.rewardSettings
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
-            return row
-        }()
-        section.rows.append(commitRow)
-        
-        let tryRow: FormRowDescriptor = {
-            let row = FormRowDescriptor(tag: "button", type: .button, title: "Try Now")
-            row.configuration.cell.appearance = ["backgroundColor" : UIColor.lightGray as AnyObject]
-            row.configuration.button.didSelectClosure = { _ in
-                DispatchQueue.main.async {
-                    self.view.endEditing(true)
-                    self.rewardSettings.setForm(form: self.form)
-//                    self.form = self.generateForm()
-                    self.rewardSettings.sample(target: self.view, sender: self.selectedRow)
-                }
-            }
-            return row
-        }()
-        section.rows.append(tryRow)
-        return section
-    }
-    
-    var soundSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: nil)
-        section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
-        return section
-    }
-    
-    var basicViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
-        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
-        return section
-    }
-    
-    var preciseViewSection: FormSectionDescriptor {
-        let section = FormSectionDescriptor(headerTitle: "Animated View", footerTitle: nil)
-        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
-        return saveSection
-    }
-}
-
-struct ColorAndAlphaCell {
-    
-}
-
-extension RewardParamKey {
     func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
         let value = dict[rawValue] as AnyObject
         switch self {
@@ -247,7 +300,7 @@ extension RewardParamKey {
             row.value = value
             return row
             
-        case .HapticFeedback, .Light:
+        case .HapticFeedback, .Dark:
             let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
             row.value = value
             return row

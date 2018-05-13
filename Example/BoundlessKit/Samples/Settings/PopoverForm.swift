@@ -27,7 +27,7 @@ class PopoverForm : RewardForm {
         generalSection.rows.append(RewardParamKey.Content.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Light.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Dark.formRow(rewardSettings.settings))
         
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]

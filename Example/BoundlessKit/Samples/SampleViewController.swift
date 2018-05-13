@@ -77,7 +77,7 @@ extension SampleViewController : UIGestureRecognizerDelegate {
         if gesture.state == .began || gesture.state == .changed {
             let trans = gesture.translation(in: view)
             gesture.setTranslation(.zero, in: view)
-            buttonView.center = buttonView.center.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+            buttonView.frame = buttonView.frame.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
         }
     }
     @objc func scale(_ gesture: UIPinchGestureRecognizer) {

@@ -27,6 +27,7 @@ class SheenForm : RewardForm {
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Color.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

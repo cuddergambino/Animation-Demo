@@ -59,11 +59,11 @@ enum RewardPrimitive : String {
                 case "Popover":
                     guard let content = settings["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let light = settings["Light"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let dark = settings["Dark"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showPopover(content: content.decode().image(), duration: duration, style: light ? .light : .dark, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        view.showPopover(content: content.decode().image(), duration: duration, style: dark ? .dark : .light, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     
@@ -148,7 +148,7 @@ enum RewardPrimitive : String {
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showSheen(duration: duration, color: color.withAlphaComponent(alpha), hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        view.showSheen(duration: duration, color: alpha > 0 ? color.withAlphaComponent(alpha) : nil, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     
