@@ -55,7 +55,7 @@ extension RewardSample {
                 + "\"RewardID\": \"RotateSample\","
                 + "\"primitive\": \"Rotate\","
                 + "\"Duration\": 1,"
-                + "\"ViewOption\": \"fixed\","
+                + "\"ViewOption\": \"sender\","
                 + "\"ViewMarginX\": 0,"
                 + "\"ViewMarginY\": 0,"
                 + "\"ViewCustom\": \"\","

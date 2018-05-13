@@ -28,7 +28,6 @@ class RewardForm : FormViewController {
         super.viewDidLoad()
         fab = UIImageView(image: UIImage.init(named: "awesome"))
         fab.contentMode = .scaleAspectFit
-        fab.clipsToBounds = true
         fab.frame = CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
         view.addSubview(fab)
         view.bringSubview(toFront: fab)
@@ -108,6 +107,9 @@ extension RewardForm {
         
         let commitRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
+            row.configuration.cell.appearance = ["backgroundColor" : UIColor.darkGray as AnyObject,
+                                                 "titleLabel.textColor": UIColor.lightText as AnyObject
+            ]
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
@@ -311,9 +313,17 @@ enum RewardParamKey : String {
             row.value = value
             return row
             
-        case .Amount, .Size:
+        case .Amount:
             let row = FormRowDescriptor(tag: rawValue, type: .stepper, title: title)
             row.configuration.stepper.maximumValue = 12
+            row.configuration.stepper.minimumValue = 1
+            row.configuration.stepper.steps = 1
+            row.value = value
+            return row
+            
+        case .Size:
+            let row = FormRowDescriptor(tag: rawValue, type: .stepper, title: title)
+            row.configuration.stepper.maximumValue = 24
             row.configuration.stepper.minimumValue = 1
             row.configuration.stepper.steps = 1
             row.value = value

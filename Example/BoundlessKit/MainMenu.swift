@@ -80,7 +80,7 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         }
         let defaultPhoto = UIAlertAction(title: "Default", style: .default) { (alert : UIAlertAction!) in
             DispatchQueue.main.async {
-                self.mainMenuDelegate?.didImport(image: UIImage(named: "DefaultFullscreen")!, isButton: false)
+                self.mainMenuDelegate?.didImport(image: UIImage(named: "basicHomescreen")!, isButton: false)
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
