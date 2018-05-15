@@ -44,7 +44,7 @@ open class FormPickerCell: FormValueCell, UIPickerViewDelegate, UIPickerViewData
             if let options = rowDescriptor?.configuration.selection.options , !options.isEmpty {
                 var selectedIndex: Int?
                 for (index, value) in options.enumerated() {
-                    if value === selectedValue {
+                    if value === selectedValue || (value.description == selectedValue.description){
                         selectedIndex = index
                         break
                     }
