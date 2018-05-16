@@ -32,7 +32,6 @@
 		84E7543720AB8E74009AEF81 /* AllRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542220AB8E74009AEF81 /* AllRewardsViewController.swift */; };
 		84E7543820AB8E74009AEF81 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542320AB8E74009AEF81 /* Helper.swift */; };
 		84E7543920AB8E74009AEF81 /* PresetSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542420AB8E74009AEF81 /* PresetSamples.swift */; };
-		84E7543F20AB9B77009AEF81 /* FormPickerCellFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7543E20AB9B77009AEF81 /* FormPickerCellFixed.swift */; };
 		84E7544220AB9FFA009AEF81 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7544020AB9FFA009AEF81 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		84E7542220AB8E74009AEF81 /* AllRewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRewardsViewController.swift; sourceTree = "<group>"; };
 		84E7542320AB8E74009AEF81 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		84E7542420AB8E74009AEF81 /* PresetSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetSamples.swift; sourceTree = "<group>"; };
-		84E7543E20AB9B77009AEF81 /* FormPickerCellFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerCellFixed.swift; sourceTree = "<group>"; };
 		84E7544120AB9FFA009AEF81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D2AC3177BA3AE673274A3DAC /* Pods-AnimationStudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationStudio.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				84E7541620AB8E74009AEF81 /* FormColorPickerCell.swift */,
-				84E7543E20AB9B77009AEF81 /* FormPickerCellFixed.swift */,
 				84E7541720AB8E74009AEF81 /* FormLabeledSliderCell.swift */,
 			);
 			path = CustomCells;
@@ -315,7 +312,6 @@
 				84E7543420AB8E74009AEF81 /* ShimmyForm.swift in Sources */,
 				84E7543120AB8E74009AEF81 /* RewardForm.swift in Sources */,
 				84E7542D20AB8E74009AEF81 /* EmojisplosionForm.swift in Sources */,
-				84E7543F20AB9B77009AEF81 /* FormPickerCellFixed.swift in Sources */,
 				84E7543320AB8E74009AEF81 /* SheenForm.swift in Sources */,
 				84E7543620AB8E74009AEF81 /* MainMenu.swift in Sources */,
 				84E7543920AB8E74009AEF81 /* PresetSamples.swift in Sources */,
