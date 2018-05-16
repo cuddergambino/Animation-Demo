@@ -30,7 +30,6 @@ open class FormLabeledSliderCell: FormSliderCell {
     
     open override func update() {
         super.update()
-        print("Slider valu:\(sliderView.value)")
         valueView.text = String(format: "%.2f", sliderView.value)
         if rowDescriptor?.tag.contains("Alpha") ?? false {
             sliderView.tintColor = sliderView.tintColor.withAlphaComponent(CGFloat(sliderView.value))

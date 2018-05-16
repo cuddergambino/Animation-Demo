@@ -241,7 +241,7 @@ enum RewardParamKey : String {
             row.configuration.stepper.maximumValue = 1
             row.configuration.stepper.minimumValue = 0
             row.configuration.stepper.steps = 0.05
-            //            row.configuration.stepper.continuous = true
+            row.configuration.stepper.continuous = true
             var color = UIColor.white
             let counterpart = RewardParamKey.init(rawValue: rawValue.replacingOccurrences(of: "Alpha", with: "Color"))
             if let counterpart = counterpart,
