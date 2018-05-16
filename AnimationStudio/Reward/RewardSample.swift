@@ -72,6 +72,8 @@ struct RewardSample {
             if rewardID == current.rewardID,
                 let random = Array(RewardSample.samples.values).randomElement {
                 RewardSample.current = random
+            } else {
+                RewardSample.current = RewardSample.defaultSample(for: "ConfettiSample")!
             }
         }
     }

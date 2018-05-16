@@ -13,6 +13,10 @@ import SwiftForms
 class PresetSamplesViewController : FormViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.form = generateForm()
+    }
+    
+    func generateForm() -> FormDescriptor {
         let form = FormDescriptor(title: "Saved Reward Settings")
         
         let listSection = FormSectionDescriptor(headerTitle: "Names", footerTitle: nil)
@@ -24,12 +28,43 @@ class PresetSamplesViewController : FormViewController {
             }
             listSection.rows.append(row)
         }
-        form.sections = [listSection]
-        self.form = form
+        
+        let resetSection = FormSectionDescriptor(headerTitle: "Reset", footerTitle: nil)
+        let row: FormRowDescriptor = {
+            let row = FormRowDescriptor(tag: "Reset", type: .button, title: "Erase & Reset Rewards")
+            row.configuration.button.didSelectClosure = { _ in
+                
+                let resetMenu = UIAlertController(title: "Erase Rewards?", message: "Resets to factory default rewards", preferredStyle: .actionSheet)
+                resetMenu.popoverPresentationController?.sourceView = self.view
+                
+                let eraseOption = UIAlertAction(title: "Erase & Reset", style: .destructive) { _ in
+                    for sample in RewardSample.samples.values {
+                        RewardSample.delete(rewardID: sample.rewardID)
+                    }
+                    for var preset in RewardSample.presets.reversed() {
+                        preset.save()
+                        RewardSample.samples[preset.rewardID] = preset
+                        RewardSample.current = preset
+                    }
+                    self.form = self.generateForm()
+                    self.tableView.reloadData()
+                }
+                resetMenu.addAction(eraseOption)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in}
+                resetMenu.addAction(cancelAction)
+                    
+                self.present(resetMenu, animated: true, completion: nil)
+            }
+            return row
+        }()
+        resetSection.rows.append(row)
+        form.sections = [listSection, resetSection]
+        return form
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return indexPath.section == 0
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SampleViewController.swift
 //  BoundlessKit
 //
 //  Created by Akash Desai on 07/13/2016.
