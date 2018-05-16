@@ -47,39 +47,36 @@ open class FormColorPickerCell: FormValueCell {
             if let hex = selectedValue as? String,
                 let color = UIColor.from(rgb: hex) {
                 colorPicker.color = color
+                
+                if let tag = rowDescriptor?.tag,
+                    tag.contains("Color"),
+                    let sections = formViewController?.form.sections {
+                    let alphaRowTag = tag.replacingOccurrences(of: "Color", with: "Alpha")
+                    for s in 0 ... sections.count - 1 {
+                        for r in 0 ... sections[s].rows.count - 1 {
+                            if sections[s].rows[r].tag == alphaRowTag,
+                                let cell = formViewController?.tableView.cellForRow(at: IndexPath(row: r, section: s)) as? FormLabeledSliderCell {
+                                cell.sliderView.tintColor = color.withAlphaComponent(CGFloat(cell.sliderView.value))
+                                break
+                            }
+                        }
+                    }
+                }
             }
         }
     }
     
-    var tempFormController: FormViewController?
     open override class func formViewController(_ formViewController: FormViewController, didSelectRow selectedRow: FormBaseCell) {
         guard let row = selectedRow as? FormColorPickerCell else { return }
         formViewController.present(row.colorPickerNav, animated: true)
-        
-        row.tempFormController = formViewController
     }
 }
 
 extension FormColorPickerCell : UIPopoverPresentationControllerDelegate {
     @objc func finishedPickingColor(sender: AnyObject) {
-        let color = colorPicker.color
         colorPickerNav.dismiss(animated: true)
-        rowDescriptor?.value = color.rgb as AnyObject
-        valueLabel.text = color.rgb
-        
-        if rowDescriptor?.tag.contains("Color") ?? false {
-            switch rowDescriptor?.tag {
-            case "Color"?:
-                FormLabeledSliderCell.alpha?.sliderView.tintColor = color
-            case "Color1"?:
-                FormLabeledSliderCell.alpha1?.sliderView.tintColor = color
-            case "Color2"?:
-                FormLabeledSliderCell.alpha2?.sliderView.tintColor = color
-            case "Color3"?:
-                FormLabeledSliderCell.alpha3?.sliderView.tintColor = color
-            default: break
-            }
-        }
+        rowDescriptor?.value = colorPicker.color.rgb as AnyObject
+        update()
     }
 }
 

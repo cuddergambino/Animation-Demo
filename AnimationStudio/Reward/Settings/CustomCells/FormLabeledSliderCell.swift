@@ -11,11 +11,6 @@ import SwiftForms
 
 open class FormLabeledSliderCell: FormSliderCell {
     
-    static weak var alpha: FormLabeledSliderCell?
-    static weak var alpha1: FormLabeledSliderCell?
-    static weak var alpha2: FormLabeledSliderCell?
-    static weak var alpha3: FormLabeledSliderCell?
-    
     @objc public let valueView = UILabel()
     
     // MARK: FormBaseCell
@@ -30,20 +25,10 @@ open class FormLabeledSliderCell: FormSliderCell {
     
     open override func update() {
         super.update()
-        valueView.text = String(format: "%.2f", sliderView.value)
-        if rowDescriptor?.tag.contains("Alpha") ?? false {
-            sliderView.tintColor = sliderView.tintColor.withAlphaComponent(CGFloat(sliderView.value))
-            switch rowDescriptor?.tag {
-            case "Alpha"?:
-                FormLabeledSliderCell.alpha = self
-            case "Alpha1"?:
-                FormLabeledSliderCell.alpha1 = self
-            case "Alpha2"?:
-                FormLabeledSliderCell.alpha2 = self
-            case "Alpha3"?:
-                FormLabeledSliderCell.alpha3 = self
-            default: break
-            }
+        
+        if let value = rowDescriptor?.value as? Float {
+            sliderView.tintColor = sliderView.tintColor.withAlphaComponent(CGFloat(value))
+            valueView.text = sliderView.value.fuzzyRound
         }
     }
     
@@ -63,6 +48,16 @@ open class FormLabeledSliderCell: FormSliderCell {
     // MARK: Actions
     
     @objc internal func valueChanged2(_: UISlider) {
-        valueView.text = String(format: "%.2f", sliderView.value)
+        rowDescriptor?.value = sliderView.value.fuzzyRound as AnyObject
+    }
+}
+
+extension Float {
+    var fuzzyRound: String {
+        if self > 1 || self < -1 {
+            return String(format: "%2.f", self)
+        } else {
+            return String(format: "%.2f", self)
+        }
     }
 }

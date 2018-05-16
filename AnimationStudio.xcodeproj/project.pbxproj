@@ -26,7 +26,7 @@
 		84E7543120AB8E74009AEF81 /* RewardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541C20AB8E74009AEF81 /* RewardForm.swift */; };
 		84E7543220AB8E74009AEF81 /* RotateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541D20AB8E74009AEF81 /* RotateForm.swift */; };
 		84E7543320AB8E74009AEF81 /* SheenForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541E20AB8E74009AEF81 /* SheenForm.swift */; };
-		84E7543420AB8E74009AEF81 /* ShimmyFormd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541F20AB8E74009AEF81 /* ShimmyFormd.swift */; };
+		84E7543420AB8E74009AEF81 /* ShimmyForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541F20AB8E74009AEF81 /* ShimmyForm.swift */; };
 		84E7543520AB8E74009AEF81 /* VibrateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542020AB8E74009AEF81 /* VibrateForm.swift */; };
 		84E7543620AB8E74009AEF81 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542120AB8E74009AEF81 /* MainMenu.swift */; };
 		84E7543720AB8E74009AEF81 /* AllRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7542220AB8E74009AEF81 /* AllRewardsViewController.swift */; };
@@ -59,7 +59,7 @@
 		84E7541C20AB8E74009AEF81 /* RewardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardForm.swift; sourceTree = "<group>"; };
 		84E7541D20AB8E74009AEF81 /* RotateForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateForm.swift; sourceTree = "<group>"; };
 		84E7541E20AB8E74009AEF81 /* SheenForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheenForm.swift; sourceTree = "<group>"; };
-		84E7541F20AB8E74009AEF81 /* ShimmyFormd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyFormd.swift; sourceTree = "<group>"; };
+		84E7541F20AB8E74009AEF81 /* ShimmyForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmyForm.swift; sourceTree = "<group>"; };
 		84E7542020AB8E74009AEF81 /* VibrateForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrateForm.swift; sourceTree = "<group>"; };
 		84E7542120AB8E74009AEF81 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		84E7542220AB8E74009AEF81 /* AllRewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRewardsViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				84E7541B20AB8E74009AEF81 /* PulseForm.swift */,
 				84E7541D20AB8E74009AEF81 /* RotateForm.swift */,
 				84E7541E20AB8E74009AEF81 /* SheenForm.swift */,
-				84E7541F20AB8E74009AEF81 /* ShimmyFormd.swift */,
+				84E7541F20AB8E74009AEF81 /* ShimmyForm.swift */,
 				84E7542020AB8E74009AEF81 /* VibrateForm.swift */,
 			);
 			path = Settings;
@@ -312,7 +312,7 @@
 				84E7542A20AB8E74009AEF81 /* ConfettiForm.swift in Sources */,
 				84E7543820AB8E74009AEF81 /* Helper.swift in Sources */,
 				84E7542920AB8E74009AEF81 /* RewardCode.swift in Sources */,
-				84E7543420AB8E74009AEF81 /* ShimmyFormd.swift in Sources */,
+				84E7543420AB8E74009AEF81 /* ShimmyForm.swift in Sources */,
 				84E7543120AB8E74009AEF81 /* RewardForm.swift in Sources */,
 				84E7542D20AB8E74009AEF81 /* EmojisplosionForm.swift in Sources */,
 				84E7543F20AB9B77009AEF81 /* FormPickerCellFixed.swift in Sources */,

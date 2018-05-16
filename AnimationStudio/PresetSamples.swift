@@ -84,6 +84,7 @@ extension RewardSample {
                 + "\"RewardID\": \"PopoverSample\","
                 + "\"primitive\": \"Popover\","
                 + "\"Content\": \"❤️\","
+                + "\"FontSize\": 24,"
                 + "\"Duration\": 3,"
                 + "\"Dark\": false,"
                 + "\"ViewOption\": \"fixed\","

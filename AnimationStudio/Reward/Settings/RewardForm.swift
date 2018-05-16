@@ -196,7 +196,8 @@ enum RewardParamKey : String {
     Alpha3,
     Amount,
     Size,
-    Dark
+    Dark,
+    FontSize
     
     var title: String {
         switch self {
@@ -221,6 +222,7 @@ enum RewardParamKey : String {
         case .EmissionRange: return "Shooting Range°"
         case .Spin: return "Spin(°/s)"
         case .Amount: return "Amount (0-12)"
+        case .FontSize: return "Font Size"
         default: return self.rawValue
         }
     }
@@ -243,15 +245,11 @@ enum RewardParamKey : String {
             row.configuration.stepper.minimumValue = 0
             row.configuration.stepper.steps = 0.05
             row.configuration.stepper.continuous = true
-            var color = UIColor.white
-            let counterpart = RewardParamKey.init(rawValue: rawValue.replacingOccurrences(of: "Alpha", with: "Color"))
-            if let counterpart = counterpart,
-                let colorValue = dict[counterpart.rawValue] as? String,
-                let selectedColor = UIColor.from(rgb: colorValue) {
-                color = selectedColor
-            }
-            row.configuration.cell.appearance = ["sliderView.tintColor": color]
             row.value = value
+            if let colorValue = dict[rawValue.replacingOccurrences(of: "Alpha", with: "Color")] as? String,
+                let color = UIColor.from(rgb: colorValue, alpha: CGFloat(row.value as? Float ?? 1)) {
+                row.configuration.cell.appearance = ["sliderView.tintColor": color]
+            }
             return row
             
         case .RewardID:
@@ -327,6 +325,16 @@ enum RewardParamKey : String {
             row.configuration.stepper.maximumValue = 24
             row.configuration.stepper.minimumValue = 1
             row.configuration.stepper.steps = 1
+            row.value = value
+            return row
+            
+        case .FontSize:
+            let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
+            row.configuration.cell.cellClass = FormLabeledSliderCell.self
+            row.configuration.stepper.maximumValue = 96
+            row.configuration.stepper.minimumValue = 1
+            row.configuration.stepper.steps = 1
+            row.configuration.stepper.continuous = true
             row.value = value
             return row
         }

@@ -34,26 +34,30 @@ class PresetSamplesViewController : FormViewController {
             let row = FormRowDescriptor(tag: "Reset", type: .button, title: "Erase & Reset Rewards")
             row.configuration.button.didSelectClosure = { _ in
                 
-                let resetMenu = UIAlertController(title: "Erase Rewards?", message: "Resets to factory default rewards", preferredStyle: .actionSheet)
-                resetMenu.popoverPresentationController?.sourceView = self.view
-                
-                let eraseOption = UIAlertAction(title: "Erase & Reset", style: .destructive) { _ in
-                    for sample in RewardSample.samples.values {
-                        RewardSample.delete(rewardID: sample.rewardID)
-                    }
-                    for var preset in RewardSample.presets.reversed() {
-                        preset.save()
-                        RewardSample.samples[preset.rewardID] = preset
-                        RewardSample.current = preset
-                    }
-                    self.form = self.generateForm()
-                    self.tableView.reloadData()
-                }
-                resetMenu.addAction(eraseOption)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in}
-                resetMenu.addAction(cancelAction)
+                let resetMenu: UIAlertController = {
+                    let options = UIAlertController(title: "Erase Rewards?", message: "Resets to factory default rewards", preferredStyle: .actionSheet)
+                    options.popoverPresentationController?.sourceView = self.view
                     
+                    let erase = UIAlertAction(title: "Erase & Reset", style: .destructive) { _ in
+                        for sample in RewardSample.samples.values {
+                            RewardSample.delete(rewardID: sample.rewardID)
+                        }
+                        for var preset in RewardSample.presets.reversed() {
+                            preset.save()
+                            RewardSample.samples[preset.rewardID] = preset
+                            RewardSample.current = preset
+                        }
+                        self.form = self.generateForm()
+                        self.tableView.reloadData()
+                    }
+                    options.addAction(erase)
+                    
+                    let cancel = UIAlertAction(title: "Cancel", style: .cancel) {_ in}
+                    options.addAction(cancel)
+                    
+                    return options
+                }()
+                
                 self.present(resetMenu, animated: true, completion: nil)
             }
             return row

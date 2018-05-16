@@ -25,6 +25,7 @@ class PopoverForm : RewardForm {
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Content.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.FontSize.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
         generalSection.rows.append(RewardParamKey.Dark.formRow(rewardSettings.settings))

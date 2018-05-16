@@ -105,7 +105,8 @@ struct RewardSample {
             case .ViewMarginX, .ViewMarginY,
                  .Scale, .ScaleSpeed, .ScaleRange, .ScaleVelocity, .ScaleDamping,
                  .Velocity, .AccelY, .AccelX, .Damping,
-                 .Spin, .EmissionRange, .EmissionAngle:
+                 .Spin, .EmissionRange, .EmissionAngle,
+                 .FontSize:
                  update(parameter: key.rawValue, cgFloat: value)
                     
             case .Alpha, .Alpha1, .Alpha2, .Alpha3:

@@ -52,12 +52,13 @@ enum RewardPrimitive : String {
                     
                 case "Popover":
                     guard let content = settings["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let fontSize = settings["FontSize"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let dark = settings["Dark"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showPopover(content: content.decode().image(), duration: duration, style: dark ? .dark : .light, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        view.showPopover(content: content.utf8Decoded().image(font: .systemFont(ofSize: fontSize)), duration: duration, style: dark ? .dark : .light, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     
@@ -106,7 +107,7 @@ enum RewardPrimitive : String {
                     guard let velocity = settings["Velocity"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    let image = content.decode().image().cgImage
+                    let image = content.utf8Decoded().image().cgImage
                     for (view, location) in viewAndLocation {
                         view.showEmojiSplosion(at: location, content: image, scale: scale, scaleSpeed: scaleSpeed, scaleRange: scaleRange, lifetime: lifetime, lifetimeRange: lifetimeRange, fadeout: fadeout, quantity: quantity, bursts: bursts, velocity: velocity, xAcceleration: xAcceleration, yAcceleration: yAcceleration, angle: angle, range: range, spin: spin, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
