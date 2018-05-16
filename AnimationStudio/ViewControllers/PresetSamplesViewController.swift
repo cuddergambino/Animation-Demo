@@ -11,7 +11,7 @@ import UIKit
 import SwiftForms
 
 class PresetSamplesViewController : FormViewController {
-        required init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let form = FormDescriptor(title: "Saved Reward Settings")
         

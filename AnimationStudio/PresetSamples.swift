@@ -154,7 +154,7 @@ extension RewardSample {
                 + "\"EmissionRange\": 45,"
                 + "\"EmissionAngle\": -90,"
                 + "\"LifetimeRange\": 0.5,"
-                + "\"Lifetime\": 2,"
+                + "\"Lifetime\": 4,"
                 + "\"Quantity\": 6,"
                 + "\"Velocity\": -50,"
                 + "\"Content\": \"❤️\""

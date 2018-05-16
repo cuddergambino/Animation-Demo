@@ -11,10 +11,10 @@ import SwiftForms
 
 open class FormLabeledSliderCell: FormSliderCell {
     
-    static var alpha: FormLabeledSliderCell?
-    static var alpha1: FormLabeledSliderCell?
-    static var alpha2: FormLabeledSliderCell?
-    static var alpha3: FormLabeledSliderCell?
+    static weak var alpha: FormLabeledSliderCell?
+    static weak var alpha1: FormLabeledSliderCell?
+    static weak var alpha2: FormLabeledSliderCell?
+    static weak var alpha3: FormLabeledSliderCell?
     
     @objc public let valueView = UILabel()
     
