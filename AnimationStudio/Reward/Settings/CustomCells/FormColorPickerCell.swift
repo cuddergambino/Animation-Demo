@@ -11,6 +11,7 @@ import UIKit
 import SwiftForms
 import EFColorPicker
 
+// note: in FormPickerCell, change selectedValue === AnyObject to include comparing string descriptions for proper initial picked value
 open class FormColorPickerCell: FormValueCell {
     
     var colorPickerNav: UINavigationController!
