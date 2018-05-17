@@ -132,7 +132,7 @@ enum RewardPrimitive : String {
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {
-                        view.showGlow(count: count, duration: duration, color: color, alpha: alpha, radius: radius, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
+                        view.showGlow(count: count, duration: duration, color: color, alpha: alpha, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
                     
