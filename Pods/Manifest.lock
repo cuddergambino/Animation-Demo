@@ -1,0 +1,24 @@
+PODS:
+  - BoundlessKit (5.4.2-core2)
+  - EFColorPicker (1.1.0)
+  - SwiftForms (1.8.2)
+
+DEPENDENCIES:
+  - BoundlessKit (= 5.4.2-core2)
+  - EFColorPicker
+  - SwiftForms
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BoundlessKit
+    - EFColorPicker
+    - SwiftForms
+
+SPEC CHECKSUMS:
+  BoundlessKit: 2c0d26d0f10958c14df2cff56db176a00416fc51
+  EFColorPicker: 214e1979a4017245375b1e276cba952d902b8132
+  SwiftForms: f0d4d30401e21de87d9b7b63a4691a3d4e22bab5
+
+PODFILE CHECKSUM: 6ac24e338a1f08132045b67ab5d163c1a112362d
+
+COCOAPODS: 1.5.2
