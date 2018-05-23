@@ -27,7 +27,7 @@ class MainMenu : UITableViewController {
             switch indexPath.row {
             case 0:
                 let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardForm
-                reward.rewardSettings = RewardSample.current
+                reward.reward = RewardSample.current
                 reward.form = reward.generateForm()
                 self.navigationController?.pushViewController(reward, animated: true)
                 

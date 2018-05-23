@@ -15,7 +15,7 @@ class SheenForm : RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.defaultSample(for: "SheenSample")!
+        reward = RewardSample.defaultSample(for: "SheenSample")!
         self.form = generateForm()
     }
     
@@ -24,10 +24,10 @@ class SheenForm : RewardForm {
         let form = FormDescriptor(title: "Sheen Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Color.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Duration.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Delay.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Color.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Alpha.formRow(reward.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

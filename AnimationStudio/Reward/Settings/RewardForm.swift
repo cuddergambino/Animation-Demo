@@ -12,7 +12,7 @@ import SwiftForms
 // should subclass this
 class RewardForm : FormViewController {
     
-    var rewardSettings: RewardSample!
+    var reward: RewardSample!
     var selectedRow: UITableViewCell?
     var fab: UIImageView!
     
@@ -26,11 +26,10 @@ class RewardForm : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fab = UIImageView(image: UIImage.init(named: "awesome"))
+        fab = UIImageView(image: UIImage.init(named: "clickMe"))
         fab.contentMode = .scaleAspectFit
-        fab.frame = CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        fab.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
         view.addSubview(fab)
-        view.bringSubview(toFront: fab)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
@@ -46,6 +45,11 @@ class RewardForm : FormViewController {
         fab.addGestureRecognizer(scaleGesture)
         fab.addGestureRecognizer(rotateGesture)
         fabStartingOrigin = fab.frame.origin
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.bringSubview(toFront: fab)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -69,8 +73,8 @@ extension RewardForm : UIGestureRecognizerDelegate {
     @objc func tap(_ gesture: UITapGestureRecognizer) {
         DispatchQueue.main.async {
             self.view.endEditing(true)
-            self.rewardSettings.setForm(form: self.form)
-            self.rewardSettings.sample(target: self.view, sender: self.fab)
+            self.commitRewardSample()
+            self.reward.sample(target: self.view, sender: self.fab)
         }
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
@@ -100,12 +104,36 @@ extension RewardForm : UIGestureRecognizerDelegate {
 
 
 extension RewardForm {
+    
+    static let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
+    func commitRewardSample() {
+        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == reward.rewardID}).isEmpty {
+            let generateName: (String) -> String = { baseName in
+                var name = [baseName]
+                for _ in 1...3 {
+                    if let char = RewardForm.randomChars.randomElement {
+                        name.append(char)
+                    }
+                }
+                return name.joined()
+            }
+            var newName: String
+            repeat {
+                newName = generateName(reward.rewardPrimitive.rawValue)
+            } while(RewardSample.samples[newName] != nil)
+            reward.settings[RewardParamKey.RewardID.rawValue] = newName
+            form = generateForm()
+            tableView.reloadData()
+        }
+        reward.setForm(form: form)
+    }
+    
     var saveSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: nil, footerTitle: nil)
         
-        section.rows.append(RewardParamKey.RewardID.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.RewardID.formRow(reward.settings))
         
-        let commitRow: FormRowDescriptor = {
+        let saveRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
             row.configuration.cell.appearance = ["backgroundColor" : UIColor.darkGray as AnyObject,
                                                  "titleLabel.textColor": UIColor.lightText as AnyObject
@@ -113,38 +141,37 @@ extension RewardForm {
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
-                    self.rewardSettings.setForm(form: self.form)
-                    self.rewardSettings.save()
-                    RewardSample.samples[self.rewardSettings.rewardID] = self.rewardSettings
-                    RewardSample.current = self.rewardSettings
+                    self.commitRewardSample()
+                    RewardSample.samples[self.reward.rewardID] = self.reward
+                    RewardSample.current = self.reward
                     self.navigationController?.popViewController(animated: true)
                 }
             }
             return row
         }()
-        section.rows.append(commitRow)
+        section.rows.append(saveRow)
         
         return section
     }
     
     var soundSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: "Sound", footerTitle: "For all sound options google 'SystemSoundID tuner88'")
-        section.rows.append(RewardParamKey.HapticFeedback.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.SystemSound.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.HapticFeedback.formRow(reward.settings))
+        section.rows.append(RewardParamKey.SystemSound.formRow(reward.settings))
         return section
     }
     
     var basicViewSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: "Animation Location", footerTitle: nil)
-        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewOption.formRow(reward.settings))
         return section
     }
     
     var preciseViewSection: FormSectionDescriptor {
         let section = FormSectionDescriptor(headerTitle: "Animation Location", footerTitle: nil)
-        section.rows.append(RewardParamKey.ViewOption.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.ViewMarginX.formRow(rewardSettings.settings))
-        section.rows.append(RewardParamKey.ViewMarginY.formRow(rewardSettings.settings))
+        section.rows.append(RewardParamKey.ViewOption.formRow(reward.settings))
+        section.rows.append(RewardParamKey.ViewMarginX.formRow(reward.settings))
+        section.rows.append(RewardParamKey.ViewMarginY.formRow(reward.settings))
         return saveSection
     }
 }

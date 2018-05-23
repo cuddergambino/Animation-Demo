@@ -16,7 +16,7 @@ class GlowForm : RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.defaultSample(for: "GlowSample")!
+        reward = RewardSample.defaultSample(for: "GlowSample")!
         self.form = generateForm()
     }
     
@@ -25,11 +25,11 @@ class GlowForm : RewardForm {
         let form = FormDescriptor(title: "Glow Settings")
         
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Color.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Alpha.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Duration.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Delay.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Color.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Alpha.formRow(reward.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

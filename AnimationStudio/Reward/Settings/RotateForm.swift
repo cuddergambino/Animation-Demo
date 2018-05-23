@@ -15,7 +15,7 @@ class RotateForm : RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        rewardSettings = RewardSample.defaultSample(for: "RotateSample")!
+        reward = RewardSample.defaultSample(for: "RotateSample")!
         self.form = generateForm()
     }
     
@@ -24,9 +24,9 @@ class RotateForm : RewardForm {
         let form = FormDescriptor(title: "Rotate Settings")
 
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
-        generalSection.rows.append(RewardParamKey.Duration.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Delay.formRow(rewardSettings.settings))
-        generalSection.rows.append(RewardParamKey.Count.formRow(rewardSettings.settings))
+        generalSection.rows.append(RewardParamKey.Duration.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Delay.formRow(reward.settings))
+        generalSection.rows.append(RewardParamKey.Count.formRow(reward.settings))
         
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form

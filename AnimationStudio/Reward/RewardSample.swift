@@ -41,24 +41,7 @@ struct RewardSample {
         }
     }
     
-    static let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
     mutating func save() {
-        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == rewardID}).isEmpty {
-            let generateName: (String) -> String = { baseName in
-                var name = [baseName]
-                for _ in 1...3 {
-                    if let char = RewardSample.randomChars.randomElement {
-                        name.append(char)
-                    }
-                }
-                return name.joined()
-            }
-            var newName: String
-            repeat {
-                newName = generateName(rewardPrimitive.rawValue)
-            } while(RewardSample.samples[newName] != nil)
-            self.settings[RewardParamKey.RewardID.rawValue] = newName
-        }
         print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
         UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
         RewardSample.samples[rewardID] = self

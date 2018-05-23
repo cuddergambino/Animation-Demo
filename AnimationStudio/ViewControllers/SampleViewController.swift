@@ -10,7 +10,7 @@ import UIKit
 
 class SampleViewController: UIViewController {
     
-    static var sampleButtonViewFrame: CGRect = .zero
+    static var sampleButtonViewFrame: CGRect?
     @IBOutlet weak var buttonView: UIImageView!
     
     var mainMenu: MainMenu!
@@ -21,7 +21,8 @@ class SampleViewController: UIViewController {
         mainMenu.mainMenuDelegate = self
         addChildViewController(mainMenu)
         self.view.addSubview(mainMenu.view)
-        mainMenu.view.frame = CGRect.init(x: 0, y: buttonView.frame.maxY + 30, width: view.bounds.width, height: view.bounds.maxY - buttonView.frame.maxY)
+        let mainMenuOrigin = CGPoint.init(x: 0, y: view.bounds.height * 3 / 5)
+        mainMenu.view.frame = CGRect.init(origin: mainMenuOrigin, size: CGSize.init(width: view.bounds.width, height: view.bounds.height - mainMenuOrigin.y))
         mainMenu.didMove(toParentViewController: self)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))

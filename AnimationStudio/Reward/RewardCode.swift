@@ -128,7 +128,6 @@ enum RewardPrimitive : String {
                     guard let colorString = settings["Color"] as? String, let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let alpha = settings["Alpha"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let radius = settings["Radius"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     for (view, _) in viewAndLocation {

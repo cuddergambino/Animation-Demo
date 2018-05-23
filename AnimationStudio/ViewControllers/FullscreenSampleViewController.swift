@@ -18,7 +18,7 @@ class FullscreenSampleViewController : UIViewController {
         backgroundImage.contentMode = .scaleAspectFit
         backgroundImage.frame = view.bounds
         buttonImage.contentMode = .scaleAspectFit
-        buttonImage.frame = SampleViewController.sampleButtonViewFrame
+        buttonImage.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
         
         view.addSubview(backgroundImage)
         view.addSubview(buttonImage)
