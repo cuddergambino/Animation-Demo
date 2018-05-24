@@ -61,8 +61,6 @@ internal class BKReportBatch : SynchronizedDictionary<String, SynchronizedArray<
         aCoder.encode(desiredMaxCountUntilSync, forKey: "desiredMaxCountUntilSync")
     }
     
-    let storeGroup = DispatchGroup()
-    
     func store(_ reinforcement: BKReinforcement) {
         guard enabled else {
             return
@@ -72,7 +70,6 @@ internal class BKReportBatch : SynchronizedDictionary<String, SynchronizedArray<
         }
         self[reinforcement.actionID]?.append(reinforcement)
         BKLog.debug(confirmed: "Report #<\(count)> actionID:<\(reinforcement.actionID)> with reinforcementID:<\(reinforcement.name)>")
-        storeGroup.enter()
         self.storage?.0.archive(self, forKey: self.storage!.1)
     }
     
@@ -104,7 +101,6 @@ internal class BKReportBatch : SynchronizedDictionary<String, SynchronizedArray<
             successful(true)
             return
         }
-        storeGroup.wait()
         let reportCopy = self.valuesForKeys
         let reportCount = reportCopy.values.reduce(0, {$0 + $1.count})
         guard reportCount > 0 else {

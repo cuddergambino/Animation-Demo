@@ -22,18 +22,18 @@ internal class HTTPClient : NSObject {
     
     func post(url: URL, jsonObject: [String: Any], timeout:TimeInterval = 3.0, completion: @escaping ([String: Any]?) -> Void) -> URLSessionDataTaskProtocol {
         
-        if logRequests {
-            BKLog.print("Sending request to <\(url.absoluteString)> with payload:\n<\(jsonObject as AnyObject)>...")
-        }
-        
         var request = URLRequest(url:url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.timeoutInterval = timeout
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: jsonObject)
+            let httpBody = try JSONSerialization.data(withJSONObject: jsonObject)
+            request.httpBody = httpBody
+            if logRequests {
+                BKLog.print("Sending request to <\(url.absoluteString)> with payload:\n<\(String(data: httpBody, encoding: .utf8) as AnyObject)>...")
+            }
         } catch {
-            let message = "\(url.absoluteString) call got error while converting request to JSON"
+            let message = "\(url.absoluteString) call got error while converting request to JSON <\(jsonObject as AnyObject)>"
             BKLog.debug(error: message)
         }
         
@@ -41,7 +41,7 @@ internal class HTTPClient : NSObject {
             let response = self.convertResponseToJSON(url, responseData, responseURL, error)
             if self.logResponses {
 //                BKLog.print("Received response from <\(request.url?.absoluteString ?? "url:nil")> with dictionary:\n<\(response as AnyObject)>")
-                BKLog.print("Received response from <\(request.url?.absoluteString ?? "url:nil")> with json:\n<\((responseData != nil ? String(data: responseData!, encoding: String.Encoding.utf8) : "nil") as AnyObject)>")
+                BKLog.print("Received response from <\(request.url?.absoluteString ?? "url:nil")> with json:\n<\((responseData != nil ? String(data: responseData!, encoding: .utf8) : "nil") as AnyObject)>")
             }
             completion(response)
         }

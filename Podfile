@@ -4,5 +4,5 @@ target 'AnimationStudio' do
     pod 'SwiftForms'
     pod 'EFColorPicker'
 #    pod 'BoundlessKit', :path => '/Users/cuddergambino/boundless/BoundlessKit-iOS/'
-    pod 'BoundlessKit', '5.4.2-core2'
+    pod 'BoundlessKit', '5.4.4-core'
 end

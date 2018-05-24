@@ -15,7 +15,7 @@ internal struct BoundlessCredentials {
     let clientBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     
     let appID: String
-    let identity: BoundlessUserIdentity
+    let user: BoundlessUser
     let inProduction: Bool
     let developmentSecret: String
     let productionSecret: String
@@ -26,9 +26,9 @@ internal struct BoundlessCredentials {
         self.inProduction = inProduction
         self.developmentSecret = developmentSecret
         self.productionSecret = productionSecret
-        self.identity = BoundlessUserIdentity()
+        self.user = BoundlessUser()
         if let primaryIdentity = primaryIdentity {
-            self.identity.setSource(customValue: primaryIdentity)
+            self.user.set(customId: primaryIdentity)
         }
     }
     
@@ -38,7 +38,7 @@ internal struct BoundlessCredentials {
                      "clientOSVersion": clientOSVersion,
                      "clientSDKVersion": clientSDKVersion,
                      "clientBuild": clientBuild,
-                     "primaryIdentity": identity.value,
+                     "primaryIdentity": user.id,
                      "appId": appID,
                      "secret": inProduction ? productionSecret : developmentSecret,
                      "utc": NSNumber(value: Int64(Date().timeIntervalSince1970) * 1000),

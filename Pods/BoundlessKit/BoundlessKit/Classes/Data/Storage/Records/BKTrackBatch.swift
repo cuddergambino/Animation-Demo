@@ -55,15 +55,12 @@ internal class BKTrackBatch : SynchronizedArray<BKAction>, BKData, BoundlessAPIS
         aCoder.encode(desiredMaxCountUntilSync, forKey: "desiredMaxCountUntilSync")
     }
     
-    let storeGroup = DispatchGroup()
-    
     func store(_ action: BKAction) {
         guard enabled else {
             return
         }
         self.append(action)
 //        BKLog.debug(confirmed: "Tracked action #<\(self.count)>:<\(action.name)>")
-        storeGroup.enter()
         self.storage?.0.archive(self, forKey: self.storage!.1)
     }
     
@@ -86,7 +83,6 @@ internal class BKTrackBatch : SynchronizedArray<BKAction>, BKData, BoundlessAPIS
             successful(true)
             return
         }
-        storeGroup.wait()
         let trackCopy = self.values
         guard trackCopy.count > 0 else {
             successful(true)

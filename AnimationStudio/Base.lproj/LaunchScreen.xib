@@ -19,9 +19,15 @@
                 <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="boundlessbackground" translatesAutoresizingMaskIntoConstraints="NO" id="gxx-HD-Qrn">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boundless Mind, Inc." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with 💜 and " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                    <rect key="frame" x="20" y="415" width="410" height="22"/>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boundless Mind, Inc." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="TDb-xx-SNm">
+                    <rect key="frame" x="20" y="438" width="440" height="22"/>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
                     <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -31,18 +37,30 @@
                     <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="BoundlessLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-g9-Up9">
+                    <rect key="frame" x="430" y="415" width="34" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="qjM-wS-1GC"/>
+                        <constraint firstAttribute="height" constant="22" id="sKR-7Z-UKm"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="GMd-g9-Up9" secondAttribute="trailing" constant="16" id="5Ep-lX-Fa3"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="7LO-aM-R4e"/>
+                <constraint firstItem="TDb-xx-SNm" firstAttribute="top" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="1" id="8FF-oe-Drx"/>
+                <constraint firstItem="TDb-xx-SNm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="IOs-f1-olV"/>
                 <constraint firstAttribute="trailing" secondItem="gxx-HD-Qrn" secondAttribute="trailing" id="K0a-Wc-qOT"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstAttribute="bottom" secondItem="gxx-HD-Qrn" secondAttribute="bottom" id="cFX-h9-0VH"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstAttribute="bottom" secondItem="TDb-xx-SNm" secondAttribute="bottom" constant="20" id="lf2-1r-alp"/>
+                <constraint firstItem="GMd-g9-Up9" firstAttribute="leading" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="njt-iU-Nn8"/>
+                <constraint firstAttribute="trailing" secondItem="TDb-xx-SNm" secondAttribute="trailing" constant="20" id="rzX-up-Yvf"/>
                 <constraint firstItem="gxx-HD-Qrn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tYJ-4G-wgy"/>
+                <constraint firstItem="TDb-xx-SNm" firstAttribute="top" secondItem="GMd-g9-Up9" secondAttribute="bottom" constant="1" id="xR5-8B-VvU"/>
                 <constraint firstItem="gxx-HD-Qrn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xbd-d4-V2Q"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -51,6 +69,7 @@
         </view>
     </objects>
     <resources>
+        <image name="BoundlessLogo" width="100" height="100"/>
         <image name="boundlessbackground" width="772" height="612"/>
     </resources>
 </document>

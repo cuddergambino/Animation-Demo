@@ -10,13 +10,26 @@ import Foundation
 internal class BoundlessKeychain {
     class var buid: String? {
         get {
-            return BoundlessKeychain.load(key: NSStringFromClass(BoundlessUserIdentity.self))
+            return BoundlessKeychain.load(key: "buid")
         }
         set {
             if let newValue = newValue {
-                BoundlessKeychain.save(key: NSStringFromClass(BoundlessUserIdentity.self), string: newValue)
+                BoundlessKeychain.save(key: "buid", string: newValue)
             } else {
-                BoundlessKeychain.clear(key: NSStringFromClass(BoundlessUserIdentity.self))
+                BoundlessKeychain.clear(key: "buid")
+            }
+        }
+    }
+    
+    class var experiementGroup: String? {
+        get {
+            return BoundlessKeychain.load(key: "experiementGroup")
+        }
+        set {
+            if let newValue = newValue {
+                BoundlessKeychain.save(key: "experiementGroup", string: newValue)
+            } else {
+                BoundlessKeychain.clear(key: "experiementGroup")
             }
         }
     }

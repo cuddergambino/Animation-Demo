@@ -75,12 +75,16 @@ internal class CodelessAPIClient : BoundlessAPIClient {
         didSetVersion(oldValue: nil)
     }
     
-    override func setCustomUserIdentity(_ id: String?) {
-        let oldId = credentials.identity.value
-        super.setCustomUserIdentity(id)
-        boundlessConfig.identityType = credentials.identity.source.rawValue
-        if oldId != credentials.identity.value {
-            boot()
+    override func setCustomUserIdentity(_ id: String, completion: ((String, String?) -> ())? = nil) {
+        let oldId = credentials.user.id
+        credentials.user.set(customId: id)
+        boundlessConfig.identityType = credentials.user.idSource.rawValue
+        if oldId == credentials.user.id {
+            completion?(credentials.user.id, credentials.user.experimentGroup)
+        } else {
+            boot() {
+                completion?(self.credentials.user.id, self.credentials.user.experimentGroup)
+            }
         }
     }
     
@@ -89,6 +93,8 @@ internal class CodelessAPIClient : BoundlessAPIClient {
         if initialBoot {
             // onInitialBoot erase previous keys
             BoundlessKeychain.buid = nil
+            BoundlessKeychain.experiementGroup = nil
+            credentials.user.idSource = BoundlessUser.IdSource(rawValue: boundlessConfig.identityType) ?? .idfv
         }
         var payload = credentials.json
         payload["inProduction"] = credentials.inProduction
@@ -99,6 +105,9 @@ internal class CodelessAPIClient : BoundlessAPIClient {
             self.confirmBoot()
             if let status = response?["status"] as? Int {
                 if status == 205 {
+                    if let experimentGroup = response?["experimentGroup"] as? String {
+                        self.credentials.user.experimentGroup = experimentGroup
+                    }
                     if let configDict = response?["config"] as? [String: Any],
                         let config = BoundlessConfiguration.convert(from: configDict) {
                         self.boundlessConfig = config
@@ -152,16 +161,16 @@ fileprivate extension CodelessAPIClient {
         
         BKLogPreferences.printEnabled = newValue.consoleLoggingEnabled
         
-        if credentials.identity.source.rawValue != newValue.identityType {
-            switch  BoundlessUserIdentity.Source(rawValue: newValue.identityType) {
+        if credentials.user.idSource.rawValue != newValue.identityType {
+            switch  BoundlessUser.IdSource(rawValue: newValue.identityType) {
             case .idfv?:
-                credentials.identity.source = .idfv
+                credentials.user.idSource = .idfv
             case .idfa?:
-                credentials.identity.source = .idfa
+                credentials.user.idSource = .idfa
             case .custom?:
-                credentials.identity.source = .custom
+                credentials.user.idSource = .custom
             case nil:
-                credentials.identity.source = .idfv
+                credentials.user.idSource = .idfv
             }
         }
         
