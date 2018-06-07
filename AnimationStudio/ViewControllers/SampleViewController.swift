@@ -12,11 +12,13 @@ class SampleViewController: UIViewController {
     
     static var sampleButtonViewFrame: CGRect?
     @IBOutlet weak var buttonView: UIImageView!
+    var backgroundImage: UIImageView!
     
     var mainMenu: MainMenu!
     
     
     override func viewDidLoad() {
+        
         mainMenu = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
         mainMenu.mainMenuDelegate = self
         addChildViewController(mainMenu)
@@ -24,6 +26,11 @@ class SampleViewController: UIViewController {
         let mainMenuOrigin = CGPoint.init(x: 0, y: view.bounds.height * 3 / 5)
         mainMenu.view.frame = CGRect.init(origin: mainMenuOrigin, size: CGSize.init(width: view.bounds.width, height: view.bounds.height - mainMenuOrigin.y))
         mainMenu.didMove(toParentViewController: self)
+        
+        backgroundImage = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: view.bounds.width, height: mainMenuOrigin.y))
+        backgroundImage.contentMode = .scaleAspectFit
+        backgroundImage.frame = view.bounds
+        view.insertSubview(backgroundImage, at: 0)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
@@ -52,6 +59,13 @@ class SampleViewController: UIViewController {
 }
 
 extension SampleViewController : MainMenuDelegate {
+    func didSelectFullscreen() {
+        let vc = FullscreenSampleViewController()
+        vc.backgroundImage = UIImageView(image: self.backgroundImage.image)
+        vc.buttonImage = UIImageView(image: self.buttonView.image)
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     func didImport(image: UIImage, isButton: Bool) {
         DispatchQueue.main.async {
             if isButton {
@@ -59,10 +73,7 @@ extension SampleViewController : MainMenuDelegate {
                 self.buttonView.image = image
                 self.buttonView.frame.origin = origin
             } else {
-                let vc = FullscreenSampleViewController()
-                vc.backgroundImage = UIImageView(image: image)
-                vc.buttonImage = UIImageView(image: self.buttonView.image)
-                self.navigationController?.pushViewController(vc, animated: false)
+                self.backgroundImage.image = image
             }
         }
     }

@@ -17,6 +17,7 @@ class FullscreenSampleViewController : UIViewController {
     override func viewDidLoad() {
         backgroundImage.contentMode = .scaleAspectFit
         backgroundImage.frame = view.bounds
+        backgroundImage.backgroundColor = .white
         buttonImage.contentMode = .scaleAspectFit
         buttonImage.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
         

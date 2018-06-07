@@ -37,8 +37,8 @@
                     <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="BoundlessLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-g9-Up9">
-                    <rect key="frame" x="430" y="415" width="34" height="22"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" image="BoundlessLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-g9-Up9">
+                    <rect key="frame" x="427" y="415" width="34" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="qjM-wS-1GC"/>
                         <constraint firstAttribute="height" constant="22" id="sKR-7Z-UKm"/>

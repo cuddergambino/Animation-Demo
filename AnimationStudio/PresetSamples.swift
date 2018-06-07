@@ -165,7 +165,7 @@ extension RewardSample {
             return RewardSample(str: "{"
                 + "\"RewardID\": \"GlowSample\","
                 + "\"primitive\": \"Glow\","
-                + "\"Color\": \"#FFA31A\","
+                + "\"Color\": \"#3DCF01\","
                 + "\"Duration\": 3,"
                 + "\"Alpha\": 0.7,"
                 + "\"Count\": 2,"

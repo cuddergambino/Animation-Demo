@@ -11,12 +11,14 @@ import UIKit
 
 protocol MainMenuDelegate {
     func didImport(image: UIImage, isButton: Bool)
+    func didSelectFullscreen()
 }
 
 class MainMenu : UITableViewController {
     
     var mainMenuDelegate: MainMenuDelegate?
     var uploadingButtonImage = true
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.setContentOffset(.zero, animated: true)
@@ -32,12 +34,14 @@ class MainMenu : UITableViewController {
                 self.navigationController?.pushViewController(reward, animated: true)
                 
             case 2:
-                uploadingButtonImage = true
                 self.requestButtonImage()
                 
             case 3:
-                uploadingButtonImage = false
                 self.requestFullscreenImage()
+                
+            case 4:
+                self.mainMenuDelegate?.didSelectFullscreen()
+                
             default:
                 break
             }
@@ -49,6 +53,7 @@ class MainMenu : UITableViewController {
 extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func requestButtonImage() {
+        uploadingButtonImage = true
         let camera = CameraHandler(delegate_: self)
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         optionMenu.popoverPresentationController?.sourceView = self.view
@@ -68,6 +73,7 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
     }
     
     func requestFullscreenImage() {
+        uploadingButtonImage = false
         let camera = CameraHandler(delegate_: self)
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         optionMenu.popoverPresentationController?.sourceView = self.view
@@ -78,16 +84,14 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         let sharePhoto = UIAlertAction(title: "Photo Library (screenshot preferred)", style: .default) { (alert : UIAlertAction!) in
             camera.getPhotoLibraryOn(self, canEdit: false)
         }
-        let defaultPhoto = UIAlertAction(title: "Default", style: .default) { (alert : UIAlertAction!) in
-            DispatchQueue.main.async {
-                self.mainMenuDelegate?.didImport(image: UIImage(named: "basicHomescreen")!, isButton: false)
-            }
+        let viewFullscreen = UIAlertAction(title: "View fullscreen", style: .default) { (alert : UIAlertAction!) in
+            self.mainMenuDelegate?.didSelectFullscreen()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
         }
         optionMenu.addAction(takePhoto)
         optionMenu.addAction(sharePhoto)
-        optionMenu.addAction(defaultPhoto)
+        optionMenu.addAction(viewFullscreen)
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
     }
