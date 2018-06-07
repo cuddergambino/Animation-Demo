@@ -47,6 +47,25 @@ class SampleViewController: UIViewController {
         buttonView.addGestureRecognizer(rotateGesture)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
+            let buttonImage = UIImage.from(base64String: str) {
+            let origin = self.buttonView.frame.origin
+            self.buttonView.image = buttonImage
+            self.buttonView.frame.origin = origin
+        } else {
+            buttonView.image = UIImage(named: "clickMe")
+        }
+        
+        if let str = RewardSample.current.settings[ImportedImageType.background.key] as? String {
+            self.backgroundImage.image = UIImage.from(base64String: str)
+        } else {
+            self.backgroundImage.image = nil
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -66,16 +85,20 @@ extension SampleViewController : MainMenuDelegate {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
-    func didImport(image: UIImage, isButton: Bool) {
+    func didImport(image: UIImage, type: ImportedImageType) {
         DispatchQueue.main.async {
-            if isButton {
+            switch type {
+            case .button:
                 let origin = self.buttonView.frame.origin
                 self.buttonView.image = image
                 self.buttonView.frame.origin = origin
-            } else {
+                
+            case .background:
                 self.backgroundImage.image = image
             }
         }
+        RewardSample.current.settings[type.key] = image.base64String
+        RewardSample.current.save()
     }
 }
 
@@ -111,3 +134,18 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     }
 }
 
+
+extension UIImage {
+    var base64String: String? {
+        return UIImagePNGRepresentation(self)?.base64EncodedString()
+    }
+    
+    static func from(base64String: String) -> UIImage? {
+        if let data = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters),
+            let image = UIImage(data: data) {
+            return image
+        } else {
+            return nil
+        }
+    }
+}

@@ -34,7 +34,7 @@ struct RewardSample {
     
     static func load(rewardID: String) -> RewardSample? {
         if let str = UserDefaults.standard.string(forKey: rewardID) {
-            print("loaded:\(str)")
+//            print("loaded:\(str)")
             return RewardSample(str: str)
         } else {
             return nil
@@ -42,7 +42,7 @@ struct RewardSample {
     }
     
     mutating func save() {
-        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
+//        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
         UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
         RewardSample.samples[rewardID] = self
         UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")

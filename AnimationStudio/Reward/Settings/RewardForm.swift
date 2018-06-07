@@ -26,7 +26,15 @@ class RewardForm : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fab = UIImageView(image: UIImage.init(named: "clickMe"))
+        
+        let buttonImage: UIImage?
+        if let str = reward.settings[ImportedImageType.button.key] as? String,
+            let image = UIImage.from(base64String: str) {
+            buttonImage = image
+        } else {
+            buttonImage = UIImage(named: "clickMe")
+        }
+        fab = UIImageView(image: buttonImage)
         fab.contentMode = .scaleAspectFit
         fab.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
         view.addSubview(fab)
