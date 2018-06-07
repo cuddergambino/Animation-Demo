@@ -36,7 +36,16 @@ class RewardForm : FormViewController {
         }
         fab = UIImageView(image: buttonImage)
         fab.contentMode = .scaleAspectFit
-        fab.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        
+        if let str = reward.settings["buttonViewFrame"] as? String {
+            fab.frame = CGRectFromString(str)
+        } else {
+            fab.frame = CGRect(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        }
+        
+        if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+            fab.transform = CGAffineTransformFromString(str)
+        }
         view.addSubview(fab)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))

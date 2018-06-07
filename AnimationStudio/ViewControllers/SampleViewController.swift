@@ -10,7 +10,6 @@ import UIKit
 
 class SampleViewController: UIViewController {
     
-    static var sampleButtonViewFrame: CGRect?
     @IBOutlet weak var buttonView: UIImageView!
     var backgroundImage: UIImageView!
     
@@ -52,11 +51,16 @@ class SampleViewController: UIViewController {
         
         if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
             let buttonImage = UIImage.from(base64String: str) {
-            let origin = self.buttonView.frame.origin
             self.buttonView.image = buttonImage
-            self.buttonView.frame.origin = origin
         } else {
             buttonView.image = UIImage(named: "clickMe")
+        }
+        if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
+            buttonView.frame = CGRectFromString(str)
+        }
+        identity = buttonView.transform
+        if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+            buttonView.transform = CGAffineTransformFromString(str)
         }
         
         if let str = RewardSample.current.settings[ImportedImageType.background.key] as? String {
@@ -70,16 +74,17 @@ class SampleViewController: UIViewController {
         super.viewDidAppear(animated)
         
         navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardPrimitive.rawValue
-        SampleViewController.sampleButtonViewFrame = buttonView.frame
     }
     
-    var aViewStartingOrigin = CGPoint.zero
     var identity = CGAffineTransform.identity
 }
 
 extension SampleViewController : MainMenuDelegate {
     func didResetButtonFrame() {
         self.buttonView.transform = .identity
+        if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
+            buttonView.frame = CGRectFromString(str)
+        }
     }
     
     func didSelectFullscreen() {
@@ -112,7 +117,10 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     }
     @objc func tap(_ gesture: UITapGestureRecognizer) {
         RewardSample.current.sample(target: self, sender: buttonView)
-        SampleViewController.sampleButtonViewFrame = buttonView.frame
+        
+        RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
+        RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
+        RewardSample.current.save()
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {

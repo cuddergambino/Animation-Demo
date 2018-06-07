@@ -19,7 +19,17 @@ class FullscreenSampleViewController : UIViewController {
         backgroundImage.frame = view.bounds
         backgroundImage.backgroundColor = .white
         buttonImage.contentMode = .scaleAspectFit
-        buttonImage.frame = SampleViewController.sampleButtonViewFrame ?? CGRect.init(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        
+        if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
+            buttonImage.frame = CGRectFromString(str)
+        } else {
+            buttonImage.frame = CGRect(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+        }
+        identity = buttonImage.transform
+        
+        if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+            buttonImage.transform = CGAffineTransformFromString(str)
+        }
         
         view.addSubview(backgroundImage)
         view.addSubview(buttonImage)
@@ -38,7 +48,7 @@ class FullscreenSampleViewController : UIViewController {
         buttonImage.addGestureRecognizer(scaleGesture)
         buttonImage.addGestureRecognizer(rotateGesture)
     }
-    var aViewStartingOrigin = CGPoint.zero
+    
     var identity = CGAffineTransform.identity
 }
 
@@ -50,6 +60,10 @@ extension FullscreenSampleViewController : UIGestureRecognizerDelegate {
 //        if Int(arc4random_uniform(UInt32(2))) > 0 {
             RewardSample.current.sample(target: self, sender: buttonImage)
 //        }
+        
+        RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonImage.frame)
+        RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonImage.transform)
+        RewardSample.current.save()
     }
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
 //        if gesture.state == .began || gesture.state == .changed {
