@@ -135,8 +135,8 @@ extension RewardForm {
         
         let saveRow: FormRowDescriptor = {
             let row = FormRowDescriptor(tag: "button", type: .button, title: "Save")
-            row.configuration.cell.appearance = ["backgroundColor" : UIColor.darkGray as AnyObject,
-                                                 "titleLabel.textColor": UIColor.lightText as AnyObject
+            row.configuration.cell.appearance = ["backgroundColor" : UIColor.from(rgb: "#007AFF") as AnyObject,
+                                                 "titleLabel.textColor": UIColor.white as AnyObject
             ]
             row.configuration.button.didSelectClosure = { _ in
                 DispatchQueue.main.async {
