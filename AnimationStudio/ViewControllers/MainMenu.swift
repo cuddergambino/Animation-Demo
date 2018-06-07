@@ -12,6 +12,7 @@ import UIKit
 protocol MainMenuDelegate {
     func didImport(image: UIImage, type: ImportedImageType)
     func didSelectFullscreen()
+    func didResetButtonFrame()
 }
 
 enum ImportedImageType : String {
@@ -68,6 +69,10 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         optionMenu.addAction(
             UIAlertAction(title: "Photo Library (crop after selecting)", style: .default) { (alert : UIAlertAction!) in
                 camera.getPhotoLibraryOn(self, canEdit: true)
+        })
+        optionMenu.addAction(
+            UIAlertAction(title: "Reset button size", style: .default) { (alert : UIAlertAction!) in
+                self.mainMenuDelegate?.didResetButtonFrame()
         })
         optionMenu.addAction(
             UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in

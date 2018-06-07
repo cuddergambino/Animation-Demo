@@ -78,6 +78,10 @@ class SampleViewController: UIViewController {
 }
 
 extension SampleViewController : MainMenuDelegate {
+    func didResetButtonFrame() {
+        self.buttonView.transform = .identity
+    }
+    
     func didSelectFullscreen() {
         let vc = FullscreenSampleViewController()
         vc.backgroundImage = UIImageView(image: self.backgroundImage.image)
