@@ -42,7 +42,7 @@ class PresetSamplesViewController : FormViewController {
                         for sample in RewardSample.samples.values {
                             RewardSample.delete(rewardID: sample.rewardID)
                         }
-                        for var preset in RewardSample.presets.reversed() {
+                        for preset in RewardSample.presets.reversed() {
                             preset.save()
                             RewardSample.samples[preset.rewardID] = preset
                             RewardSample.current = preset

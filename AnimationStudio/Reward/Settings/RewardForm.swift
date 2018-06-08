@@ -122,30 +122,9 @@ extension RewardForm : UIGestureRecognizerDelegate {
     }
 }
 
-
 extension RewardForm {
     
-    static let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
     func commitRewardSample() {
-        print("Reward id:\(form.formValues()[RewardParamKey.RewardID.rawValue] as? String)")
-        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == form.formValues()[RewardParamKey.RewardID.rawValue] as? String}).isEmpty {
-            let generateName: (String) -> String = { baseName in
-                var name = [baseName]
-                for _ in 1...3 {
-                    if let char = RewardForm.randomChars.randomElement {
-                        name.append(char)
-                    }
-                }
-                return name.joined()
-            }
-            var newName: String
-            repeat {
-                newName = generateName(reward.rewardPrimitive.rawValue)
-            } while(RewardSample.samples[newName] != nil)
-            reward.settings[RewardParamKey.RewardID.rawValue] = newName
-            form = generateForm()
-            tableView.reloadData()
-        }
         reward.setForm(form: form)
     }
     

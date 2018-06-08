@@ -13,7 +13,7 @@ extension RewardSample {
     
     static var presets: [RewardSample] = {
         return [
-            RewardSample(str: "{"
+            RewardSample.new(str: "{"
                 + "\"RewardID\": \"Hello There\","
                 + "\"primitive\": \"Emojisplosion\","
                 + "\"SystemSound\": 1010,"
@@ -40,7 +40,7 @@ extension RewardSample {
                 + "\"Content\": \"🖐\""
                 + "}"),
             
-            RewardSample(str: "{"
+            RewardSample.new(str: "{"
                 + "\"RewardID\": \"Confetti Surprise\","
                 + "\"primitive\": \"Confetti\","
                 + "\"Duration\": 2,"
@@ -61,7 +61,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}"),
             
-            RewardSample(str: "{"
+            RewardSample.new(str: "{"
                 + "\"RewardID\": \"Rotate Preset\","
                 + "\"primitive\": \"Rotate\","
                 + "\"Duration\": 1,"
@@ -80,7 +80,7 @@ extension RewardSample {
     static func defaultSample(for rewardID: String) -> RewardSample? {
         switch rewardID {
         case "PopoverSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"PopoverSample\","
                 + "\"primitive\": \"Popover\","
                 + "\"Content\": \"❤️\","
@@ -97,7 +97,7 @@ extension RewardSample {
                 + "}")
             
         case "ConfettiSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"ConfettiSample\","
                 + "\"primitive\": \"Confetti\","
                 + "\"Duration\": 2,"
@@ -119,7 +119,7 @@ extension RewardSample {
                 + "}")
             
         case "RotateSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"RotateSample\","
                 + "\"primitive\": \"Rotate\","
                 + "\"Duration\": 1,"
@@ -134,7 +134,7 @@ extension RewardSample {
                 + "}")
             
         case "EmojisplosionSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"EmojisplosionSample\","
                 + "\"primitive\": \"Emojisplosion\","
                 + "\"SystemSound\": 1109,"
@@ -162,7 +162,7 @@ extension RewardSample {
                 + "}")
             
         case "GlowSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"GlowSample\","
                 + "\"primitive\": \"Glow\","
                 + "\"Color\": \"#3DCF01\","
@@ -180,7 +180,7 @@ extension RewardSample {
                 + "}")
             
         case "SheenSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"SheenSample\","
                 + "\"primitive\": \"Sheen\","
                 + "\"Duration\": 2,"
@@ -196,7 +196,7 @@ extension RewardSample {
                 + "}")
             
         case "PulseSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"PulseSample\","
                 + "\"primitive\": \"Pulse\","
                 + "\"Duration\": 0.86,"
@@ -214,7 +214,7 @@ extension RewardSample {
                 + "}")
             
         case "ShimmySample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"ShimmySample\","
                 + "\"primitive\": \"Shimmy\","
                 + "\"Duration\": 5,"
@@ -230,7 +230,7 @@ extension RewardSample {
                 + "}")
             
         case "VibrateSample":
-            return RewardSample(str: "{"
+            return RewardSample.new(str: "{"
                 + "\"RewardID\": \"VibrateSample\","
                 + "\"primitive\": \"Vibrate\","
                 + "\"VibrateDuration\": 1,"

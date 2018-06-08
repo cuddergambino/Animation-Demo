@@ -31,21 +31,44 @@ struct RewardSample {
     
     static var current: RewardSample = samples.values.first ?? RewardSample.defaultSample(for: "ConfettiSample")!
     
+    let rewardPrimitive: RewardPrimitive
+    var settings: [String: Any]
+    var rewardID: String {
+        return self.settings[RewardParamKey.RewardID.rawValue] as! String
+    }
+    
+    fileprivate init(str: String) {
+        let dict = str.toJSONDict
+        self.settings = dict
+        self.rewardPrimitive = RewardPrimitive(rawValue: dict["primitive"] as! String)!
+    }
+    
+    static func new(str: String) -> RewardSample {
+        var sample = RewardSample(str: str)
+        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == sample.rewardID}).isEmpty {
+            var newName: String
+            repeat {
+                newName = String.generateName(withRoot: sample.rewardPrimitive.rawValue)
+            } while(RewardSample.samples[newName] != nil)
+            sample.settings[RewardParamKey.RewardID.rawValue] = newName
+        }
+        return sample
+    }
+    
+    func save() {
+        //        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
+        UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
+        RewardSample.samples[rewardID] = self
+        UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
+    }
     
     static func load(rewardID: String) -> RewardSample? {
         if let str = UserDefaults.standard.string(forKey: rewardID) {
-//            print("loaded:\(str)")
+            //            print("loaded:\(str)")
             return RewardSample(str: str)
         } else {
             return nil
         }
-    }
-    
-    mutating func save() {
-//        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
-        UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
-        RewardSample.samples[rewardID] = self
-        UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
     }
     
     static func delete(rewardID: String) {
@@ -59,18 +82,6 @@ struct RewardSample {
                 RewardSample.current = RewardSample.defaultSample(for: "ConfettiSample")!
             }
         }
-    }
-    
-    let rewardPrimitive: RewardPrimitive
-    var settings: [String: Any]
-    var rewardID: String {
-        return self.settings[RewardParamKey.RewardID.rawValue] as! String
-    }
-    
-    init(str: String) {
-        let dict = str.toJSONDict
-        self.rewardPrimitive = RewardPrimitive.cases.filter({$0.rawValue == dict["primitive"] as! String}).first!
-        self.settings = dict
     }
     
     func sample(target: NSObject, sender: AnyObject?) {

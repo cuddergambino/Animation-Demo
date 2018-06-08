@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import Photos
 
 protocol MainMenuDelegate {
     func didImport(image: UIImage, type: ImportedImageType)
     func didSelectFullscreen()
-    func didResetButtonFrame()
+    func shouldResetButton()
 }
 
 enum ImportedImageType : String {
@@ -60,62 +61,57 @@ class MainMenu : UITableViewController {
 
 extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    func confirmPhotosPermission(completion: @escaping () -> Void) {
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                guard status == .authorized else {
+                    return
+                }
+                completion()
+            })
+        } else {
+            completion()
+        }
+    }
+    
     func requestButtonImage() {
-        importedImageType = .button
-//        let camera = CameraHandler(delegate_: self)
+        confirmPhotosPermission() {
+        self.importedImageType = .button
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         optionMenu.popoverPresentationController?.sourceView = self.view
         
-        optionMenu.addAction(
-            UIAlertAction(title: "Photo Library (crop after selecting)", style: .default) { (alert : UIAlertAction!) in
-//                camera.getPhotoLibraryOn(self, canEdit: true)
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = .savedPhotosAlbum
-                imagePicker.allowsEditing = false
-                self.present(imagePicker, animated: true, completion: nil)
-        })
-        optionMenu.addAction(
-            UIAlertAction(title: "Reset button size", style: .default) { (alert : UIAlertAction!) in
-                self.mainMenuDelegate?.didResetButtonFrame()
-        })
-        optionMenu.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
-        })
-        
-        self.present(optionMenu, animated: true, completion: nil)
+            optionMenu.addAction(
+                UIAlertAction(title: "Photo Library (crop after selecting)", style: .default) { (alert : UIAlertAction!) in
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = .savedPhotosAlbum
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker, animated: true, completion: nil)
+            })
+            optionMenu.addAction(
+                UIAlertAction(title: "Reset button", style: .default) { (alert : UIAlertAction!) in
+                    self.mainMenuDelegate?.shouldResetButton()
+            })
+            optionMenu.addAction(
+                UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
+            })
+            
+            self.present(optionMenu, animated: true, completion: nil)
+        }
     }
     
     func requestFullscreenImage() {
-        importedImageType = .background
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .savedPhotosAlbum
-        imagePicker.allowsEditing = false
-        self.present(imagePicker, animated: true, completion: nil)
-        
-        
-//        importedImageType = .background
-//        let camera = CameraHandler(delegate_: self)
-//        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        optionMenu.popoverPresentationController?.sourceView = self.view
-//
-//        optionMenu.addAction(
-//            UIAlertAction(title: "Photo Library (screenshot preferred)", style: .default) { (alert : UIAlertAction!) in
-//                camera.getPhotoLibraryOn(self, canEdit: false)
-//        })
-//        optionMenu.addAction(
-//            UIAlertAction(title: "View fullscreen", style: .default) { (alert : UIAlertAction!) in
-//                self.mainMenuDelegate?.didSelectFullscreen()
-//        })
-//        optionMenu.addAction(
-//            UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
-//        })
-//
-//        self.present(optionMenu, animated: true, completion: nil)
+        confirmPhotosPermission() {
+            self.importedImageType = .background
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    
+    @objc
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         picker.dismiss(animated: true, completion: nil)

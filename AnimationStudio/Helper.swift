@@ -202,3 +202,14 @@ extension UIWindow {
     }
 }
 
+extension String {
+    static func generateName(withRoot root: String, appendCount count: Int = 3, randomlyAppending randomChars: [String] = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]) -> String {
+        var name = [root]
+        for _ in 1...count {
+            if let char = randomChars.randomElement {
+                name.append(char)
+            }
+        }
+        return name.joined()
+    }
+}
