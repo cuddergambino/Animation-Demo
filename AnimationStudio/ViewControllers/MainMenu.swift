@@ -62,13 +62,18 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
     
     func requestButtonImage() {
         importedImageType = .button
-        let camera = CameraHandler(delegate_: self)
+//        let camera = CameraHandler(delegate_: self)
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         optionMenu.popoverPresentationController?.sourceView = self.view
         
         optionMenu.addAction(
             UIAlertAction(title: "Photo Library (crop after selecting)", style: .default) { (alert : UIAlertAction!) in
-                camera.getPhotoLibraryOn(self, canEdit: true)
+//                camera.getPhotoLibraryOn(self, canEdit: true)
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .savedPhotosAlbum
+                imagePicker.allowsEditing = false
+                self.present(imagePicker, animated: true, completion: nil)
         })
         optionMenu.addAction(
             UIAlertAction(title: "Reset button size", style: .default) { (alert : UIAlertAction!) in
@@ -83,23 +88,31 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
     
     func requestFullscreenImage() {
         importedImageType = .background
-        let camera = CameraHandler(delegate_: self)
-        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        optionMenu.popoverPresentationController?.sourceView = self.view
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
         
-        optionMenu.addAction(
-            UIAlertAction(title: "Photo Library (screenshot preferred)", style: .default) { (alert : UIAlertAction!) in
-                camera.getPhotoLibraryOn(self, canEdit: false)
-        })
-        optionMenu.addAction(
-            UIAlertAction(title: "View fullscreen", style: .default) { (alert : UIAlertAction!) in
-                self.mainMenuDelegate?.didSelectFullscreen()
-        })
-        optionMenu.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
-        })
         
-        self.present(optionMenu, animated: true, completion: nil)
+//        importedImageType = .background
+//        let camera = CameraHandler(delegate_: self)
+//        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        optionMenu.popoverPresentationController?.sourceView = self.view
+//
+//        optionMenu.addAction(
+//            UIAlertAction(title: "Photo Library (screenshot preferred)", style: .default) { (alert : UIAlertAction!) in
+//                camera.getPhotoLibraryOn(self, canEdit: false)
+//        })
+//        optionMenu.addAction(
+//            UIAlertAction(title: "View fullscreen", style: .default) { (alert : UIAlertAction!) in
+//                self.mainMenuDelegate?.didSelectFullscreen()
+//        })
+//        optionMenu.addAction(
+//            UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
+//        })
+//
+//        self.present(optionMenu, animated: true, completion: nil)
     }
     
     
