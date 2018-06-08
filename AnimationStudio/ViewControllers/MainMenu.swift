@@ -12,7 +12,7 @@ import Photos
 
 protocol MainMenuDelegate {
     func didImport(image: UIImage, type: ImportedImageType)
-    func didSelectFullscreen()
+    func toggleFullscreen()
     func shouldResetButton()
 }
 
@@ -37,7 +37,7 @@ class MainMenu : UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Reward") as! RewardForm
+                let reward = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Form") as! RewardForm
                 reward.reward = RewardSample.current
                 reward.form = reward.generateForm()
                 self.navigationController?.pushViewController(reward, animated: true)
@@ -49,13 +49,20 @@ class MainMenu : UITableViewController {
                 self.requestFullscreenImage()
                 
             case 4:
-                self.mainMenuDelegate?.didSelectFullscreen()
+                self.mainMenuDelegate?.toggleFullscreen()
                 
             default:
                 break
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @objc
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        picker.dismiss(animated: true, completion: nil)
+        mainMenuDelegate?.didImport(image: image, type: importedImageType)
     }
 }
 
@@ -109,13 +116,6 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
-    }
-    
-    @objc
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        picker.dismiss(animated: true, completion: nil)
-        mainMenuDelegate?.didImport(image: image, type: importedImageType)
     }
 }
 

@@ -27,9 +27,8 @@ class SampleViewController: UIViewController {
         mainMenu.didMove(toParentViewController: self)
         
         // create background imageview
-        backgroundImage = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: view.bounds.width, height: mainMenuOrigin.y))
+        backgroundImage = UIImageView.init(frame: view.bounds)
         backgroundImage.contentMode = .scaleAspectFit
-        backgroundImage.frame = view.bounds
         view.insertSubview(backgroundImage, at: 0)
         
         // create button imageview
@@ -44,6 +43,13 @@ class SampleViewController: UIViewController {
         buttonView.addGestureRecognizer(tapGesture)
         buttonView.addGestureRecognizer(panGesture)
         buttonView.addGestureRecognizer(scaleGesture)
+        
+        // tap gesture to hide navigation
+        let tapToHide = UITapGestureRecognizer(target: self, action: #selector(toggleFullscreen))
+        tapToHide.delegate = self
+        tapToHide.numberOfTapsRequired = 2
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapToHide)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +58,7 @@ class SampleViewController: UIViewController {
         // set background image
         if let str = RewardSample.current.settings[ImportedImageType.background.key] as? String {
             self.backgroundImage.image = UIImage.from(base64String: str)
+            self.view.backgroundColor = .black
         } else {
             self.backgroundImage.image = nil
         }
@@ -60,15 +67,24 @@ class SampleViewController: UIViewController {
         if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
             let buttonImage = UIImage.from(base64String: str) {
             self.buttonView.image = buttonImage
+            if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
+                buttonView.frame = CGRectFromString(str)
+            }
+            if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+                buttonView.transform = CGAffineTransformFromString(str)
+            }
         } else {
             buttonView.image = UIImage(named: "clickMe")
         }
-        if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
-            buttonView.frame = CGRectFromString(str)
-        }
-        if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
-            buttonView.transform = CGAffineTransformFromString(str)
-        }
+        buttonView.sizeToFit()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: {_ in
+//            self.backgroundImage.center = self.view.center
+            self.backgroundImage.frame = self.view.bounds
+        })
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +92,22 @@ class SampleViewController: UIViewController {
         
         navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardID
     }
+    
+    @objc @IBAction
+    func toggleFullscreen() {
+        let showFullscreen = !mainMenu.view.isHidden
+        mainMenu.view.isHidden = showFullscreen
+        navigationController?.setNavigationBarHidden(showFullscreen, animated: true)
+    }
+    
+    @IBAction
+    func editReward() {
+        let rewardForm = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RewardSample.current.rewardPrimitive.rawValue + "Form") as! RewardForm
+        rewardForm.reward = RewardSample.current
+        rewardForm.form = rewardForm.generateForm()
+        self.navigationController?.pushViewController(rewardForm, animated: true)
+    }
+    
 }
 
 extension SampleViewController : MainMenuDelegate {
@@ -86,14 +118,12 @@ extension SampleViewController : MainMenuDelegate {
         buttonView.center = view.center
     }
     
-    func didSelectFullscreen() {
-        mainMenu.view.isHidden = true
-        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Toggle Menu", style: .plain, target: self, action: #selector(toggleMainMenu)), animated: true)
+    override var prefersStatusBarHidden: Bool {
+        return navigationController?.isNavigationBarHidden == true
     }
     
-    @objc
-    func toggleMainMenu() {
-        mainMenu.view.isHidden = !mainMenu.view.isHidden
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return UIStatusBarAnimation.slide
     }
     
     func didImport(image: UIImage, type: ImportedImageType) {
@@ -113,6 +143,10 @@ extension SampleViewController : MainMenuDelegate {
 }
 
 extension SampleViewController : UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view == gestureRecognizer.view
+    }
     
     @objc
     func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

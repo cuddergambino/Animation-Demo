@@ -26,46 +26,25 @@ class RewardForm : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let buttonImage: UIImage?
-        if let str = reward.settings[ImportedImageType.button.key] as? String,
-            let image = UIImage.from(base64String: str) {
-            buttonImage = image
-        } else {
-            if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
-                let image = UIImage.from(base64String: str) {
-                buttonImage = image
-            } else {
-                buttonImage = UIImage(named: "clickMe")
-            }
-            reward.settings[ImportedImageType.button.key] = buttonImage?.base64String
-        }
-        fab = UIImageView(image: buttonImage)
+        fab = UIImageView(image: nil)
         fab.contentMode = .scaleAspectFit
         
-        if let str = reward.settings["buttonViewFrame"] as? String {
-            fab.frame = CGRectFromString(str)
-        } else {
-            if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
-                fab.frame = CGRectFromString(str)
-            } else {
-                fab.frame = CGRect(x: UIScreen.main.bounds.midX - 32, y: 200, width: 100, height: 100)
-            }
-            reward.settings["buttonViewFrame"] = NSStringFromCGRect(fab.frame)
-        }
-        
-        if let str = reward.settings["buttonViewTransform"] as? String {
-            fab.transform = CGAffineTransformFromString(str)
-        } else {
-            if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
-                fab.transform = CGAffineTransformFromString(str)
-            }
-            reward.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(fab.transform)
-        }
-        
-        if reward.settings[ImportedImageType.background.key] == nil {
+        if reward.settings[ImportedImageType.button.key] as? String == nil {
+            reward.settings[ImportedImageType.button.key] = RewardSample.current.settings[ImportedImageType.button.key]
+            reward.settings["buttonViewFrame"] = RewardSample.current.settings["buttonViewFrame"]
+            reward.settings["buttonViewTransform"] = RewardSample.current.settings["buttonViewTransform"]
             reward.settings[ImportedImageType.background.key] = RewardSample.current.settings[ImportedImageType.background.key]
         }
+        
+        if let imageStr = reward.settings[ImportedImageType.button.key] as? String,
+            let image = UIImage.from(base64String: imageStr),
+            let frameStr = reward.settings["buttonViewFrame"] as? String,
+            let transformStr = reward.settings["buttonViewTransform"] as? String {
+            fab.image = image
+            fab.frame = CGRectFromString(frameStr)
+            fab.transform = CGAffineTransformFromString(transformStr)
+        }
+        
         view.addSubview(fab)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))

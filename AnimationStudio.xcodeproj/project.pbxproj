@@ -12,7 +12,6 @@
 		84E753FB20AB8038009AEF81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E753FA20AB8038009AEF81 /* AppDelegate.swift */; };
 		84E7540020AB8038009AEF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E753FE20AB8038009AEF81 /* Main.storyboard */; };
 		84E7540220AB8038009AEF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E7540120AB8038009AEF81 /* Assets.xcassets */; };
-		84E7542520AB8E74009AEF81 /* FullscreenSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7540D20AB8E73009AEF81 /* FullscreenSampleViewController.swift */; };
 		84E7542620AB8E74009AEF81 /* RewardSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7540E20AB8E73009AEF81 /* RewardSample.swift */; };
 		84E7542720AB8E74009AEF81 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7540F20AB8E73009AEF81 /* SampleViewController.swift */; };
 		84E7542820AB8E74009AEF81 /* PresetSamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7541020AB8E73009AEF81 /* PresetSamplesViewController.swift */; };
@@ -45,7 +44,6 @@
 		84E753FF20AB8038009AEF81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E7540120AB8038009AEF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E7540620AB8038009AEF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84E7540D20AB8E73009AEF81 /* FullscreenSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenSampleViewController.swift; sourceTree = "<group>"; };
 		84E7540E20AB8E73009AEF81 /* RewardSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSample.swift; sourceTree = "<group>"; };
 		84E7540F20AB8E73009AEF81 /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		84E7541020AB8E73009AEF81 /* PresetSamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetSamplesViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				84E7542120AB8E74009AEF81 /* MainMenu.swift */,
 				84E7541020AB8E73009AEF81 /* PresetSamplesViewController.swift */,
 				84E7540F20AB8E73009AEF81 /* SampleViewController.swift */,
-				84E7540D20AB8E73009AEF81 /* FullscreenSampleViewController.swift */,
 				84E7542220AB8E74009AEF81 /* AllRewardsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -304,7 +301,6 @@
 				84E7543020AB8E74009AEF81 /* PulseForm.swift in Sources */,
 				84E7542620AB8E74009AEF81 /* RewardSample.swift in Sources */,
 				84E7542F20AB8E74009AEF81 /* PopoverForm.swift in Sources */,
-				84E7542520AB8E74009AEF81 /* FullscreenSampleViewController.swift in Sources */,
 				84E7543720AB8E74009AEF81 /* AllRewardsViewController.swift in Sources */,
 				84E7542B20AB8E74009AEF81 /* FormColorPickerCell.swift in Sources */,
 				84E7542820AB8E74009AEF81 /* PresetSamplesViewController.swift in Sources */,
