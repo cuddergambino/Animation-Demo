@@ -29,7 +29,7 @@ struct RewardSample {
         return samples
     }()
     
-    static var current: RewardSample = samples.values.first ?? RewardSample.defaultSample(for: "ConfettiSample")!
+    static var current: RewardSample = samples.values.first ?? RewardSample.defaultSample(for: .Confetti)
     
     let rewardPrimitive: RewardPrimitive
     var settings: [String: Any]
@@ -79,7 +79,7 @@ struct RewardSample {
                 let random = Array(RewardSample.samples.values).randomElement {
                 RewardSample.current = random
             } else {
-                RewardSample.current = RewardSample.defaultSample(for: "ConfettiSample")!
+                RewardSample.current = RewardSample.defaultSample(for: .Confetti)
             }
         }
     }

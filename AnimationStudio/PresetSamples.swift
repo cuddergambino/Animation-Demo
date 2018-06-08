@@ -77,9 +77,9 @@ extension RewardSample {
         ]
     }()
     
-    static func defaultSample(for rewardID: String) -> RewardSample? {
-        switch rewardID {
-        case "PopoverSample":
+    static func defaultSample(for primitive: RewardPrimitive) -> RewardSample {
+        switch primitive {
+        case .Popover:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"PopoverSample\","
                 + "\"primitive\": \"Popover\","
@@ -96,7 +96,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "ConfettiSample":
+        case .Confetti:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"ConfettiSample\","
                 + "\"primitive\": \"Confetti\","
@@ -118,7 +118,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "RotateSample":
+        case .Rotate:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"RotateSample\","
                 + "\"primitive\": \"Rotate\","
@@ -133,7 +133,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "EmojisplosionSample":
+        case .Emojisplosion:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"EmojisplosionSample\","
                 + "\"primitive\": \"Emojisplosion\","
@@ -161,7 +161,7 @@ extension RewardSample {
                 + "\"Content\": \"❤️\""
                 + "}")
             
-        case "GlowSample":
+        case .Glow:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"GlowSample\","
                 + "\"primitive\": \"Glow\","
@@ -179,7 +179,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "SheenSample":
+        case .Sheen:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"SheenSample\","
                 + "\"primitive\": \"Sheen\","
@@ -195,7 +195,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "PulseSample":
+        case .Pulse:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"PulseSample\","
                 + "\"primitive\": \"Pulse\","
@@ -213,7 +213,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "ShimmySample":
+        case .Shimmy:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"ShimmySample\","
                 + "\"primitive\": \"Shimmy\","
@@ -229,7 +229,7 @@ extension RewardSample {
                 + "\"SystemSound\": 0"
                 + "}")
             
-        case "VibrateSample":
+        case .Vibrate:
             return RewardSample.new(str: "{"
                 + "\"RewardID\": \"VibrateSample\","
                 + "\"primitive\": \"Vibrate\","
@@ -250,8 +250,6 @@ extension RewardSample {
                 + "\"HapticFeedback\": false,"
                 + "\"SystemSound\": 0"
                 + "}")
-        default:
-            return nil
         }
         
     }

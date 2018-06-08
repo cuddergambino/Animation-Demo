@@ -15,7 +15,7 @@ class SheenForm : RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        reward = RewardSample.defaultSample(for: "SheenSample")!
+        reward = RewardSample.defaultSample(for: .Sheen)
         self.form = generateForm()
     }
     

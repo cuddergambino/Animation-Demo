@@ -15,7 +15,7 @@ class PulseForm : RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        reward = RewardSample.defaultSample(for: "PulseSample")!
+        reward = RewardSample.defaultSample(for: .Pulse)
         self.form = generateForm()
     }
     
