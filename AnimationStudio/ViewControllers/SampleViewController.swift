@@ -15,7 +15,6 @@ class SampleViewController: UIViewController {
     
     var mainMenu: MainMenu!
     
-    
     override func viewDidLoad() {
         
         mainMenu = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainMenu") as! MainMenu
@@ -40,10 +39,11 @@ class SampleViewController: UIViewController {
         scaleGesture.delegate = self
         rotateGesture.delegate = self
         buttonView.isUserInteractionEnabled = true
+        buttonView.isMultipleTouchEnabled = true
         buttonView.addGestureRecognizer(tapGesture)
         buttonView.addGestureRecognizer(panGesture)
         buttonView.addGestureRecognizer(scaleGesture)
-        buttonView.addGestureRecognizer(rotateGesture)
+//        buttonView.addGestureRecognizer(rotateGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +73,7 @@ class SampleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardPrimitive.rawValue
+        navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardID
     }
     
     var identity = CGAffineTransform.identity
@@ -82,16 +82,18 @@ class SampleViewController: UIViewController {
 extension SampleViewController : MainMenuDelegate {
     func didResetButtonFrame() {
         self.buttonView.transform = .identity
-        if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
-            buttonView.frame = CGRectFromString(str)
-        }
+        let ratio = buttonView.frame.height / buttonView.frame.width
+        self.buttonView.frame = CGRect.init(x: 0, y: 0, width: 100, height: ratio * 100)
+        buttonView.center = view.center
     }
     
     func didSelectFullscreen() {
-        let vc = FullscreenSampleViewController()
-        vc.backgroundImage = UIImageView(image: self.backgroundImage.image)
-        vc.buttonImage = UIImageView(image: self.buttonView.image)
-        self.navigationController?.pushViewController(vc, animated: false)
+        mainMenu.view.isHidden = true
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Toggle Menu", style: .plain, target: self, action: #selector(toggleMainMenu)), animated: true)
+    }
+    
+    @objc func toggleMainMenu() {
+        mainMenu.view.isHidden = !mainMenu.view.isHidden
     }
     
     func didImport(image: UIImage, type: ImportedImageType) {
@@ -115,35 +117,40 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+    
     @objc func tap(_ gesture: UITapGestureRecognizer) {
         RewardSample.current.sample(target: self, sender: buttonView)
         
         RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
         RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
-        RewardSample.current.save()
+//        RewardSample.current.save()
     }
+    
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
-            let trans = gesture.translation(in: view)
+            let translation = gesture.translation(in: view)
             gesture.setTranslation(.zero, in: view)
-            buttonView.frame = buttonView.frame.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+            buttonView.frame = buttonView.frame.applying(CGAffineTransform.init(translationX: translation.x, y: translation.y))
+        } else if gesture.state == .ended {
+            RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
+            RewardSample.current.save()
         }
     }
+    
     @objc func scale(_ gesture: UIPinchGestureRecognizer) {
-        switch gesture.state {
-        case .began:
-            identity = buttonView.transform
-        case .changed:
-            buttonView.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
-        case .cancelled:
-            break
-        default:
-            break
+        gesture.view?.transform = gesture.view!.transform.scaledBy(x: gesture.scale, y: gesture.scale)
+        gesture.scale = 1
+        if gesture.state == .ended {
+            RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
+            RewardSample.current.save()
         }
     }
+    
     @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
-        buttonView.transform = buttonView.transform.rotated(by: gesture.rotation)
+        gesture.view?.transform = gesture.view!.transform.rotated(by: gesture.rotation)
+        gesture.rotation = 0
     }
+    
 }
 
 

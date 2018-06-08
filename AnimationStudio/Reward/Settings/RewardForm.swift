@@ -32,7 +32,13 @@ class RewardForm : FormViewController {
             let image = UIImage.from(base64String: str) {
             buttonImage = image
         } else {
-            buttonImage = UIImage(named: "clickMe")
+            if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
+                let image = UIImage.from(base64String: str) {
+                buttonImage = image
+            } else {
+                buttonImage = UIImage(named: "clickMe")
+            }
+            reward.settings[ImportedImageType.button.key] = buttonImage?.base64String
         }
         fab = UIImageView(image: buttonImage)
         fab.contentMode = .scaleAspectFit
@@ -40,33 +46,47 @@ class RewardForm : FormViewController {
         if let str = reward.settings["buttonViewFrame"] as? String {
             fab.frame = CGRectFromString(str)
         } else {
-            fab.frame = CGRect(x: UIScreen.main.bounds.midX - 32, y: 200, width: 64, height: 64)
+            if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
+                fab.frame = CGRectFromString(str)
+            } else {
+                fab.frame = CGRect(x: UIScreen.main.bounds.midX - 32, y: 200, width: 100, height: 100)
+            }
+            reward.settings["buttonViewFrame"] = NSStringFromCGRect(fab.frame)
         }
         
-        if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+        if let str = reward.settings["buttonViewTransform"] as? String {
             fab.transform = CGAffineTransformFromString(str)
+        } else {
+            if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
+                fab.transform = CGAffineTransformFromString(str)
+            }
+            reward.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(fab.transform)
+        }
+        
+        if reward.settings[ImportedImageType.background.key] == nil {
+            reward.settings[ImportedImageType.background.key] = RewardSample.current.settings[ImportedImageType.background.key]
         }
         view.addSubview(fab)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
-        let scaleGesture = UIPinchGestureRecognizer(target: self, action: #selector(scale))
-        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate))
         tapGesture.delegate = self
         panGesture.delegate = self
-        scaleGesture.delegate = self
-        rotateGesture.delegate = self
         fab.isUserInteractionEnabled = true
         fab.addGestureRecognizer(tapGesture)
         fab.addGestureRecognizer(panGesture)
-        fab.addGestureRecognizer(scaleGesture)
-        fab.addGestureRecognizer(rotateGesture)
-        fabStartingOrigin = fab.frame.origin
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.bringSubview(toFront: fab)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        reward.save()
+        RewardSample.current = reward
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -78,15 +98,13 @@ class RewardForm : FormViewController {
         super.tableView(tableView, didSelectRowAt: indexPath)
         selectedRow = tableView.cellForRow(at: indexPath) as? FormBaseCell
     }
-    
-    var fabStartingOrigin = CGPoint.zero
-    var identity = CGAffineTransform.identity
 }
 
 extension RewardForm : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+    
     @objc func tap(_ gesture: UITapGestureRecognizer) {
         DispatchQueue.main.async {
             self.view.endEditing(true)
@@ -94,28 +112,13 @@ extension RewardForm : UIGestureRecognizerDelegate {
             self.reward.sample(target: self.view, sender: self.fab)
         }
     }
+    
     @objc func pan(_ gesture:UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
-            let trans = gesture.translation(in: view)
+            let translation = gesture.translation(in: view)
             gesture.setTranslation(.zero, in: view)
-            //            let newCenter = buttonView.center.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
-            fab.frame = fab.frame.applying(CGAffineTransform.init(translationX: trans.x, y: trans.y))
+            gesture.view?.transform = gesture.view!.transform.translatedBy(x: translation.x, y: translation.y)
         }
-    }
-    @objc func scale(_ gesture: UIPinchGestureRecognizer) {
-        switch gesture.state {
-        case .began:
-            identity = fab.transform
-        case .changed:
-            fab.transform = identity.scaledBy(x: gesture.scale, y: gesture.scale)
-        case .cancelled:
-            break
-        default:
-            break
-        }
-    }
-    @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
-        fab.transform = fab.transform.rotated(by: gesture.rotation)
     }
 }
 
@@ -124,7 +127,8 @@ extension RewardForm {
     
     static let randomChars = ["😄", "🔥", "👍", "🤑","🏆", "⛳️", "❤️", "⁉️", "⭐️", "✨", "⛄️", "🍀", "🍬"]
     func commitRewardSample() {
-        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == reward.rewardID}).isEmpty {
+        print("Reward id:\(form.formValues()[RewardParamKey.RewardID.rawValue] as? String)")
+        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == form.formValues()[RewardParamKey.RewardID.rawValue] as? String}).isEmpty {
             let generateName: (String) -> String = { baseName in
                 var name = [baseName]
                 for _ in 1...3 {
