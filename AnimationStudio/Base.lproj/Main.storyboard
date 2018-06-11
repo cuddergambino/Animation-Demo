@@ -22,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clickMe" translatesAutoresizingMaskIntoConstraints="NO" id="8kj-vR-FJK">
-                                <rect key="frame" x="70" y="133" width="234" height="116"/>
+                                <rect key="frame" x="70" y="133" width="234" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="59"/>
+            <point key="canvasLocation" x="716" y="58.920539730134934"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9I7-Se-GuO">

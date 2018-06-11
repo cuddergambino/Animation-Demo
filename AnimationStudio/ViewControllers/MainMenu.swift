@@ -11,7 +11,7 @@ import UIKit
 import Photos
 
 protocol MainMenuDelegate {
-    func didImport(image: UIImage, type: ImportedImageType)
+    func didImport(imageView: UIImageView, type: ImportedImageType)
     func toggleFullscreen()
     func shouldResetButton()
 }
@@ -61,8 +61,10 @@ class MainMenu : UITableViewController {
     @objc
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
         picker.dismiss(animated: true, completion: nil)
-        mainMenuDelegate?.didImport(image: image, type: importedImageType)
+        mainMenuDelegate?.didImport(imageView: imageView, type: importedImageType)
     }
 }
 

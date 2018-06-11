@@ -213,3 +213,20 @@ extension String {
         return name.joined()
     }
 }
+
+extension UIImageView {
+    func adjustHeight() {
+        let oldCenter = self.center
+        guard let mImage = image else {
+            self.frame = CGRect(x: oldCenter.x, y: oldCenter.y, width: -1, height: -1)
+            return
+        }
+        
+        let imageSize = mImage.size
+        let viewSize = frame.size
+        let ratio = viewSize.width/imageSize.width
+        
+        self.frame = CGRect.init(x: 0, y: 0, width: viewSize.width, height: imageSize.height * ratio)
+        self.center = oldCenter
+    }
+}

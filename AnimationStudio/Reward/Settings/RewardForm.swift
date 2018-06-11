@@ -26,24 +26,12 @@ class RewardForm : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fab = UIImageView(image: nil)
+        fab = UIImageView()
         fab.contentMode = .scaleAspectFit
         
-        if reward.settings[ImportedImageType.button.key] as? String == nil {
-            reward.settings[ImportedImageType.button.key] = RewardSample.current.settings[ImportedImageType.button.key]
-            reward.settings["buttonViewFrame"] = RewardSample.current.settings["buttonViewFrame"]
-            reward.settings["buttonViewTransform"] = RewardSample.current.settings["buttonViewTransform"]
-            reward.settings[ImportedImageType.background.key] = RewardSample.current.settings[ImportedImageType.background.key]
-        }
-        
-        if let imageStr = reward.settings[ImportedImageType.button.key] as? String,
-            let image = UIImage.from(base64String: imageStr),
-            let frameStr = reward.settings["buttonViewFrame"] as? String,
-            let transformStr = reward.settings["buttonViewTransform"] as? String {
-            fab.image = image
-            fab.frame = CGRectFromString(frameStr)
-            fab.transform = CGAffineTransformFromString(transformStr)
-        }
+        let savedButton = reward.buttonView
+        fab.image = savedButton.image
+        fab.frame = savedButton.frame
         
         view.addSubview(fab)
         

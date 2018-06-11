@@ -29,12 +29,57 @@ struct RewardSample {
         return samples
     }()
     
-    static var current: RewardSample = samples.values.first ?? RewardSample.defaultSample(for: .Confetti)
+    fileprivate static var _current: RewardSample?
+    static var current: RewardSample {
+        get {
+            if _current != nil {
+                return _current!
+            } else {
+                let sample = samples.first?.value ?? RewardSample.defaultSample(for: .Confetti)
+                _current = sample
+                return sample
+            }
+        }
+        set {
+            _current = newValue
+        }
+    }
     
     let rewardPrimitive: RewardPrimitive
     var settings: [String: Any]
     var rewardID: String {
         return self.settings[RewardParamKey.RewardID.rawValue] as! String
+    }
+    var buttonView: UIImageView {
+        get {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
+            
+            guard let imageString = settings[ImportedImageType.button.key + "-image"] as? String,
+                let frameString = settings[ImportedImageType.button.key + "-frame"] as? String else {
+                    return imageView
+            }
+            imageView.image = UIImage.from(base64String: imageString)
+            imageView.frame = CGRectFromString(frameString)
+            return imageView
+        }
+        
+        set {
+            settings[ImportedImageType.button.key + "-image"] = newValue.image?.base64String
+            settings[ImportedImageType.button.key + "-frame"] = NSStringFromCGRect(newValue.frame)
+        }
+    }
+    var backgroundImage: UIImage? {
+        get {
+            guard let imageString = settings[ImportedImageType.background.key + "-image"] as? String else {
+                return nil
+            }
+            return UIImage.from(base64String: imageString)
+        }
+        
+        set {
+            settings[ImportedImageType.background.key + "-image"] = newValue?.base64String
+        }
     }
     
     fileprivate init(str: String) {
@@ -52,13 +97,21 @@ struct RewardSample {
             } while(RewardSample.samples[newName] != nil)
             sample.settings[RewardParamKey.RewardID.rawValue] = newName
         }
+        sample.buttonView = _current?.buttonView ?? {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "clickMe")
+            imageView.frame = CGRect(x: 0, y: 80, width: 234, height: 234)
+            imageView.adjustHeight()
+            return imageView
+        }()
+        sample.backgroundImage = _current?.backgroundImage
         return sample
     }
     
     func save() {
+        RewardSample.samples[rewardID] = self
         //        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
         UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
-        RewardSample.samples[rewardID] = self
         UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
     }
     

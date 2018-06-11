@@ -11,7 +11,7 @@ import UIKit
 class SampleViewController: UIViewController {
     
     @IBOutlet weak var buttonView: UIImageView!
-    var backgroundImage: UIImageView!
+    var backgroundView: UIImageView!
     
     var mainMenu: MainMenu!
     
@@ -27,9 +27,10 @@ class SampleViewController: UIViewController {
         mainMenu.didMove(toParentViewController: self)
         
         // create background imageview
-        backgroundImage = UIImageView.init(frame: view.bounds)
-        backgroundImage.contentMode = .scaleAspectFit
-        view.insertSubview(backgroundImage, at: 0)
+        backgroundView = UIImageView.init(frame: view.bounds)
+        backgroundView.contentMode = .scaleAspectFit
+        backgroundView.backgroundColor = .black
+        view.insertSubview(backgroundView, at: 0)
         
         // create button imageview
         buttonView.isUserInteractionEnabled = true
@@ -56,33 +57,24 @@ class SampleViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // set background image
-        if let str = RewardSample.current.settings[ImportedImageType.background.key] as? String {
-            self.backgroundImage.image = UIImage.from(base64String: str)
-            self.view.backgroundColor = .black
+        if let backgroundImage = RewardSample.current.backgroundImage {
+            self.backgroundView.image = backgroundImage
+            self.backgroundView.isHidden = false
         } else {
-            self.backgroundImage.image = nil
+            self.backgroundView.image = nil
+            self.backgroundView.isHidden = true
         }
         
-        // set button image, frame, & transform
-        if let str = RewardSample.current.settings[ImportedImageType.button.key] as? String,
-            let buttonImage = UIImage.from(base64String: str) {
-            self.buttonView.image = buttonImage
-            if let str = RewardSample.current.settings["buttonViewFrame"] as? String {
-                buttonView.frame = CGRectFromString(str)
-            }
-            if let str = RewardSample.current.settings["buttonViewTransform"] as? String {
-                buttonView.transform = CGAffineTransformFromString(str)
-            }
-        } else {
-            buttonView.image = UIImage(named: "clickMe")
-        }
-        buttonView.sizeToFit()
+        // set button image & frame
+        let savedButton = RewardSample.current.buttonView
+        buttonView.image = savedButton.image
+        buttonView.frame = savedButton.frame
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: {_ in
 //            self.backgroundImage.center = self.view.center
-            self.backgroundImage.frame = self.view.bounds
+            self.backgroundView.frame = self.view.bounds
         })
         super.viewWillTransition(to: size, with: coordinator)
     }
@@ -112,9 +104,8 @@ class SampleViewController: UIViewController {
 
 extension SampleViewController : MainMenuDelegate {
     func shouldResetButton() {
-        self.buttonView.transform = .identity
-        let ratio = buttonView.frame.height / buttonView.frame.width
-        self.buttonView.frame = CGRect.init(x: 0, y: 0, width: 120, height: ratio * 120)
+        self.buttonView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        self.buttonView.adjustHeight()
         buttonView.center = view.center
     }
     
@@ -126,19 +117,26 @@ extension SampleViewController : MainMenuDelegate {
         return UIStatusBarAnimation.slide
     }
     
-    func didImport(image: UIImage, type: ImportedImageType) {
+    func didImport(imageView: UIImageView, type: ImportedImageType) {
         DispatchQueue.main.async {
             switch type {
             case .button:
-                self.buttonView.image = image
-                self.shouldResetButton()
+                let oldCenter = self.buttonView.center
+                self.buttonView.image = imageView.image
+                self.buttonView.center = oldCenter
+                self.buttonView.adjustHeight()
+                RewardSample.current.buttonView = self.buttonView
                 
             case .background:
-                self.backgroundImage.image = image
+                self.backgroundView.image = imageView.image
+                self.backgroundView.backgroundColor = .black
+                RewardSample.current.backgroundImage = self.backgroundView.image
+            }
+            
+            DispatchQueue.global().async {
+                RewardSample.current.save()
             }
         }
-        RewardSample.current.settings[type.key] = image.base64String
-        RewardSample.current.save()
     }
 }
 
@@ -164,30 +162,40 @@ extension SampleViewController : UIGestureRecognizerDelegate {
     
     @objc
     func pan(_ gesture:UIPanGestureRecognizer) {
-        if gesture.state == .began || gesture.state == .changed {
+        switch gesture.state {
+        case .changed:
             let translation = gesture.translation(in: view)
             gesture.setTranslation(.zero, in: view)
-            buttonView.frame = buttonView.frame.applying(CGAffineTransform.init(translationX: translation.x, y: translation.y))
-        } else if gesture.state == .ended {
-            RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
-            RewardSample.current.save()
+            buttonView.frame = buttonView.frame.applying(CGAffineTransform(translationX: translation.x, y: translation.y))
+        
+        case .ended:
+            RewardSample.current.buttonView = buttonView
+            DispatchQueue.global().async {
+                RewardSample.current.save()
+            }
+            
+        default: break
         }
     }
     
     @objc
     func scale(_ gesture: UIPinchGestureRecognizer) {
-        gesture.view?.transform = gesture.view!.transform.scaledBy(x: gesture.scale, y: gesture.scale)
-        gesture.scale = 1
-        if gesture.state == .ended {
-            RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
-            RewardSample.current.save()
+        switch gesture.state {
+        case .changed:
+            if let oldCenter = gesture.view?.center {
+                gesture.view?.frame = gesture.view!.frame.applying(CGAffineTransform(scaleX: gesture.scale, y: gesture.scale))
+                gesture.view?.center = oldCenter
+            }
+            gesture.scale = 1
+            
+        case .ended:
+            RewardSample.current.buttonView = self.buttonView
+            DispatchQueue.global().async {
+                RewardSample.current.save()
+            }
+            
+        default: break
         }
-    }
-    
-    @objc
-    func rotate(_ gesture: UIRotationGestureRecognizer) {
-        gesture.view?.transform = gesture.view!.transform.rotated(by: gesture.rotation)
-        gesture.rotation = 0
     }
     
 }
