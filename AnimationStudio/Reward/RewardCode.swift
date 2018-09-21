@@ -278,7 +278,7 @@ internal extension UIView {
 
 internal extension UIViewController {
     static func getViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
-        return UIApplication.shared.windows.reversed().flatMap({$0.rootViewController?.getChildViewControllers(ofType: aClass)}).flatMap({$0})
+        return UIApplication.shared.windows.reversed().compactMap({$0.rootViewController?.getChildViewControllers(ofType: aClass)}).flatMap({$0})
     }
     
     func getChildViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
