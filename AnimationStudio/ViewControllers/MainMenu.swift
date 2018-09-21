@@ -14,6 +14,7 @@ protocol MainMenuDelegate {
     func didImport(imageView: UIImageView, type: ImportedImageType)
     func toggleFullscreen()
     func shouldResetButton()
+    func shouldEraseButton()
 }
 
 enum ImportedImageType : String {
@@ -90,7 +91,7 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         optionMenu.popoverPresentationController?.sourceView = self.view
         
             optionMenu.addAction(
-                UIAlertAction(title: "Photo Library (crop after selecting)", style: .default) { (alert : UIAlertAction!) in
+                UIAlertAction(title: "Photo Library", style: .default) { (alert : UIAlertAction!) in
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
                     imagePicker.sourceType = .savedPhotosAlbum
@@ -100,6 +101,10 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
             optionMenu.addAction(
                 UIAlertAction(title: "Reset button", style: .default) { (alert : UIAlertAction!) in
                     self.mainMenuDelegate?.shouldResetButton()
+            })
+            optionMenu.addAction(
+                UIAlertAction(title: "Erase button", style: .default) { (alert : UIAlertAction!) in
+                    self.mainMenuDelegate?.shouldEraseButton()
             })
             optionMenu.addAction(
                 UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in

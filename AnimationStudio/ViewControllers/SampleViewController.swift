@@ -44,13 +44,26 @@ class SampleViewController: UIViewController {
         buttonView.addGestureRecognizer(tapGesture)
         buttonView.addGestureRecognizer(panGesture)
         buttonView.addGestureRecognizer(scaleGesture)
-        
+
         // tap gesture to hide navigation
         let tapToHide = UITapGestureRecognizer(target: self, action: #selector(toggleFullscreen))
         tapToHide.delegate = self
         tapToHide.numberOfTapsRequired = 2
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(tapToHide)
+
+        // tap gesture on background to show reward if no button
+        let tapWithoutButton = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
+        tapWithoutButton.delegate = self
+        tapWithoutButton.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapWithoutButton)
+    }
+
+    @objc
+    func backgroundTap(_ sender: Any) {
+        if buttonView.image == nil {
+            RewardSample.current.sample(target: self, sender: view)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +116,14 @@ class SampleViewController: UIViewController {
 }
 
 extension SampleViewController : MainMenuDelegate {
+
+    func shouldEraseButton() {
+        self.buttonView.frame = .zero
+        self.buttonView.image = nil
+    }
+
     func shouldResetButton() {
+        self.buttonView.image = RewardSample.current.buttonView.image
         self.buttonView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
         self.buttonView.adjustHeight()
         buttonView.center = view.center
