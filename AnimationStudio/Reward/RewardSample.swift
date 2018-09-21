@@ -28,7 +28,7 @@ struct RewardSample {
         }
         return samples
     }()
-    
+
     fileprivate static var _current: RewardSample?
     static var current: RewardSample {
         get {
@@ -44,17 +44,17 @@ struct RewardSample {
             _current = newValue
         }
     }
-    
+
     let rewardPrimitive: RewardPrimitive
     var settings: [String: Any]
     var rewardID: String {
-        return self.settings[RewardParamKey.RewardID.rawValue] as! String
+        return self.settings[RewardParamKey.RewardID.rawValue] as? String ?? "unknown"
     }
     var buttonView: UIImageView {
         get {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFit
-            
+
             guard let imageString = settings[ImportedImageType.button.key + "-image"] as? String,
                 let frameString = settings[ImportedImageType.button.key + "-frame"] as? String else {
                     return imageView
@@ -63,7 +63,7 @@ struct RewardSample {
             imageView.frame = CGRectFromString(frameString)
             return imageView
         }
-        
+
         set {
             settings[ImportedImageType.button.key + "-image"] = newValue.image?.base64String
             settings[ImportedImageType.button.key + "-frame"] = NSStringFromCGRect(newValue.frame)
@@ -76,20 +76,28 @@ struct RewardSample {
             }
             return UIImage.from(base64String: imageString)
         }
-        
+
         set {
             settings[ImportedImageType.background.key + "-image"] = newValue?.base64String
         }
     }
-    
+
     fileprivate init(str: String) {
-        let dict = str.toJSONDict
-        self.settings = dict
-        self.rewardPrimitive = RewardPrimitive(rawValue: dict["primitive"] as! String)!
+        self.init(dict: str.toJSONDict)
     }
-    
-    static func new(str: String) -> RewardSample {
-        var sample = RewardSample(str: str)
+
+    fileprivate init(dict: [String: Any]) {
+        self.settings = dict
+        guard let primitiveName = dict["primitive"] as? String,
+            let primitive = RewardPrimitive(rawValue: primitiveName) else {
+                BKLog.debug(error: "Unknown primitive")
+                fatalError()
+        }
+        self.rewardPrimitive = primitive
+    }
+
+    static func new(dict: [String: Any]) -> RewardSample {
+        var sample = RewardSample(dict: dict)
         if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == sample.rewardID}).isEmpty {
             var newName: String
             repeat {
@@ -107,14 +115,14 @@ struct RewardSample {
         sample.backgroundImage = _current?.backgroundImage
         return sample
     }
-    
+
     func save() {
         RewardSample.samples[rewardID] = self
         //        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
         UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
         UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
     }
-    
+
     static func load(rewardID: String) -> RewardSample? {
         if let str = UserDefaults.standard.string(forKey: rewardID) {
             //            print("loaded:\(str)")
@@ -123,9 +131,9 @@ struct RewardSample {
             return nil
         }
     }
-    
+
     static func delete(rewardID: String) {
-        if let _ = RewardSample.samples.removeValue(forKey: rewardID) {
+        if RewardSample.samples.removeValue(forKey: rewardID) != nil {
             UserDefaults.standard.removeObject(forKey: rewardID)
             UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
             if rewardID == current.rewardID,
@@ -136,18 +144,18 @@ struct RewardSample {
             }
         }
     }
-    
+
     func sample(target: NSObject, sender: AnyObject?) {
         rewardPrimitive.show(settings: settings, targetInstance: target, senderInstance: sender)
     }
-    
+
     mutating func setForm(form: FormDescriptor) {
         let formValues = form.formValues()
-        
+
         for (key, value) in formValues {
             print("Got form key:\(key) value:\(value) as \(NSStringFromClass(type(of: value)))")
             guard let key = RewardParamKey(rawValue: key) else { continue }
-            
+
             switch key {
             case .ViewMarginX, .ViewMarginY,
                  .Scale, .ScaleSpeed, .ScaleRange, .ScaleVelocity, .ScaleDamping,
@@ -155,25 +163,25 @@ struct RewardSample {
                  .Spin, .EmissionRange, .EmissionAngle,
                  .FontSize:
                  update(parameter: key.rawValue, cgFloat: value)
-                    
+
             case .Alpha, .Alpha1, .Alpha2, .Alpha3:
                 update(parameter: key.rawValue, cgFloat: value)
-                
+
             case .Count, .Quantity, .LifetimeRange, .Lifetime, .FadeOut, .VibrateSpeed, .ScaleCount:
                 update(parameter: key.rawValue, float: value)
-                
+
             case .Duration, .VibrateDuration, .ScaleDuration, .Delay, .Bursts:
                 update(parameter: key.rawValue, double: value)
-                
+
             case .RewardID, .primitive, .Content, .Color, .Color1, .Color2, .Color3, .ViewOption:
                 update(parameter: key.rawValue, string: value)
-                
+
             case .Translation, .VibrateCount, .VibrateTranslation, .Amount, .Size:
                 update(parameter: key.rawValue, int: value)
-                
+
             case .SystemSound:
                 update(parameter: key.rawValue, uint32: value)
-                
+
             case .HapticFeedback, .Dark:
                 update(parameter: key.rawValue, bool: value)
             }
@@ -185,12 +193,12 @@ struct RewardSample {
 enum RewardParamViewOption: String {
     case sender, fixed
     static let cases: [RewardParamViewOption] = [.sender, .fixed]
-    
+
     var title: String {
         switch self {
         case .sender:
             return "Button"
-            
+
         case .fixed:
             return "Screen"
         }
@@ -254,13 +262,17 @@ extension RewardSample {
 
 extension String {
     var toJSONDict: [String: Any] {
-        return (try! JSONSerialization.jsonObject(with: data(using: .utf8)!) as? [String: Any])!
+        if let data = data(using: .utf8),
+            let dict = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] {
+            return dict
+        }
+        return [:]
     }
 }
 
 extension Dictionary {
     var toJSONData: Data {
-        return try! JSONSerialization.data(withJSONObject: self)
+        return (try? JSONSerialization.data(withJSONObject: self)) ?? Data()
     }
 }
 
