@@ -7,9 +7,8 @@
 
 import Foundation
 
+internal class CodelessReinforcer: Reinforcer {
 
-internal class CodelessReinforcer : Reinforcer {
-    
     var codelessReinforcements = [String: CodelessReinforcement?]()
     override var reinforcementIDs: [String] {
         get {
@@ -27,16 +26,16 @@ internal class CodelessReinforcer : Reinforcer {
             codelessReinforcements = newReinforcements
         }
     }
-    
+
     @objc
     func receive(notification: Notification) {
 //        BKLog.print("Action peformed with actionID <\(actionID)>")
         let target = notification.userInfo?["target"] as? NSObject ?? UIWindow.topWindow ?? NSObject()
         let sender = notification.userInfo?["sender"] as AnyObject?
-        
+
         switch Reinforcer.scheduleSetting {
         case .reinforcement:
-            BoundlessKit.standard.reinforce(actionID: actionID) { reinforcementID in
+            BoundlessKit.shared.reinforce(actionID: actionID) { reinforcementID in
                 BKLog.debug("Showing codeless reinforcementID <\(reinforcementID)> for actionID <\(self.actionID)>...")
                 self.codelessReinforcements[reinforcementID]??.show(targetInstance: target, senderInstance: sender)
             }
@@ -49,6 +48,5 @@ internal class CodelessReinforcer : Reinforcer {
             randomReinforcement?.show(targetInstance: target, senderInstance: sender)
         }
     }
-    
-}
 
+}

@@ -1,0 +1,22 @@
+disabled_rules:
+  - function_body_length
+  - cyclomatic_complexity
+
+line_length:
+  warning: 160
+  ignores_comments: true
+  ignores_function_declarations: true
+
+identifier_name:
+  excluded: 
+    - id
+    - i
+    - x
+    - y
+    - r
+    - g
+    - b
+    - a
+
+excluded:
+  - Pods

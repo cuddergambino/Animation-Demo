@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @objc
-public enum CandyBarState : Int {
+public enum CandyBarState: Int {
     case showing, hidden, gone
 }
 
@@ -18,7 +18,7 @@ public enum CandyBarState : Int {
 /// - Top: The candybar will appear at the top.
 /// - Bottom: The candybar will appear at the bottom.
 @objc
-public enum CandyBarPosition : Int{
+public enum CandyBarPosition: Int {
     case top = 0, bottom
 }
 
@@ -28,7 +28,7 @@ public enum CandyBarPosition : Int{
 /// - Slight: The candybar will bounce a little.
 /// - Heavy: The candybar will bounce a lot.
 @objc
-public enum CandyBarSpringiness : Int{
+public enum CandyBarSpringiness: Int {
     case none, slight, heavy
     fileprivate var springValues: (damping: CGFloat, velocity: CGFloat) {
         switch self {
@@ -42,7 +42,7 @@ public enum CandyBarSpringiness : Int{
 /// CandyBar is a dropdown notification view, like a banner.
 @objc
 open class CandyBar: UIView {
-    
+
     /// A CandyBar with the provided `title`, `subtitle`, and an optional `image`, ready to be presented with `show()`.
     ///
     /// - parameters:
@@ -53,7 +53,7 @@ open class CandyBar: UIView {
     ///     - backgroundColor?: The color of the candybar's background view. Defaults to `UIColor.blackColor()`.
     ///     - didTapBlock?: An action to be called when the user taps on the candybar. Defaults to `nil`.
     ///
-    public required init(title: String? = nil, subtitle: String? = nil, image: UIImage? = nil, position: CandyBarPosition = .top, backgroundColor: UIColor = UIColor.from(rgb: "#1689ce") ?? UIColor.blue, didDismissBlock: (() -> ())? = nil) {
+    public required init(title: String? = nil, subtitle: String? = nil, image: UIImage? = nil, position: CandyBarPosition = .top, backgroundColor: UIColor = UIColor.from(rgb: "#1689ce") ?? UIColor.blue, didDismissBlock: (() -> Void)? = nil) {
         self.didDismissBlock = didDismissBlock
         self.image = image
         super.init(frame: CGRect.zero)
@@ -67,11 +67,11 @@ open class CandyBar: UIView {
         backgroundView.backgroundColor = backgroundColor
         backgroundView.alpha = 0.95
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// Displays the candybar notification
     ///
     /// - parameters:
@@ -85,7 +85,7 @@ open class CandyBar: UIView {
             let (damping, velocity) = self.springiness.springValues
             UIView.animate(withDuration: self.animationDuration, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: .allowUserInteraction, animations: {
                 self.candybarState = .showing
-            }, completion: { finished in
+            }, completion: { _ in
                 if (duration == 0) { return }
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
                     self.dismiss()
@@ -93,89 +93,86 @@ open class CandyBar: UIView {
             })
         }
     }
-    
+
     /// Dismisses the candybar and executes the `didDismissBlock`
     ///
     open func dismiss() {
         let (damping, velocity) = self.springiness.springValues
         UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: .allowUserInteraction, animations: {
             self.candybarState = .hidden
-        }, completion: { finished in
+        }, completion: { _ in
             self.candybarState = .gone
             self.removeFromSuperview()
             self.didDismissBlock?()
         })
     }
-    
+
     /// How long the slide down animation should last.
     open var animationDuration: TimeInterval = 0.4
-    
+
     /// Whether the candybar should appear at the top or the bottom of the screen. Defaults to `.Top`.
     open var position = CandyBarPosition.top
-    
+
     /// How 'springy' the candybar should display. Defaults to `.Slight`
     open var springiness = CandyBarSpringiness.slight
-    
+
     /// The color of the text as well as the image tint color if `shouldTintImage` is `true`.
     open var textColor = UIColor.white {
         didSet {
             resetTintColor()
         }
     }
-    
+
     /// Whether or not the candybar should show a shadow when presented.
     open var hasShadows = true {
         didSet {
             resetShadows()
         }
     }
-    
+
     /// The text to display at the top line
     open var titleText: String? {
         get { return titleLabel.text }
         set(text) { titleLabel.text = text }
     }
-    
+
     /// The text to display at the bottom line and in smaller text
     open var subtitleText: String? {
         get { return detailLabel.text }
         set(text) { detailLabel.text = text }
     }
-    
+
     /// The color of the background view. Defaults to `nil`.
     override open var backgroundColor: UIColor? {
         get { return backgroundView.backgroundColor }
         set { backgroundView.backgroundColor = newValue }
     }
-    
+
     /// The opacity of the background view. Defaults to 0.95.
     override open var alpha: CGFloat {
         get { return backgroundView.alpha }
         set { backgroundView.alpha = newValue }
     }
-    
+
     /// A block to call when the user taps on the candybar.
-    open var didTapBlock: (() -> ())?
-    
+    open var didTapBlock: (() -> Void)?
+
     /// A block to call after the candybar has finished dismissing and is off screen.
-    open var didDismissBlock: (() -> ())?
-    
+    open var didDismissBlock: (() -> Void)?
+
     /// Whether or not the candybar should dismiss itself when the user taps. Defaults to `true`.
     open var dismissesOnTap = true
-    
+
     /// Whether or not the candybar should dismiss itself when the user swipes up. Defaults to `true`.
     open var dismissesOnSwipe = true
-    
+
     /// Whether or not the candybar should tint the associated image to the provided `textColor`. Defaults to `true`.
     open var shouldTintImage = false {
         didSet {
             resetTintColor()
         }
     }
-    
-    
-    
-    
+
     /**
      
      
@@ -187,23 +184,23 @@ open class CandyBar: UIView {
      
      
      */
-    
+
     fileprivate let contentView = UIView()
     fileprivate let labelView = UIView()
     fileprivate let backgroundView = UIView()
-    
+
     /// The label that displays the candybar's title.
     open let titleLabel: UILabel = {
         let label = UILabel()
         var titleFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        
+
         titleFont = titleFont.withSize(26)
         label.font = titleFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     /// The label that displays the candybar's subtitle.
     open let detailLabel: UILabel = {
         let label = UILabel()
@@ -212,10 +209,10 @@ open class CandyBar: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     /// The image on the left of the candybar.
     var image: UIImage?
-    
+
     /// The image view that displays the `image`.
     open let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -223,7 +220,7 @@ open class CandyBar: UIView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     internal var candybarState = CandyBarState.hidden {
         didSet {
             if candybarState != oldValue {
@@ -231,7 +228,7 @@ open class CandyBar: UIView {
             }
         }
     }
-    
+
     fileprivate func forceUpdates() {
         guard let superview = superview, let showingConstraint = showingConstraint, let hiddenConstraint = hiddenConstraint else { return }
         switch candybarState {
@@ -251,44 +248,44 @@ open class CandyBar: UIView {
         superview.layoutIfNeeded()
         updateConstraintsIfNeeded()
     }
-    
+
     @objc internal func didTap(_ recognizer: UITapGestureRecognizer) {
         if dismissesOnTap {
             dismiss()
         }
         didTapBlock?()
     }
-    
+
     @objc internal func didSwipe(_ recognizer: UISwipeGestureRecognizer) {
         if dismissesOnSwipe {
             dismiss()
         }
     }
-    
+
     fileprivate func addGestureRecognizers() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:))))
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe(_:)))
         swipe.direction = .up
         addGestureRecognizer(swipe)
     }
-    
+
     fileprivate func resetTintColor() {
         titleLabel.textColor = textColor
         detailLabel.textColor = textColor
         imageView.image = shouldTintImage ? image?.withRenderingMode(.alwaysTemplate) : image
         imageView.tintColor = shouldTintImage ? textColor : nil
     }
-    
+
     fileprivate func resetShadows() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = self.hasShadows ? 0.5 : 0.0
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 4
     }
-    
+
     fileprivate var contentTopOffsetConstraint: NSLayoutConstraint!
     fileprivate var minimumHeightConstraint: NSLayoutConstraint!
-    
+
     fileprivate func initializeSubviews() {
         let views = [
             "backgroundView": backgroundView,
@@ -333,28 +330,28 @@ open class CandyBar: UIView {
             contentView.addConstraints(NSLayoutConstraint.defaultConstraintsWithVisualFormat("V:|-(>=10)-[imageView]-(>=10)-|", views: views))
         }
         backgroundView.addConstraints(NSLayoutConstraint.defaultConstraintsWithVisualFormat("H:|[contentView]-(<=1)-[labelView]", options: .alignAllCenterY, views: views))
-        
+
         for view in [titleLabel, detailLabel] {
             let constraintFormat = "H:|[label]-(8)-|"
             contentView.addConstraints(NSLayoutConstraint.defaultConstraintsWithVisualFormat(constraintFormat, options: NSLayoutFormatOptions(), metrics: nil, views: ["label": view]))
         }
         labelView.addConstraints(NSLayoutConstraint.defaultConstraintsWithVisualFormat("V:|-(10)-[titleLabel][detailLabel]-(10)-|", views: views))
     }
-    
+
     //    required public init?(coder aDecoder: NSCoder) {
     //        fatalError("init(coder:) has not been implemented")
     //    }
-    
+
     fileprivate var showingConstraint: NSLayoutConstraint?
     fileprivate var hiddenConstraint: NSLayoutConstraint?
     fileprivate var commonConstraints = [NSLayoutConstraint]()
-    
+
     override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         guard let superview = superview, candybarState != .gone else { return }
         commonConstraints = self.constraintsWithAttributes([.leading, .trailing], .equal, to: superview)
         superview.addConstraints(commonConstraints)
-        
+
         switch self.position {
         case .top:
             showingConstraint = self.constraintWithAttribute(.top, .equal, to: .top, of: superview)
@@ -366,17 +363,20 @@ open class CandyBar: UIView {
             hiddenConstraint = self.constraintWithAttribute(.top, .equal, to: .bottom, of: superview, constant: yOffset)
         }
     }
-    
+
     open override func layoutSubviews() {
         super.layoutSubviews()
         adjustHeightOffset()
         layoutIfNeeded()
     }
-    
+
     fileprivate func adjustHeightOffset() {
-        guard let superview = superview else { return }
+        guard let superview = superview,
+            let UIApplicationShared = Application.shared else {
+                return
+        }
         if superview === UIWindow.topWindow && self.position == .top {
-            let statusBarSize = UIApplication.shared.statusBarFrame.size
+            let statusBarSize = UIApplicationShared.statusBarFrame.size
             let heightOffset = min(statusBarSize.height, statusBarSize.width) // Arbitrary, but looks nice.
             contentTopOffsetConstraint.constant = heightOffset
             minimumHeightConstraint.constant = statusBarSize.height > 0 ? 80 : 40
@@ -385,7 +385,7 @@ open class CandyBar: UIView {
             minimumHeightConstraint.constant = 0
         }
     }
-    
+
 }
 
 extension NSLayoutConstraint {
@@ -406,25 +406,23 @@ extension UIView {
         }
         return constraints
     }
-    
+
     func constraintWithAttribute(_ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, to constant: CGFloat, multiplier: CGFloat = 1.0) -> NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         return NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: constant)
     }
-    
+
     func constraintWithAttribute(_ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, to otherAttribute: NSLayoutAttribute, of item: AnyObject? = nil, multiplier: CGFloat = 1.0, constant: CGFloat = 0.0) -> NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         return NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: item ?? self, attribute: otherAttribute, multiplier: multiplier, constant: constant)
     }
-    
+
     func constraintWithAttribute(_ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, to item: AnyObject, multiplier: CGFloat = 1.0, constant: CGFloat = 0.0) -> NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         return NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: item, attribute: attribute, multiplier: multiplier, constant: constant)
     }
-    
+
     func constraintsWithAttributes(_ attributes: [NSLayoutAttribute], _ relation: NSLayoutRelation, to item: AnyObject, multiplier: CGFloat = 1.0, constant: CGFloat = 0.0) -> [NSLayoutConstraint] {
         return attributes.map { self.constraintWithAttribute($0, relation, to: item, multiplier: multiplier, constant: constant) }
     }
 }
-
-

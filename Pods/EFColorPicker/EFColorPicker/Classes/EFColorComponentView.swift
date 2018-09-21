@@ -107,7 +107,7 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
         ef_baseInit()
     }
 
-    // MARK:- UITextFieldDelegate methods
+    // MARK: - UITextFieldDelegate methods
     public func textFieldDidEndEditing(_ textField: UITextField) {
         self.value = CGFloat(Double(textField.text ?? "") ?? 0)
         self.sendActions(for: UIControlEvents.valueChanged)
@@ -140,7 +140,7 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
         slider.setColors(colors: colors)
     }
 
-    // MARK:- Private methods
+    // MARK: - Private methods
     private func ef_baseInit() {
         self.accessibilityLabel = "color_component_view"
 
@@ -173,15 +173,15 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
 
     private func ef_installConstraints() {
         if colorTextFieldEnabled {
-            let views: [String : Any] = [
-                "label" : label,
-                "slider" : slider,
-                "textField" : textField
+            let views: [String: Any] = [
+                "label": label,
+                "slider": slider,
+                "textField": textField
             ]
-            let metrics: [String : Any] = [
-                "spacing" : EFColorComponentViewSpacing,
-                "label_width" : EFColorComponentLabelWidth,
-                "textfield_width" : EFColorComponentTextFieldWidth
+            let metrics: [String: Any] = [
+                "spacing": EFColorComponentViewSpacing,
+                "label_width": EFColorComponentLabelWidth,
+                "textfield_width": EFColorComponentTextFieldWidth
             ]
 
             self.addConstraints(
@@ -209,13 +209,13 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
                 )
             )
         } else {
-            let views: [String : Any] = [
-                "label" : label,
-                "slider" : slider
+            let views: [String: Any] = [
+                "label": label,
+                "slider": slider
             ]
-            let metrics: [String : Any] = [
-                "spacing" : EFColorComponentViewSpacing,
-                "label_width" : EFColorComponentLabelWidth
+            let metrics: [String: Any] = [
+                "spacing": EFColorComponentViewSpacing,
+                "label_width": EFColorComponentLabelWidth
             ]
             self.addConstraints(
                 NSLayoutConstraint.constraints(
@@ -239,15 +239,15 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
     private func ef_remakeConstraints() {
         // Remove all old constraints
         if !colorTextFieldEnabled {
-            let views: [String : Any] = [
-                "label" : label,
-                "slider" : slider,
-                "textField" : textField
+            let views: [String: Any] = [
+                "label": label,
+                "slider": slider,
+                "textField": textField
             ]
-            let metrics: [String : Any] = [
-                "spacing" : EFColorComponentViewSpacing,
-                "label_width" : EFColorComponentLabelWidth,
-                "textfield_width" : EFColorComponentTextFieldWidth
+            let metrics: [String: Any] = [
+                "spacing": EFColorComponentViewSpacing,
+                "label_width": EFColorComponentLabelWidth,
+                "textfield_width": EFColorComponentTextFieldWidth
             ]
             self.removeConstraints(
                 NSLayoutConstraint.constraints(
@@ -274,13 +274,13 @@ public class EFColorComponentView: UIControl, UITextFieldDelegate {
                 )
             )
         } else {
-            let views: [String : Any] = [
-                "label" : label,
-                "slider" : slider
+            let views: [String: Any] = [
+                "label": label,
+                "slider": slider
             ]
-            let metrics: [String : Any] = [
-                "spacing" : EFColorComponentViewSpacing,
-                "label_width" : EFColorComponentLabelWidth
+            let metrics: [String: Any] = [
+                "spacing": EFColorComponentViewSpacing,
+                "label_width": EFColorComponentLabelWidth
             ]
             self.removeConstraints(
                 NSLayoutConstraint.constraints(

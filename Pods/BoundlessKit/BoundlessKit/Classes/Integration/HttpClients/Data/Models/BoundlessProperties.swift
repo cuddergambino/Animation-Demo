@@ -10,7 +10,7 @@ import Foundation
 internal struct BoundlessProperties {
     let credentials: BoundlessCredentials
     let version: BoundlessVersion
-    
+
     static func fromFile(using database: BKUserDefaults) -> BoundlessProperties? {
         if let propertiesFile = Bundle.main.path(forResource: "BoundlessProperties", ofType: "plist"),
             let propertiesDictionary = NSDictionary(contentsOfFile: propertiesFile) as? [String: Any],

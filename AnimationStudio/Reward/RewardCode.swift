@@ -10,15 +10,16 @@ import Foundation
 import BoundlessKit
 import SwiftForms
 
-enum RewardPrimitive : String {
+enum RewardPrimitive: String {
+    //swiftlint:disable identifier_name
     case Shimmy, Pulse, Vibrate, Rotate, Glow, Sheen, Emojisplosion, Confetti, Popover
-    static let cases:[RewardPrimitive] = [.Shimmy, .Pulse, .Vibrate, .Rotate, .Glow, .Sheen, .Emojisplosion, .Confetti, .Popover]
-    
+    static let cases: [RewardPrimitive] = [.Shimmy, .Pulse, .Vibrate, .Rotate, .Glow, .Sheen, .Emojisplosion, .Confetti, .Popover]
+
     func test(viewController: UIViewController, view: UIView) {
         let completion = {
             print("Completed showing reward type:\(self.rawValue)")
         }
-        
+
         switch self {
         case .Shimmy:
             view.showShimmy(completion: completion)
@@ -41,15 +42,15 @@ enum RewardPrimitive : String {
             viewController.view.showPopover(completion: completion)
         }
     }
-    
-    func show(settings: [String: Any], targetInstance: NSObject, senderInstance: AnyObject?, completion: @escaping ()->Void = {}) {
+
+    func show(settings: [String: Any], targetInstance: NSObject, senderInstance: AnyObject?, completion: @escaping () -> Void = {}) {
         guard let delay = settings["Delay"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); return }
         guard let reinforcementType = settings["primitive"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return }
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             if let viewAndLocation = self.reinforcementViews(senderInstance: senderInstance, targetInstance: targetInstance, options: settings) {
                 switch reinforcementType {
-                    
+
                 case "Popover":
                     guard let content = settings["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let fontSize = settings["FontSize"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -57,11 +58,11 @@ enum RewardPrimitive : String {
                     guard let dark = settings["Dark"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { // swiftlint:disable:next line_length
                         view.showPopover(content: content.utf8Decoded().image(font: .systemFont(ofSize: fontSize)), duration: duration, style: dark ? .dark : .light, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Confetti":
                     guard let duration = settings["Duration"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let colorString1 = settings["Color1"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -78,17 +79,17 @@ enum RewardPrimitive : String {
                         let color1 = UIColor.from(rgb: colorString1)?.withAlphaComponent(alpha1) ?? .red
                         let color2 = UIColor.from(rgb: colorString2)?.withAlphaComponent(alpha2)
                         let color3 = UIColor.from(rgb: colorString3)?.withAlphaComponent(alpha3)
-                        let colors:[UIColor] = [color1, color2 ?? color1, color3 ?? color2 ?? color1, color2 ?? color1, color1]
+                        let colors: [UIColor] = [color1, color2 ?? color1, color3 ?? color2 ?? color1, color2 ?? color1, color1]
                         let possibleShapes: [ConfettiShape] = [.rectangle, .rectangle, .circle, .spiral]
                         var shapes = [ConfettiShape]()
                         for _ in 0...min(amount, 12) {
                             shapes.append(possibleShapes.randomElement ?? .rectangle)
                         }
-                        let size = CGSize(width: CGFloat(size) * 3.0 / 2.0, height: CGFloat(size))
+                        let size = CGSize(width: CGFloat(size) * 3.0 / 2.0, height: CGFloat(size)) //swiftlint:disable:next line_length
                         view.showConfetti(duration: duration, size: size, shapes: shapes, colors: colors, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Emojisplosion":
                     guard let content = settings["Content"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let xAcceleration = settings["AccelX"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -108,44 +109,46 @@ enum RewardPrimitive : String {
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     let image = content.utf8Decoded().image().cgImage
-                    for (view, location) in viewAndLocation {
+                    for (view, location) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showEmojiSplosion(at: location, content: image, scale: scale, scaleSpeed: scaleSpeed, scaleRange: scaleRange, lifetime: lifetime, lifetimeRange: lifetimeRange, fadeout: fadeout, quantity: quantity, bursts: bursts, velocity: velocity, xAcceleration: xAcceleration, yAcceleration: yAcceleration, angle: angle, range: range, spin: spin, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Rotate":
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.rotate360Degrees(count: count, duration: duration, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Glow":
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let colorString = settings["Color"] as? String, let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString = settings["Color"] as? String,
+                        let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let alpha = settings["Alpha"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showGlow(count: count, duration: duration, color: color, alpha: alpha, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Sheen":
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    guard let colorString = settings["Color"] as? String, let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
+                    guard let colorString = settings["Color"] as? String,
+                        let color = UIColor.from(rgb: colorString) else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let alpha = settings["Alpha"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showSheen(duration: duration, color: alpha > 0 ? color.withAlphaComponent(alpha) : nil, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Pulse":
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -154,22 +157,22 @@ enum RewardPrimitive : String {
                     guard let damping = settings["Damping"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showPulse(count: count, duration: duration, scale: scale, velocity: velocity, damping: damping, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Shimmy":
                     guard let count = settings["Count"] as? Float  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let duration = settings["Duration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let translation = settings["Translation"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32 else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showShimmy(count: Int(count), duration: duration, translation: translation, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 case "Vibrate":
                     guard let vibrateDuration = settings["VibrateDuration"] as? Double  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let vibrateCount = settings["VibrateCount"] as? Int  else { BKLog.debug(error: "Missing parameter", visual: true); break }
@@ -182,43 +185,41 @@ enum RewardPrimitive : String {
                     guard let scaleDamping = settings["ScaleDamping"] as? CGFloat  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let hapticFeedback = settings["HapticFeedback"] as? Bool  else { BKLog.debug(error: "Missing parameter", visual: true); break }
                     guard let systemSound = settings["SystemSound"] as? UInt32  else { BKLog.debug(error: "Missing parameter", visual: true); break }
-                    for (view, _) in viewAndLocation {
+                    for (view, _) in viewAndLocation { //swiftlint:disable:next line_length
                         view.showVibrate(vibrateCount: vibrateCount, vibrateDuration: vibrateDuration, vibrateTranslation: vibrateTranslation, vibrateSpeed: vibrateSpeed, scale: scale, scaleCount: scaleCount, scaleDuration: scaleDuration, scaleVelocity: scaleVelocity, scaleDamping: scaleDamping, hapticFeedback: hapticFeedback, systemSound: systemSound, completion: completion)
                     }
                     return
-                    
+
                 default:
-                    // TODO: implement delegate callback for dev defined reinforcements
                     BKLog.debug(error: "Unknown reinforcement type:\(String(describing: settings))", visual: true)
                     return
                 }
             }
         }
     }
-    
+
     fileprivate func reinforcementViews(senderInstance: AnyObject?, targetInstance: NSObject, options: [String: Any]) -> [(UIView, CGPoint)]? {
         guard let viewOption = options["ViewOption"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
-        guard let _ = options["ViewCustom"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewMarginX = options["ViewMarginX"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
         guard let viewMarginY = options["ViewMarginY"] as? CGFloat else { BKLog.debug(error: "Missing parameter", visual: true); return nil }
-        
+
         let viewsAndLocations: [(UIView, CGPoint)]?
-        
+
         switch viewOption {
         case "fixed":
             let view = UIWindow.topWindow!
-            viewsAndLocations = [(view, view.pointWithMargins(x: viewMarginX, y: viewMarginY))]
-            
+            viewsAndLocations = [(view, view.bounds.pointWithMargins(x: viewMarginX, y: viewMarginY))]
+
         case "sender":
             if let senderInstance = senderInstance {
                 if let view = senderInstance as? UIView {
-                    viewsAndLocations = [(view, view.pointWithMargins(x: viewMarginX, y: viewMarginY))]
+                    viewsAndLocations = [(view, view.bounds.pointWithMargins(x: viewMarginX, y: viewMarginY))]
                 } else if senderInstance.responds(to: NSSelectorFromString("view")),
                     let view = senderInstance.value(forKey: "view") as? UIView {
-                    viewsAndLocations = [(view, view.pointWithMargins(x: viewMarginX, y: viewMarginY))]
+                    viewsAndLocations = [(view, view.bounds.pointWithMargins(x: viewMarginX, y: viewMarginY))]
                 } else if senderInstance.responds(to: NSSelectorFromString("imageView")),
                     let view = senderInstance.value(forKey: "imageView") as? UIImageView {
-                    viewsAndLocations = [(view, view.pointWithMargins(x: viewMarginX, y: viewMarginY))]
+                    viewsAndLocations = [(view, view.bounds.pointWithMargins(x: viewMarginX, y: viewMarginY))]
                 } else {
                     BKLog.debug(error: "Could not find sender view for \(type(of: senderInstance))", visual: true)
                     return nil
@@ -227,85 +228,19 @@ enum RewardPrimitive : String {
                 BKLog.debug(error: "No sender object", visual: true)
                 return nil
             }
-            
+
         default:
             BKLog.debug(error: "Unsupported ViewOption <\(viewOption)>", visual: true)
             return nil
         }
-        
+
         return viewsAndLocations
     }
 }
 
-internal extension UIView {
-    func pointWithMargins(x marginX: CGFloat,y marginY: CGFloat) -> CGPoint {
-        let x: CGFloat
-        let y: CGFloat
-        
-        if (-1 <= marginX && marginX <= 1) {
-            x = marginX * bounds.width
-        } else {
-            x = marginX
-        }
-        
-        if (-1 <= marginY && marginY <= 1) {
-            y = marginY * bounds.height
-        } else {
-            y = marginY
-        }
-        
-        return CGPoint(x: x, y: y)
-    }
-    
-    static func getViews(ofType aClass: AnyClass) -> [UIView] {
-        return UIApplication.shared.windows.reversed().flatMap({$0.getSubviews(ofType: aClass)})
-    }
-    
-    func getSubviews(ofType aClass: AnyClass) -> [UIView] {
-        var views = [UIView]()
-        
-        if aClass == type(of: self) {
-            views.append(self)
-        }
-        
-        for subview in self.subviews {
-            views += subview.getSubviews(ofType: aClass)
-        }
-        
-        return views
-    }
-}
-
-internal extension UIViewController {
-    static func getViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
-        return UIApplication.shared.windows.reversed().compactMap({$0.rootViewController?.getChildViewControllers(ofType: aClass)}).flatMap({$0})
-    }
-    
-    func getChildViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
-        var vcs = [UIViewController]()
-        
-        if aClass == type(of: self) {
-            vcs.append(self)
-        }
-        
-        if let tabController = self as? UITabBarController,
-            let tabVCs = tabController.viewControllers {
-            for vc in tabVCs.reversed() {
-                vcs += vc.getChildViewControllers(ofType: aClass)
-            }
-        } else if let navController = self as? UINavigationController {
-            for vc in navController.viewControllers.reversed() {
-                vcs += vc.getChildViewControllers(ofType: aClass)
-            }
-        } else {
-            if let vc = self.presentedViewController {
-                vcs += vc.getChildViewControllers(ofType: aClass)
-            }
-            for vc in childViewControllers.reversed() {
-                vcs += vc.getChildViewControllers(ofType: aClass)
-            }
-        }
-        
-        return vcs
+internal extension CGRect {
+    func pointWithMargins(x marginX: CGFloat, y marginY: CGFloat) -> CGPoint {
+        return CGPoint(x: (-1 <= marginX && marginX <= 1) ? marginX * width : marginX,
+                       y: (-1 <= marginY && marginY <= 1) ? marginY * height : marginY)
     }
 }

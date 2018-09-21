@@ -13,13 +13,13 @@ import EFColorPicker
 
 // note: in FormPickerCell, change selectedValue === AnyObject to include comparing string descriptions for proper initial picked value
 open class FormColorPickerCell: FormValueCell {
-    
+
     var colorPickerNav: UINavigationController!
     let colorPicker = EFColorSelectionViewController()
-    
+
     open override func configure() {
         super.configure()
-        
+
         colorPickerNav = UINavigationController(rootViewController: colorPicker)
         colorPickerNav.navigationBar.backgroundColor = UIColor.lightGray
         colorPickerNav.navigationBar.isTranslucent = false
@@ -28,7 +28,7 @@ open class FormColorPickerCell: FormValueCell {
         colorPickerNav.popoverPresentationController?.sourceView = self.contentView
         colorPickerNav.popoverPresentationController?.sourceRect = self.contentView.bounds
         colorPickerNav.preferredContentSize = colorPicker.view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        
+
         let doneButton: UIBarButtonItem = UIBarButtonItem(
             title: NSLocalizedString("Select", comment: ""),
             style: UIBarButtonItemStyle.done,
@@ -37,26 +37,26 @@ open class FormColorPickerCell: FormValueCell {
         )
         colorPicker.navigationItem.rightBarButtonItem = doneButton
     }
-    
+
     open override func update() {
         super.update()
-        
+
         titleLabel.text = rowDescriptor?.title
-        
+
         if let selectedValue = rowDescriptor?.value {
             valueLabel.text = selectedValue.description
             if let hex = selectedValue as? String,
                 let color = UIColor.from(rgb: hex) {
                 colorPicker.color = color
-                
+
                 if let tag = rowDescriptor?.tag,
                     tag.contains("Color"),
                     let sections = formViewController?.form.sections {
                     let alphaRowTag = tag.replacingOccurrences(of: "Color", with: "Alpha")
-                    for s in 0 ... sections.count - 1 {
-                        for r in 0 ... sections[s].rows.count - 1 {
-                            if sections[s].rows[r].tag == alphaRowTag,
-                                let cell = formViewController?.tableView.cellForRow(at: IndexPath(row: r, section: s)) as? FormLabeledSliderCell {
+                    for sec in 0 ... sections.count - 1 {
+                        for row in 0 ... sections[sec].rows.count - 1 {
+                            if sections[sec].rows[row].tag == alphaRowTag,
+                                let cell = formViewController?.tableView.cellForRow(at: IndexPath(row: row, section: sec)) as? FormLabeledSliderCell {
                                 cell.sliderView.tintColor = color.withAlphaComponent(CGFloat(cell.sliderView.value))
                                 break
                             }
@@ -66,18 +66,17 @@ open class FormColorPickerCell: FormValueCell {
             }
         }
     }
-    
+
     open override class func formViewController(_ formViewController: FormViewController, didSelectRow selectedRow: FormBaseCell) {
         guard let row = selectedRow as? FormColorPickerCell else { return }
         formViewController.present(row.colorPickerNav, animated: true)
     }
 }
 
-extension FormColorPickerCell : UIPopoverPresentationControllerDelegate {
+extension FormColorPickerCell: UIPopoverPresentationControllerDelegate {
     @objc func finishedPickingColor(sender: AnyObject) {
         colorPickerNav.dismiss(animated: true)
         rowDescriptor?.value = colorPicker.color.rgb as AnyObject
         update()
     }
 }
-

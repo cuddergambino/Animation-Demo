@@ -7,22 +7,22 @@
 
 import Foundation
 
-internal class HTTPClient : NSObject {
-    
+internal class HTTPClient: NSObject {
+
 //    internal var logRequests = true
 //    internal var logResponses = true
     internal var logRequests = false
     internal var logResponses = false
-    
+
     private let session: URLSessionProtocol
-    
+
     public init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
-    
-    func post(url: URL, jsonObject: [String: Any], timeout:TimeInterval = 3.0, completion: @escaping ([String: Any]?) -> Void) -> URLSessionDataTaskProtocol {
-        
-        var request = URLRequest(url:url)
+
+    func post(url: URL, jsonObject: [String: Any], timeout: TimeInterval = 3.0, completion: @escaping ([String: Any]?) -> Void) -> URLSessionDataTaskProtocol {
+
+        var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.timeoutInterval = timeout
@@ -36,7 +36,7 @@ internal class HTTPClient : NSObject {
             let message = "\(url.absoluteString) call got error while converting request to JSON <\(jsonObject as AnyObject)>"
             BKLog.debug(error: message)
         }
-        
+
         return session.send(request: request) { responseData, responseURL, error in
             let response = self.convertResponseToJSON(url, responseData, responseURL, error)
             if self.logResponses {
@@ -46,20 +46,20 @@ internal class HTTPClient : NSObject {
             completion(response)
         }
     }
-    
-    fileprivate func convertResponseToJSON(_ url: URL, _ responseData: Data?, _ responseURL: URLResponse?, _ error: Error?)  -> [String: Any]? {
+
+    fileprivate func convertResponseToJSON(_ url: URL, _ responseData: Data?, _ responseURL: URLResponse?, _ error: Error?) -> [String: Any]? {
         guard responseURL != nil else {
             let message = "\(url.absoluteString) call got invalid response with error:<\(error?.localizedDescription as AnyObject)>"
             BKLog.debug(error: message)
             return nil
         }
-        
+
         guard let response = responseData else {
             let message = "\(url.absoluteString) call got no response data"
             BKLog.debug(message)
             return nil
         }
-        
+
         if response.isEmpty {
             BKLog.debug("\(url.absoluteString) called and got empty response")
             return nil
@@ -74,7 +74,6 @@ internal class HTTPClient : NSObject {
         }
     }
 }
-
 
 protocol URLSessionProtocol {
     func send(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol

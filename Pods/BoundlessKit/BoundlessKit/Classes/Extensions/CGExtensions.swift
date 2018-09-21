@@ -17,7 +17,7 @@ internal extension CGImage {
         blurfilter.setValue(radius, forKey: kCIInputRadiusKey)
         blurfilter.setValue(imageToBlur, forKey: kCIInputImageKey)
         let resultImage = blurfilter.value(forKey: kCIOutputImageKey) as! CIImage
-        
+
         let context = CIContext(options: nil)
         return context.createCGImage(resultImage, from: resultImage.extent)!
     }
@@ -27,7 +27,7 @@ internal extension CGFloat {
     func degreesToRadians() -> CGFloat {
         return self / 180 * .pi
     }
-    
+
     init(degrees: CGFloat) {
         self = degrees.degreesToRadians()
     }

@@ -9,7 +9,8 @@
 import Foundation
 import SwiftForms
 
-enum RewardParamKey : String {
+//swiftlint:disable identifier_name
+enum RewardParamKey: String {
     case
     RewardID,
     primitive,
@@ -58,7 +59,7 @@ enum RewardParamKey : String {
     Size,
     Dark,
     FontSize
-    
+
     var title: String {
         switch self {
         case .RewardID: return "Reward Name"
@@ -86,18 +87,18 @@ enum RewardParamKey : String {
         default: return self.rawValue
         }
     }
-    
+
     func formRow(_ dict: [String: Any]) -> FormRowDescriptor {
         let value = dict[rawValue] as AnyObject
         switch self {
-            
+
         case .Color, .Color1, .Color2, .Color3:
             let row = FormRowDescriptor(tag: rawValue, type: .unknown, title: title)
             row.configuration.cell.cellClass = FormColorPickerCell.self
-            row.configuration.cell.appearance = ["valueLabel.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["valueLabel.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .Alpha, .Alpha1, .Alpha2, .Alpha3:
             let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
             row.configuration.cell.cellClass = FormLabeledSliderCell.self
@@ -111,25 +112,26 @@ enum RewardParamKey : String {
                 row.configuration.cell.appearance = ["sliderView.tintColor": color]
             }
             return row
-            
+
         case .RewardID:
             print("GOt rewardID: \(value)")
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["textField.placeholder": value, "textField.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .primitive:
             let row = FormRowDescriptor(tag: rawValue, type: .button, title: title)
             row.value = value
             return row
-            
+
         case .Content:
             let row = FormRowDescriptor(tag: rawValue, type: .name, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["textField.placeholder": value as AnyObject,
+                                                 "textField.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .Duration, .Delay, .FadeOut,
              .Translation, .Velocity, .AccelX, .AccelY, .Damping,
              .VibrateDuration, .VibrateCount, .VibrateTranslation, .VibrateSpeed,
@@ -137,16 +139,18 @@ enum RewardParamKey : String {
              .Spin, .EmissionRange, .EmissionAngle, .LifetimeRange, .Lifetime,
              .ViewMarginX, .ViewMarginY:
             let row = FormRowDescriptor(tag: rawValue, type: .numbersAndPunctuation, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["textField.placeholder": value.description as AnyObject,
+                                                 "textField.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .Count, .Quantity, .Bursts:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["textField.placeholder": value.description as AnyObject,
+                                                 "textField.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .ViewOption:
             let row = FormRowDescriptor(tag: rawValue, type: .picker, title: title)
             row.configuration.cell.showsInputToolbar = true
@@ -160,18 +164,19 @@ enum RewardParamKey : String {
             }
             row.value = value
             return row
-            
+
         case .HapticFeedback, .Dark:
             let row = FormRowDescriptor(tag: rawValue, type: .booleanSwitch, title: title)
             row.value = value
             return row
-            
+
         case .SystemSound:
             let row = FormRowDescriptor(tag: rawValue, type: .number, title: title)
-            row.configuration.cell.appearance = ["textField.placeholder" : value.description as AnyObject, "textField.textAlignment" : NSTextAlignment.right.rawValue as AnyObject]
+            row.configuration.cell.appearance = ["textField.placeholder": value.description as AnyObject,
+                                                 "textField.textAlignment": NSTextAlignment.right.rawValue as AnyObject]
             row.value = value
             return row
-            
+
         case .Amount:
             let row = FormRowDescriptor(tag: rawValue, type: .stepper, title: title)
             row.configuration.stepper.maximumValue = 12
@@ -179,7 +184,7 @@ enum RewardParamKey : String {
             row.configuration.stepper.steps = 1
             row.value = value
             return row
-            
+
         case .Size:
             let row = FormRowDescriptor(tag: rawValue, type: .stepper, title: title)
             row.configuration.stepper.maximumValue = 24
@@ -187,7 +192,7 @@ enum RewardParamKey : String {
             row.configuration.stepper.steps = 1
             row.value = value
             return row
-            
+
         case .FontSize:
             let row = FormRowDescriptor(tag: rawValue, type: .slider, title: title)
             row.configuration.cell.cellClass = FormLabeledSliderCell.self

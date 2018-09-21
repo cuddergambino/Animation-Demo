@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 import SwiftForms
 
-class ConfettiForm : RewardForm {
-    
+class ConfettiForm: RewardForm {
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         reward = RewardSample.defaultSample(for: .Confetti)
         self.form = generateForm()
     }
-    
+
     override func generateForm() -> FormDescriptor {
         let form = FormDescriptor(title: "Confetti Settings")
-        
+
         let generalSection = FormSectionDescriptor(headerTitle: "General", footerTitle: nil)
         generalSection.rows.append(RewardParamKey.Duration.formRow(reward.settings))
         generalSection.rows.append(RewardParamKey.Delay.formRow(reward.settings))
@@ -33,7 +33,7 @@ class ConfettiForm : RewardForm {
         generalSection.rows.append(RewardParamKey.Alpha3.formRow(reward.settings))
         generalSection.rows.append(RewardParamKey.Amount.formRow(reward.settings))
         generalSection.rows.append(RewardParamKey.Size.formRow(reward.settings))
-        
+
         form.sections = [saveSection, generalSection, basicViewSection, soundSection]
         return form
     }

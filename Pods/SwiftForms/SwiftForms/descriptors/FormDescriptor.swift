@@ -9,28 +9,28 @@
 import UIKit
 
 public final class FormDescriptor {
-    
+
     // MARK: Properties
-    
+
     public var title: String
     public var sections: [FormSectionDescriptor] = []
-    
+
     // MARK: Init
-    
+
     public init() {
         self.title = ""
     }
-    
+
     public init(title: String) {
         self.title = title
     }
-    
+
     // MARK: Public
-    
-    public func formValues() -> [String : AnyObject] {
-        
-        var formValues: [String : AnyObject] = [:]
-        
+
+    public func formValues() -> [String: AnyObject] {
+
+        var formValues: [String: AnyObject] = [:]
+
         for section in sections {
             for row in section.rows {
                 if row.type != .button {
@@ -44,7 +44,7 @@ public final class FormDescriptor {
         }
         return formValues
     }
-    
+
     public func validateForm() -> FormRowDescriptor? {
         for section in sections {
             for row in section.rows {

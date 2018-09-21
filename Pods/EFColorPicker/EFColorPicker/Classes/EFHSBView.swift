@@ -79,7 +79,7 @@ public class EFHSBView: UIView, EFColorView, UITextFieldDelegate {
         super.updateConstraints()
     }
 
-    // MARK:- Private methods
+    // MARK: - Private methods
     private func ef_baseInit() {
         self.accessibilityLabel = "hsb_view"
 
@@ -124,14 +124,14 @@ public class EFHSBView: UIView, EFColorView, UITextFieldDelegate {
 
     private func ef_constraintsForRegularVerticalSizeClass() -> [NSLayoutConstraint] {
         let metrics = [
-            "margin" : EFViewMargin,
-            "height" : EFColorSampleViewHeight,
-            "color_wheel_dimension" : EFColorWheelDimension
+            "margin": EFViewMargin,
+            "height": EFColorSampleViewHeight,
+            "color_wheel_dimension": EFColorWheelDimension
         ]
         let views = [
-            "colorSample" : colorSample,
-            "colorWheel" : colorWheel,
-            "brightnessView" : brightnessView
+            "colorSample": colorSample,
+            "colorWheel": colorWheel,
+            "brightnessView": brightnessView
         ]
 
         var layoutConstraints: [NSLayoutConstraint] = []
@@ -166,14 +166,14 @@ public class EFHSBView: UIView, EFColorView, UITextFieldDelegate {
 
     private func ef_constraintsForCompactVerticalSizeClass() -> [NSLayoutConstraint] {
         let metrics = [
-            "margin" : EFViewMargin,
-            "height" : EFColorSampleViewHeight,
-            "color_wheel_dimension" : EFColorWheelDimension
+            "margin": EFViewMargin,
+            "height": EFColorSampleViewHeight,
+            "color_wheel_dimension": EFColorWheelDimension
         ]
         let views = [
-            "colorSample" : colorSample,
-            "colorWheel" : colorWheel,
-            "brightnessView" : brightnessView
+            "colorSample": colorSample,
+            "colorWheel": colorWheel,
+            "brightnessView": brightnessView
         ]
 
         var layoutConstraints: [NSLayoutConstraint] = []

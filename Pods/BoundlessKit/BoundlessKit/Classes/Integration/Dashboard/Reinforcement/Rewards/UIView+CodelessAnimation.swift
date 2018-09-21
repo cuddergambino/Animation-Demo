@@ -13,27 +13,27 @@ import AVFoundation
 
 // call all these in main queue DispatchQueue.main
 public extension UIView {
-    
+
     @objc
     public func showPopover(content: UIImage? = "❤️".image(),
-                            duration:TimeInterval = 1.0,
+                            duration: TimeInterval = 1.0,
                             style: UIBlurEffectStyle = UIBlurEffectStyle.light,
                             hapticFeedback: Bool = false,
                             systemSound: UInt32 = 0,
-                            completion: (()->Void)? = nil
+                            completion: (() -> Void)? = nil
         ) {
         let blurEffectView = UIVisualEffectView(effect: nil)
         blurEffectView.frame = self.bounds
         blurEffectView.mask = self.generateMask()
         blurEffectView.contentView.alpha = 0
-        
+
         self.addSubview(blurEffectView)
-        
+
         let popupView = UIImageView(image: content)
         popupView.center = blurEffectView.center
         popupView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         blurEffectView.contentView.addSubview(popupView)
-        
+
         UIView.animate(
             withDuration: 0.3,
             animations: {
@@ -57,9 +57,9 @@ public extension UIView {
                 })
         })
     }
-    
+
     @objc
-    public func showEmojiSplosion(at location:CGPoint,
+    public func showEmojiSplosion(at location: CGPoint,
                                   content: CGImage? = "❤️".image().cgImage,
                                   scale: CGFloat = 0.6,
                                   scaleSpeed: CGFloat = 0.2,
@@ -77,7 +77,7 @@ public extension UIView {
                                   spin: CGFloat = 0,
                                   hapticFeedback: Bool = false,
                                   systemSound: UInt32 = 0,
-                                  completion: (()->Void)? = nil
+                                  completion: (() -> Void)? = nil
         ) {
         guard let content = content else {
             BKLog.debug(error: "Received nil image content!")
@@ -87,7 +87,7 @@ public extension UIView {
             let emitter = CAEmitterLayer()
             emitter.emitterPosition = location
             emitter.beginTime = CACurrentMediaTime() - 0.9
-            
+
             let cell = CAEmitterCell()
             cell.contents = content
             cell.birthRate = birthRate
@@ -112,7 +112,7 @@ public extension UIView {
                 cell.color = cell.color?.copy(alpha: 0)
             }
             emitter.emitterCells = [cell]
-            
+
             self.layer.addSublayer(emitter)
 //            BKLog.debug("💥 Emojisplosion on <\(NSStringFromClass(type(of: self)))> at <\(location)>!")
             BKAudio.play(systemSound, vibrate: hapticFeedback)
@@ -126,10 +126,10 @@ public extension UIView {
             }
         }
     }
-    
+
     @objc
-    public func showShimmy(count:Int = 2, duration:TimeInterval = 5.0, translation:Int = 10, speed:Float = 3, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
-        
+    public func showShimmy(count: Int = 2, duration: TimeInterval = 5.0, translation: Int = 10, speed: Float = 3, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
+
         let path = UIBezierPath()
         path.move(to: .zero)
         for _ in 1...count {
@@ -137,22 +137,23 @@ public extension UIView {
             path.addLine(to: CGPoint(x: -translation, y: 0))
         }
         path.close()
-        
+
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.repeatCount = 1
         animation.duration = duration
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.path = path.cgPath
         animation.speed = speed
-        
-        CoreAnimationDelegate(didStart:{
+
+        CoreAnimationDelegate(didStart: {
             BKAudio.play(systemSound, vibrate: hapticFeedback)
         }, didStop: completion).start(view: self, animation: animation)
     }
-    
+
+    @available(iOS 9.0, *)
     @objc
-    public func showPulse(count: Float = 1, duration: TimeInterval = 0.86, scale: CGFloat = 1.4, velocity: CGFloat = 5.0, damping: CGFloat = 2.0, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
-        
+    public func showPulse(count: Float = 1, duration: TimeInterval = 0.86, scale: CGFloat = 1.4, velocity: CGFloat = 5.0, damping: CGFloat = 2.0, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
+
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.repeatCount = count
         pulse.duration = duration/TimeInterval(pulse.repeatCount)
@@ -160,13 +161,14 @@ public extension UIView {
         pulse.autoreverses = true
         pulse.initialVelocity = velocity
         pulse.damping = damping
-        
+
         CoreAnimationDelegate(didStop: completion).start(view: self, animation: pulse)
     }
-    
+
+    @available(iOS 9.0, *)
     @objc
-    public func showVibrate(vibrateCount:Int = 6, vibrateDuration:TimeInterval = 1.0, vibrateTranslation:Int = 10, vibrateSpeed:Float = 3, scale:CGFloat = 0.8, scaleCount:Float = 1, scaleDuration:TimeInterval = 0.3, scaleVelocity:CGFloat = 20, scaleDamping:CGFloat = 10, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
-        
+    public func showVibrate(vibrateCount: Int = 6, vibrateDuration: TimeInterval = 1.0, vibrateTranslation: Int = 10, vibrateSpeed: Float = 3, scale: CGFloat = 0.8, scaleCount: Float = 1, scaleDuration: TimeInterval = 0.3, scaleVelocity: CGFloat = 20, scaleDamping: CGFloat = 10, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
+
         let path = UIBezierPath()
         path.move(to: .zero)
         if vibrateCount >= 1 {
@@ -176,14 +178,17 @@ public extension UIView {
             }
         }
         path.close()
-        
+
+        var animations = [CAAnimation]()
+
         let vibrateAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         vibrateAnimation.repeatCount = 1
         vibrateAnimation.duration = vibrateDuration / TimeInterval(vibrateAnimation.repeatCount)
         vibrateAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         vibrateAnimation.path = path.cgPath
         vibrateAnimation.speed = vibrateSpeed
-        
+        animations.append(vibrateAnimation)
+
         let scaleAnimation = CASpringAnimation(keyPath: "transform.scale")
         scaleAnimation.repeatCount = scaleCount > 0 ? scaleCount : 1
         scaleAnimation.duration = scaleDuration / TimeInterval(scaleAnimation.repeatCount)
@@ -191,43 +196,41 @@ public extension UIView {
         scaleAnimation.autoreverses = true
         scaleAnimation.initialVelocity = scaleVelocity
         scaleAnimation.damping = scaleDamping
-        
+        animations.append(vibrateAnimation)
+
         let group = CAAnimationGroup()
-        group.animations = [vibrateAnimation, scaleAnimation]
+        group.animations = animations
         group.duration = max(vibrateDuration, scaleDuration)
-        let oldClipsToBounds = clipsToBounds
-        
-        CoreAnimationDelegate(willStart:{startAnimation in
-            self.layer.masksToBounds = false
+
+        CoreAnimationDelegate(willStart: {startAnimation in
             startAnimation()
-        }, didStart:{
+        }, didStart: {
             BKAudio.play(systemSound, vibrate: hapticFeedback)
         }, didStop: {
-            self.clipsToBounds = oldClipsToBounds
             completion?()
         }).start(view: self, animation: group)
     }
-    
-    public func rotate360Degrees(count: Float = 2, duration: CFTimeInterval = 1.0, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
+
+    @objc
+    public func rotate360Degrees(count: Float = 2, duration: CFTimeInterval = 1.0, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.duration = duration
         rotateAnimation.fromValue = 0.0
         rotateAnimation.toValue = 2.0 * Float.pi * count
         rotateAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        
+
         CoreAnimationDelegate(
             didStart: {
                 BKAudio.play(systemSound, vibrate: hapticFeedback)
         }, didStop: completion).start(view: self, animation: rotateAnimation)
     }
-    
+
     @objc
-    public func showGlow(count: Float = 2, duration: Double = 3.0, color: UIColor = UIColor(red: 255/255.0, green: 26/255.0, blue: 251/255.0, alpha: 0.7), alpha: CGFloat = 0.7, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut), hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
-        
-        let glowView = self.generateMask()
-        glowView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+    public func showGlow(count: Float = 2, duration: Double = 3.0, color: UIColor = UIColor(red: 255/255.0, green: 26/255.0, blue: 251/255.0, alpha: 0.7), alpha: CGFloat = 0.7, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut), hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
+
+        let glowView = self.generateMask(color: color)
         glowView.alpha = 0
-        
+
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
         animation.toValue = alpha
@@ -238,10 +241,10 @@ public extension UIView {
 
         CoreAnimationDelegate(
             willStart: { start in
-                self.insertSubview(glowView, aboveSubview: self)
+                self.addSubview(glowView)
                 start()
         },
-            didStart:{
+            didStart: {
                 BKAudio.play(systemSound, vibrate: hapticFeedback)
         },
             didStop: {
@@ -249,39 +252,40 @@ public extension UIView {
                 completion?()
         }).start(view: glowView, animation: animation)
     }
-    
+
     @objc
-    public func showSheen(duration: Double = 2.0, color: UIColor? = nil, heightMultiplier: CGFloat = 1, widthMultiplier: CGFloat = 1.667, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (()->Void)? = nil) {
-        guard let bundle = Bundle.boundlessKit else {
-            return
+    public func showSheen(duration: Double = 2.0, color: UIColor? = nil, heightMultiplier: CGFloat = 1, widthMultiplier: CGFloat = 1.667, hapticFeedback: Bool = false, systemSound: UInt32 = 0, completion: (() -> Void)? = nil) {
+        guard let bundle = Bundle.boundlessKit,
+            var image = UIImage(named: "sheen", in: bundle, compatibleWith: nil) else {
+                BKLog.debug(error: "Could not find sheen image asset")
+                return
         }
-        
-        let containerView = UIView(frame: self.bounds)
-        containerView.mask = self.generateMask()
-        
-        var image = UIImage(named: "sheen", in: bundle, compatibleWith: nil)
+
         if let color = color {
-            image = image?.tint(tintColor: color)
+            image = image.tint(tintColor: color)
         }
         let imageView = UIImageView(image: image)
         let height = self.frame.height * heightMultiplier
         let width: CGFloat =  self.frame.height * widthMultiplier
         imageView.frame = CGRect(x: -width, y: 0, width: width, height: height)
+
+        let containerView = UIImageView(frame: CGRect(origin: .zero, size: self.bounds.size))
+        containerView.mask = self.generateMask()
         containerView.addSubview(imageView)
-        
+
         let animation = CABasicAnimation(keyPath: "transform.translation.x")
         animation.duration = duration
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.byValue = self.frame.width + width
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
-        
+
         CoreAnimationDelegate(
             willStart: { start in
                 self.addSubview(containerView)
                 start()
         },
-            didStart:{
+            didStart: {
                 BKAudio.play(systemSound, vibrate: hapticFeedback)
         },
             didStop: {
@@ -291,47 +295,31 @@ public extension UIView {
     }
 }
 
-fileprivate class CoreAnimationDelegate : NSObject, CAAnimationDelegate {
-    
+private class CoreAnimationDelegate: NSObject, CAAnimationDelegate {
     let willStart: (@escaping()->Void)->Void
-    let didStart: (()->Void)?
-    let didStop: (()->Void)?
-    
-    init(willStart: @escaping (@escaping()->Void)->Void = {startAnimation in startAnimation()}, didStart: (()->Void)? = nil, didStop: (()->Void)? = nil) {
+    let didStart: (() -> Void)?
+    let didStop: (() -> Void)?
+
+    init(willStart: @escaping (@escaping()->Void)->Void = {startAnimation in startAnimation()}, didStart: (() -> Void)? = nil, didStop: (() -> Void)? = nil) {
         self.willStart = willStart
         self.didStart = didStart
         self.didStop = didStop
     }
-    
-    func start(view: UIView, animation:CAAnimation) {
-        willStart() {
+
+    func start(view: UIView, animation: CAAnimation) {
+        willStart {
             animation.delegate = self
             view.layer.add(animation, forKey: nil)
         }
     }
-    
+
     func animationDidStart(_ anim: CAAnimation) {
         didStart?()
     }
-    
+
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             didStop?()
         }
     }
-    
 }
-
-fileprivate extension UIView {
-    func generateMask(color: UIColor = .white) -> UIView {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        color.setFill()
-        UIBezierPath(rect: CGRect(origin: .zero, size: self.bounds.size)).fill(with: .sourceAtop, alpha:1.0)
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        return UIImageView(image: image)
-    }
-}
-

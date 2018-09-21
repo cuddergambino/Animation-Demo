@@ -10,11 +10,11 @@ import UIKit
 import SwiftForms
 
 open class FormLabeledSliderCell: FormSliderCell {
-    
+
     @objc public let valueView = UILabel()
-    
+
     // MARK: FormBaseCell
-    
+
     open override func configure() {
         super.configure()
         valueView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,31 +22,31 @@ open class FormLabeledSliderCell: FormSliderCell {
         contentView.addSubview(valueView)
         sliderView.addTarget(self, action: #selector(FormLabeledSliderCell.valueChanged2(_:)), for: .valueChanged)
     }
-    
+
     open override func update() {
         super.update()
-        
+
         if let value = rowDescriptor?.value as? Float {
             sliderView.tintColor = sliderView.tintColor.withAlphaComponent(CGFloat(value))
             valueView.text = sliderView.value.fuzzyRound
         }
     }
-    
-    open override func constraintsViews() -> [String : UIView] {
-        return ["titleLabel" : titleLabel, "sliderView" : sliderView, "valueView" : valueView]
+
+    open override func constraintsViews() -> [String: UIView] {
+        return ["titleLabel": titleLabel, "sliderView": sliderView, "valueView": valueView]
     }
-    
+
     open override func defaultVisualConstraints() -> [String] {
         var constraints: [String] = []
-        
+
         constraints.append("V:|[valueView]|")
         constraints.append("H:|-16-[titleLabel]-16-[sliderView]-16-[valueView]-16-|")
-        
+
         return constraints
     }
-    
+
     // MARK: Actions
-    
+
     @objc internal func valueChanged2(_: UISlider) {
         rowDescriptor?.value = sliderView.value.fuzzyRound as AnyObject
     }

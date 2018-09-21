@@ -7,18 +7,28 @@
 
 import Foundation
 
+internal class Application {
+    static var shared: UIApplication? {
+        let sharedSelector = NSSelectorFromString("sharedApplication")
+        guard UIApplication.responds(to: sharedSelector) else {
+                return nil
+        }
+        return UIApplication.perform(sharedSelector)?.takeUnretainedValue() as? UIApplication
+    }
+}
+
 internal extension UIViewController {
     static func getViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
-        return UIApplication.shared.windows.reversed().flatMap({$0.rootViewController?.getChildViewControllers(ofType: aClass)}).flatMap({$0})
+        return Application.shared?.windows.reversed().compactMap({$0.rootViewController?.getChildViewControllers(ofType: aClass)}).flatMap({$0}) ?? []
     }
-    
+
     func getChildViewControllers(ofType aClass: AnyClass) -> [UIViewController] {
         var vcs = [UIViewController]()
-        
+
         if aClass == type(of: self) {
             vcs.append(self)
         }
-        
+
         if let tabController = self as? UITabBarController,
             let tabVCs = tabController.viewControllers {
             for vc in tabVCs.reversed() {
@@ -36,7 +46,7 @@ internal extension UIViewController {
                 vcs += vc.getChildViewControllers(ofType: aClass)
             }
         }
-        
+
         return vcs
     }
 }

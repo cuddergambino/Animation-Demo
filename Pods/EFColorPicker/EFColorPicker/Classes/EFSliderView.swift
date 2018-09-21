@@ -119,7 +119,7 @@ public class EFSliderView: EFControl {
         self.ef_updateTrackLayer()
     }
 
-    // MARK:- UIControl touch tracking events
+    // MARK: - UIControl touch tracking events
     @objc func ef_didPanThumbView(gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state != UIGestureRecognizerState.began
             && gestureRecognizer.state != UIGestureRecognizerState.changed {
@@ -143,7 +143,7 @@ public class EFSliderView: EFControl {
         CATransaction.commit()
     }
 
-    // MARK:- Private methods
+    // MARK: - Private methods
     private func ef_setValueWithTranslation(translation: CGFloat) {
         let width: CGFloat = self.bounds.width - thumbView.bounds.width
         let valueRange: CGFloat = maximumValue - minimumValue

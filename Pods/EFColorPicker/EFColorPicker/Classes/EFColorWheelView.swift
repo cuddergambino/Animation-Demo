@@ -135,7 +135,7 @@ public class EFColorWheelView: UIControl {
         CATransaction.commit()
     }
 
-    // MARK:- CALayerDelegate methods
+    // MARK: - CALayerDelegate methods
     override public func display(_ layer: CALayer) {
         let dimension: CGFloat = min(self.frame.width, self.frame.height)
         guard let bitmapData = CFDataCreateMutable(nil, 0) else {
@@ -159,7 +159,7 @@ public class EFColorWheelView: UIControl {
         }
     }
 
-    // MARK:- Private methods
+    // MARK: - Private methods
     private func ef_selectedPoint() -> CGPoint {
         let dimension: CGFloat = min(self.frame.width, self.frame.height)
 

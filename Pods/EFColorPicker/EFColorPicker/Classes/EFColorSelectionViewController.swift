@@ -108,7 +108,7 @@ public class EFColorSelectionViewController: UIViewController, EFColorViewDelega
         return self.view as? EFColorSelectionView ?? EFColorSelectionView()
     }
 
-    // MARK:- EFColorViewDelegate
+    // MARK: - EFColorViewDelegate
     public func colorView(colorView: EFColorView, didChangeColor color: UIColor) {
         self.delegate?.colorViewController(colorViewCntroller: self, didChangeColor: color)
     }

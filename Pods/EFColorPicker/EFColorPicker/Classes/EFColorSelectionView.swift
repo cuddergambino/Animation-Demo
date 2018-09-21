@@ -87,7 +87,7 @@ public class EFColorSelectionView: UIView, EFColorView, EFColorViewDelegate {
             self.addSubview(view)
             view.translatesAutoresizingMaskIntoConstraints = false
             let views = [
-                "view" : view
+                "view": view
             ]
             let visualFormats = [
                 "H:|[view]|",
@@ -112,13 +112,13 @@ public class EFColorSelectionView: UIView, EFColorView, EFColorViewDelegate {
         super.updateConstraints()
     }
 
-    // MARK:- FBColorViewDelegate methods
+    // MARK: - FBColorViewDelegate methods
     public func colorView(colorView: EFColorView, didChangeColor color: UIColor) {
         self.color = color
         self.delegate?.colorView(colorView: self, didChangeColor: self.color)
     }
 
-    // MARK:- Private
+    // MARK: - Private
     private func ef_init() {
         self.accessibilityLabel = "color_selection_view"
 

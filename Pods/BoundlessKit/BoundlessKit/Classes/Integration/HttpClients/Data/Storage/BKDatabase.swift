@@ -7,33 +7,27 @@
 
 import Foundation
 
-internal protocol BKData : NSCoding {}
+internal protocol BKData: NSCoding {}
 internal protocol BKDatabase {
     typealias Storage = (BKDatabase, String)
     func archive<T: BKData>(_ value: T?, forKey key: String)
     func unarchive<T: BKData>(_ key: String) -> T?
 }
 
-internal class BKUserDefaults : UserDefaults, BKDatabase {
-    
+internal class BKUserDefaults: UserDefaults, BKDatabase {
+
+    private static let suiteName = "boundless.kit.db.1"
+
     override class var standard: BKUserDefaults {
         get {
-            return BKUserDefaults.init(suiteName: "boundless.kit")!
+            return BKUserDefaults(suiteName: suiteName)!
         }
     }
-    
+
     func removePersistentDomain() {
-        removePersistentDomain(forName: "boundless.kit")
+        removePersistentDomain(forName: BKUserDefaults.suiteName)
     }
-    
-    override init?(suiteName suitename: String?) {
-        BKTrackBatch.registerWithNSKeyed
-        BKReportBatch.registerWithNSKeyed
-        BKRefreshCartridge.registerWithNSKeyed
-        BKRefreshCartridgeContainer.registerWithNSKeyed
-        super.init(suiteName: suitename)
-    }
-    
+
     func archive<T: BKData>(_ value: T?, forKey key: String) {
         if let value = value {
             self.set(NSKeyedArchiver.archivedData(withRootObject: value), forKey: key)
@@ -41,7 +35,7 @@ internal class BKUserDefaults : UserDefaults, BKDatabase {
             self.set(nil, forKey: key)
         }
     }
-    
+
     func unarchive<T: BKData>(_ key: String) -> T? {
         if let data = self.object(forKey: key) as? Data,
             let t = NSKeyedUnarchiver.unarchiveObject(with: data) as? T {
@@ -50,7 +44,7 @@ internal class BKUserDefaults : UserDefaults, BKDatabase {
             return nil
         }
     }
-    
+
     var initialBootDate: Date? {
         get {
             let date = object(forKey: "initialBootDate") as? Date
@@ -60,9 +54,5 @@ internal class BKUserDefaults : UserDefaults, BKDatabase {
             return date
         }
     }
-    
+
 }
-
-
-
-

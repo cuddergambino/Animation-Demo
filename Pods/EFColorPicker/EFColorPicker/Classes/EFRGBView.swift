@@ -70,7 +70,7 @@ public class EFRGBView: UIView, EFColorView {
         self.ef_reloadColorComponentViews(colorComponents: colorComponents)
     }
 
-    // MARK:- Private methods
+    // MARK: - Private methods
     private func ef_baseInit() {
         self.accessibilityLabel = "rgb_view"
 
@@ -138,12 +138,12 @@ public class EFRGBView: UIView, EFColorView {
 
     private func ef_installConstraints() {
         let metrics = [
-            "margin" : EFViewMargin,
-            "height" : EFColorSampleViewHeight,
-            "slider_margin" : EFSliderViewMargin
+            "margin": EFViewMargin,
+            "height": EFColorSampleViewHeight,
+            "slider_margin": EFSliderViewMargin
         ]
         var views = [
-            "colorSample" : colorSample
+            "colorSample": colorSample
         ]
 
         let visualFormats = [
@@ -164,8 +164,8 @@ public class EFRGBView: UIView, EFColorView {
         var previousView: UIView = colorSample
         for colorComponentView in colorComponentViews {
             views = [
-                "previousView" : previousView,
-                "colorComponentView" : colorComponentView
+                "previousView": previousView,
+                "colorComponentView": colorComponentView
             ]
 
             let visualFormats = [
@@ -187,7 +187,7 @@ public class EFRGBView: UIView, EFColorView {
         }
 
         views = [
-            "previousView" : previousView
+            "previousView": previousView
         ]
         self.addConstraints(
             NSLayoutConstraint.constraints(

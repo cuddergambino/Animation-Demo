@@ -10,7 +10,7 @@ import Foundation
 internal class SynchronizedArray<Element> : NSObject {
     internal let queue = DispatchQueue(label: "SynchronizedArray", attributes: .concurrent)
     fileprivate var array: [Element]
-    
+
     init(_ array: [Element] = []) {
         self.array = array
         super.init()
@@ -19,7 +19,7 @@ internal class SynchronizedArray<Element> : NSObject {
 
 // MARK: - Properties
 extension SynchronizedArray {
-    
+
     /// The first element of the collection.
     var first: Element? {
         var result: Element?
@@ -33,21 +33,21 @@ extension SynchronizedArray {
 //        queue.sync { result = self.array.last }
 //        return result
 //    }
-    
+
     /// The number of elements in the array.
     var count: Int {
         var result = 0
         queue.sync { result = self.array.count }
         return result
     }
-    
+
     /// A Boolean value indicating whether the collection is empty.
     var isEmpty: Bool {
         var result = false
         queue.sync { result = self.array.isEmpty }
         return result
     }
-    
+
 //    /// A textual representation of the array and its elements.
 //    var description: String {
 //        var result = ""
@@ -67,7 +67,7 @@ extension SynchronizedArray {
 //        queue.sync { result = self.array.first(where: predicate) }
 //        return result
 //    }
-    
+
 //    /// Returns an array containing, in order, the elements of the sequence that satisfy the given predicate.
 //    ///
 //    /// - Parameter isIncluded: A closure that takes an element of the sequence as its argument and returns a Boolean value indicating whether the element should be included in the returned array.
@@ -77,13 +77,13 @@ extension SynchronizedArray {
 //        queue.sync { result = self.array.filter(isIncluded) }
 //        return result
 //    }
-    
+
     var values: [Element] {
         var result = [Element]()
         queue.sync { result = self.array }
         return result
     }
-    
+
 //    /// Returns the first index in which an element of the collection satisfies the given predicate.
 //    ///
 //    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
@@ -134,7 +134,7 @@ extension SynchronizedArray {
 
 // MARK: - Mutable
 extension SynchronizedArray {
-    
+
     /// Adds a new element at the end of the array.
     ///
     /// - Parameter element: The element to append to the array.
@@ -143,7 +143,7 @@ extension SynchronizedArray {
             self.array.append(element)
         }
     }
-    
+
     /// Adds a new element at the end of the array.
     ///
     /// - Parameter element: The element to append to the array.
@@ -152,7 +152,7 @@ extension SynchronizedArray {
             self.array += elements
         }
     }
-    
+
 //    /// Inserts a new element at the specified position.
 //    ///
 //    /// - Parameters:
@@ -203,13 +203,15 @@ extension SynchronizedArray {
     ///         number of elements in the collection.
     func removeFirst(_ n: Int, completion: (() -> Void)? = nil) {
         queue.async(flags: .barrier) {
-            self.array.removeFirst(n)
-            DispatchQueue.main.async {
+            if self.array.count >= n {
+                self.array.removeFirst(n)
+            }
+            DispatchQueue.global().async {
                 completion?()
             }
         }
     }
-    
+
     func removeFirst(completion: ((Element?) -> Void)? = nil) {
         queue.async(flags: .barrier) {
             let value: Element?
@@ -218,12 +220,12 @@ extension SynchronizedArray {
             } else {
                 value = nil
             }
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 completion?(value)
             }
         }
     }
-    
+
     /// Removes all elements from the array.
     ///
     /// - Parameter completion: The handler with the removed elements.
@@ -231,7 +233,7 @@ extension SynchronizedArray {
         queue.async(flags: .barrier) {
             let elements = self.array
             self.array.removeAll()
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 completion?(elements)
             }
         }
@@ -265,7 +267,6 @@ extension SynchronizedArray {
 //    }
 //}
 
-
 //// MARK: - Equatable
 //public extension SynchronizedArray where Element: Equatable {
 //    
@@ -282,11 +283,11 @@ extension SynchronizedArray {
 
 // MARK: - Infix operators
 extension SynchronizedArray {
-    
+
     static func +=(left: inout SynchronizedArray, right: Element) {
         left.append(right)
     }
-    
+
     static func +=(left: inout SynchronizedArray, right: [Element]) {
         left.append(right)
     }
