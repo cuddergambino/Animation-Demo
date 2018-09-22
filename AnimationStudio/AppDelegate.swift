@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let context = coredata.newContext()
         context.performAndWait {
 
-            guard let entity = NSEntityDescription.entity(forEntityName: EmojisplosionParams.description(), in: context) else { return }
-            let popoverParams = EmojisplosionParams(entity: entity, insertInto: context)
+            guard let entity = NSEntityDescription.entity(forEntityName: UXEmojisplosionParams.description(), in: context) else { return }
+            let popoverParams = UXEmojisplosionParams(entity: entity, insertInto: context)
             popoverParams.rewardId = "test"
             context.insert(popoverParams)
             do {
@@ -38,41 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let context = self.coredata.newContext()
             context.performAndWait {
-                var params: EmojisplosionParams?
-                let request = NSFetchRequest<EmojisplosionParams>(entityName: EmojisplosionParams.description())
+                var params: UXEmojisplosionParams?
+                let request = NSFetchRequest<UXEmojisplosionParams>(entityName: UXEmojisplosionParams.description())
                 do {
                     BMLog.warning("Count:\(try context.count(for: request))")
                     params = try context.fetch(request).first
                 } catch { BMLog.error(error) }
 
                 if let params = params {
-                    self.window?.showEmojiSplosion(at: self.window!.bounds
-                        .pointWithMargins(x: CGFloat(params.viewMargin![0]),
-                                          y: CGFloat(params.viewMargin![1])),
-                                               content: params.content!.utf8Decoded().image().cgImage,
-                                               scale: CGFloat(params.scaleMean),
-                                               scaleSpeed: CGFloat(params.scaleSpeed),
-                                               scaleRange: CGFloat(params.scaleNoise),
-                                               lifetime: params.lifetime,
-                                               lifetimeRange: params.lifetimeNoise,
-                                               fadeout: params.fade,
-                                               quantity: Float(params.rate),
-                                               bursts: params.duration,
-                                               velocity: CGFloat(params.velocity),
-                                               xAcceleration: CGFloat(params.acceleration![0]),
-                                               yAcceleration: CGFloat(params.acceleration![1]),
-                                               angle: CGFloat(params.angle),
-                                               range: CGFloat(params.range),
-                                               spin: CGFloat(params.spin),
-                                               hapticFeedback: params.hapticFeedback,
-                                               systemSound: UInt32(params.systemSound))
-//                self.window?.showPopover(content: (e.content! as NSString).utf8Decoded()
-//                    .image(font: .systemFont(ofSize: CGFloat(popoverParams.fontSize))),
-//                                         duration: popoverParams.duration,
-//                                         style: popoverParams.dark ? .dark : .light,
-//                                         hapticFeedback: popoverParams.hapticFeedback,
-//                                         systemSound: UInt32(popoverParams.systemSound))
-                }}
+                    params.show(on: self.window!)
+                }
+            }
         }
 
         return true

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ConfettiParams" representedClassName="ConfettiParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXConfettiParams" representedClassName="UXConfettiParams" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Integer 64" defaultValueString="4" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="color1" attributeType="String" defaultValueString="4d81fbcc" syncable="YES"/>
         <attribute name="color2" attributeType="String" defaultValueString="4ac4fbcc" syncable="YES"/>
@@ -12,8 +12,8 @@
         <attribute name="size" attributeType="Integer 64" defaultValueString="9" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="EmojisplosionParams" representedClassName="EmojisplosionParams" syncable="YES" codeGenerationType="class">
-        <attribute name="acceleration" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
+    <entity name="UXEmojisplosionParams" representedClassName="UXEmojisplosionParams" syncable="YES" codeGenerationType="class">
+        <attribute name="accelerations" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
         <attribute name="angle" attributeType="Float" defaultValueString="-90" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="content" attributeType="String" defaultValueString="❤️" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -31,10 +31,10 @@
         <attribute name="spin" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="1109" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="velocity" attributeType="Float" defaultValueString="-50" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="viewMargin" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
+        <attribute name="viewMargins" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
-    <entity name="GlowParms" representedClassName="GlowParms" syncable="YES" codeGenerationType="class">
+    <entity name="UXGlowParms" representedClassName="UXGlowParms" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String" defaultValueString="3DCF01B3" syncable="YES"/>
         <attribute name="count" attributeType="Integer 64" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -44,7 +44,7 @@
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="fixed" syncable="YES"/>
     </entity>
-    <entity name="PopoverParams" representedClassName="PopoverParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXPopoverParams" representedClassName="UXPopoverParams" syncable="YES" codeGenerationType="class">
         <attribute name="content" attributeType="String" defaultValueString="❤️" syncable="YES"/>
         <attribute name="dark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -55,7 +55,7 @@
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="fixed" syncable="YES"/>
     </entity>
-    <entity name="PulseParms" representedClassName="PulseParms" syncable="YES" codeGenerationType="class">
+    <entity name="UXPulseParms" representedClassName="UXPulseParms" syncable="YES" codeGenerationType="class">
         <attribute name="count" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="damping" optional="YES" attributeType="Float" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -67,7 +67,7 @@
         <attribute name="velocity" attributeType="Float" defaultValueString="5" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
-    <entity name="RotateParams" representedClassName="RotateParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXRotateParams" representedClassName="UXRotateParams" syncable="YES" codeGenerationType="class">
         <attribute name="count" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
@@ -76,7 +76,7 @@
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
-    <entity name="SheenParams" representedClassName="SheenParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXSheenParams" representedClassName="UXSheenParams" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String" defaultValueString="FFFFFF00" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
@@ -85,7 +85,7 @@
         <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
-    <entity name="ShimmyParams" representedClassName="ShimmyParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXShimmyParams" representedClassName="UXShimmyParams" syncable="YES" codeGenerationType="class">
         <attribute name="count" attributeType="Integer 64" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" defaultValueString="5" usesScalarValueType="YES" syncable="YES"/>
@@ -95,7 +95,7 @@
         <attribute name="translation" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
-    <entity name="VibrateParams" representedClassName="VibrateParams" syncable="YES" codeGenerationType="class">
+    <entity name="UXVibrateParams" representedClassName="UXVibrateParams" syncable="YES" codeGenerationType="class">
         <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rewardId" attributeType="String" syncable="YES"/>
@@ -112,14 +112,14 @@
         <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ConfettiParams" positionX="-54" positionY="63" width="128" height="195"/>
-        <element name="EmojisplosionParams" positionX="-18" positionY="126" width="128" height="345"/>
-        <element name="GlowParms" positionX="0" positionY="135" width="128" height="165"/>
-        <element name="PopoverParams" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="PulseParms" positionX="-18" positionY="144" width="128" height="195"/>
-        <element name="RotateParams" positionX="-27" positionY="81" width="128" height="150"/>
-        <element name="SheenParams" positionX="-9" positionY="153" width="128" height="150"/>
-        <element name="ShimmyParams" positionX="0" positionY="162" width="128" height="165"/>
-        <element name="VibrateParams" positionX="9" positionY="171" width="128" height="255"/>
+        <element name="UXConfettiParams" positionX="-54" positionY="63" width="128" height="195"/>
+        <element name="UXEmojisplosionParams" positionX="-18" positionY="126" width="128" height="345"/>
+        <element name="UXGlowParms" positionX="0" positionY="135" width="128" height="165"/>
+        <element name="UXPopoverParams" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="UXPulseParms" positionX="-18" positionY="144" width="128" height="195"/>
+        <element name="UXRotateParams" positionX="-27" positionY="81" width="128" height="150"/>
+        <element name="UXSheenParams" positionX="-9" positionY="153" width="128" height="150"/>
+        <element name="UXShimmyParams" positionX="0" positionY="162" width="128" height="165"/>
+        <element name="UXVibrateParams" positionX="9" positionY="171" width="128" height="255"/>
     </elements>
 </model>

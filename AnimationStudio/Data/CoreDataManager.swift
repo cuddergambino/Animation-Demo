@@ -99,16 +99,16 @@ class CoreDataManager: NSObject {
 
     func deleteObjects() {
         managedObjectContext?.performAndWait {
-            let entities = [ConfettiParams.self,
-                              EmojisplosionParams.self,
-                              GlowParms.self,
-                              PopoverParams.self,
-                              PulseForm.self,
-                              RotateParams.self,
-                              SheenParams.self,
-                              ShimmyParams.self,
-                              VibrateForm.self
-                              ]
+            let entities = [UXConfettiParams.self,
+                            UXEmojisplosionParams.self,
+                            UXGlowParms.self,
+                            UXPopoverParams.self,
+                            UXPulseParms.self,
+                            UXRotateParams.self,
+                            UXSheenParams.self,
+                            UXShimmyParams.self,
+                            UXVibrateParams.self
+            ]
             for entity in entities {
                 let request = NSFetchRequest<NSManagedObject>(entityName: entity.description())
                 do {
