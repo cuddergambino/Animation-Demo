@@ -1,4 +1,6 @@
+platform :ios, '9.0'
 use_frameworks!
+
 
 target 'AnimationStudio' do
     pod 'SwiftForms'
