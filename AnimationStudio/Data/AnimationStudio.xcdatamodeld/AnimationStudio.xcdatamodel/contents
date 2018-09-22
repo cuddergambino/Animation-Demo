@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ConfettiParams" representedClassName="ConfettiParams" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Integer 64" defaultValueString="4" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="color1" attributeType="String" defaultValueString="4d81fbcc" syncable="YES"/>
+        <attribute name="color2" attributeType="String" defaultValueString="4ac4fbcc" syncable="YES"/>
+        <attribute name="color3" attributeType="String" defaultValueString="9243f9cc" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="size" attributeType="Integer 64" defaultValueString="9" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="EmojisplosionParams" representedClassName="EmojisplosionParams" syncable="YES" codeGenerationType="class">
+        <attribute name="acceleration" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
+        <attribute name="angle" attributeType="Float" defaultValueString="-90" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="content" attributeType="String" defaultValueString="❤️" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fade" attributeType="Float" defaultValueString="-0.2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lifetime" attributeType="Float" defaultValueString="4" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lifetimeNoise" attributeType="Float" defaultValueString="0.5" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="range" attributeType="Float" defaultValueString="45" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rate" attributeType="Double" defaultValueString="6" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="scaleMean" attributeType="Float" defaultValueString="0.6" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleNoise" attributeType="Float" defaultValueString="0.2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleSpeed" attributeType="Float" defaultValueString="0.2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="spin" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="1109" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="velocity" attributeType="Float" defaultValueString="-50" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewMargin" attributeType="Transformable" customClassName="[Float]" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <entity name="GlowParms" representedClassName="GlowParms" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String" defaultValueString="3DCF01B3" syncable="YES"/>
+        <attribute name="count" attributeType="Integer 64" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="fixed" syncable="YES"/>
+    </entity>
+    <entity name="PopoverParams" representedClassName="PopoverParams" syncable="YES" codeGenerationType="class">
+        <attribute name="content" attributeType="String" defaultValueString="❤️" syncable="YES"/>
+        <attribute name="dark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fontSize" attributeType="Float" defaultValueString="24" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="fixed" syncable="YES"/>
+    </entity>
+    <entity name="PulseParms" representedClassName="PulseParms" syncable="YES" codeGenerationType="class">
+        <attribute name="count" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="damping" optional="YES" attributeType="Float" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0.86" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="scale" attributeType="Float" defaultValueString="1.4" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="velocity" attributeType="Float" defaultValueString="5" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <entity name="RotateParams" representedClassName="RotateParams" syncable="YES" codeGenerationType="class">
+        <attribute name="count" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <entity name="SheenParams" representedClassName="SheenParams" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String" defaultValueString="FFFFFF00" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <entity name="ShimmyParams" representedClassName="ShimmyParams" syncable="YES" codeGenerationType="class">
+        <attribute name="count" attributeType="Integer 64" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="5" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="translation" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <entity name="VibrateParams" representedClassName="VibrateParams" syncable="YES" codeGenerationType="class">
+        <attribute name="delay" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hapticFeedback" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rewardId" attributeType="String" syncable="YES"/>
+        <attribute name="scale" attributeType="Float" defaultValueString="0.8" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleCount" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleDamping" attributeType="Float" defaultValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleDuration" attributeType="Double" defaultValueString="0.3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleVelocity" attributeType="Float" defaultValueString="0.8" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="systemSound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vibrateCount" attributeType="Integer 64" defaultValueString="6" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vibrateDuration" attributeType="Double" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vibrateSpeed" attributeType="Float" defaultValueString="3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vibrateTranslation" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewOption" attributeType="String" defaultValueString="sender" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ConfettiParams" positionX="-54" positionY="63" width="128" height="195"/>
+        <element name="EmojisplosionParams" positionX="-18" positionY="126" width="128" height="345"/>
+        <element name="GlowParms" positionX="0" positionY="135" width="128" height="165"/>
+        <element name="PopoverParams" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="PulseParms" positionX="-18" positionY="144" width="128" height="195"/>
+        <element name="RotateParams" positionX="-27" positionY="81" width="128" height="150"/>
+        <element name="SheenParams" positionX="-9" positionY="153" width="128" height="150"/>
+        <element name="ShimmyParams" positionX="0" positionY="162" width="128" height="165"/>
+        <element name="VibrateParams" positionX="9" positionY="171" width="128" height="255"/>
+    </elements>
+</model>

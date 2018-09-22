@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1F326E2D523F3EEDE7341A9F /* Pods_AnimationStudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C9AA458BFECA6C50694924 /* Pods_AnimationStudio.framework */; };
+		841CABD421562A9C0050E3F3 /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CABD321562A9C0050E3F3 /* NSManagedObject+Extensions.swift */; };
+		84865CDF21562660001ADA4E /* AnimationStudio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84865CCF2156265D001ADA4E /* AnimationStudio.xcdatamodeld */; };
+		84A677172155EDB0004F4280 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A677152155EDB0004F4280 /* CoreDataManager.swift */; };
+		84A6771D2155EE4A004F4280 /* BMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6771C2155EE4A004F4280 /* BMLog.swift */; };
 		84E3372520CB01730009E350 /* RewardParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E3372420CB01730009E350 /* RewardParam.swift */; };
 		84E753FB20AB8038009AEF81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E753FA20AB8038009AEF81 /* AppDelegate.swift */; };
 		84E7540020AB8038009AEF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E753FE20AB8038009AEF81 /* Main.storyboard */; };
@@ -38,6 +42,10 @@
 /* Begin PBXFileReference section */
 		23C9AA458BFECA6C50694924 /* Pods_AnimationStudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimationStudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56479CFFAA3AB4A74B93836A /* Pods-AnimationStudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationStudio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.debug.xcconfig"; sourceTree = "<group>"; };
+		841CABD321562A9C0050E3F3 /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
+		84865CD02156265D001ADA4E /* AnimationStudio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimationStudio.xcdatamodel; sourceTree = "<group>"; };
+		84A677152155EDB0004F4280 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		84A6771C2155EE4A004F4280 /* BMLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMLog.swift; sourceTree = "<group>"; };
 		84E3372420CB01730009E350 /* RewardParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardParam.swift; sourceTree = "<group>"; };
 		84E753F720AB8038009AEF81 /* AnimationStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E753FA20AB8038009AEF81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84A677142155EDB0004F4280 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				84865CCF2156265D001ADA4E /* AnimationStudio.xcdatamodeld */,
+				84A677152155EDB0004F4280 /* CoreDataManager.swift */,
+				841CABD321562A9C0050E3F3 /* NSManagedObject+Extensions.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		84E753EE20AB8038009AEF81 = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				84E753FA20AB8038009AEF81 /* AppDelegate.swift */,
+				84A6771C2155EE4A004F4280 /* BMLog.swift */,
 				84E7542420AB8E74009AEF81 /* PresetSamples.swift */,
+				84A677142155EDB0004F4280 /* Data */,
 				84E7541120AB8E74009AEF81 /* Reward */,
 				84E7543D20AB99F3009AEF81 /* ViewControllers */,
 				84E7542320AB8E74009AEF81 /* Helper.swift */,
@@ -311,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84865CDF21562660001ADA4E /* AnimationStudio.xcdatamodeld in Sources */,
 				84E7542720AB8E74009AEF81 /* SampleViewController.swift in Sources */,
 				84E7543020AB8E74009AEF81 /* PulseForm.swift in Sources */,
 				84E7542620AB8E74009AEF81 /* RewardSample.swift in Sources */,
@@ -319,12 +340,14 @@
 				84E7542B20AB8E74009AEF81 /* FormColorPickerCell.swift in Sources */,
 				84E7542820AB8E74009AEF81 /* PresetSamplesViewController.swift in Sources */,
 				84E3372520CB01730009E350 /* RewardParam.swift in Sources */,
+				84A677172155EDB0004F4280 /* CoreDataManager.swift in Sources */,
 				84E7542C20AB8E74009AEF81 /* FormLabeledSliderCell.swift in Sources */,
 				84E7542A20AB8E74009AEF81 /* ConfettiForm.swift in Sources */,
 				84E7543820AB8E74009AEF81 /* Helper.swift in Sources */,
 				84E7542920AB8E74009AEF81 /* RewardCode.swift in Sources */,
 				84E7543420AB8E74009AEF81 /* ShimmyForm.swift in Sources */,
 				84E7543120AB8E74009AEF81 /* RewardForm.swift in Sources */,
+				841CABD421562A9C0050E3F3 /* NSManagedObject+Extensions.swift in Sources */,
 				84E7542D20AB8E74009AEF81 /* EmojisplosionForm.swift in Sources */,
 				84E7543320AB8E74009AEF81 /* SheenForm.swift in Sources */,
 				84E7543620AB8E74009AEF81 /* MainMenu.swift in Sources */,
@@ -332,6 +355,7 @@
 				84E7542E20AB8E74009AEF81 /* GlowForm.swift in Sources */,
 				84E7543520AB8E74009AEF81 /* VibrateForm.swift in Sources */,
 				84E7543220AB8E74009AEF81 /* RotateForm.swift in Sources */,
+				84A6771D2155EE4A004F4280 /* BMLog.swift in Sources */,
 				84E753FB20AB8038009AEF81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +551,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84865CCF2156265D001ADA4E /* AnimationStudio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84865CD02156265D001ADA4E /* AnimationStudio.xcdatamodel */,
+			);
+			currentVersion = 84865CD02156265D001ADA4E /* AnimationStudio.xcdatamodel */;
+			path = AnimationStudio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84E753EF20AB8038009AEF81 /* Project object */;
 }
