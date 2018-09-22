@@ -82,10 +82,6 @@ struct RewardSample {
         }
     }
 
-    fileprivate init(str: String) {
-        self.init(dict: str.toJSONDict)
-    }
-
     fileprivate init(dict: [String: Any]) {
         self.settings = dict
         guard let primitiveName = dict["primitive"] as? String,
@@ -119,14 +115,14 @@ struct RewardSample {
     func save() {
         RewardSample.samples[rewardID] = self
         //        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
-        UserDefaults.standard.set(settings.toJSONData.toJSONString, forKey: rewardID)
+        UserDefaults.standard.set(settings, forKey: rewardID)
         UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
     }
 
     static func load(rewardID: String) -> RewardSample? {
-        if let str = UserDefaults.standard.string(forKey: rewardID) {
+        if let dict = UserDefaults.standard.dictionary(forKey: rewardID) {
             //            print("loaded:\(str)")
-            return RewardSample(str: str)
+            return RewardSample(dict: dict)
         } else {
             return nil
         }
