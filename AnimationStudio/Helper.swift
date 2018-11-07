@@ -6,8 +6,8 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import MobileCoreServices
 import UIKit
+import AVFoundation
 
 //class CameraHandler: NSObject {
 //
@@ -226,5 +226,29 @@ extension UIImageView {
 
         self.frame = CGRect.init(x: 0, y: 0, width: viewSize.width, height: imageSize.height * ratio)
         self.center = oldCenter
+    }
+}
+
+extension URL {
+    var isMovie: Bool {
+        return ["mov", "mp4"].contains(pathExtension)
+    }
+
+    var isImage: Bool {
+        return ["jpg", "jpeg", "png", "gif"].contains(pathExtension)
+    }
+}
+
+extension AVPlayerLayer {
+    var isPlaying: Bool {
+        guard let player = player else { return false }
+        return player.rate != 0 && player.error == nil
+    }
+}
+
+extension Collection {
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

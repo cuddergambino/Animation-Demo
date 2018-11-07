@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import Photos
+import MobileCoreServices
 
 protocol MainMenuDelegate: class {
-    func didImport(imageView: UIImageView, type: ImportedImageType)
+    func didImport(mediaInfo: [String: Any], type: ImportedImageType)
     func toggleFullscreen()
     func shouldResetButton()
     func shouldEraseButton()
@@ -60,15 +61,6 @@ class MainMenu: UITableViewController {
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    @objc
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        picker.dismiss(animated: true, completion: nil)
-        mainMenuDelegate?.didImport(imageView: imageView, type: importedImageType)
     }
 }
 
@@ -122,9 +114,19 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
             self.importedImageType = .background
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
-            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.mediaTypes = [kUTTypeMovie, kUTTypeImage] as [String]
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+
+
+    @objc
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+//        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+//        let imageView = UIImageView(image: image)
+//        imageView.contentMode = .scaleAspectFit
+        picker.dismiss(animated: true, completion: nil)
+        mainMenuDelegate?.didImport(mediaInfo: info, type: importedImageType)
     }
 }

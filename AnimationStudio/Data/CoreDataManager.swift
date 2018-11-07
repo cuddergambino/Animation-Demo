@@ -64,9 +64,16 @@ class CoreDataManager: NSObject {
         return nil
     }()
 
-    func newContext() -> NSManagedObjectContext {
+    @discardableResult
+    func newContext(completion: (NSManagedObjectContext) -> Void = {_ in}) -> NSManagedObjectContext {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         context.parent = managedObjectContext
+        context.performAndWait {
+            completion(context)
+            if context.hasChanges {
+                try? context.save()
+            }
+        }
         return context
     }
 
