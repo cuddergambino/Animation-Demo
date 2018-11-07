@@ -19,8 +19,9 @@ class SampleViewController: UIViewController {
 
         // setup main menu
         mainMenu = .instantiate()
+        mainMenu.mainMenuDelegate = self
         addChildViewController(mainMenu)
-        self.view.addSubview(mainMenu.view)
+        view.addSubview(mainMenu.view)
         let mainMenuOrigin = CGPoint.init(x: 0, y: view.bounds.height * 3 / 5)
         mainMenu.view.frame = CGRect(origin: mainMenuOrigin,
                                      size: CGSize(width: view.bounds.width, height: view.bounds.height - mainMenuOrigin.y))
@@ -57,6 +58,8 @@ class SampleViewController: UIViewController {
         tapWithoutButton.delegate = self
         tapWithoutButton.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapWithoutButton)
+
+        tapWithoutButton.require(toFail: tapToHide)
     }
 
     @objc
@@ -120,6 +123,7 @@ extension SampleViewController: MainMenuDelegate {
     func shouldEraseButton() {
         self.buttonView.frame = .zero
         self.buttonView.image = nil
+        didImport(imageView: self.buttonView, type: .button)
     }
 
     func shouldResetButton() {
@@ -127,6 +131,7 @@ extension SampleViewController: MainMenuDelegate {
         self.buttonView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
         self.buttonView.adjustHeight()
         buttonView.center = view.center
+        didImport(imageView: self.buttonView, type: .button)
     }
 
     override var prefersStatusBarHidden: Bool {

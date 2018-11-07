@@ -89,9 +89,9 @@ extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDeleg
 
     func requestButtonImage() {
         confirmPhotosPermission {
-        self.importedImageType = .button
-        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        optionMenu.popoverPresentationController?.sourceView = self.view
+            self.importedImageType = .button
+            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            optionMenu.popoverPresentationController?.sourceView = self.view
 
             optionMenu.addAction(
                 UIAlertAction(title: "Photo Library", style: .default) { (_: UIAlertAction!) in
