@@ -37,10 +37,10 @@ struct RewardSample {
                 var sampleInfo = [String: Any]()
                 for uxParam in sample.uxParams ?? [] {
                     if let uxParam = uxParam as? UXRotateParams {
-                        uxParam.valuesHolder().add(to: &sampleInfo)
+                        UXRotateParams.Holder(uxParam).add(to: &sampleInfo)
                     }
                 }
-                samples[sample.name ?? "unknown"] = RewardSample(dict: sampleInfo)
+                samples[sample.name ?? "unknownSampleName"] = RewardSample(dict: sampleInfo)
             }
         }
 //        if let sampleIDs = UserDefaults.standard.object(forKey: "sampleIDs") as? [String] {
@@ -51,6 +51,8 @@ struct RewardSample {
 //            for preset in RewardSample.presets.reversed() {
 //                samples[preset.rewardID] = preset
 //            }
+//            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+//                for i in 0 ... RewardSample.presets.count-1 {
 //                    RewardSample.presets[i].save()
 //                }
 //            }
@@ -77,7 +79,7 @@ struct RewardSample {
     let rewardPrimitive: RewardPrimitive
     var settings: [String: Any]
     var rewardID: String {
-        return self.settings[RewardParamKey.RewardID.rawValue] as? String ?? "unknown"
+        return self.settings[RewardParamKey.RewardID.rawValue] as? String ?? "unknownRewardId"
     }
     var buttonView: UIImageView {
         get {

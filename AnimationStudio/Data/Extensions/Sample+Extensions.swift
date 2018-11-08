@@ -17,6 +17,7 @@ extension Sample {
         context.performAndWait {
             if let sample: Sample = context.create(),
                 let param1: UXRotateParams  = context.create() {
+                sample.name = "Rotate screen"
 
                 param1.count = 2
                 sample.addToUxParams(param1)

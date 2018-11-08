@@ -19,17 +19,20 @@ extension UXParams {
         setPrimitiveValue([0.5, 0.5] as [Float], forKey: #keyPath(viewMargins))
     }
 
-    class ValuesHolder {
+    class HolderParent {
+        let id: String
         let viewMarginX: Float
         let viewMarginY: Float
 
         init(_ params: UXParams) {
+            id = params.id ?? "rewardIDNotSet"
             viewMarginX = params.viewMargins?[safe: 0] ?? 0.5
             viewMarginY = params.viewMargins?[safe: 1] ?? 0.5
         }
 
         func add(to settings: inout [String: Any]) {
             settings["primitive"] = "Did Not Set"
+            settings["RewardID"] = id
             settings["ViewMarginX"] = CGFloat(viewMarginX)
             settings["ViewMarginY"] = CGFloat(viewMarginY)
         }
@@ -37,7 +40,7 @@ extension UXParams {
 }
 
 extension UXRotateParams {
-    class RotateValuesHolder: ValuesHolder {
+    class Holder: HolderParent {
         let count: Int64
         let delay: Double
         let duration: Double
@@ -45,7 +48,7 @@ extension UXRotateParams {
         let systemSound: Int64
         let viewOption: String
 
-        init(params: UXRotateParams) {
+        init(_ params: UXRotateParams) {
             self.count = params.count
             self.delay = params.delay
             self.duration = params.duration
@@ -65,10 +68,6 @@ extension UXRotateParams {
             settings["SystemSound"] = UInt32(systemSound)
             settings["ViewOption"] = viewOption
         }
-    }
-
-    func valuesHolder() -> UXParams.ValuesHolder {
-        return RotateValuesHolder(params: self)
     }
 }
 

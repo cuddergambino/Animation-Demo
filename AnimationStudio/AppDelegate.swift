@@ -17,40 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coredata: CoreDataManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
         coredata = CoreDataManager()
-
-        let context = coredata.newContext()
-        context.performAndWait {
-
-            guard let entity = NSEntityDescription.entity(forEntityName: UXEmojisplosionParams.description(), in: context) else { return }
-            let popoverParams = UXEmojisplosionParams(entity: entity, insertInto: context)
-            popoverParams.rewardId = "test"
-            context.insert(popoverParams)
-            do {
-                try context.save()
-            } catch {
-                BMLog.error(error)
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let context = self.coredata.newContext()
-            context.performAndWait {
-                var params: UXEmojisplosionParams?
-                let request = NSFetchRequest<UXEmojisplosionParams>(entityName: UXEmojisplosionParams.description())
-                do {
-                    BMLog.warning("Count:\(try context.count(for: request))")
-                    params = try context.fetch(request).first
-                } catch { BMLog.error(error) }
-
-                if let params = params {
-                    params.show(on: self.window!)
-                }
-            }
-        }
-
         return true
     }
 
