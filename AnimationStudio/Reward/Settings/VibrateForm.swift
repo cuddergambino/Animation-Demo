@@ -15,7 +15,7 @@ class VibrateForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Vibrate)
+        reward = SampleStruct.defaultSample(for: .Vibrate)
         self.form = generateForm()
     }
 

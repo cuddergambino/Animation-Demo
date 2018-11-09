@@ -44,7 +44,7 @@ enum RewardPrimitive: String {
     }
 
     func show(settings: [String: Any], targetInstance: NSObject, senderInstance: AnyObject?, completion: @escaping () -> Void = {}) {
-        print("Showing settings:\(settings as AnyObject)")
+//        print("Showing settings:\(settings as AnyObject)")
         guard let delay = settings["Delay"] as? Double else { BKLog.debug(error: "Missing parameter", visual: true); return }
         guard let reinforcementType = settings["primitive"] as? String else { BKLog.debug(error: "Missing parameter", visual: true); return }
 

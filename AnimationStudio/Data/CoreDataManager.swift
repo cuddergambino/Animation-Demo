@@ -70,9 +70,9 @@ class CoreDataManager: NSObject {
         context.parent = managedObjectContext
         context.performAndWait {
             completion(context)
-            if context.hasChanges {
-                try? context.save()
-            }
+//            if context.hasChanges {
+//                try? context.save()
+//            }
         }
         return context
     }
@@ -106,15 +106,9 @@ class CoreDataManager: NSObject {
 
     func deleteObjects() {
         managedObjectContext?.performAndWait {
-            let entities = [UXConfettiParams.self,
-                            UXEmojisplosionParams.self,
-                            UXGlowParms.self,
-                            UXPopoverParams.self,
-                            UXPulseParms.self,
-                            UXRotateParams.self,
-                            UXSheenParams.self,
-                            UXShimmyParams.self,
-                            UXVibrateParams.self
+            let entities = [ Sample.self,
+                             UXEffect.self,
+                             UXEffectAttribute.self
             ]
             for entity in entities {
                 let request = NSFetchRequest<NSManagedObject>(entityName: entity.description())

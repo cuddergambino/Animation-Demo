@@ -1,6 +1,5 @@
 //
-//  PresetSamplesViewController.swift
-//  BoundlessKit_Example
+//  SavedSamplesViewController.swift
 //
 //  Created by Akash Desai on 5/11/18.
 //  Copyright © 2018 CocoaPods. All rights reserved.
@@ -10,20 +9,22 @@ import Foundation
 import UIKit
 import SwiftForms
 
-class PresetSamplesViewController: FormViewController {
+class SavedSamplesViewController: FormViewController {
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.form = generateForm()
     }
 
     func generateForm() -> FormDescriptor {
+        let allSamples = SampleStruct.allSamples
         let form = FormDescriptor(title: "Saved Reward Settings")
 
         let listSection = FormSectionDescriptor(headerTitle: "Names", footerTitle: nil)
-        for name in Array(RewardSample.samples.keys).sorted(by: <) {
-            let row = FormRowDescriptor(tag: RewardParamKey.RewardID.rawValue, type: .button, title: name)
+        for sample in allSamples.reversed() {
+            let row = FormRowDescriptor(tag: RewardParamKey.RewardID.rawValue, type: .button, title: sample.rewardID)
             row.configuration.button.didSelectClosure = { _ in
-                RewardSample.current = RewardSample.samples[name] ?? RewardSample.current
+                sample.save() // sets it as current sample, last being the current
                 self.navigationController?.popViewController(animated: true)
             }
             listSection.rows.append(row)
@@ -31,23 +32,18 @@ class PresetSamplesViewController: FormViewController {
 
         let resetSection = FormSectionDescriptor(headerTitle: "Reset", footerTitle: nil)
         let row: FormRowDescriptor = {
-            let row = FormRowDescriptor(tag: "Reset", type: .button, title: "Erase & Reset Rewards")
+            let row = FormRowDescriptor(tag: "Reset", type: .button, title: "Erase All Samples")
             row.configuration.button.didSelectClosure = { _ in
 
                 let resetMenu: UIAlertController = {
-                    let options = UIAlertController(title: "Erase Rewards?",
-                                                    message: "Resets to factory default rewards",
+                    let options = UIAlertController(title: "Erase samples?",
+                                                    message: "All of your samples will be removed",
                                                     preferredStyle: .actionSheet)
                     options.popoverPresentationController?.sourceView = self.view
 
-                    let erase = UIAlertAction(title: "Erase & Reset", style: .destructive) { _ in
-                        for sample in RewardSample.samples.values {
-                            RewardSample.delete(rewardID: sample.rewardID)
-                        }
-                        for preset in RewardSample.presets.reversed() {
-                            preset.save()
-                            RewardSample.samples[preset.rewardID] = preset
-                            RewardSample.current = preset
+                    let erase = UIAlertAction(title: "Erase", style: .destructive) { _ in
+                        for sample in allSamples {
+                            SampleStruct.delete(rewardID: sample.rewardID)
                         }
                         self.form = self.generateForm()
                         self.tableView.reloadData()
@@ -77,7 +73,7 @@ class PresetSamplesViewController: FormViewController {
         if editingStyle == .delete {
             let row = self.form.sections[indexPath.section].rows.remove(at: indexPath.row)
             let name = row.title!
-            RewardSample.delete(rewardID: name)
+            SampleStruct.delete(rewardID: name)
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }

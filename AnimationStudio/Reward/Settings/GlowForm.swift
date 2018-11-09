@@ -16,7 +16,7 @@ class GlowForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Glow)
+        reward = SampleStruct.defaultSample(for: .Glow)
         self.form = generateForm()
     }
 

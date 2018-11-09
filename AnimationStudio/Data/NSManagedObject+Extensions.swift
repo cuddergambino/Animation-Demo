@@ -11,11 +11,16 @@ import UIKit
 import CoreData
 
 extension NSManagedObjectContext {
+
     func create<T: NSManagedObject>() -> T? {
-        print("Class create:\(T.self)")
         guard let entity = NSEntityDescription.entity(forEntityName: "\(T.self)", in: self) else {
             return nil
         }
         return T(entity: entity, insertInto: self)
     }
+
+    func request<T: NSManagedObject>() -> NSFetchRequest<T> {
+        return NSFetchRequest<T>(entityName: T.description())
+    }
+
 }

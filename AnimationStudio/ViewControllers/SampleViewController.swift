@@ -12,11 +12,22 @@ import MobileCoreServices
 
 class SampleViewController: UIViewController {
 
+    override var prefersStatusBarHidden: Bool {
+        return navigationController?.isNavigationBarHidden == true
+    }
+
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return UIStatusBarAnimation.slide
+    }
+
+    var sampleStruct: SampleStruct?
+
     @IBOutlet weak var buttonView: UIImageView!
     var backgroundView: UIImageView!
     var movieLayer: AVPlayerLayer = AVPlayerLayer(player: AVPlayer())
 
     var mainMenu: MainMenu!
+    var importedImageType: ImportedImageType = .button
 
     override func viewDidLoad() {
 
@@ -35,7 +46,7 @@ class SampleViewController: UIViewController {
         mainMenu.didMove(toParentViewController: self)
 
         // create background imageview
-        backgroundView = UIImageView.init(frame: view.bounds)
+        backgroundView = UIImageView(frame: view.bounds)
         backgroundView.contentMode = .scaleAspectFit
         backgroundView.backgroundColor = .black
         view.insertSubview(backgroundView, at: 0)
@@ -73,31 +84,27 @@ class SampleViewController: UIViewController {
     @objc
     func backgroundTap(_ sender: Any) {
         if buttonView.image == nil {
-            RewardSample.current.sample(target: self, sender: view)
+            sampleStruct?.sample(target: self, sender: view)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // set background image
-        self.backgroundView.isHidden = true
-        self.backgroundView.image = nil
-        self.movieLayer.isHidden = true
-        self.movieLayer.player?.replaceCurrentItem(with: nil)
-        if let backgroundImage = RewardSample.current.backgroundImage {
-            self.backgroundView.image = backgroundImage
-            self.backgroundView.isHidden = false
-        }
-        if let backgroundMovie = RewardSample.current.backgroundMovie {
-            self.movieLayer.player?.replaceCurrentItem(with: backgroundMovie)
-            self.movieLayer.isHidden = false
-        }
+        sampleStruct = SampleStruct.allSamples.last
+
+        // set background image or movie
+        backgroundView.image = sampleStruct?.backgroundImage
+        backgroundView.isHidden = backgroundView.image == nil
+
+        movieLayer.player?.replaceCurrentItem(with: nil)
+        movieLayer.isHidden = movieLayer.player?.currentItem == nil
 
         // set button image & frame
-        let savedButton = RewardSample.current.buttonView
-        buttonView.image = savedButton.image
-        buttonView.frame = savedButton.frame
+        buttonView.image = sampleStruct?.buttonView?.image
+        buttonView.frame = sampleStruct?.buttonView?.frame ?? buttonView.frame
+        buttonView.isHidden = buttonView.image == nil
+        print("Background image:\(backgroundView.image)")
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -111,7 +118,11 @@ class SampleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        navigationController?.navigationBar.topItem?.title = RewardSample.current.rewardID
+        navigationController?.navigationBar.topItem?.title = sampleStruct?.rewardID
+    }
+
+    func didSelectHideMenu() {
+        toggleFullscreen()
     }
 
     @objc @IBAction
@@ -123,15 +134,16 @@ class SampleViewController: UIViewController {
 
     @IBAction
     func editReward() {
-        guard let rewardForm = RewardForm.instantiate(for: RewardSample.current.rewardPrimitive) else { return }
-        rewardForm.reward = RewardSample.current
-        rewardForm.form = rewardForm.generateForm()
-        self.navigationController?.pushViewController(rewardForm, animated: true)
+        if let sampleStruct = sampleStruct {
+            guard let rewardForm = RewardForm.instantiate(for: sampleStruct.rewardPrimitive) else { return }
+            rewardForm.reward = sampleStruct
+            rewardForm.form = rewardForm.generateForm()
+            self.navigationController?.pushViewController(rewardForm, animated: true)
+        }
     }
 
 //    func setMovie(_ url: URL) {
 //        movieLayer.player?.replaceCurrentItem(with: AVPlayerItem(url: url))
-//        UserDefaults.standard.movieURL = url
 //    }
 //
 //    func playMovie() {
@@ -141,76 +153,125 @@ class SampleViewController: UIViewController {
 
 }
 
-extension SampleViewController: MainMenuDelegate {
+extension SampleViewController: MainMenuDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+    func didSelectEdit() {
+        editReward()
+    }
+
+    func didSelectSavedSamples(_ viewController: SavedSamplesViewController) {
+
+    }
+
+    func didSelectChangeButton() {
+        importedImageType = .button
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+
+        optionMenu.addAction(
+            UIAlertAction(title: "Photo Library", style: .default) { (_: UIAlertAction!) in
+                self.confirmPhotosPermission {
+                    DispatchQueue.main.async {
+                        let imagePicker = UIImagePickerController()
+                        imagePicker.delegate = self
+                        imagePicker.sourceType = .savedPhotosAlbum
+                        imagePicker.allowsEditing = false
+                        self.present(imagePicker, animated: true, completion: nil)
+                    }
+                }
+        })
+        optionMenu.addAction(
+            UIAlertAction(title: "Reset button", style: .default) { (_: UIAlertAction!) in
+                self.shouldResetButton()
+        })
+        optionMenu.addAction(
+            UIAlertAction(title: "Erase button", style: .default) { (_: UIAlertAction!) in
+                self.shouldEraseButton()
+        })
+        optionMenu.addAction(
+            UIAlertAction(title: "Cancel", style: .cancel) { (_: UIAlertAction!) in
+        })
+
+        self.present(optionMenu, animated: true, completion: nil)
+    }
 
     func shouldEraseButton() {
         setButton(image: nil)
     }
 
     func shouldResetButton() {
-        self.buttonView.image = RewardSample.current.buttonView.image
+        self.buttonView.image = sampleStruct?.buttonView?.image
+        print("Is hidden:\(buttonView.isHidden)")
         self.buttonView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
-        self.buttonView.adjustHeight()
         buttonView.center = view.center
-        RewardSample.current.buttonView = self.buttonView
-        DispatchQueue.global().async {
-            RewardSample.current.save()
-        }
+        sampleStruct?.buttonView = self.buttonView
+        sampleStruct?.save()
     }
 
     func setButton(image: UIImage?) {
-        let oldCenter = self.buttonView.center
         self.buttonView.image = image
-        self.buttonView.center = oldCenter
+        self.buttonView.center = backgroundView.center
         self.buttonView.adjustHeight()
-        RewardSample.current.buttonView = self.buttonView
-        DispatchQueue.global().async {
-            RewardSample.current.save()
+        sampleStruct?.buttonView = self.buttonView
+        sampleStruct?.save()
+    }
+
+    func didSelectChangeBackground() {
+        confirmPhotosPermission {
+            DispatchQueue.main.async {
+                self.importedImageType = .background
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.mediaTypes = [kUTTypeMovie, kUTTypeImage] as [String]
+                self.present(imagePicker, animated: true, completion: nil)
+            }
         }
     }
 
     func setBackground(url: URL?) {
         print("Current url:\(url.debugDescription)")
-        RewardSample.current.backgroundURL = url
-        print("Mangled url:\(RewardSample.current.backgroundURL.debugDescription)")
+        sampleStruct?.backgroundURL = url
 
-        self.backgroundView.image = RewardSample.current.backgroundImage
-        backgroundView.isHidden = backgroundView.image != nil
-        self.movieLayer.player?.replaceCurrentItem(with: RewardSample.current.backgroundMovie)
+        self.backgroundView.image = sampleStruct?.backgroundImage
+        backgroundView.isHidden = backgroundView.image == nil
+        self.movieLayer.player?.replaceCurrentItem(with: sampleStruct?.backgroundMovie)
+        movieLayer.isHidden = movieLayer.player?.currentItem == nil
         self.backgroundView.backgroundColor = .black
-        DispatchQueue.global().async {
-            RewardSample.current.save()
-        }
+        self.sampleStruct?.save()
+        print("Struct Background image:\(sampleStruct?.backgroundImage)")
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return navigationController?.isNavigationBarHidden == true
-    }
-
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return UIStatusBarAnimation.slide
-    }
-
-    func didImport(mediaInfo: [String: Any], type: ImportedImageType) {
-        DispatchQueue.main.async {
-            switch type {
+    @objc
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        picker.dismiss(animated: true) {
+            switch self.importedImageType {
             case .button:
-                guard let image = mediaInfo[UIImagePickerControllerOriginalImage] as? UIImage else {
+                guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
                     print("Error: No image found")
                     return
                 }
                 self.setButton(image: image)
 
             case .background:
-                guard let url = mediaInfo["UIImagePickerControllerImageURL"] as? URL else {
+                guard let url = info["UIImagePickerControllerReferenceURL"] as? URL else {
                     print("Error: No image or movie found")
                     return
                 }
                 self.setBackground(url: url)
             }
-
         }
     }
+
+    func didSelectCreateSample(_ viewController: RewardForm) {
+        if let url = sampleStruct?.backgroundURL {
+            viewController.reward.backgroundURL = url
+        }
+        if let view = sampleStruct?.buttonView {
+            viewController.reward.buttonView = view
+        }
+    }
+
 }
 
 extension SampleViewController: UIGestureRecognizerDelegate {
@@ -226,11 +287,11 @@ extension SampleViewController: UIGestureRecognizerDelegate {
 
     @objc
     func tap(_ gesture: UITapGestureRecognizer) {
-        RewardSample.current.sample(target: self, sender: buttonView)
+        sampleStruct?.sample(target: self, sender: buttonView)
 
-        RewardSample.current.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
-        RewardSample.current.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
-//        RewardSample.current.save()
+        sampleStruct?.settings["buttonViewFrame"] = NSStringFromCGRect(buttonView.frame)
+        sampleStruct?.settings["buttonViewTransform"] = NSStringFromCGAffineTransform(buttonView.transform)
+        //        RewardSample.current.save()
     }
 
     @objc
@@ -242,9 +303,9 @@ extension SampleViewController: UIGestureRecognizerDelegate {
             buttonView.frame = buttonView.frame.applying(CGAffineTransform(translationX: translation.x, y: translation.y))
 
         case .ended:
-            RewardSample.current.buttonView = buttonView
+            sampleStruct?.buttonView = buttonView
             DispatchQueue.global().async {
-                RewardSample.current.save()
+                self.sampleStruct?.save()
             }
 
         default: break
@@ -262,28 +323,13 @@ extension SampleViewController: UIGestureRecognizerDelegate {
             gesture.scale = 1
 
         case .ended:
-            RewardSample.current.buttonView = self.buttonView
+            sampleStruct?.buttonView = self.buttonView
             DispatchQueue.global().async {
-                RewardSample.current.save()
+                self.sampleStruct?.save()
             }
 
         default: break
         }
     }
 
-}
-
-extension UIImage {
-    var base64String: String? {
-        return UIImagePNGRepresentation(self)?.base64EncodedString()
-    }
-
-    static func from(base64String: String) -> UIImage? {
-        if let data = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters),
-            let image = UIImage(data: data) {
-            return image
-        } else {
-            return nil
-        }
-    }
 }

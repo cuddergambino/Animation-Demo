@@ -1,5 +1,5 @@
 //
-//  RewardSample.swift
+//  SampleStruct.swift
 //  BoundlessKit_Example
 //
 //  Created by Akash Desai on 5/10/18.
@@ -11,106 +11,72 @@ import SwiftForms
 import AVFoundation
 import CoreData
 
-struct RewardSample {
+struct SampleStruct {
 
-    fileprivate static var coredata: CoreDataManager? {
-        return (UIApplication.shared.delegate as? AppDelegate)?.coredata
-    }
+    static var coredata = CoreDataManager()
 
-    static var samples: [String: RewardSample] = {
-        var samples: [String: RewardSample] = [:]
-        coredata?.newContext { context in
-            let sampleRequest: NSFetchRequest<Sample> = Sample.fetchRequest()
-            var savedSamples: [Sample]
-            do {
-                try savedSamples = context.fetch(sampleRequest)
-                if savedSamples.isEmpty {
-                    savedSamples = Sample.insertBeginner(context: context)
-                    coredata?.save()
+    static var insertBeginnerSamples: Void = {
+        coredata.newContext { context in
+            if Sample.fetch(context, name: nil)?.count ?? 0 == 0 {
+                for preset in presets {
+                    _ = Sample.insert(context, dict: preset.settings)
                 }
-            } catch {
-                print(error)
-                savedSamples = []
-            }
-
-            for sample in savedSamples {
-                var sampleInfo = [String: Any]()
-                for uxParam in sample.uxParams ?? [] {
-                    if let uxParam = uxParam as? UXRotateParams {
-                        UXRotateParams.Holder(uxParam).add(to: &sampleInfo)
-                    }
+                do {
+                    try context.save()
+                    coredata.save()
+                } catch {
+                    print(error)
                 }
-                samples[sample.name ?? "unknownSampleName"] = RewardSample(dict: sampleInfo)
             }
         }
-//        if let sampleIDs = UserDefaults.standard.object(forKey: "sampleIDs") as? [String] {
-//            for rewardID in sampleIDs {
-//                samples[rewardID] = load(rewardID: rewardID)
-//            }
-//        } else {
-//            for preset in RewardSample.presets.reversed() {
-//                samples[preset.rewardID] = preset
-//            }
-//            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-//                for i in 0 ... RewardSample.presets.count-1 {
-//                    RewardSample.presets[i].save()
-//                }
-//            }
-//        }
-        return samples
     }()
 
-    fileprivate static var _current: RewardSample?
-    static var current: RewardSample {
-        get {
-            if _current != nil {
-                return _current!
-            } else {
-                let sample = samples.first?.value ?? RewardSample.defaultSample(for: .Confetti)
-                _current = sample
-                return sample
+    static var allSamples: [SampleStruct] {
+        _ = insertBeginnerSamples
+        var allSamples = [SampleStruct]()
+        coredata.newContext { context in
+            if let objects = Sample.fetch(context, name: nil) {
+                allSamples = objects.map({SampleStruct(dict: $0.asDictionary)})
             }
         }
-        set {
-            _current = newValue
-        }
+        return allSamples
     }
 
     let rewardPrimitive: RewardPrimitive
     var settings: [String: Any]
     var rewardID: String {
-        return self.settings[RewardParamKey.RewardID.rawValue] as? String ?? "unknownRewardId"
-    }
-    var buttonView: UIImageView {
         get {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-
+            return settings[RewardParamKey.RewardID.rawValue] as? String ?? "unknownRewardId"
+        }
+        set {
+            settings[RewardParamKey.RewardID.rawValue] = newValue
+        }
+    }
+    var buttonView: UIImageView? {
+        get {
             guard let imageString = settings[ImportedImageType.button.key + "-image"] as? String,
                 let frameString = settings[ImportedImageType.button.key + "-frame"] as? String else {
-                    return imageView
+                    return nil
             }
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
             imageView.image = UIImage.from(base64String: imageString)
             imageView.frame = CGRectFromString(frameString)
             return imageView
         }
 
         set {
-            settings[ImportedImageType.button.key + "-image"] = newValue.image?.base64String
-            settings[ImportedImageType.button.key + "-frame"] = NSStringFromCGRect(newValue.frame)
+            settings[ImportedImageType.button.key + "-image"] = newValue?.image?.base64String
+            settings[ImportedImageType.button.key + "-frame"] = newValue == nil ? nil : NSStringFromCGRect(newValue!.frame)
         }
     }
     var backgroundURL: URL? {
         get {
-            guard let urlString = settings[ImportedImageType.background.key + "-url"] as? String,
-                let url = URL(string: urlString) else {
-                    return nil
-            }
-            return url
+            return settings[ImportedImageType.background.key] as? URL
         }
 
         set {
-            settings[ImportedImageType.background.key + "-url"] = newValue?.absoluteString
+            settings[ImportedImageType.background.key] = newValue
         }
     }
     var backgroundMovie: AVPlayerItem? {
@@ -132,58 +98,63 @@ struct RewardSample {
         self.settings = dict
         guard let primitiveName = dict["primitive"] as? String,
             let primitive = RewardPrimitive(rawValue: primitiveName) else {
-                BKLog.debug(error: "Unknown primitive")
+                BKLog.debug(error: "Unknown primitive for :\(dict)")
                 fatalError()
         }
         self.rewardPrimitive = primitive
     }
 
-    static func new(dict: [String: Any]) -> RewardSample {
-        var sample = RewardSample(dict: dict)
-        if !RewardPrimitive.cases.filter({$0.rawValue + "Sample" == sample.rewardID}).isEmpty {
-            var newName: String
-            repeat {
-                newName = String.generateName(withRoot: sample.rewardPrimitive.rawValue)
-            } while(RewardSample.samples[newName] != nil)
-            sample.settings[RewardParamKey.RewardID.rawValue] = newName
+    static func new(dict: [String: Any]) -> SampleStruct {
+        var sample = SampleStruct(dict: dict)
+        coredata.newContext { context in
+            if let samples = Sample.fetch(context, name: nil) {
+                var name = sample.rewardID
+                repeat {
+                    name = String.generateName(withRoot: name)
+                } while( !samples.filter({$0.name == name}).isEmpty )
+                sample.rewardID = name
+            }
         }
-        sample.buttonView = _current?.buttonView ?? {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "clickMe")
-            imageView.frame = CGRect(x: 0, y: 80, width: 234, height: 234)
-            imageView.adjustHeight()
-            return imageView
-        }()
-        sample.backgroundURL = _current?.backgroundURL
         return sample
     }
 
     func save() {
-//        RewardSample.samples[rewardID] = self
-//        print("Saving:\(settings.toJSONData.toJSONString as AnyObject)")
-//        UserDefaults.standard.set(settings, forKey: rewardID)
-//        UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
+        SampleStruct.coredata.newContext { context in
+            _ = Sample.update(context, dict: settings)
+            print("Saving:\(settings.filter({$0.key != ImportedImageType.button.key + "-image"}))")
+            do {
+                if context.hasChanges {
+                    try context.save()
+                    SampleStruct.coredata.save()
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
 
-    static func load(rewardID: String) -> RewardSample? {
-//        if let dict = UserDefaults.standard.dictionary(forKey: rewardID) {
-//            //            print("loaded:\(str)")
-//            return RewardSample(dict: dict)
-//        } else {
-//            return nil
-//        }
-        return nil
+    static func load(rewardID: String) -> SampleStruct? {
+        var value: SampleStruct?
+        coredata.newContext { context in
+            if let object = Sample.fetch(context, name: rewardID)?.first {
+                value = .init(dict: object.asDictionary)
+            }
+        }
+        return value
     }
 
     static func delete(rewardID: String) {
-        if RewardSample.samples.removeValue(forKey: rewardID) != nil {
-            UserDefaults.standard.removeObject(forKey: rewardID)
-            UserDefaults.standard.set(Array(RewardSample.samples.keys) as [String], forKey: "sampleIDs")
-            if rewardID == current.rewardID,
-                let first = RewardSample.samples.first?.value {
-                RewardSample.current = first
-            } else {
-                RewardSample.current = RewardSample.defaultSample(for: .Confetti)
+        coredata.newContext { context in
+            for object in Sample.fetch(context, name: rewardID) ?? [] {
+                context.delete(object)
+            }
+            do {
+                if context.hasChanges {
+                    try context.save()
+                    SampleStruct.coredata.save()
+                }
+            } catch {
+                print(error)
             }
         }
     }
@@ -248,7 +219,7 @@ enum RewardParamViewOption: String {
     }
 }
 
-extension RewardSample {
+extension SampleStruct {
     mutating func update(parameter key: String, string value: AnyObject) {
         if let value = value as? String {
             self.settings[key] = value

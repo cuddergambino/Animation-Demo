@@ -8,12 +8,21 @@
 
 import Foundation
 import CoreGraphics
+import UIKit
 
-extension RewardSample {
+extension SampleStruct {
 
-    static var presets: [RewardSample] = {
-        return [
-            RewardSample.new(dict: [
+    static var presetButtonView: UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "clickMe")
+        imageView.frame = CGRect(x: 0, y: 80, width: 234, height: 234)
+        imageView.adjustHeight()
+        return imageView
+    }
+
+    static var presets: [SampleStruct] = {
+        var presets: [SampleStruct] = [
+            .new(dict: [
                 "RewardID": "Hello There",
                 "primitive": "Emojisplosion",
                 "SystemSound": 1010 as UInt32,
@@ -40,7 +49,7 @@ extension RewardSample {
                 "Content": "🖐"
                 ]),
 
-            RewardSample.new(dict: [
+            .new(dict: [
                 "RewardID": "Confetti Surprise",
                 "primitive": "Confetti",
                 "Duration": 2 as Double,
@@ -61,7 +70,7 @@ extension RewardSample {
                 "SystemSound": 0 as UInt32
                 ]),
 
-            RewardSample.new(dict: [
+            .new(dict: [
                 "RewardID": "Rotate Preset",
                 "primitive": "Rotate",
                 "Duration": 1 as Double,
@@ -75,12 +84,13 @@ extension RewardSample {
                 "SystemSound": 1016 as UInt32
                 ])
         ]
+        return presets
     }()
 
-    static func defaultSample(for primitive: RewardPrimitive) -> RewardSample {
+    static func defaultSample(for primitive: RewardPrimitive) -> SampleStruct {
         switch primitive {
         case .Popover:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "PopoverSample",
                 "primitive": "Popover",
                 "Content": "❤️",
@@ -97,7 +107,7 @@ extension RewardSample {
                 ])
 
         case .Confetti:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "ConfettiSample",
                 "primitive": "Confetti",
                 "Duration": 2 as Double,
@@ -119,7 +129,7 @@ extension RewardSample {
                 ])
 
         case .Rotate:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "RotateSample",
                 "primitive": "Rotate",
                 "Duration": 1 as Double,
@@ -134,7 +144,7 @@ extension RewardSample {
                 ])
 
         case .Emojisplosion:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "EmojisplosionSample",
                 "primitive": "Emojisplosion",
                 "SystemSound": 1109 as UInt32,
@@ -162,7 +172,7 @@ extension RewardSample {
                 ])
 
         case .Glow:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "GlowSample",
                 "primitive": "Glow",
                 "Color": "#3DCF01",
@@ -179,7 +189,7 @@ extension RewardSample {
                 ])
 
         case .Sheen:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "SheenSample",
                 "primitive": "Sheen",
                 "Duration": 2 as Double,
@@ -195,7 +205,7 @@ extension RewardSample {
                 ])
 
         case .Pulse:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "PulseSample",
                 "primitive": "Pulse",
                 "Duration": 0.86 as Double,
@@ -213,7 +223,7 @@ extension RewardSample {
                 ])
 
         case .Shimmy:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "ShimmySample",
                 "primitive": "Shimmy",
                 "Duration": 5 as Double,
@@ -229,7 +239,7 @@ extension RewardSample {
                 ])
 
         case .Vibrate:
-            return RewardSample.new(dict: [
+            return SampleStruct.new(dict: [
                 "RewardID": "VibrateSample",
                 "primitive": "Vibrate",
                 "VibrateDuration": 1 as Double,

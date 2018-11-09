@@ -10,7 +10,7 @@ import Foundation
 import SwiftForms
 
 //swiftlint:disable identifier_name
-enum RewardParamKey: String {
+enum RewardParamKey: String, CaseIterable {
     case
     RewardID,
     primitive,

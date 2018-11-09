@@ -12,10 +12,12 @@ import Photos
 import MobileCoreServices
 
 protocol MainMenuDelegate: class {
-    func didImport(mediaInfo: [String: Any], type: ImportedImageType)
-    func toggleFullscreen()
-    func shouldResetButton()
-    func shouldEraseButton()
+    func didSelectEdit()
+    func didSelectSavedSamples(_ viewController: SavedSamplesViewController)
+    func didSelectChangeButton()
+    func didSelectChangeBackground()
+    func didSelectHideMenu()
+    func didSelectCreateSample(_ viewController: RewardForm)
 }
 
 enum ImportedImageType: String {
@@ -32,8 +34,6 @@ class MainMenu: UITableViewController {
 
     weak var mainMenuDelegate: MainMenuDelegate?
 
-    var importedImageType: ImportedImageType = .button
-
     override func viewWillAppear(_ animated: Bool) {
         tableView.setContentOffset(.zero, animated: true)
     }
@@ -42,19 +42,16 @@ class MainMenu: UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                guard let reward = RewardForm.instantiate(for: RewardSample.current.rewardPrimitive) else { return }
-                reward.reward = RewardSample.current
-                reward.form = reward.generateForm()
-                self.navigationController?.pushViewController(reward, animated: true)
+                mainMenuDelegate?.didSelectEdit()
 
             case 2:
-                self.requestButtonImage()
+                mainMenuDelegate?.didSelectChangeButton()
 
             case 3:
-                self.requestFullscreenImage()
+                mainMenuDelegate?.didSelectChangeBackground()
 
             case 4:
-                self.mainMenuDelegate?.toggleFullscreen()
+                mainMenuDelegate?.didSelectHideMenu()
 
             default:
                 break
@@ -62,71 +59,17 @@ class MainMenu: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-}
 
-extension MainMenu: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch (segue.identifier, sender) {
+        case let ("createSample", sender as RewardForm):
+            mainMenuDelegate?.didSelectCreateSample(sender)
 
-    func confirmPhotosPermission(completion: @escaping () -> Void) {
-        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
-            PHPhotoLibrary.requestAuthorization({ (status) in
-                guard status == .authorized else {
-                    return
-                }
-                completion()
-            })
-        } else {
-            completion()
+        case let ("savedSamples", sender as SavedSamplesViewController):
+            mainMenuDelegate?.didSelectSavedSamples(sender)
+
+        default:
+            break
         }
-    }
-
-    func requestButtonImage() {
-        confirmPhotosPermission {
-            self.importedImageType = .button
-            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            optionMenu.popoverPresentationController?.sourceView = self.view
-
-            optionMenu.addAction(
-                UIAlertAction(title: "Photo Library", style: .default) { (_: UIAlertAction!) in
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    imagePicker.sourceType = .savedPhotosAlbum
-                    imagePicker.allowsEditing = false
-                    self.present(imagePicker, animated: true, completion: nil)
-            })
-            optionMenu.addAction(
-                UIAlertAction(title: "Reset button", style: .default) { (_: UIAlertAction!) in
-                    self.mainMenuDelegate?.shouldResetButton()
-            })
-            optionMenu.addAction(
-                UIAlertAction(title: "Erase button", style: .default) { (_: UIAlertAction!) in
-                    self.mainMenuDelegate?.shouldEraseButton()
-            })
-            optionMenu.addAction(
-                UIAlertAction(title: "Cancel", style: .cancel) { (_: UIAlertAction!) in
-            })
-
-            self.present(optionMenu, animated: true, completion: nil)
-        }
-    }
-
-    func requestFullscreenImage() {
-        confirmPhotosPermission {
-            self.importedImageType = .background
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.mediaTypes = [kUTTypeMovie, kUTTypeImage] as [String]
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-    }
-
-
-    @objc
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-//        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-//        let imageView = UIImageView(image: image)
-//        imageView.contentMode = .scaleAspectFit
-        picker.dismiss(animated: true, completion: nil)
-        mainMenuDelegate?.didImport(mediaInfo: info, type: importedImageType)
     }
 }

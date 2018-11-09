@@ -15,7 +15,7 @@ class EmojisplosionForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Emojisplosion)
+        reward = SampleStruct.defaultSample(for: .Emojisplosion)
         self.form = generateForm()
     }
 

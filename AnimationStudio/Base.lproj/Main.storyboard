@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gA0-Ky-ah9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gA0-Ky-ah9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -105,7 +105,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Load Preset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-jn-eAw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Samples" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-jn-eAw">
                                                     <rect key="frame" x="16" y="11" width="159" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -115,7 +115,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="UBl-cP-v22" kind="show" id="lRN-3L-yJq"/>
+                                            <segue destination="UBl-cP-v22" kind="show" identifier="savedSamples" id="lRN-3L-yJq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pss-xj-fd1">
@@ -191,7 +191,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jnq-UA-ncQ" kind="show" id="4K7-6C-8pp"/>
+                                            <segue destination="jnq-UA-ncQ" kind="show" identifier="createSample" id="4K7-6C-8pp"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aou-JI-R2Y">
@@ -211,7 +211,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IcL-Kl-IQk" kind="show" id="C3J-ms-ph5"/>
+                                            <segue destination="IcL-Kl-IQk" kind="show" identifier="createSample" id="C3J-ms-ph5"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zI2-IJ-tPc">
@@ -231,7 +231,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ZZi-yB-ivl" kind="show" id="TkB-yV-HVY"/>
+                                            <segue destination="ZZi-yB-ivl" kind="show" identifier="createSample" id="TkB-yV-HVY"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="t79-Et-ypF">
@@ -251,7 +251,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="rpw-4y-JPc" kind="show" id="Xv7-PQ-HxF"/>
+                                            <segue destination="rpw-4y-JPc" kind="show" identifier="createSample" id="Xv7-PQ-HxF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DrD-5t-7ut">
@@ -271,7 +271,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="haM-k3-poO" kind="show" id="Jo6-sf-2df"/>
+                                            <segue destination="haM-k3-poO" kind="show" identifier="createSample" id="Jo6-sf-2df"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3i0-cN-clx">
@@ -291,7 +291,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="bzJ-2L-s6N" kind="show" id="YVS-6f-6La"/>
+                                            <segue destination="bzJ-2L-s6N" kind="show" identifier="createSample" id="YVS-6f-6La"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Tjq-mD-0bv">
@@ -311,7 +311,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="nxL-F6-4di" kind="show" id="evr-ue-4md"/>
+                                            <segue destination="nxL-F6-4di" kind="show" identifier="createSample" id="evr-ue-4md"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gCr-zY-cEv">
@@ -331,7 +331,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="q5i-5N-CUW" kind="show" id="0L3-kc-fib"/>
+                                            <segue destination="q5i-5N-CUW" kind="show" identifier="createSample" id="0L3-kc-fib"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cZF-rw-JCd">
@@ -351,7 +351,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="10V-uZ-Qrg" kind="show" id="vh3-DF-Bpc"/>
+                                            <segue destination="10V-uZ-Qrg" kind="show" identifier="createSample" id="vh3-DF-Bpc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -368,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="735" y="938"/>
         </scene>
-        <!--Preset Samples View Controller-->
+        <!--Saved Samples View Controller-->
         <scene sceneID="WDo-NP-kaz">
             <objects>
-                <tableViewController storyboardIdentifier="SavedSamples" id="UBl-cP-v22" customClass="PresetSamplesViewController" customModule="AnimationStudio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SavedSamples" id="UBl-cP-v22" customClass="SavedSamplesViewController" customModule="AnimationStudio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="n9o-2T-j03">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -551,6 +551,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clickMe" width="234" height="69"/>
+        <image name="clickMe" width="468" height="139"/>
     </resources>
 </document>

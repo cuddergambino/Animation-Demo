@@ -15,7 +15,7 @@ class ConfettiForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Confetti)
+        reward = SampleStruct.defaultSample(for: .Confetti)
         self.form = generateForm()
     }
 

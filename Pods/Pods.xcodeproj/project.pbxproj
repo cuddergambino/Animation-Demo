@@ -7,129 +7,129 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000519B0ED8E65D174222F4150AB9142 /* FormDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C0669113F2AB95B62F543FA22BA92 /* FormDescriptor.swift */; };
-		0130BB7D27CC6AD1D2D7094CAC367B37 /* BoundlessProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C73CC756D3752951E5EAA4FE2631C54 /* BoundlessProperties.swift */; };
-		01472FEFD116558F7CDB3031DCDB28B2 /* CandyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E778266F594EEB7A831A4704B55286B /* CandyBar.swift */; };
-		05DCEE34669AE0E8C602E3127F2C41AB /* BoundlessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30A0C7F790D96EC79B3E879E9D434E /* BoundlessConfiguration.swift */; };
-		09A714B0BBA550CD287CEF405EBD4624 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076ED47F0A1889160F86B8AEA375E312 /* UIViewControllerExtensions.swift */; };
-		0A6E68C17D92A3473123E223B3CB54A3 /* FormRowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ED2246832C035FC52C641558B86DB /* FormRowDescriptor.swift */; };
-		0A882EA8E44BC7902447DC0CA09FEF83 /* FormButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63602FFF2419F1062B8D5D0B63553577 /* FormButtonCell.swift */; };
-		0AA85A331C690EDD84F4AFDFC63B619D /* BKReportBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EF86401296D9C815135E0FB6ED932 /* BKReportBatch.swift */; };
-		0B70CD24947A6928DCF3BECFB6DBDA2A /* FormTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2840660783F299D50D9A46B36E0FF9 /* FormTitleCell.swift */; };
-		0B7A335696AAADE6498FE26027639A96 /* BoundlessKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DE5C3ED4C6D3EDDA3CC1E3CB1D21D /* BoundlessKeychain.swift */; };
-		0BE8C1DA694765CC0EEEEDDFD9794772 /* SwiftForms-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B771178189CFBE9691630E51BE64C73 /* SwiftForms-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0ED69B45505633134B4AE86E4CA942FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		0ED7017F6F11E1FF727DA4FD85156F35 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648284197D8BAAEFAFA88CDAAF8EDD11 /* CGExtensions.swift */; };
-		1262F48CAD3C2DA1A59C2C34F1020C66 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A943FA7867EC5E364C5E98C1525DB4E /* UIColorExtensions.swift */; };
-		129440BB9F115E0C87AD58C1A5CE6C24 /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F23564C02C086C9FAFD848330B8A7 /* EFColorSelectionView.swift */; };
-		18DDA1F3A234453BE0D374E06BC4EABC /* ASIdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 740FA250F55F1FD665D5F8B60176E80F /* ASIdHelper.m */; };
-		1A639906E7AB64762C69CC89A580B09E /* BKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BAA447801EC558BA353B7A7FAD8D7 /* BKTrackBatch.swift */; };
-		1B0909BC9BE13F0FBF8E6D1EFCC24E48 /* BoundlessKitLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FC6C77C47FBF58110FAA2C9AFC2197 /* BoundlessKitLauncher.swift */; };
-		245409953840D3D1B5DB1B11EF0A8947 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F9F3A307BAC49085C575C1E14B0CB /* StringExtensions.swift */; };
-		2702503FC70C9F8CE4FAB5D33B1C4FAC /* EFColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 687A3808AB9B3335F8295EE2BC812DEE /* EFColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		294BC510182BF079B9F701F33C5AEBE7 /* BoundlessKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489974BD23E650C8CF440E70C3079437 /* BoundlessKit.swift */; };
-		3171E3E7B24052F4C329264A1C3CD5BC /* BoundlessNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6ABFECCCF542BBA94163A6BFF7076 /* BoundlessNotificationCenter.swift */; };
-		36112BE448DE89F76F96FDB48FDE9667 /* CodelessReinforcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5DC7CA4E2391A1BAFF2F71E21F0C52 /* CodelessReinforcement.swift */; };
-		39050F6BA10AFFBD8651CC8D546B7B54 /* FormErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE55B56879674DAD852C65B20FE835 /* FormErrorType.swift */; };
-		3AA69FA1639E50AF266626EF8EED67C0 /* BoundlessKitLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = E599BBEA7AE54993E88ADF3219005E9E /* BoundlessKitLauncher.m */; };
-		3CD04619A468A8D3CFBB8DCA157ACF8B /* EFColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DA8A8CE07669982A6C1ED39E04BFB2 /* EFColorPicker-dummy.m */; };
-		4763D71D00A2C389969CC240C8BD92B9 /* BoundlessVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82CD206956FB14BC1CE7FD3FB0E1C5 /* BoundlessVersion.swift */; };
-		4A21A40C90F2D7BC836B6248E77C6FF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		5045C9B1C10FDF8F3778EB286886FF68 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3454162320A6D48B8327C00626E791EA /* UIViewExtensions.swift */; };
-		58F398871457A29C07BF066DC661D6CF /* BKDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2DFA791C3A44B0B818867286E4E970 /* BKDecision.swift */; };
-		5AD44787CE301EFDA1E9E25181E7A315 /* FormLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E008CFECD3E3B8073D9E6817205DC /* FormLabelCell.swift */; };
-		601373A0A76360988291E58DD0129BD8 /* sheen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0392819A987AF555D1EEECD481EA2230 /* sheen.png */; };
-		66DE99E063DA2A015C0EB2610858D134 /* FormBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61540CD8BD859705F9ABDF50F28CEDD /* FormBaseCell.swift */; };
-		68D8393BDB0ADC365E5E37C26FA1E5F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		693A550C943687AE667A1BCBAD64EDC5 /* FormSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0771C8345AC78CB0DA6C668B608114 /* FormSwitchCell.swift */; };
-		6A202A741FD53CC9A43564062F6A9D9B /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55914BB419F2EE9AF4CE1101FF3009DA /* UIWindowExtensions.swift */; };
-		70743C9F405C0205A2C11017D7BA77A2 /* BoundlessKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EFA4180322B8AEEA3922208FA4ED99B4 /* BoundlessKit.bundle */; };
-		71729F99A42C5ECC991F912F170AD9C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		738C181AF141976DBA6C97EE207BB3B0 /* UIView+CodelessConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48597BFB2B72C9B8DFC792B7D8A497FA /* UIView+CodelessConfetti.swift */; };
-		739323DF32643950A32047225485B73F /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D407E04B9AC589260E0082646591670 /* EFControl.swift */; };
-		763ACE1864FEF45B41F1D6CB5EE28F8A /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4154C522DD285FE823740FA9F8ABB /* EFColorUtils.swift */; };
-		77B4B578BC2F689A42FF691E603C75F8 /* EFColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A42A97BA22576D207010629652F95 /* EFColorView.swift */; };
-		7A8C667A75B7F0CFFA14A9712C0586E8 /* BKRefreshCartridgeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A817A4F0F21157325FD83B2F5CB4B8 /* BKRefreshCartridgeContainer.swift */; };
-		7F4D294E76C85B286CE07C3B1D769E47 /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01999598CE51DDE73C63BEEF7EB7B570 /* EFSliderView.swift */; };
-		847DD28CF47D92DB59B71243F63BBABD /* UIView+CodelessAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CC1D1C7EC27AAD9C88344D15BD79 /* UIView+CodelessAnimation.swift */; };
-		8585E7DA6B54AD5DB2278C9C5CB3A8E5 /* BoundlessUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B9B5316C39EEB1370E9F5F4C94DEA9 /* BoundlessUser.swift */; };
-		86A8936C37A1D4B676B56870ED0CD319 /* FormDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F86E5B3445B3A331666ED1E9350825 /* FormDateCell.swift */; };
-		87A5E41A12065626B2BA3489D7E45955 /* FormOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A59834E82E875F1332F89A7FDAA88A /* FormOptionsViewController.swift */; };
-		88CAC4120485102AB82F887CDF19EED6 /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B16194E0B6A931E72942E16AE10D5 /* FormTextViewCell.swift */; };
-		8CA988BE2ACD5E9DCFA15ABE2A4FB154 /* BKRefreshCartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB45EFF51A22A4AB0B03A107D213F /* BKRefreshCartridge.swift */; };
-		9022E18B00E09B959EDAFCD1D4B7E689 /* FormValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D13D820E753763EFAF93E61CAA27BCD /* FormValueCell.swift */; };
-		90CA7353EFBC2C443E021355B62E1805 /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA636DD687A586FE19DD7A4BD548D9C /* NotificationCenterExtensions.swift */; };
-		9507E3E0A54459E780A7FBBBE430F0A6 /* BKReinforcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50233A7D747F669504C7A6DEB5FF04AC /* BKReinforcement.swift */; };
-		98610ADAEA0930578FFCC079496AD8E1 /* BoundlessTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8C5415F89DF5ABA7B9E8FE29770EC /* BoundlessTime.swift */; };
-		9E1C99C66A355114E8121D5F2885613C /* InstanceSelectorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B47F58A666A50B6E92A6115CC2B5C28C /* InstanceSelectorHelper.m */; };
-		9E59E2A3FC2ED02C60D2A29F3D6E1717 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D080D234A898579F08A6C40F3367F0 /* UIImageExtensions.swift */; };
-		9E65DD2C48ACC9F042E724169767E075 /* BKAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B00E286779539838F1F7FCDF04599F /* BKAudio.swift */; };
-		9FAE4ED852AA1F13DD413E78998809E6 /* FormCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7026A35621C78A38AD730CF6CFBE23 /* FormCheckCell.swift */; };
-		A2A4844FF47FAEAAFF7AF360F8A20FCF /* FormSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24F90C1A82BF7A2254830ABC8FCE01F /* FormSelectorCell.swift */; };
-		A427393F74E20F6195519332633AD958 /* FormSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2080F577126205645F3CFDBEFEC2DA /* FormSectionDescriptor.swift */; };
-		A5E87C8FC18A20ED87FCFCC6A6FB4877 /* Pods-AnimationStudio-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26EDCF64451E871DFE92B23C65A07BCE /* Pods-AnimationStudio-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A808565CA30684D090ACA42590752998 /* FormSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF72852FBB2121CCBFED807643947 /* FormSliderCell.swift */; };
-		A930B118EBCAE5D2EFF6A771CB48B9B9 /* BoundlessCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286B7906CFEBA7D1702CDCF4DB380BD /* BoundlessCredentials.swift */; };
-		B420A75046E1D4DD762A44E4208BAD8D /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5638CBB7F4F0F5AB584201423FBE509 /* EFColorWheelView.swift */; };
-		B43D4C071F4A2DEFB230144231252568 /* BKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DBD097E6F65314C9ED93937730158 /* BKAction.swift */; };
-		B7C5AD73E5A5C5A7101CB3369D0CA9DA /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B852496FA6AA8F58E45A0389241A /* ArrayExtensions.swift */; };
-		BE671125912C92D6855EB4602AED6C14 /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0219D1AFA88690C91B95CA4F5E3B76E /* EFColorSelectionViewController.swift */; };
-		C1A603FBB8B8BD9929411FB062BE8EB3 /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F6E793C5359281B6CC73F681F2D95 /* EFHSBView.swift */; };
-		C3D1F9F64E9ECF8473C3050A69A60316 /* BoundlessKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AF16C3F4D94119F0C266908E271D84 /* BoundlessKit-dummy.m */; };
-		C403DC234C441CDC3E78B7EBF41524DE /* ASIdHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CAECB03466AC15A72897769F65D1B7BF /* ASIdHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4CED5F896BDFDF71E0788B6651874FC /* FormPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300BACFC94B7A1686DEEB4B0F428B28B /* FormPickerCell.swift */; };
-		C7CADF7609EA741806F7CB16BF63FAC4 /* DelayedSerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A400637F5731787A045CB11FC12E6 /* DelayedSerialQueue.swift */; };
-		CE15D70BF9FD4996449DA38100DB6968 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A500C284810831952E59C220AF560CD /* BundleExtensions.swift */; };
-		CF53FBCBF47F239C3B1FA55350335C4A /* EFThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0D8799E93FE4F5B92F8994C77747A /* EFThumbView.swift */; };
-		D36D446DD789A38CC556A0A8A1FAD813 /* BKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598CCA44E6D0BEC17DBB0D1FFB155CB6 /* BKLog.swift */; };
-		D58CC6DE3AEDCF8C92C062AC07E601CC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82B31A51A41437A8D0E75D006549E1 /* FormViewController.swift */; };
-		D71B5D26FF5FDF1D8832887690B7A079 /* BoundlessKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B7A3CEA6A797DC8C054D303EA915BE /* BoundlessKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7D57441788A833FF988745FCAAF062C /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AF8878A43D14E3CF5385CFB91E9C6E /* SynchronizedArray.swift */; };
-		D9AB2B7D5DF9502E7C6EBD7267EEFE9E /* Reinforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C366A809516DF745DFB9232A100A063 /* Reinforcer.swift */; };
-		DA3BA2E2430C4931760C10BEAFE8B74D /* FormSegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F1A9988BDC9B01C63AF76892FB9569 /* FormSegmentedControlCell.swift */; };
-		DADAA28E66A31F7569A2A4FF4E19937D /* BKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E34B085ACEA6C3F14B3E58A595CA0 /* BKDatabase.swift */; };
-		DE01C51C6F58EAACF3788899E19B335E /* FormSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CC45306F0AF948A666361CDC3C8F2 /* FormSelector.swift */; };
-		DED61361E7D9F4294FA7759CA749C0F4 /* CodelessReinforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B15D3789F66F85AFB2D11B480DA7A /* CodelessReinforcer.swift */; };
-		DEFA2A325EB4D616401D8CB1473AA52F /* BoundlessAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18110532D40F98A497D4037947A96A /* BoundlessAPIClient.swift */; };
-		E026B03100A6F8B43F68BDDAA59C3548 /* SwiftForms-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9443829CC3E5AA34EB562D89FC29B73 /* SwiftForms-dummy.m */; };
-		E15BA527E989FFDADD1F230480A95104 /* FormStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCA84FFE88868BCBF58461B46BD1D1E /* FormStepperCell.swift */; };
-		E2A89A25B729C4806D9E293ECCC372A8 /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC7C6CAD8905632E70FD02A06BEA22 /* EFColorComponentView.swift */; };
-		E4DA177C329BFB80EF99625B896874EF /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2573DC8BE09FAEE9290C62CB58B6F05 /* FormTextFieldCell.swift */; };
-		EB96E18750F362D5442CA54FD806F764 /* Pods-AnimationStudio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B63B8D5CDE5FBE738B8235B103E8D /* Pods-AnimationStudio-dummy.m */; };
-		F02F167A920146A7E3AAE3F62ACBBD28 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D45F7A1F1C79361491D8AF4710DDFF /* HTTPClient.swift */; };
-		F2201D121ED4ECF7C34615475105A42A /* InstanceSelectorHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7527B57A045A7AF5F29CD1CE616D2040 /* InstanceSelectorHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB54144EC8D7598EF03B93AA6112466D /* BoundlessContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3666F9C06F897C0217CCD5C4F34FEC /* BoundlessContext.swift */; };
-		FEE57165C69AA8F6C40A98E7B15FE8DD /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D630EAADE6A9427DCB10F5462201877 /* EFRGBView.swift */; };
+		02F9BDFB51D0722D4761B2BAFCF30D1D /* BoundlessKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489974BD23E650C8CF440E70C3079437 /* BoundlessKit.swift */; };
+		062F969A6C07C9457526754768983ED5 /* BKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E34B085ACEA6C3F14B3E58A595CA0 /* BKDatabase.swift */; };
+		063974E1E85915DAC87E9637E31913F8 /* BKRefreshCartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDB45EFF51A22A4AB0B03A107D213F /* BKRefreshCartridge.swift */; };
+		06590496D548FB604FEBACCEBCC32228 /* BoundlessKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B7A3CEA6A797DC8C054D303EA915BE /* BoundlessKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		076994A0EE23394DA5EB32EFE0698747 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A500C284810831952E59C220AF560CD /* BundleExtensions.swift */; };
+		08B9A3F44B416628F32AFC0206C2AD21 /* BKReinforcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50233A7D747F669504C7A6DEB5FF04AC /* BKReinforcement.swift */; };
+		0B9ECADFF703BD131748A1EDFFBE7836 /* FormRowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ED2246832C035FC52C641558B86DB /* FormRowDescriptor.swift */; };
+		0BB031CD1F4F012ACDFDC58826C14017 /* SwiftForms-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B771178189CFBE9691630E51BE64C73 /* SwiftForms-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		110A874738016AE6EDCF6A955A06486C /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F23564C02C086C9FAFD848330B8A7 /* EFColorSelectionView.swift */; };
+		11659FE3FC7D9D497609C6791C5148C7 /* UIView+CodelessConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48597BFB2B72C9B8DFC792B7D8A497FA /* UIView+CodelessConfetti.swift */; };
+		12FDD680DA295DA95FA18A23BBAC41E9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B852496FA6AA8F58E45A0389241A /* ArrayExtensions.swift */; };
+		1689B888C117A04F695AF5191819FB21 /* FormDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C0669113F2AB95B62F543FA22BA92 /* FormDescriptor.swift */; };
+		1C84FE71E105ED4F09D6B337B359494B /* BoundlessKitLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FC6C77C47FBF58110FAA2C9AFC2197 /* BoundlessKitLauncher.swift */; };
+		22DE2BF60C13F7C96D6DAC91CD7349F8 /* BKReportBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EF86401296D9C815135E0FB6ED932 /* BKReportBatch.swift */; };
+		2524D867E2AF37311B73EEE32D25F0C3 /* FormButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63602FFF2419F1062B8D5D0B63553577 /* FormButtonCell.swift */; };
+		284B61C456EBEAB3BD5EE978EAC2E25F /* BoundlessKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187DE5C3ED4C6D3EDDA3CC1E3CB1D21D /* BoundlessKeychain.swift */; };
+		2EB54CA7517236C0030ED08270434951 /* SwiftForms-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9443829CC3E5AA34EB562D89FC29B73 /* SwiftForms-dummy.m */; };
+		3182FE417E3A908E91FB894A4CACF62C /* FormSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2080F577126205645F3CFDBEFEC2DA /* FormSectionDescriptor.swift */; };
+		3A201BA3FE494F6BBF08A0D957D55E66 /* BoundlessContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3666F9C06F897C0217CCD5C4F34FEC /* BoundlessContext.swift */; };
+		3DB1B69AB74A873A9CE02ED93ACF8B95 /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01999598CE51DDE73C63BEEF7EB7B570 /* EFSliderView.swift */; };
+		3E0DCD06E1274153B13EFF9486F065AC /* BoundlessUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B9B5316C39EEB1370E9F5F4C94DEA9 /* BoundlessUser.swift */; };
+		424FD960A9466FB0B9D27E50CC60C305 /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F6E793C5359281B6CC73F681F2D95 /* EFHSBView.swift */; };
+		45081434EA11179AE27F7904E3032C31 /* BoundlessKitLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = E599BBEA7AE54993E88ADF3219005E9E /* BoundlessKitLauncher.m */; };
+		473E81330F47843F53D15B64E30F780E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		4B69144AC2CFC580CCA3901A4F4CBB28 /* BoundlessKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EFA4180322B8AEEA3922208FA4ED99B4 /* BoundlessKit.bundle */; };
+		4B9231A982F49FA05868BB254A93BCC0 /* ASIdHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CAECB03466AC15A72897769F65D1B7BF /* ASIdHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BABD9D033AAE23CC8A2C5E8CFDBDD48 /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D407E04B9AC589260E0082646591670 /* EFControl.swift */; };
+		4EC99FC635C380B272D7D3574DABF4DE /* FormSegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F1A9988BDC9B01C63AF76892FB9569 /* FormSegmentedControlCell.swift */; };
+		4F4C1BE1E6D6F0C4C37A8DB22143F6AE /* FormLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E008CFECD3E3B8073D9E6817205DC /* FormLabelCell.swift */; };
+		5216A591C723017F3AE8A1604FDC2368 /* BoundlessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30A0C7F790D96EC79B3E879E9D434E /* BoundlessConfiguration.swift */; };
+		549D3B2402962559AF5CD7E64B3A3316 /* FormSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CC45306F0AF948A666361CDC3C8F2 /* FormSelector.swift */; };
+		5687640CB320F6C9CF8DFE5826B4CE44 /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA636DD687A586FE19DD7A4BD548D9C /* NotificationCenterExtensions.swift */; };
+		59DA8FB0E4AA3B74EE8AE6611131F21D /* Pods-AnimationStudio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6B63B8D5CDE5FBE738B8235B103E8D /* Pods-AnimationStudio-dummy.m */; };
+		5DD3EE43F17F2CB8F417AEBED39490A9 /* CandyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E778266F594EEB7A831A4704B55286B /* CandyBar.swift */; };
+		6243297D2545E2D98AB51C534987A989 /* EFColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DA8A8CE07669982A6C1ED39E04BFB2 /* EFColorPicker-dummy.m */; };
+		6789B69F8ECA808E502C7B0FEFBF5A83 /* FormErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE55B56879674DAD852C65B20FE835 /* FormErrorType.swift */; };
+		6885A5D41848017A2832B32453FF09AB /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4154C522DD285FE823740FA9F8ABB /* EFColorUtils.swift */; };
+		6A7329AEA6C6F38EABFFFC9E91B4983D /* EFColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A42A97BA22576D207010629652F95 /* EFColorView.swift */; };
+		72919EE0526FC7394FF954FFDB60C486 /* BKRefreshCartridgeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A817A4F0F21157325FD83B2F5CB4B8 /* BKRefreshCartridgeContainer.swift */; };
+		733B9624D0E4B89F4A0FBBCF75046C73 /* Reinforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C366A809516DF745DFB9232A100A063 /* Reinforcer.swift */; };
+		7BD53AF42CC13A16F3FCBEB1CD26F76D /* InstanceSelectorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B47F58A666A50B6E92A6115CC2B5C28C /* InstanceSelectorHelper.m */; };
+		7D3C7AAF5C8A035427860E85C2691AAB /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2573DC8BE09FAEE9290C62CB58B6F05 /* FormTextFieldCell.swift */; };
+		7F36555E6705C37DB2D39EAD6D4D85FF /* UIView+CodelessAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CC1D1C7EC27AAD9C88344D15BD79 /* UIView+CodelessAnimation.swift */; };
+		877CBD793FF0C8380BFBEA7BC68AC2FB /* BKAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B00E286779539838F1F7FCDF04599F /* BKAudio.swift */; };
+		878700D427C9FB632B215021F0851552 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		887DAF8C837D08CFF6669FF02A674E75 /* FormValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D13D820E753763EFAF93E61CAA27BCD /* FormValueCell.swift */; };
+		900964C7EE802D3E2E7ACE9AB7AD3439 /* BoundlessNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6ABFECCCF542BBA94163A6BFF7076 /* BoundlessNotificationCenter.swift */; };
+		937EFB2738F6EB8DCEFE69CE81B32B22 /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0219D1AFA88690C91B95CA4F5E3B76E /* EFColorSelectionViewController.swift */; };
+		93E8C4694E513CC72DCB500A489C0942 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A943FA7867EC5E364C5E98C1525DB4E /* UIColorExtensions.swift */; };
+		9C7BCB1FB3CEBD5CA91B6AF36655C4C8 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55914BB419F2EE9AF4CE1101FF3009DA /* UIWindowExtensions.swift */; };
+		A186889D29DBE6DF4E01E022C2A0D497 /* FormTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2840660783F299D50D9A46B36E0FF9 /* FormTitleCell.swift */; };
+		A21C6224FE63BE93A092556D1CF5A756 /* BKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598CCA44E6D0BEC17DBB0D1FFB155CB6 /* BKLog.swift */; };
+		A8D9AB733E30B1ECAB406D20E32D11E2 /* FormPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300BACFC94B7A1686DEEB4B0F428B28B /* FormPickerCell.swift */; };
+		AC80306AEC12B4559E402B281BBF0567 /* ASIdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 740FA250F55F1FD665D5F8B60176E80F /* ASIdHelper.m */; };
+		ADE37FEBD005603C0E04960D9288C7CA /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D45F7A1F1C79361491D8AF4710DDFF /* HTTPClient.swift */; };
+		B0544FDE9C7188BB98D2CB8674309C72 /* FormStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCA84FFE88868BCBF58461B46BD1D1E /* FormStepperCell.swift */; };
+		B129155583A11A18B320D2518F1C27F7 /* CodelessReinforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B15D3789F66F85AFB2D11B480DA7A /* CodelessReinforcer.swift */; };
+		B1A687074C384E2C282610E1ADBD40DF /* BoundlessKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AF16C3F4D94119F0C266908E271D84 /* BoundlessKit-dummy.m */; };
+		B3118820C0A7D76828048B213603868A /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5638CBB7F4F0F5AB584201423FBE509 /* EFColorWheelView.swift */; };
+		B56160807C2C2953BBADC7A9EF50E094 /* BKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DBD097E6F65314C9ED93937730158 /* BKAction.swift */; };
+		B756673053FE21BE9354C83E0DF7C930 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076ED47F0A1889160F86B8AEA375E312 /* UIViewControllerExtensions.swift */; };
+		B84265628D95B3A26DAE50D742B8185A /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D080D234A898579F08A6C40F3367F0 /* UIImageExtensions.swift */; };
+		B889791B5B545E5B049CFED4BF3BF218 /* BoundlessVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82CD206956FB14BC1CE7FD3FB0E1C5 /* BoundlessVersion.swift */; };
+		BC6B066463A10473CCA2E3DDB00D099E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		BDD0F037244BBFB00B1840BED8FAC563 /* FormDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F86E5B3445B3A331666ED1E9350825 /* FormDateCell.swift */; };
+		C1AC7E4465EDA631643656AA560D5BA1 /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D630EAADE6A9427DCB10F5462201877 /* EFRGBView.swift */; };
+		C359983177BB77901B4B9D82693B520B /* EFThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0D8799E93FE4F5B92F8994C77747A /* EFThumbView.swift */; };
+		C8A0CEA3E329C8923E6E7AD65E82C43C /* EFColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 687A3808AB9B3335F8295EE2BC812DEE /* EFColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE6D4AD9A5E974CA99B9726CF8CD4054 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3454162320A6D48B8327C00626E791EA /* UIViewExtensions.swift */; };
+		D21BEF5A8B93523FD516FD1E75B89349 /* InstanceSelectorHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7527B57A045A7AF5F29CD1CE616D2040 /* InstanceSelectorHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5869394190F644020C3740DD60A7877 /* FormOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A59834E82E875F1332F89A7FDAA88A /* FormOptionsViewController.swift */; };
+		D5B8828D48A1F976480923D75F6C533A /* CodelessReinforcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5DC7CA4E2391A1BAFF2F71E21F0C52 /* CodelessReinforcement.swift */; };
+		D81D83BB4F3649A1211429D08D1AEA9D /* BKDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2DFA791C3A44B0B818867286E4E970 /* BKDecision.swift */; };
+		DB6B3B5080AFA984ED5D62838EFB1A93 /* DelayedSerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A400637F5731787A045CB11FC12E6 /* DelayedSerialQueue.swift */; };
+		DBAEE787F4271B92C601763C5735D753 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82B31A51A41437A8D0E75D006549E1 /* FormViewController.swift */; };
+		E166C6E210B3A8178EF11E2C53922BFE /* BoundlessCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286B7906CFEBA7D1702CDCF4DB380BD /* BoundlessCredentials.swift */; };
+		E2FC63E5C770001DA0D11D59E0F15A03 /* FormSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF72852FBB2121CCBFED807643947 /* FormSliderCell.swift */; };
+		E436D794D0921CEC6AEB5A914AB9488D /* BKTrackBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BAA447801EC558BA353B7A7FAD8D7 /* BKTrackBatch.swift */; };
+		E612D1611689D051A4E80776F8FDC061 /* BoundlessProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C73CC756D3752951E5EAA4FE2631C54 /* BoundlessProperties.swift */; };
+		E7A56307B5BE3D66D9EB708F465B8A56 /* sheen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0392819A987AF555D1EEECD481EA2230 /* sheen.png */; };
+		EA49D4DF91D75BB10D00E5E4AE190D89 /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC7C6CAD8905632E70FD02A06BEA22 /* EFColorComponentView.swift */; };
+		EC99276769966E39638D4DA242A23419 /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B16194E0B6A931E72942E16AE10D5 /* FormTextViewCell.swift */; };
+		ED238006CA59BB533B3BE8BCDB9E70C6 /* FormSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0771C8345AC78CB0DA6C668B608114 /* FormSwitchCell.swift */; };
+		EDAAB2F02B04A4C2C60B5E335E3BB83F /* FormCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7026A35621C78A38AD730CF6CFBE23 /* FormCheckCell.swift */; };
+		EF3414D5E7CDE1F5827BC18EFC72D09B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F9F3A307BAC49085C575C1E14B0CB /* StringExtensions.swift */; };
+		F62E4D66F84E88712318AD78D331897C /* FormSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24F90C1A82BF7A2254830ABC8FCE01F /* FormSelectorCell.swift */; };
+		F6A1853FCF34C9B30F266F783D3446E3 /* BoundlessAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18110532D40F98A497D4037947A96A /* BoundlessAPIClient.swift */; };
+		F90663D52156B85E34062F84E3F87C80 /* FormBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61540CD8BD859705F9ABDF50F28CEDD /* FormBaseCell.swift */; };
+		FAC59C6486BC019EF0F91518F98BE91E /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AF8878A43D14E3CF5385CFB91E9C6E /* SynchronizedArray.swift */; };
+		FD60BCCF4FBD4F31D70B2A4649EA33BD /* Pods-AnimationStudio-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26EDCF64451E871DFE92B23C65A07BCE /* Pods-AnimationStudio-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDBDEF13611737B8CAE29E26F106E7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		FE12DE4CDDEFD1CF0E71FA5D53AA6F0F /* BoundlessTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8C5415F89DF5ABA7B9E8FE29770EC /* BoundlessTime.swift */; };
+		FE243C42A94CD6C520FC45A913320141 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648284197D8BAAEFAFA88CDAAF8EDD11 /* CGExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		685DF0409174332275B3F26EC3DA2868 /* PBXContainerItemProxy */ = {
+		03C15C8CDB2BAD6F5702AC94241B2D9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 29A5FBF05B584E06EA982ABE3DC1C9DE;
+			remoteGlobalIDString = BE1437D45FC659929962622EC4E3B2BB;
+			remoteInfo = SwiftForms;
+		};
+		33A4D869540307A1EA8C8670C5EFF552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9733384905F441743F0B004787DE367B;
 			remoteInfo = BoundlessKit;
 		};
-		C8B81AB7854112ECA83A51211D6198AE /* PBXContainerItemProxy */ = {
+		79EB355AFD88F0184ECEA9F0F0A3C658 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 87FFCDCA82A88E01A5F4A76FE031E4EB;
-			remoteInfo = "BoundlessKit-BoundlessKit";
-		};
-		CBE55EEF5C46828024F837C65F2A6D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 55836A87835996279FBFAAC5350966B7;
+			remoteGlobalIDString = C1B4FA8EB9FCA20954ADB63553812672;
 			remoteInfo = EFColorPicker;
 		};
-		F930FD922F1D5BE3F19ECB08B1943B5B /* PBXContainerItemProxy */ = {
+		C7071669CF119AF9E52162A564C9ABC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 699132BFFEA12B6BB19A2B90F61A5994;
-			remoteInfo = SwiftForms;
+			remoteGlobalIDString = 0CAE60723D89156246814E8E2DD33819;
+			remoteInfo = "BoundlessKit-BoundlessKit";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -185,7 +185,6 @@
 		5D2080F577126205645F3CFDBEFEC2DA /* FormSectionDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSectionDescriptor.swift; path = SwiftForms/descriptors/FormSectionDescriptor.swift; sourceTree = "<group>"; };
 		63602FFF2419F1062B8D5D0B63553577 /* FormButtonCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormButtonCell.swift; path = SwiftForms/cells/FormButtonCell.swift; sourceTree = "<group>"; };
 		648284197D8BAAEFAFA88CDAAF8EDD11 /* CGExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGExtensions.swift; path = BoundlessKit/Classes/Extensions/CGExtensions.swift; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		687A3808AB9B3335F8295EE2BC812DEE /* EFColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFColorPicker-umbrella.h"; sourceTree = "<group>"; };
 		6937095984260D3A9850C6A8B96C48CD /* Pods-AnimationStudio.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AnimationStudio.modulemap"; sourceTree = "<group>"; };
 		6B2840660783F299D50D9A46B36E0FF9 /* FormTitleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormTitleCell.swift; path = SwiftForms/cells/base/FormTitleCell.swift; sourceTree = "<group>"; };
@@ -236,6 +235,7 @@
 		D2573DC8BE09FAEE9290C62CB58B6F05 /* FormTextFieldCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormTextFieldCell.swift; path = SwiftForms/cells/FormTextFieldCell.swift; sourceTree = "<group>"; };
 		D5638CBB7F4F0F5AB584201423FBE509 /* EFColorWheelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorWheelView.swift; path = EFColorPicker/Classes/EFColorWheelView.swift; sourceTree = "<group>"; };
 		D61540CD8BD859705F9ABDF50F28CEDD /* FormBaseCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormBaseCell.swift; path = SwiftForms/cells/base/FormBaseCell.swift; sourceTree = "<group>"; };
+		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D7ED446DCA05DC6260A6E7090B072FA2 /* ResourceBundle-BoundlessKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-BoundlessKit-Info.plist"; sourceTree = "<group>"; };
 		D9443829CC3E5AA34EB562D89FC29B73 /* SwiftForms-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftForms-dummy.m"; sourceTree = "<group>"; };
 		DCE2E0BC0226CFAF26BD7FBD679652F3 /* Pods-AnimationStudio-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AnimationStudio-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -253,42 +253,42 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4394407335AE5E0A4CF712465D2F5A52 /* Frameworks */ = {
+		4898FD70BB637F828929D75E507CC988 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A21A40C90F2D7BC836B6248E77C6FF3 /* Foundation.framework in Frameworks */,
+				BC6B066463A10473CCA2E3DDB00D099E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		495AB1517808737FBCE41162E37DED65 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				68D8393BDB0ADC365E5E37C26FA1E5F9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		55915275356FB0DA8ADB0237EA1A6B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0ED69B45505633134B4AE86E4CA942FB /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3E5239A5D4DD41ADACACB080268DCB7 /* Frameworks */ = {
+		6445F3B707F9D788EC7152B308CE46BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F167CC32F9A61E2DA0F2C2F783362AE8 /* Frameworks */ = {
+		7995AA769206C7F304D4AE9035758AC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71729F99A42C5ECC991F912F170AD9C1 /* Foundation.framework in Frameworks */,
+				878700D427C9FB632B215021F0851552 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8582864B5A2D54AEFE6E2BE54FFC9DBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473E81330F47843F53D15B64E30F780E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D80ADE6E6F79DE47A8264733AFE824C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDBDEF13611737B8CAE29E26F106E7A1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +343,14 @@
 				4207146BF30C4D30EFA4EC8E9B28CD58 /* Pods-AnimationStudio */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		44D5347904CF754D6785B84253F2574A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		4827F045EE71DD7E933DDD810539CEEA /* Support Files */ = {
@@ -436,7 +444,7 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				44D5347904CF754D6785B84253F2574A /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -447,14 +455,6 @@
 				0392819A987AF555D1EEECD481EA2230 /* sheen.png */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		F34DE772502D8F3D82CAF9036DF06412 /* Support Files */ = {
@@ -531,106 +531,108 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0E519D798A2912CEC5C15637D9291FB6 /* Headers */ = {
+		7D78553933793E4EF6192A86BF2CF3D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BE8C1DA694765CC0EEEEDDFD9794772 /* SwiftForms-umbrella.h in Headers */,
+				FD60BCCF4FBD4F31D70B2A4649EA33BD /* Pods-AnimationStudio-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CF2857780F3EBBF4E4D12D2B1F46AF4 /* Headers */ = {
+		8BEA575C8282E15E08C62DA12E413A3D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5E87C8FC18A20ED87FCFCC6A6FB4877 /* Pods-AnimationStudio-umbrella.h in Headers */,
+				0BB031CD1F4F012ACDFDC58826C14017 /* SwiftForms-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A96B4531654EEF5B58A67BDBD87F58B5 /* Headers */ = {
+		C876616A4BE79E55A3A507A0D7F10E4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2702503FC70C9F8CE4FAB5D33B1C4FAC /* EFColorPicker-umbrella.h in Headers */,
+				C8A0CEA3E329C8923E6E7AD65E82C43C /* EFColorPicker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBAE2DA230F98DDCF24A4660BCD1055A /* Headers */ = {
+		C8BE1FEF4B096940DF7B734D9C5245F0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C403DC234C441CDC3E78B7EBF41524DE /* ASIdHelper.h in Headers */,
-				D71B5D26FF5FDF1D8832887690B7A079 /* BoundlessKit-umbrella.h in Headers */,
-				F2201D121ED4ECF7C34615475105A42A /* InstanceSelectorHelper.h in Headers */,
+				4B9231A982F49FA05868BB254A93BCC0 /* ASIdHelper.h in Headers */,
+				06590496D548FB604FEBACCEBCC32228 /* BoundlessKit-umbrella.h in Headers */,
+				D21BEF5A8B93523FD516FD1E75B89349 /* InstanceSelectorHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		09F03DD454C6E61C8CDC246A915715F2 /* Pods-AnimationStudio */ = {
+		0CAE60723D89156246814E8E2DD33819 /* BoundlessKit-BoundlessKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6B19F588E5A8FEB510C8F4E4E99562B /* Build configuration list for PBXNativeTarget "Pods-AnimationStudio" */;
+			buildConfigurationList = F54C37C32FB06F8D780A5945227D0C23 /* Build configuration list for PBXNativeTarget "BoundlessKit-BoundlessKit" */;
 			buildPhases = (
-				FAC8208F1188662A1E2110EF8CB4A88F /* Sources */,
-				4394407335AE5E0A4CF712465D2F5A52 /* Frameworks */,
-				8CF2857780F3EBBF4E4D12D2B1F46AF4 /* Headers */,
+				16DEB0C57A477F6336BD843571E71ACF /* Sources */,
+				6445F3B707F9D788EC7152B308CE46BC /* Frameworks */,
+				2B0EA035F88129A9221A35AE2F70C6D3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBAD95E0B87A099459CC498128BE76FD /* PBXTargetDependency */,
-				6DF3398947F18DD709AA4B812792A88D /* PBXTargetDependency */,
-				43074F46A7EB702980F6FB36E9D11491 /* PBXTargetDependency */,
 			);
-			name = "Pods-AnimationStudio";
-			productName = "Pods-AnimationStudio";
-			productReference = 309CB96435EB753B422413BC92026DA6 /* Pods_AnimationStudio.framework */;
-			productType = "com.apple.product-type.framework";
+			name = "BoundlessKit-BoundlessKit";
+			productName = "BoundlessKit-BoundlessKit";
+			productReference = EFA4180322B8AEEA3922208FA4ED99B4 /* BoundlessKit.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
-		29A5FBF05B584E06EA982ABE3DC1C9DE /* BoundlessKit */ = {
+		9733384905F441743F0B004787DE367B /* BoundlessKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2992AA9B595EB1D01E920EA9C8EB03D5 /* Build configuration list for PBXNativeTarget "BoundlessKit" */;
+			buildConfigurationList = 055D32B075FEB9E3EA615FD53A257612 /* Build configuration list for PBXNativeTarget "BoundlessKit" */;
 			buildPhases = (
-				252BF66EB58A6ECCAFA3FFF8E862AEC2 /* Sources */,
-				55915275356FB0DA8ADB0237EA1A6B71 /* Frameworks */,
-				771319DB34A80D1418E3B3016D5FA0D4 /* Resources */,
-				FBAE2DA230F98DDCF24A4660BCD1055A /* Headers */,
+				C8BE1FEF4B096940DF7B734D9C5245F0 /* Headers */,
+				F6298C1A63E331BE6EA74BAEA8F59016 /* Sources */,
+				7995AA769206C7F304D4AE9035758AC6 /* Frameworks */,
+				F0EF4169B266E7240AC5F6E927916261 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7E109599D367B59E42A4FAEE1E87F489 /* PBXTargetDependency */,
+				A8E2E385733D9D280675764C0AD58A9C /* PBXTargetDependency */,
 			);
 			name = BoundlessKit;
 			productName = BoundlessKit;
 			productReference = 312415AF1F57581731F02E6FF1EC1D1E /* BoundlessKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55836A87835996279FBFAAC5350966B7 /* EFColorPicker */ = {
+		A36108741E5FC4A2CE991F16F8D8DEB6 /* Pods-AnimationStudio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E524D40B2302F2FE070142211DDC5CA3 /* Build configuration list for PBXNativeTarget "EFColorPicker" */;
+			buildConfigurationList = FB974948108460D2334767A933A3FDBD /* Build configuration list for PBXNativeTarget "Pods-AnimationStudio" */;
 			buildPhases = (
-				14EF4A516EE784301AAFCCFF3791EDDD /* Sources */,
-				495AB1517808737FBCE41162E37DED65 /* Frameworks */,
-				A96B4531654EEF5B58A67BDBD87F58B5 /* Headers */,
+				7D78553933793E4EF6192A86BF2CF3D2 /* Headers */,
+				05942E87D2393E8F204CD3ED692F5B92 /* Sources */,
+				8582864B5A2D54AEFE6E2BE54FFC9DBA /* Frameworks */,
+				D88EC66337E0846DFCBD12AE3F2E5020 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F8E52722E90C07656D67F315DD05A29B /* PBXTargetDependency */,
+				15132B9A6E0A5BE08F3F5859F90015E7 /* PBXTargetDependency */,
+				CA1749EC91F8A99F86C5BE9315E184C4 /* PBXTargetDependency */,
 			);
-			name = EFColorPicker;
-			productName = EFColorPicker;
-			productReference = 087CAF6E20E2A33905F7D1CB57213429 /* EFColorPicker.framework */;
+			name = "Pods-AnimationStudio";
+			productName = "Pods-AnimationStudio";
+			productReference = 309CB96435EB753B422413BC92026DA6 /* Pods_AnimationStudio.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		699132BFFEA12B6BB19A2B90F61A5994 /* SwiftForms */ = {
+		BE1437D45FC659929962622EC4E3B2BB /* SwiftForms */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C4C04ECA0BC0C584113D6AE9A81F832 /* Build configuration list for PBXNativeTarget "SwiftForms" */;
+			buildConfigurationList = B3753E933F07AFAE6B115969F5902E2E /* Build configuration list for PBXNativeTarget "SwiftForms" */;
 			buildPhases = (
-				4285C49AEAB6ED92FE104878D237E2B4 /* Sources */,
-				F167CC32F9A61E2DA0F2C2F783362AE8 /* Frameworks */,
-				0E519D798A2912CEC5C15637D9291FB6 /* Headers */,
+				8BEA575C8282E15E08C62DA12E413A3D /* Headers */,
+				27360292382DA50072A16984BEB74592 /* Sources */,
+				9D80ADE6E6F79DE47A8264733AFE824C /* Frameworks */,
+				9C3B1CCBEAEEE1A6FD8711874CDB8574 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -641,22 +643,23 @@
 			productReference = F4FEFDCA7DFC2B7863E3A936B94723C5 /* SwiftForms.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		87FFCDCA82A88E01A5F4A76FE031E4EB /* BoundlessKit-BoundlessKit */ = {
+		C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB32817830B17E6C3ACE01FDFD673C9F /* Build configuration list for PBXNativeTarget "BoundlessKit-BoundlessKit" */;
+			buildConfigurationList = 0A6F3BFD3722A848F8CBE5D704E3B652 /* Build configuration list for PBXNativeTarget "EFColorPicker" */;
 			buildPhases = (
-				EA1E1787A6D32E53F439C32BA2A8144E /* Sources */,
-				A3E5239A5D4DD41ADACACB080268DCB7 /* Frameworks */,
-				D912E25DDAACFE15FE9F52BCDCE164C0 /* Resources */,
+				C876616A4BE79E55A3A507A0D7F10E4E /* Headers */,
+				403DB427E18DBAC7325D6DE96B32A0FD /* Sources */,
+				4898FD70BB637F828929D75E507CC988 /* Frameworks */,
+				5D0DA3FCA6F0DD1502538391D01E6BEE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "BoundlessKit-BoundlessKit";
-			productName = "BoundlessKit-BoundlessKit";
-			productReference = EFA4180322B8AEEA3922208FA4ED99B4 /* BoundlessKit.bundle */;
-			productType = "com.apple.product-type.bundle";
+			name = EFColorPicker;
+			productName = EFColorPicker;
+			productReference = 087CAF6E20E2A33905F7D1CB57213429 /* EFColorPicker.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -679,185 +682,208 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29A5FBF05B584E06EA982ABE3DC1C9DE /* BoundlessKit */,
-				87FFCDCA82A88E01A5F4A76FE031E4EB /* BoundlessKit-BoundlessKit */,
-				55836A87835996279FBFAAC5350966B7 /* EFColorPicker */,
-				09F03DD454C6E61C8CDC246A915715F2 /* Pods-AnimationStudio */,
-				699132BFFEA12B6BB19A2B90F61A5994 /* SwiftForms */,
+				9733384905F441743F0B004787DE367B /* BoundlessKit */,
+				0CAE60723D89156246814E8E2DD33819 /* BoundlessKit-BoundlessKit */,
+				C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */,
+				A36108741E5FC4A2CE991F16F8D8DEB6 /* Pods-AnimationStudio */,
+				BE1437D45FC659929962622EC4E3B2BB /* SwiftForms */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		771319DB34A80D1418E3B3016D5FA0D4 /* Resources */ = {
+		2B0EA035F88129A9221A35AE2F70C6D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70743C9F405C0205A2C11017D7BA77A2 /* BoundlessKit.bundle in Resources */,
+				E7A56307B5BE3D66D9EB708F465B8A56 /* sheen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D912E25DDAACFE15FE9F52BCDCE164C0 /* Resources */ = {
+		5D0DA3FCA6F0DD1502538391D01E6BEE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				601373A0A76360988291E58DD0129BD8 /* sheen.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C3B1CCBEAEEE1A6FD8711874CDB8574 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88EC66337E0846DFCBD12AE3F2E5020 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0EF4169B266E7240AC5F6E927916261 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B69144AC2CFC580CCA3901A4F4CBB28 /* BoundlessKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		14EF4A516EE784301AAFCCFF3791EDDD /* Sources */ = {
+		05942E87D2393E8F204CD3ED692F5B92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2A89A25B729C4806D9E293ECCC372A8 /* EFColorComponentView.swift in Sources */,
-				3CD04619A468A8D3CFBB8DCA157ACF8B /* EFColorPicker-dummy.m in Sources */,
-				129440BB9F115E0C87AD58C1A5CE6C24 /* EFColorSelectionView.swift in Sources */,
-				BE671125912C92D6855EB4602AED6C14 /* EFColorSelectionViewController.swift in Sources */,
-				763ACE1864FEF45B41F1D6CB5EE28F8A /* EFColorUtils.swift in Sources */,
-				77B4B578BC2F689A42FF691E603C75F8 /* EFColorView.swift in Sources */,
-				B420A75046E1D4DD762A44E4208BAD8D /* EFColorWheelView.swift in Sources */,
-				739323DF32643950A32047225485B73F /* EFControl.swift in Sources */,
-				C1A603FBB8B8BD9929411FB062BE8EB3 /* EFHSBView.swift in Sources */,
-				FEE57165C69AA8F6C40A98E7B15FE8DD /* EFRGBView.swift in Sources */,
-				7F4D294E76C85B286CE07C3B1D769E47 /* EFSliderView.swift in Sources */,
-				CF53FBCBF47F239C3B1FA55350335C4A /* EFThumbView.swift in Sources */,
+				59DA8FB0E4AA3B74EE8AE6611131F21D /* Pods-AnimationStudio-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		252BF66EB58A6ECCAFA3FFF8E862AEC2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7C5AD73E5A5C5A7101CB3369D0CA9DA /* ArrayExtensions.swift in Sources */,
-				18DDA1F3A234453BE0D374E06BC4EABC /* ASIdHelper.m in Sources */,
-				B43D4C071F4A2DEFB230144231252568 /* BKAction.swift in Sources */,
-				9E65DD2C48ACC9F042E724169767E075 /* BKAudio.swift in Sources */,
-				DADAA28E66A31F7569A2A4FF4E19937D /* BKDatabase.swift in Sources */,
-				58F398871457A29C07BF066DC661D6CF /* BKDecision.swift in Sources */,
-				D36D446DD789A38CC556A0A8A1FAD813 /* BKLog.swift in Sources */,
-				8CA988BE2ACD5E9DCFA15ABE2A4FB154 /* BKRefreshCartridge.swift in Sources */,
-				7A8C667A75B7F0CFFA14A9712C0586E8 /* BKRefreshCartridgeContainer.swift in Sources */,
-				9507E3E0A54459E780A7FBBBE430F0A6 /* BKReinforcement.swift in Sources */,
-				0AA85A331C690EDD84F4AFDFC63B619D /* BKReportBatch.swift in Sources */,
-				1A639906E7AB64762C69CC89A580B09E /* BKTrackBatch.swift in Sources */,
-				DEFA2A325EB4D616401D8CB1473AA52F /* BoundlessAPIClient.swift in Sources */,
-				05DCEE34669AE0E8C602E3127F2C41AB /* BoundlessConfiguration.swift in Sources */,
-				FB54144EC8D7598EF03B93AA6112466D /* BoundlessContext.swift in Sources */,
-				A930B118EBCAE5D2EFF6A771CB48B9B9 /* BoundlessCredentials.swift in Sources */,
-				0B7A335696AAADE6498FE26027639A96 /* BoundlessKeychain.swift in Sources */,
-				C3D1F9F64E9ECF8473C3050A69A60316 /* BoundlessKit-dummy.m in Sources */,
-				294BC510182BF079B9F701F33C5AEBE7 /* BoundlessKit.swift in Sources */,
-				3AA69FA1639E50AF266626EF8EED67C0 /* BoundlessKitLauncher.m in Sources */,
-				1B0909BC9BE13F0FBF8E6D1EFCC24E48 /* BoundlessKitLauncher.swift in Sources */,
-				3171E3E7B24052F4C329264A1C3CD5BC /* BoundlessNotificationCenter.swift in Sources */,
-				0130BB7D27CC6AD1D2D7094CAC367B37 /* BoundlessProperties.swift in Sources */,
-				98610ADAEA0930578FFCC079496AD8E1 /* BoundlessTime.swift in Sources */,
-				8585E7DA6B54AD5DB2278C9C5CB3A8E5 /* BoundlessUser.swift in Sources */,
-				4763D71D00A2C389969CC240C8BD92B9 /* BoundlessVersion.swift in Sources */,
-				CE15D70BF9FD4996449DA38100DB6968 /* BundleExtensions.swift in Sources */,
-				01472FEFD116558F7CDB3031DCDB28B2 /* CandyBar.swift in Sources */,
-				0ED7017F6F11E1FF727DA4FD85156F35 /* CGExtensions.swift in Sources */,
-				36112BE448DE89F76F96FDB48FDE9667 /* CodelessReinforcement.swift in Sources */,
-				DED61361E7D9F4294FA7759CA749C0F4 /* CodelessReinforcer.swift in Sources */,
-				C7CADF7609EA741806F7CB16BF63FAC4 /* DelayedSerialQueue.swift in Sources */,
-				F02F167A920146A7E3AAE3F62ACBBD28 /* HTTPClient.swift in Sources */,
-				9E1C99C66A355114E8121D5F2885613C /* InstanceSelectorHelper.m in Sources */,
-				90CA7353EFBC2C443E021355B62E1805 /* NotificationCenterExtensions.swift in Sources */,
-				D9AB2B7D5DF9502E7C6EBD7267EEFE9E /* Reinforcer.swift in Sources */,
-				245409953840D3D1B5DB1B11EF0A8947 /* StringExtensions.swift in Sources */,
-				D7D57441788A833FF988745FCAAF062C /* SynchronizedArray.swift in Sources */,
-				1262F48CAD3C2DA1A59C2C34F1020C66 /* UIColorExtensions.swift in Sources */,
-				9E59E2A3FC2ED02C60D2A29F3D6E1717 /* UIImageExtensions.swift in Sources */,
-				847DD28CF47D92DB59B71243F63BBABD /* UIView+CodelessAnimation.swift in Sources */,
-				738C181AF141976DBA6C97EE207BB3B0 /* UIView+CodelessConfetti.swift in Sources */,
-				09A714B0BBA550CD287CEF405EBD4624 /* UIViewControllerExtensions.swift in Sources */,
-				5045C9B1C10FDF8F3778EB286886FF68 /* UIViewExtensions.swift in Sources */,
-				6A202A741FD53CC9A43564062F6A9D9B /* UIWindowExtensions.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4285C49AEAB6ED92FE104878D237E2B4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66DE99E063DA2A015C0EB2610858D134 /* FormBaseCell.swift in Sources */,
-				0A882EA8E44BC7902447DC0CA09FEF83 /* FormButtonCell.swift in Sources */,
-				9FAE4ED852AA1F13DD413E78998809E6 /* FormCheckCell.swift in Sources */,
-				86A8936C37A1D4B676B56870ED0CD319 /* FormDateCell.swift in Sources */,
-				000519B0ED8E65D174222F4150AB9142 /* FormDescriptor.swift in Sources */,
-				39050F6BA10AFFBD8651CC8D546B7B54 /* FormErrorType.swift in Sources */,
-				5AD44787CE301EFDA1E9E25181E7A315 /* FormLabelCell.swift in Sources */,
-				87A5E41A12065626B2BA3489D7E45955 /* FormOptionsViewController.swift in Sources */,
-				C4CED5F896BDFDF71E0788B6651874FC /* FormPickerCell.swift in Sources */,
-				0A6E68C17D92A3473123E223B3CB54A3 /* FormRowDescriptor.swift in Sources */,
-				A427393F74E20F6195519332633AD958 /* FormSectionDescriptor.swift in Sources */,
-				DA3BA2E2430C4931760C10BEAFE8B74D /* FormSegmentedControlCell.swift in Sources */,
-				DE01C51C6F58EAACF3788899E19B335E /* FormSelector.swift in Sources */,
-				A2A4844FF47FAEAAFF7AF360F8A20FCF /* FormSelectorCell.swift in Sources */,
-				A808565CA30684D090ACA42590752998 /* FormSliderCell.swift in Sources */,
-				E15BA527E989FFDADD1F230480A95104 /* FormStepperCell.swift in Sources */,
-				693A550C943687AE667A1BCBAD64EDC5 /* FormSwitchCell.swift in Sources */,
-				E4DA177C329BFB80EF99625B896874EF /* FormTextFieldCell.swift in Sources */,
-				88CAC4120485102AB82F887CDF19EED6 /* FormTextViewCell.swift in Sources */,
-				0B70CD24947A6928DCF3BECFB6DBDA2A /* FormTitleCell.swift in Sources */,
-				9022E18B00E09B959EDAFCD1D4B7E689 /* FormValueCell.swift in Sources */,
-				D58CC6DE3AEDCF8C92C062AC07E601CC /* FormViewController.swift in Sources */,
-				E026B03100A6F8B43F68BDDAA59C3548 /* SwiftForms-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA1E1787A6D32E53F439C32BA2A8144E /* Sources */ = {
+		16DEB0C57A477F6336BD843571E71ACF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAC8208F1188662A1E2110EF8CB4A88F /* Sources */ = {
+		27360292382DA50072A16984BEB74592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB96E18750F362D5442CA54FD806F764 /* Pods-AnimationStudio-dummy.m in Sources */,
+				F90663D52156B85E34062F84E3F87C80 /* FormBaseCell.swift in Sources */,
+				2524D867E2AF37311B73EEE32D25F0C3 /* FormButtonCell.swift in Sources */,
+				EDAAB2F02B04A4C2C60B5E335E3BB83F /* FormCheckCell.swift in Sources */,
+				BDD0F037244BBFB00B1840BED8FAC563 /* FormDateCell.swift in Sources */,
+				1689B888C117A04F695AF5191819FB21 /* FormDescriptor.swift in Sources */,
+				6789B69F8ECA808E502C7B0FEFBF5A83 /* FormErrorType.swift in Sources */,
+				4F4C1BE1E6D6F0C4C37A8DB22143F6AE /* FormLabelCell.swift in Sources */,
+				D5869394190F644020C3740DD60A7877 /* FormOptionsViewController.swift in Sources */,
+				A8D9AB733E30B1ECAB406D20E32D11E2 /* FormPickerCell.swift in Sources */,
+				0B9ECADFF703BD131748A1EDFFBE7836 /* FormRowDescriptor.swift in Sources */,
+				3182FE417E3A908E91FB894A4CACF62C /* FormSectionDescriptor.swift in Sources */,
+				4EC99FC635C380B272D7D3574DABF4DE /* FormSegmentedControlCell.swift in Sources */,
+				549D3B2402962559AF5CD7E64B3A3316 /* FormSelector.swift in Sources */,
+				F62E4D66F84E88712318AD78D331897C /* FormSelectorCell.swift in Sources */,
+				E2FC63E5C770001DA0D11D59E0F15A03 /* FormSliderCell.swift in Sources */,
+				B0544FDE9C7188BB98D2CB8674309C72 /* FormStepperCell.swift in Sources */,
+				ED238006CA59BB533B3BE8BCDB9E70C6 /* FormSwitchCell.swift in Sources */,
+				7D3C7AAF5C8A035427860E85C2691AAB /* FormTextFieldCell.swift in Sources */,
+				EC99276769966E39638D4DA242A23419 /* FormTextViewCell.swift in Sources */,
+				A186889D29DBE6DF4E01E022C2A0D497 /* FormTitleCell.swift in Sources */,
+				887DAF8C837D08CFF6669FF02A674E75 /* FormValueCell.swift in Sources */,
+				DBAEE787F4271B92C601763C5735D753 /* FormViewController.swift in Sources */,
+				2EB54CA7517236C0030ED08270434951 /* SwiftForms-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		403DB427E18DBAC7325D6DE96B32A0FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA49D4DF91D75BB10D00E5E4AE190D89 /* EFColorComponentView.swift in Sources */,
+				6243297D2545E2D98AB51C534987A989 /* EFColorPicker-dummy.m in Sources */,
+				110A874738016AE6EDCF6A955A06486C /* EFColorSelectionView.swift in Sources */,
+				937EFB2738F6EB8DCEFE69CE81B32B22 /* EFColorSelectionViewController.swift in Sources */,
+				6885A5D41848017A2832B32453FF09AB /* EFColorUtils.swift in Sources */,
+				6A7329AEA6C6F38EABFFFC9E91B4983D /* EFColorView.swift in Sources */,
+				B3118820C0A7D76828048B213603868A /* EFColorWheelView.swift in Sources */,
+				4BABD9D033AAE23CC8A2C5E8CFDBDD48 /* EFControl.swift in Sources */,
+				424FD960A9466FB0B9D27E50CC60C305 /* EFHSBView.swift in Sources */,
+				C1AC7E4465EDA631643656AA560D5BA1 /* EFRGBView.swift in Sources */,
+				3DB1B69AB74A873A9CE02ED93ACF8B95 /* EFSliderView.swift in Sources */,
+				C359983177BB77901B4B9D82693B520B /* EFThumbView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6298C1A63E331BE6EA74BAEA8F59016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FDD680DA295DA95FA18A23BBAC41E9 /* ArrayExtensions.swift in Sources */,
+				AC80306AEC12B4559E402B281BBF0567 /* ASIdHelper.m in Sources */,
+				B56160807C2C2953BBADC7A9EF50E094 /* BKAction.swift in Sources */,
+				877CBD793FF0C8380BFBEA7BC68AC2FB /* BKAudio.swift in Sources */,
+				062F969A6C07C9457526754768983ED5 /* BKDatabase.swift in Sources */,
+				D81D83BB4F3649A1211429D08D1AEA9D /* BKDecision.swift in Sources */,
+				A21C6224FE63BE93A092556D1CF5A756 /* BKLog.swift in Sources */,
+				063974E1E85915DAC87E9637E31913F8 /* BKRefreshCartridge.swift in Sources */,
+				72919EE0526FC7394FF954FFDB60C486 /* BKRefreshCartridgeContainer.swift in Sources */,
+				08B9A3F44B416628F32AFC0206C2AD21 /* BKReinforcement.swift in Sources */,
+				22DE2BF60C13F7C96D6DAC91CD7349F8 /* BKReportBatch.swift in Sources */,
+				E436D794D0921CEC6AEB5A914AB9488D /* BKTrackBatch.swift in Sources */,
+				F6A1853FCF34C9B30F266F783D3446E3 /* BoundlessAPIClient.swift in Sources */,
+				5216A591C723017F3AE8A1604FDC2368 /* BoundlessConfiguration.swift in Sources */,
+				3A201BA3FE494F6BBF08A0D957D55E66 /* BoundlessContext.swift in Sources */,
+				E166C6E210B3A8178EF11E2C53922BFE /* BoundlessCredentials.swift in Sources */,
+				284B61C456EBEAB3BD5EE978EAC2E25F /* BoundlessKeychain.swift in Sources */,
+				B1A687074C384E2C282610E1ADBD40DF /* BoundlessKit-dummy.m in Sources */,
+				02F9BDFB51D0722D4761B2BAFCF30D1D /* BoundlessKit.swift in Sources */,
+				45081434EA11179AE27F7904E3032C31 /* BoundlessKitLauncher.m in Sources */,
+				1C84FE71E105ED4F09D6B337B359494B /* BoundlessKitLauncher.swift in Sources */,
+				900964C7EE802D3E2E7ACE9AB7AD3439 /* BoundlessNotificationCenter.swift in Sources */,
+				E612D1611689D051A4E80776F8FDC061 /* BoundlessProperties.swift in Sources */,
+				FE12DE4CDDEFD1CF0E71FA5D53AA6F0F /* BoundlessTime.swift in Sources */,
+				3E0DCD06E1274153B13EFF9486F065AC /* BoundlessUser.swift in Sources */,
+				B889791B5B545E5B049CFED4BF3BF218 /* BoundlessVersion.swift in Sources */,
+				076994A0EE23394DA5EB32EFE0698747 /* BundleExtensions.swift in Sources */,
+				5DD3EE43F17F2CB8F417AEBED39490A9 /* CandyBar.swift in Sources */,
+				FE243C42A94CD6C520FC45A913320141 /* CGExtensions.swift in Sources */,
+				D5B8828D48A1F976480923D75F6C533A /* CodelessReinforcement.swift in Sources */,
+				B129155583A11A18B320D2518F1C27F7 /* CodelessReinforcer.swift in Sources */,
+				DB6B3B5080AFA984ED5D62838EFB1A93 /* DelayedSerialQueue.swift in Sources */,
+				ADE37FEBD005603C0E04960D9288C7CA /* HTTPClient.swift in Sources */,
+				7BD53AF42CC13A16F3FCBEB1CD26F76D /* InstanceSelectorHelper.m in Sources */,
+				5687640CB320F6C9CF8DFE5826B4CE44 /* NotificationCenterExtensions.swift in Sources */,
+				733B9624D0E4B89F4A0FBBCF75046C73 /* Reinforcer.swift in Sources */,
+				EF3414D5E7CDE1F5827BC18EFC72D09B /* StringExtensions.swift in Sources */,
+				FAC59C6486BC019EF0F91518F98BE91E /* SynchronizedArray.swift in Sources */,
+				93E8C4694E513CC72DCB500A489C0942 /* UIColorExtensions.swift in Sources */,
+				B84265628D95B3A26DAE50D742B8185A /* UIImageExtensions.swift in Sources */,
+				7F36555E6705C37DB2D39EAD6D4D85FF /* UIView+CodelessAnimation.swift in Sources */,
+				11659FE3FC7D9D497609C6791C5148C7 /* UIView+CodelessConfetti.swift in Sources */,
+				B756673053FE21BE9354C83E0DF7C930 /* UIViewControllerExtensions.swift in Sources */,
+				CE6D4AD9A5E974CA99B9726CF8CD4054 /* UIViewExtensions.swift in Sources */,
+				9C7BCB1FB3CEBD5CA91B6AF36655C4C8 /* UIWindowExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		43074F46A7EB702980F6FB36E9D11491 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftForms;
-			target = 699132BFFEA12B6BB19A2B90F61A5994 /* SwiftForms */;
-			targetProxy = F930FD922F1D5BE3F19ECB08B1943B5B /* PBXContainerItemProxy */;
-		};
-		6DF3398947F18DD709AA4B812792A88D /* PBXTargetDependency */ = {
+		15132B9A6E0A5BE08F3F5859F90015E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EFColorPicker;
-			target = 55836A87835996279FBFAAC5350966B7 /* EFColorPicker */;
-			targetProxy = CBE55EEF5C46828024F837C65F2A6D7F /* PBXContainerItemProxy */;
+			target = C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */;
+			targetProxy = 79EB355AFD88F0184ECEA9F0F0A3C658 /* PBXContainerItemProxy */;
 		};
-		7E109599D367B59E42A4FAEE1E87F489 /* PBXTargetDependency */ = {
+		A8E2E385733D9D280675764C0AD58A9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "BoundlessKit-BoundlessKit";
-			target = 87FFCDCA82A88E01A5F4A76FE031E4EB /* BoundlessKit-BoundlessKit */;
-			targetProxy = C8B81AB7854112ECA83A51211D6198AE /* PBXContainerItemProxy */;
+			target = 0CAE60723D89156246814E8E2DD33819 /* BoundlessKit-BoundlessKit */;
+			targetProxy = C7071669CF119AF9E52162A564C9ABC6 /* PBXContainerItemProxy */;
 		};
-		CBAD95E0B87A099459CC498128BE76FD /* PBXTargetDependency */ = {
+		CA1749EC91F8A99F86C5BE9315E184C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftForms;
+			target = BE1437D45FC659929962622EC4E3B2BB /* SwiftForms */;
+			targetProxy = 03C15C8CDB2BAD6F5702AC94241B2D9E /* PBXContainerItemProxy */;
+		};
+		F8E52722E90C07656D67F315DD05A29B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BoundlessKit;
-			target = 29A5FBF05B584E06EA982ABE3DC1C9DE /* BoundlessKit */;
-			targetProxy = 685DF0409174332275B3F26EC3DA2868 /* PBXContainerItemProxy */;
+			target = 9733384905F441743F0B004787DE367B /* BoundlessKit */;
+			targetProxy = 33A4D869540307A1EA8C8670C5EFF552 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04E6B507773355EA75A1B8E5592C5BDC /* Debug */ = {
+		192E21018EC9786055C5C25E532C39DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88D304D79E897F7B1FE4D167A86C3958 /* SwiftForms.xcconfig */;
+			baseConfigurationReference = 8C78E5F31023590660754E55AF6C9AD6 /* Pods-AnimationStudio.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -867,51 +893,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftForms/SwiftForms-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftForms/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AnimationStudio/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftForms/SwiftForms.modulemap";
-				PRODUCT_MODULE_NAME = SwiftForms;
-				PRODUCT_NAME = SwiftForms;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		083F2A94E8A90096EE25EF82C684B7DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88D304D79E897F7B1FE4D167A86C3958 /* SwiftForms.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftForms/SwiftForms-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftForms/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftForms/SwiftForms.modulemap";
-				PRODUCT_MODULE_NAME = SwiftForms;
-				PRODUCT_NAME = SwiftForms;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -919,7 +913,23 @@
 			};
 			name = Release;
 		};
-		0C95882956D997A7F4AFAFDF5D8DC65B /* Release */ = {
+		2DCE63A3F83420E06C1D5F06C754EC3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BoundlessKit";
+				INFOPLIST_FILE = "Target Support Files/BoundlessKit/ResourceBundle-BoundlessKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = BoundlessKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		435058314ABF689CC2C536FBEC3F85DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C43593902DFFB484E4A6EC80E256D606 /* EFColorPicker.xcconfig */;
 			buildSettings = {
@@ -943,7 +953,37 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4F972CB7E9EBC1AAD1E041D39A4676C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C43593902DFFB484E4A6EC80E256D606 /* EFColorPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EFColorPicker/EFColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EFColorPicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EFColorPicker/EFColorPicker.modulemap";
+				PRODUCT_MODULE_NAME = EFColorPicker;
+				PRODUCT_NAME = EFColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -952,7 +992,245 @@
 			};
 			name = Release;
 		};
-		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
+		52AD9B69D6D67CC0503917605AB1F523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BoundlessKit";
+				INFOPLIST_FILE = "Target Support Files/BoundlessKit/ResourceBundle-BoundlessKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = BoundlessKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		74FADF64BD671FFBB05720A0D34EA725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4F0143E5EBA847EAD4001604C14B56 /* Pods-AnimationStudio.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AnimationStudio/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DFC9796FA9E6BCF680E1E0B1780DD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		982F6221E167C098AA068271EF27F31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88D304D79E897F7B1FE4D167A86C3958 /* SwiftForms.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftForms/SwiftForms-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftForms/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftForms/SwiftForms.modulemap";
+				PRODUCT_MODULE_NAME = SwiftForms;
+				PRODUCT_NAME = SwiftForms;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B3E750FE3AD872DC4E0647DC9151EC69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88D304D79E897F7B1FE4D167A86C3958 /* SwiftForms.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftForms/SwiftForms-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftForms/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftForms/SwiftForms.modulemap";
+				PRODUCT_MODULE_NAME = SwiftForms;
+				PRODUCT_NAME = SwiftForms;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFC164BC65C0858FA4DF5B4D53ED5DB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BoundlessKit/BoundlessKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BoundlessKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BoundlessKit/BoundlessKit.modulemap";
+				PRODUCT_MODULE_NAME = BoundlessKit;
+				PRODUCT_NAME = BoundlessKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB7ADC520F53C3834B36EA70AE689F95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BoundlessKit/BoundlessKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BoundlessKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BoundlessKit/BoundlessKit.modulemap";
+				PRODUCT_MODULE_NAME = BoundlessKit;
+				PRODUCT_NAME = BoundlessKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E19471FE7E209D0818DAFB22D649A6E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1005,281 +1283,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		1F1EF996013C12B8D83A4DED4777DD6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BoundlessKit/BoundlessKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BoundlessKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BoundlessKit/BoundlessKit.modulemap";
-				PRODUCT_MODULE_NAME = BoundlessKit;
-				PRODUCT_NAME = BoundlessKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		30A2836F693D06B66204AB9591BF379F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BoundlessKit/BoundlessKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BoundlessKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BoundlessKit/BoundlessKit.modulemap";
-				PRODUCT_MODULE_NAME = BoundlessKit;
-				PRODUCT_NAME = BoundlessKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3DF7370E6CBDBF3E83F9F2CF4C042D48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BoundlessKit";
-				INFOPLIST_FILE = "Target Support Files/BoundlessKit/ResourceBundle-BoundlessKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = BoundlessKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		5BE91F050F22FF441218943450C5FF7D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F4F0143E5EBA847EAD4001604C14B56 /* Pods-AnimationStudio.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AnimationStudio/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		702758574552398DD22FB07DC665A460 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA702DDC477FD7E87915520B14DFE739 /* BoundlessKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BoundlessKit";
-				INFOPLIST_FILE = "Target Support Files/BoundlessKit/ResourceBundle-BoundlessKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = BoundlessKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		987CD5E8AAFC6BC4A814EC47DBAE5DD2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C78E5F31023590660754E55AF6C9AD6 /* Pods-AnimationStudio.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AnimationStudio/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AnimationStudio/Pods-AnimationStudio.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9D0425DDCFC3A7F8FEE0B8AB8306D68E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C43593902DFFB484E4A6EC80E256D606 /* EFColorPicker.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/EFColorPicker/EFColorPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/EFColorPicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/EFColorPicker/EFColorPicker.modulemap";
-				PRODUCT_MODULE_NAME = EFColorPicker;
-				PRODUCT_NAME = EFColorPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2992AA9B595EB1D01E920EA9C8EB03D5 /* Build configuration list for PBXNativeTarget "BoundlessKit" */ = {
+		055D32B075FEB9E3EA615FD53A257612 /* Build configuration list for PBXNativeTarget "BoundlessKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30A2836F693D06B66204AB9591BF379F /* Debug */,
-				1F1EF996013C12B8D83A4DED4777DD6C /* Release */,
+				DB7ADC520F53C3834B36EA70AE689F95 /* Debug */,
+				BFC164BC65C0858FA4DF5B4D53ED5DB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A6F3BFD3722A848F8CBE5D704E3B652 /* Build configuration list for PBXNativeTarget "EFColorPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				435058314ABF689CC2C536FBEC3F85DE /* Debug */,
+				4F972CB7E9EBC1AAD1E041D39A4676C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1287,44 +1320,35 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
-				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
+				E19471FE7E209D0818DAFB22D649A6E9 /* Debug */,
+				8DFC9796FA9E6BCF680E1E0B1780DD0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C4C04ECA0BC0C584113D6AE9A81F832 /* Build configuration list for PBXNativeTarget "SwiftForms" */ = {
+		B3753E933F07AFAE6B115969F5902E2E /* Build configuration list for PBXNativeTarget "SwiftForms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04E6B507773355EA75A1B8E5592C5BDC /* Debug */,
-				083F2A94E8A90096EE25EF82C684B7DF /* Release */,
+				B3E750FE3AD872DC4E0647DC9151EC69 /* Debug */,
+				982F6221E167C098AA068271EF27F31F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB32817830B17E6C3ACE01FDFD673C9F /* Build configuration list for PBXNativeTarget "BoundlessKit-BoundlessKit" */ = {
+		F54C37C32FB06F8D780A5945227D0C23 /* Build configuration list for PBXNativeTarget "BoundlessKit-BoundlessKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				702758574552398DD22FB07DC665A460 /* Debug */,
-				3DF7370E6CBDBF3E83F9F2CF4C042D48 /* Release */,
+				2DCE63A3F83420E06C1D5F06C754EC3C /* Debug */,
+				52AD9B69D6D67CC0503917605AB1F523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E524D40B2302F2FE070142211DDC5CA3 /* Build configuration list for PBXNativeTarget "EFColorPicker" */ = {
+		FB974948108460D2334767A933A3FDBD /* Build configuration list for PBXNativeTarget "Pods-AnimationStudio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D0425DDCFC3A7F8FEE0B8AB8306D68E /* Debug */,
-				0C95882956D997A7F4AFAFDF5D8DC65B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E6B19F588E5A8FEB510C8F4E4E99562B /* Build configuration list for PBXNativeTarget "Pods-AnimationStudio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BE91F050F22FF441218943450C5FF7D /* Debug */,
-				987CD5E8AAFC6BC4A814EC47DBAE5DD2 /* Release */,
+				74FADF64BD671FFBB05720A0D34EA725 /* Debug */,
+				192E21018EC9786055C5C25E532C39DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

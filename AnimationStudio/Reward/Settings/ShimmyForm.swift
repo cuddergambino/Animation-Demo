@@ -14,7 +14,7 @@ class ShimmyForm: RewardForm {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        reward = RewardSample.defaultSample(for: .Shimmy)
+        reward = SampleStruct.defaultSample(for: .Shimmy)
         self.form = generateForm()
     }
 

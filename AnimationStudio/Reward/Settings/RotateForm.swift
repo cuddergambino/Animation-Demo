@@ -15,7 +15,7 @@ class RotateForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Rotate)
+        reward = SampleStruct.defaultSample(for: .Rotate)
         self.form = generateForm()
     }
 

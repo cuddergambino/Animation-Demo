@@ -15,7 +15,7 @@ class PopoverForm: RewardForm {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        reward = RewardSample.defaultSample(for: .Popover)
+        reward = SampleStruct.defaultSample(for: .Popover)
         self.form = generateForm()
     }
 

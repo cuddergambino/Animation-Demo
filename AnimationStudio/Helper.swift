@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 //class CameraHandler: NSObject {
 //
@@ -215,27 +216,30 @@ extension String {
 extension UIImageView {
     func adjustHeight() {
         let oldCenter = self.center
-        guard let mImage = image else {
-            self.frame = CGRect(x: oldCenter.x, y: oldCenter.y, width: -1, height: -1)
+        guard let image = image else {
+            self.frame = CGRect(origin: oldCenter, size: .zero)
             return
         }
 
-        let imageSize = mImage.size
+        let imageSize = image.size
         let viewSize = frame.size
         let ratio = viewSize.width/imageSize.width
 
-        self.frame = CGRect.init(x: 0, y: 0, width: viewSize.width, height: imageSize.height * ratio)
+        self.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: imageSize.height * ratio)
         self.center = oldCenter
     }
 }
 
 extension URL {
     var isMovie: Bool {
-        return ["mov", "mp4"].contains(pathExtension)
+        return ["mov", "mp4"].contains(pathExtension.lowercased())
     }
 
     var isImage: Bool {
-        return ["jpg", "jpeg", "png", "gif"].contains(pathExtension)
+        print("Path:\(path)")
+        print("Path extension:\(pathExtension.lowercased())")
+        print("Return value:\(["jpg", "jpeg", "png", "gif"].contains(pathExtension.lowercased()))")
+        return ["jpg", "jpeg", "png", "gif"].contains(pathExtension.lowercased())
     }
 }
 
@@ -250,5 +254,35 @@ extension Collection {
     /// Returns the element at the specified index iff it is within bounds, otherwise nil.
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension UIImage {
+    var base64String: String? {
+        return UIImagePNGRepresentation(self)?.base64EncodedString()
+    }
+
+    static func from(base64String: String) -> UIImage? {
+        if let data = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters),
+            let image = UIImage(data: data) {
+            return image
+        } else {
+            return nil
+        }
+    }
+}
+
+extension UIImagePickerControllerDelegate {
+    func confirmPhotosPermission(completion: @escaping () -> Void) {
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                guard status == .authorized else {
+                    return
+                }
+                completion()
+            })
+        } else {
+            completion()
+        }
     }
 }

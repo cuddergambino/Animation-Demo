@@ -12,7 +12,7 @@ import SwiftForms
 // should subclass this for each RewardPrimitive
 class RewardForm: FormViewController {
 
-    var reward: RewardSample!
+    var reward: SampleStruct!
     var selectedRow: UITableViewCell?
     var fab: UIImageView!
 
@@ -26,13 +26,7 @@ class RewardForm: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fab = UIImageView()
-        fab.contentMode = .scaleAspectFit
-
-        let savedButton = reward.buttonView
-        fab.image = savedButton.image
-        fab.frame = savedButton.frame
-
+        fab = reward.buttonView ?? SampleStruct.presetButtonView
         view.addSubview(fab)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
@@ -53,7 +47,10 @@ class RewardForm: FormViewController {
         super.viewWillDisappear(animated)
 
         reward.save()
-        RewardSample.current = reward
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Seguing")
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -109,8 +106,7 @@ extension RewardForm {
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
                     self.commitRewardSample()
-                    RewardSample.samples[self.reward.rewardID] = self.reward
-                    RewardSample.current = self.reward
+                    self.reward.save()
                     self.navigationController?.popViewController(animated: true)
                 }
             }
